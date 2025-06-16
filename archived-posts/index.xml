@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Archived posts | Matteo Greco</title>
+    <link>https://matteorg.github.io/archived-posts/</link>
+      <atom:link href="https://matteorg.github.io/archived-posts/index.xml" rel="self" type="application/rss+xml" />
+    <description>Archived posts</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Sun, 23 Oct 2022 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://matteorg.github.io/media/icon_hufe0bf023893a36fd468464b12c9bc07d_11738_512x512_fill_lanczos_center_3.png</url>
+      <title>Archived posts</title>
+      <link>https://matteorg.github.io/archived-posts/</link>
+    </image>
+    
+    <item>
+      <title>Compile PDF online</title>
+      <link>https://matteorg.github.io/archived-posts/textest/</link>
+      <pubDate>Sun, 23 Oct 2022 00:00:00 +0000</pubDate>
+      <guid>https://matteorg.github.io/archived-posts/textest/</guid>
+      <description>&lt;head&gt;
+    &lt;!-- Basic Page Needs
+    –––––––––––––––––––––––––––––––––––––––––––––––––– --&gt;
+    &lt;!--meta charset=&#34;utf-8&#34;&gt;
+    &lt;title&gt;SwiftLaTeX: WYSIWYG LaTeX Editor for Browsers&lt;/title&gt;
+    &lt;meta name=&#34;description&#34; content=&#34;&#34;&gt;
+    &lt;meta name=&#34;author&#34; content=&#34;&#34;&gt;
+    &lt;!-- Mobile Specific Metas
+    –––––––––––––––––––––––––––––––––––––––––––––––––– --&gt;
+    &lt;!--meta name=&#34;viewport&#34; content=&#34;width=device-width, initial-scale=1&#34;&gt;
+    &lt;!-- FONT
+    –––––––––––––––––––––––––––––––––––––––––––––––––– --&gt;
+    &lt;link href=&#39;//fonts.googleapis.com/css?family=Raleway:400,300,600&#39; rel=&#39;stylesheet&#39; type=&#39;text/css&#39;&gt;
+    &lt;!-- CSS
+    –––––––––––––––––––––––––––––––––––––––––––––––––– --&gt;
+    &lt;!--link rel=&#34;stylesheet&#34; href=&#34;css/normalize.css&#34;&gt;
+    &lt;link rel=&#34;stylesheet&#34; href=&#34;css/skeleton.css&#34;&gt;
+    &lt;link rel=&#34;stylesheet&#34; href=&#34;css/custom.css&#34;&gt;
+    &lt;link rel=&#34;stylesheet&#34; href=&#34;css/nprogress.css&#34;--&gt;
+    &lt;style type=&#34;text/css&#34; media=&#34;screen&#34;&gt;
+        #demoframe {
+            width: 100%;
+            border: 0;
+        }
+        #demoselector {
+            color: red;
+            border-color: red;
+            display: inline;
+        }
+    &lt;/style&gt;
+    &lt;link rel=&#34;stylesheet&#34; href=&#34;https://cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.2.3/gh-fork-ribbon.min.css&#34; /&gt;
+&lt;/head&gt;
+&lt;h2 id=&#34;tester&#34;&gt;Tester&lt;/h2&gt;
+&lt;div class=&#34;docs-section&#34; id=&#34;demo&#34;&gt;
+  &lt;h6 class=&#34;docs-header&#34;&gt;Select a demo:
+  &lt;select id=&#34;demoselector&#34; onchange=&#34;selectDemo(this)&#34;&gt;
+      &lt;option value=&#34;textest.html&#34; selected=&#34;selected&#34;&gt;Tex Compiler demo&lt;/option&gt;
+      &lt;option value=&#34;pdftex_basic.html&#34;&gt;PdfTeX basic demo (IEEEConf)&lt;/option&gt;
+      &lt;option value=&#34;xetex_basic.html&#34;&gt;XeTeX basic demo (acmart)&lt;/option&gt;
+      &lt;option value=&#34;xetex_cjk.html&#34;&gt;XeTeX Chinese/Japanese demo&lt;/option&gt;
+      &lt;option value=&#34;xetex_font.html&#34;&gt;XeTeX TrueType demo&lt;/option&gt;
+      &lt;option value=&#34;xetex_tikz.html&#34;&gt;XeTeX Tikz demo&lt;/option&gt;
+      &lt;option value=&#34;xetex_beamer.html&#34;&gt;XeTeX Beamer demo&lt;/option&gt;
+      &lt;option value=&#34;pdftex_beamer.html&#34;&gt;PdfTeX Beamer demo&lt;/option&gt;
+      &lt;option value=&#34;pdftex_utf8.html&#34;&gt;PdfTeX UTF8 demo&lt;/option&gt;
+      &lt;option value=&#34;pdftex_tikz.html&#34;&gt;PdfTeX Tikz demo&lt;/option&gt;
+  &lt;/select&gt;&lt;/h6&gt;
+  &lt;h6&gt;It may take a few minutes to download template files for the first time. Please be patient&lt;/h6&gt;
+  &lt;iframe src=&#34;textest.html&#34; id=&#34;demoframe&#34; scrolling=&#34;no&#34;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;h2 id=&#34;overview&#34;&gt;Overview&lt;/h2&gt;
+&lt;script&gt;
+    const iframeobj = document.getElementById(&#34;demoframe&#34;);
+    function selectDemo(selectObject) {
+        const value = selectObject.value;
+        iframeobj.src = value;
+    }
+    function resizeIframe(obj){
+     obj.style.height = (obj.contentWindow.document.body.scrollHeight + 25) + &#39;px&#39;;
+    }
+    async function checkTexlive() {
+      const ran = Math.random();
+      const req = await fetch(`https://texlive.swiftlatex.com/texlive_version?v=${ran}`);
+      if (req.status == 200) {
+        await req.text();
+      }
+    }
+    setInterval(()=&gt;{resizeIframe(iframeobj)}, 500);
+    setInterval(()=&gt;{checkTexlive()}, 5000);
+&lt;/script&gt;&lt;blockquote&gt;
+&lt;/blockquote&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

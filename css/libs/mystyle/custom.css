@@ -1,0 +1,25 @@
+#about .home-section-bg {
+  background-image: url('/images/my-bg2.jpg') !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  height: 100%; /* Adjust as needed */
+  width: 100%; /* Adjust as needed */
+  opacity: 0.5 !important; /* Adjust this value for transparency */
+}
+
+#about .container {
+  background: transparent !important;
+  position: relative;
+  z-index: 1;
+}
+
+#about #about-widget-background {
+  background: transparent !important;
+  position: relative;
+  z-index: 2;
+}
+
+#about {
+  position: relative;
+}

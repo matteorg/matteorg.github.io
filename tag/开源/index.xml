@@ -17,9 +17,40 @@
       <link>https://matteorg.github.io/post/getting-started/</link>
       <pubDate>Sun, 13 Dec 2020 00:00:00 +0000</pubDate>
       <guid>https://matteorg.github.io/post/getting-started/</guid>
-      <description>&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;libr&lt;/span&gt;
+      <description>&lt;head&gt;
+  &lt;meta charset=&#34;utf-8&#34; /&gt;
+  &lt;meta name=&#34;viewport&#34; content=&#34;width=device-width,initial-scale=1&#34; /&gt;
+  &lt;title&gt;REPL&lt;/title&gt;
+  &lt;link rel=&#34;icon&#34; type=&#34;image/png&#34; href=&#34;favicon.png&#34; /&gt;
+  &lt;link rel=&#34;stylesheet&#34; href=&#34;https://pyscript.net/latest/pyscript.css&#34; /&gt;
+  &lt;script defer src=&#34;https://pyscript.net/latest/pyscript.js&#34;&gt;&lt;/script&gt;
+  &lt;script type=&#34;text/javascript&#34;&gt;
+    /* &lt;![CDATA[ */
+        // flattr button
+        (function() {
+            var s = document.createElement(&#39;script&#39;), t = document.getElementsByTagName(&#39;script&#39;)[0];
+            s.type = &#39;text/javascript&#39;;
+            s.async = true;
+            s.src = &#39;http://api.flattr.com/js/0.6/load.js?mode=auto&#39;;
+            t.parentNode.insertBefore(s, t);
+        })();
+    /* ]]&gt; */&lt;/script&gt;
+&lt;/head&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;libr&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;hello&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;overview&#34;&gt;Overview&lt;/h2&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;py-env&gt;
+  - paths:
+      - tester.py
+      - tex/template.tex
+      - data/input.csv
+&lt;/py-env&gt;
+&lt;h2 id=&#34;tester&#34;&gt;Tester&lt;/h2&gt;
+&lt;py-script&gt;
+from tester import create_tex_template, create_tex_file
+template = create_tex_template()
+create_tex_file(template, 1)
+&lt;/py-script&gt;
+&lt;h2 id=&#34;overview&#34;&gt;Overview&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;The Wowchemy website builder for Hugo, along with its starter templates, is designed for professional creators, educators, and teams/organizations - although it can be used to create any kind of site&lt;/li&gt;
 &lt;li&gt;The template can be modified and customised to suit your needs. It&amp;rsquo;s a good platform for anyone looking to take control of their data and online identity whilst having the convenience to start off with a &lt;strong&gt;no-code solution (write in Markdown and customize with YAML parameters)&lt;/strong&gt; and having &lt;strong&gt;flexibility to later add even deeper personalization with HTML and CSS&lt;/strong&gt;&lt;/li&gt;
@@ -89,6 +120,67 @@
 &lt;h2 id=&#34;license&#34;&gt;License&lt;/h2&gt;
 &lt;p&gt;Copyright 2016-present &lt;a href=&#34;https://georgecushen.com&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;George Cushen&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Released under the &lt;a href=&#34;https://github.com/wowchemy/wowchemy-hugo-themes/blob/master/LICENSE.md&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;MIT&lt;/a&gt; license.&lt;/p&gt;
+&lt;script&gt;
+  var visibilityChanger = function(element_id) {
+    return function(visible) {
+      document.getElementById(element_id).style.display = visible ? &#39;block&#39; : &#39;none&#39;;
+    }
+  }
+
+  var showLoadingIndicator = visibilityChanger(&#34;running&#34;)
+  var showOpenButton = visibilityChanger(&#34;tab_open_pdf&#34;)
+
+  var appendOutput = function(msg) {
+    var output = document.getElementById(&#34;output&#34;);
+    var content = output.textContent;
+    output.textContent = content + &#34;\r\n&#34; + msg;
+    output.scrollTop = 999999;
+    console.log(msg);
+  }
+
+  var pdf_dataurl = undefined;
+  var compile = function(source_code) {
+    document.getElementById(&#34;output&#34;).textContent = &#34;&#34;;
+    showLoadingIndicator(true);
+    window.location.href = &#34;#running&#34;;
+    
+    var pdftex = new PDFTeX();
+    pdftex.set_TOTAL_MEMORY(80*1024*1024).then(function() {
+      pdftex.FS_createLazyFile(&#39;/&#39;, &#39;snowden.jpg&#39;, &#39;snowden.jpg&#39;, true, true);
+
+      pdftex.on_stdout = appendOutput;
+      pdftex.on_stderr = appendOutput;
+
+      console.time(&#34;Execution time&#34;);
+
+      pdftex.compile(source_code).then(function(pdf_dataurl) {
+        console.timeEnd(&#34;Execution time&#34;);
+
+        showLoadingIndicator(false);
+
+        if (pdf_dataurl === false)
+          return;
+
+        showOpenButton(true);
+        window.location.href = &#34;#open_pdf&#34;;
+        document.getElementById(&#34;open_pdf_btn&#34;).focus();
+      });
+    });
+  }
+
+  document.getElementById(&#34;compile&#34;).addEventListener(&#34;click&#34;, function(e) {
+    var source_code = document.getElementById(&#34;input&#34;).value;
+    compile(source_code);
+  });
+
+  document.getElementById(&#34;open_pdf_btn&#34;).addEventListener(&#34;click&#34;, function(e) {
+    window.open(pdf_dataurl);
+    e.preventDefault();
+  });
+
+  var pdftex_preload = new PDFTeX(&#34;pdftex-worker.js&#34;);
+  pdftex_preload = undefined;
+&lt;/script&gt;
 </description>
     </item>
     

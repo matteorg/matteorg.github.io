@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Basic Page Needs
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <meta charset="utf-8">
+    <title>PdfTeX Tikz example</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Mobile Specific Metas
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style type="text/css" media="screen">
+        #editor {
+            width: 100%;
+            height: 400px;
+        }
+        pre {
+    		white-space: pre-wrap;
+    		max-height: 400px;
+    		overflow-y: scroll;
+    		}
+        
+        * {
+          box-sizing: border-box;
+        }
+        /* Format each label the same, with minor differences */
+        label {
+          font-weight: 500;
+          font-family:Verdana
+        }
+        label[name='image'] {
+          cursor: pointer;
+          color: #eb3fa6;
+        }
+        label[name='all'] {
+          color: teal;
+        }
+        label[name='sub'] {
+          color: #69960a;
+        }
+        /* Format each textarea the same, with minor differences */
+        #init {
+          float: left;
+          width: 33.33%;
+          padding: 10px;
+        }
+        #contacts1out {
+          float: left;
+          width: 17%;
+          padding: 10px;
+        }
+        #contacts1 {
+          float: left;
+          width: 33%;
+          padding: 10px;
+        }
+        textarea {
+          font-family: monospace;
+          background-color: #f1f1e9;
+          white-space: pre-wrap;
+          padding: 12px 20px;
+          box-sizing: border-box;
+          border: 2px solid #ccc;
+          border-radius: 4px;
+        	font-size: 16px;
+          height: 70px;
+        }
+        textarea[name="name"] {
+          width: 75%;
+        }
+        textarea[name="roles"] {
+          width: 100%;
+        }
+        textarea[name="contacts1"] {
+          width: 100%;
+        }
+        
+        /* Clear floats after the columns */
+        .row:after {
+          content: "";
+          display: table;
+          clear: both;
+        }
+    </style>
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <!--link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script-->
+    
+    <script type="text/javascript">
+      /* <![CDATA[ */
+          // flattr button
+          (function() {
+              var s = document.createElement('script'), t = document.getElementsByTagName('script')[0];
+              s.type = 'text/javascript';
+              s.async = true;
+              s.src = 'http://api.flattr.com/js/0.6/load.js?mode=auto';
+              t.parentNode.insertBefore(s, t);
+          })();
+      /* ]]> */</script>
+
+</head>
+<body class="code-snippets-visible">
+  
+    <input type="file"  accept="image/*" name="image" id="file"  onchange="loadFile(event)" style="display: none;">
+    <p>
+      <label for="file" name='image'>
+        Upload CV Picture
+      </label>
+    </p>
+    <img id="cvpict" width="350" accept="image/jpeg, image/png, image/jpg" />
+    
+
+    <div class="docs-section" id="demo">
+      <div class='row'></div>
+        <div class="column" id='init'>
+          <label for="firstname" name='all'>
+            First name:
+          </label>
+          <br></br>
+          <textarea id='firstname' name="name"></textarea>
+        </div>
+        <div class="column" id='init'>
+          <label for="lastname" name='all'>
+            Last name:
+          </label>
+          <br></br>
+          <textarea id='lastname' name="name"></textarea>
+        </div>
+        <div class="column" id='init'>
+          <label for="roles" name='all'>
+            Profession:
+          </label>
+          <br></br>
+          <textarea id='roles' name="roles"></textarea>
+        </div>
+     </div>
+
+        <label for="phone" name='all'>
+          Insert phone:
+        </label>
+        <textarea id='phone' hidden></textarea>
+        <button id='phonebuttonon' onclick='addContactArea("phone")'>Add phone</button>
+        <button id='phonebuttonoff' onclick='removeContactArea("phone")' hidden>Remove phone</button><br></br>
+        
+        <label for="envelope" name='all'>Insert e-mail:</label>
+        <textarea id='envelope' hidden></textarea>
+        <button id='envelopebuttonon' onclick='addContactArea("envelope")'>Add e-mail</button>
+        <button id='envelopebuttonoff' onclick='removeContactArea("envelope")' hidden>Remove e-mail</button><br></br>
+        
+        <label for="globe" name='all'>Insert personal website:</label>
+        <div id='globe' hidden>
+          <label for="globelink" name='sub'>Insert website link:</label>
+          <textarea id='globelink'></textarea><br></br>
+          <label for="globedisp">Insert display text</label>
+          <textarea id='globedisp'></textarea><br></br>
+        </div>
+        <button id='globebuttonon' onclick='addContactArea("globe")'>Add personal website</button>
+        <button id='globebuttonoff' onclick='removeContactArea("globe")' hidden>Remove personal website</button><br></br>
+
+        <label for="github">Insert GitHub profile:</label>
+        <div id='github' hidden>
+          <label for="gitlink">Insert GitHub link:</label>
+          <textarea id='gitlink'></textarea><br></br>
+          <label for="gitdisp">Insert display text</label>
+          <textarea id='gitdisp'></textarea><br></br>
+        </div>
+        <button id='githubbuttonon' onclick='addContactArea("github")'>Add GitHub page</button>
+        <button id='githubbuttonoff' onclick='removeContactArea("github")' hidden>Remove GitHub page</button><br></br>
+        
+        <label for="linkedin">Insert Linkedin profile:</label>
+        <div id='linkedin' hidden>
+          <label for="linklink">Insert Linkedin link:</label>
+          <textarea id='linklink'></textarea><br></br>
+          <label for="linkdisp">Insert display text</label>
+          <textarea id='linkdisp'></textarea><br></br>
+        </div>
+        <button id='linkedinbuttonon' onclick='addContactArea("linkedin")'>Add Linkedin profile</button>
+        <button id='linkedinbuttonoff' onclick='removeContactArea("linkedin")' hidden>Remove Linkedin profile</button><br></br>
+
+        <label for="skill1">Insert skill 1:</label>
+        <div id='skill1' hidden>
+        <textarea id='skill1dis'></textarea><br></br>
+        <textarea id='skill1det'></textarea><br></br>
+        </div>
+        <button id='skill1buttonon' onclick='addSkillArea("skill1")'>Add skill 1</button>
+        <button id='skill1buttonoff' onclick='removeSkillArea("skill1")' hidden>Remove skill 1</button><br></br>
+        
+        <label for="skill2">Insert skill 2:</label>
+        <div id='skill2' hidden>
+        <textarea id='skill2dis'></textarea><br></br>
+        <textarea id='skill2det'></textarea><br></br>
+        </div>
+        <button id='skill2buttonon' onclick='addSkillArea("skill2")'>Add skill 2</button>
+        <button id='skill2buttonoff' onclick='removeSkillArea("skill2")' hidden>Remove skill 2</button><br></br>
+        
+        <label for="skill3">Insert skill 3:</label>
+        <div id='skill3' hidden>
+        <textarea id='skill3dis'></textarea><br></br>
+        <textarea id='skill3det'></textarea><br></br>
+        </div>
+        <button id='skill3buttonon' onclick='addSkillArea("skill3")'>Add skill 3</button>
+        <button id='skill3buttonoff' onclick='removeSkillArea("skill3")' hidden>Remove skill 3</button><br></br>
+        
+        <label for="skill4">Insert skill 4:</label>
+        <div id='skill4' hidden>
+        <textarea id='skill4dis'></textarea><br></br>
+        <textarea id='skill4det'></textarea><br></br>
+        </div>
+        <button id='skill4buttonon' onclick='addSkillArea("skill4")'>Add skill 4</button>
+        <button id='skill4buttonoff' onclick='removeSkillArea("skill4")' hidden>Remove skill 4</button><br></br>
+        
+        <label for="skill5">Insert skill 5:</label>
+        <div id='skill5' hidden>
+        <textarea id='skill5dis'></textarea><br></br>
+        <textarea id='skill5det'></textarea><br></br>
+        </div>
+        <button id='skill5buttonon' onclick='addSkillArea("skill5")'>Add skill 5</button>
+        <button id='skill5buttonoff' onclick='removeSkillArea("skill5")' hidden>Remove skill 5</button><br></br>
+        
+        <label for="tools1">Insert medium knowledge tools:</label>
+        <div id='tools1' hidden>
+          <textarea id='tools11'></textarea><br></br>
+          <textarea id='tools12'></textarea><br></br>
+          <textarea id='tools13'></textarea><br></br>
+          <textarea id='tools14'></textarea><br></br>
+          <textarea id='tools15'></textarea><br></br>
+          Percentage knowledge: <select name="perc" id="tools1perc">
+            <option value="0.55" selected="selected">Select percentage</option>
+            <option value="0.55">55%</option>
+            <option value="0.60">60%</option>
+            <option value="0.65">65%</option>
+            <option value="0.70">70%</option>
+          </select>
+        </div>
+        <button id='tools1buttonon' onclick='addToolsArea("tools1")'>Add tools</button>
+        <button id='tools1buttonoff' onclick='removeToolsArea("tools1")' hidden>Remove tools</button><br></br>
+        
+        <label for="tools2">Insert good knowledge tools:</label>
+        <div id='tools2' hidden>
+          <textarea id='tools21'></textarea><br></br>
+          <textarea id='tools22'></textarea><br></br>
+          <textarea id='tools23'></textarea><br></br>
+          <textarea id='tools24'></textarea><br></br>
+          <textarea id='tools25'></textarea><br></br>
+          Percentage knowledge: <select name="perc" id="tools2perc">
+            <option value="0.75" selected="selected">Select percentage</option>
+            <option value="0.75">75%</option>
+            <option value="0.80">80%</option>
+            <option value="0.85">85%</option>
+          </select>
+        </div>
+        <button id='tools2buttonon' onclick='addToolsArea("tools2")'>Add tools</button>
+        <button id='tools2buttonoff' onclick='removeToolsArea("tools2")' hidden>Remove tools</button><br></br>
+        
+        <label for="tools3">Insert excellent knowledge tools:</label>
+        <div id='tools3' hidden>
+          <textarea id='tools31'></textarea><br></br>
+          <textarea id='tools32'></textarea><br></br>
+          <textarea id='tools33'></textarea><br></br>
+          <textarea id='tools34'></textarea><br></br>
+          <textarea id='tools35'></textarea><br></br>
+          Percentage knowledge: <select name="perc" id="tools3perc">
+            <option value="0.90" selected="selected">Select percentage</option>
+            <option value="0.90">90%</option>
+            <option value="0.95">95%</option>
+            <option value="1">100%</option>
+          </select>
+        </div>
+        <button id='tools3buttonon' onclick='addToolsArea("tools3")'>Add tools</button>
+        <button id='tools3buttonoff' onclick='removeToolsArea("tools3")' hidden>Remove tools</button><br></br>
+        
+        <textarea id="tex" rows="10" cols="80">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Tester for text insertion
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[a4paper]{cvtemplate} % a4paper for A4
+%\documentclass[a4paper]{article} % a4paper for A4
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+% BACKGROUND SHAPES
+%----------------------------------------------------------------------------------------
+
+% Specify sidebar width and header height
+\makebackground{7cm}{3.5cm}
+
+%----------------------------------------------------------------------------------------
+% HEADER
+%----------------------------------------------------------------------------------------
+
+% Specify name, surname and title
+\makeheader{}{}{}
+
+%----------------------------------------------------------------------------------------
+% SIDEBAR
+%----------------------------------------------------------------------------------------
+
+\begin{sidebar}
+
+
+% Specify radius of profile picture
+\makepicture{2.1cm}
+
+%-------------------------------%
+
+\begin{contacttable}
+	\contactitem{phone}{}{}
+	\contactitem{envelope}{mailto:matteo.courthoud@gmail.com}{matteo.courthoud@gmail.com}
+	\contactitem{globe}{https://matteocourthoud.github.io/}{matteocourthoud.github.io}
+	\contactitem{github}{https://github.com/matteocourthoud}{matteocourthoud}
+	\contactitem{linkedin}{https://www.linkedin.com/in/matteo-courthoud}{matteo-courthoud}
+\end{contacttable}
+
+
+%-------------------------------%
+
+\profilesection{Skills}
+\begin{skilltable}
+%skill1\skillitem {\textbf{}: } %skill1
+%skill2\skillitem {\textbf{}: } %skill2
+%skill3\skillitem {\textbf{}: } %skill3
+%skill4\skillitem {\textbf{}: } %skill4
+%skill5\skillitem {\textbf{}: } %skill5
+\end{skilltable}
+
+%-------------------------------%
+
+\profilesection{Toolbox}
+\toolbox{} %tools
+
+%-------------------------------%
+
+\profilesection{Programming}
+\begin{codingtable}
+	%\codingitem{python.png}
+	%{\textbf{Python}: numpy, scipy, pandas, sklearn, XGBoost, LightGBM, pytorch, seaborn}
+	%\codingitem{julia.png}
+	%{\textbf{Julia}: Optim, DataFrames, Turing, Plots}
+	%\codingitem{r.png}
+	%{\textbf{R}: tidyverse, dplyr, data.table, ggplot2}
+	%\codingitem{tools.png}
+	%{\textbf{Misc}: Stata, Matlab, Go, C++, Visual Basic, Pascal}
+\end{codingtable}
+
+\end{sidebar}
+
+\end{document} 
+        </textarea>
+        <br></br>
+
+        <div id="pdfbox">
+        </div>
+
+        <h4>Console Output:</h4>
+        <pre id="console"></pre>
+        
+        <br></br>
+    
+		<button type="button" onclick="compile()" id="compilebtn" disabled>Initializing</button>
+
+    </div>
+
+<!--/div>
+
+
+<!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.14/ace.js" type="text/javascript" charset="utf-8"></script>
+<script src="PdfTeXEngine.js"></script>
+
+<script>
+  
+  function addContactArea(name) {
+	  editortext = document.getElementById('tex').innerHTML;
+    document.getElementById(name).hidden = false;
+    let result = editortext.replace('%\\contactitem{'+name+'}','\\contactitem{'+name+'}');
+    document.getElementById('tex').innerHTML = result;
+    button_off_name = name + 'buttonoff';
+    button_on_name = name + 'buttonon';
+    document.getElementById(button_off_name).hidden = false;
+    document.getElementById(button_on_name).hidden = true;
+  }
+  
+  function removeContactArea(name) {
+  	editortext = document.getElementById('tex').innerHTML;
+    document.getElementById(name).hidden = true;
+    let result = editortext.replace('\\contactitem{'+name+'}','%\\contactitem{'+name+'}');
+    document.getElementById('tex').innerHTML = result;
+    button_off_name = name + 'buttonoff';
+    button_on_name = name + 'buttonon';
+    document.getElementById(button_off_name).hidden = true;
+    document.getElementById(button_on_name).hidden = false;
+  }
+  
+  function addSkillArea(name) {
+	  editortext = document.getElementById('tex').innerHTML;
+    document.getElementById(name).hidden = false;
+    to_replace = new RegExp("%"+name+"\\\\skillitem {", "g");
+    replacement = '\\skillitem {';
+    let result = editortext.replace(to_replace, replacement);
+    document.getElementById('tex').innerHTML = result;
+    button_off_name = name + 'buttonoff';
+    button_on_name = name + 'buttonon';
+    document.getElementById(button_off_name).hidden = false;
+    document.getElementById(button_on_name).hidden = true;
+  }
+  
+  function removeSkillArea(name) {
+  	editortext = document.getElementById('tex').innerHTML;
+    document.getElementById(name).hidden = true;
+    to_replace = new RegExp("\\\\skillitem {.*} %"+name, "g");
+    replacement = '%'+name+'\\skillitem {\\textbf{}:} %'+name;
+    let result = editortext.replace(to_replace, replacement);
+    document.getElementById('tex').innerHTML = result;
+    button_off_name = name+'buttonoff';
+    button_on_name = name+'buttonon';
+    document.getElementById(button_off_name).hidden = true;
+    document.getElementById(button_on_name).hidden = false;
+  }
+  
+  function addToolsArea(name) {
+	  editortext = document.getElementById('tex').innerHTML;
+    document.getElementById(name).hidden = false;
+    alltools = editortext.matchAll(/toolbox{(.*?)} %tools/g);
+    tools = Array.from(alltools)[0];
+    if (tools[1].trim()==='') {
+    	tools.pop();
+    } else {
+        matches = tools[1].match(/(?<=\{).+?(?=\})/g);
+        tools.pop();
+        for (let i = 0; i < matches.length; i++) {
+            tools.push(matches[i]);
+        }
+    }
+    if (name.includes('1')){
+    	if (tools.length===1) {
+        	replacement = 'toolbox{{ a}} %tools';
+        } else if (tools.length===2) {
+        	replacement = 'toolbox{{ a}, {'+tools[1]+'}} %tools';
+        } else if (tools.length===3) {
+        	replacement = 'toolbox{{ a}, {'+tools[1]+'}, {'+tools[2]+'}} %tools';
+        }
+    } else if (name.includes('2')){
+    	if (tools.length===1) {
+        	replacement = 'toolbox{{ b}} %tools';
+        } else if (tools.length===2) {
+        	if (document.getElementById('tools1').hidden === true) {
+            	replacement = 'toolbox{{ b}, {'+tools[1]+'}} %tools';
+            } else {
+            	replacement = 'toolbox{{'+tools[1]+'}, { b}} %tools';
+            }
+        } else if (tools.length===3) {
+        	replacement = 'toolbox{{'+tools[1]+'}, { b}, {'+tools[2]+'}} %tools';
+        }
+    } else {
+    	if (tools.length===1) {
+        	replacement = 'toolbox{{ c}} %tools';
+        } else if (tools.length===2) {
+        	replacement = 'toolbox{{'+tools[1]+'}, { c}} %tools';
+        } else if (tools.length===3) {
+        	replacement = 'toolbox{{'+tools[1]+'}, {'+tools[2]+'}, { c}} %tools';
+        }
+    }
+    to_replace = new RegExp("toolbox{(.*?)} %tools","g");
+    let result = editortext.replace(to_replace, replacement);
+    document.getElementById('tex').innerHTML = result;
+    button_off_name = name + 'buttonoff';
+    button_on_name = name + 'buttonon';
+    document.getElementById(button_off_name).hidden = false;
+    document.getElementById(button_on_name).hidden = true;
+  }
+  
+  function removeToolsArea(name) {
+  	editortext = document.getElementById('tex').innerHTML;
+    document.getElementById(name).hidden = true;
+    alltools = editortext.matchAll(/toolbox{(.*?)} %tools/g);
+    tools = Array.from(alltools)[0];
+    if (tools[1].trim()==='') {
+    	tools.pop();
+    } else {
+        matches = tools[1].match(/(?<=\{).+?(?=\})/g);
+        tools.pop();
+        for (let i = 0; i < matches.length; i++) {
+            tools.push(matches[i]);
+        }
+    }
+    if (name.includes('1')){
+    	if (tools.length===2) {
+        	replacement = 'toolbox{} %tools';
+        } else if (tools.length===3) {
+        	replacement = 'toolbox{{'+tools[2]+'}} %tools';
+        } else if (tools.length===4) {
+        	replacement = 'toolbox{{'+tools[2]+'}, {'+tools[3]+'}} %tools';
+        }
+    } else if (name.includes('2')){
+    	if (tools.length===2) {
+        	replacement = 'toolbox{} %tools';
+        } else if (tools.length===3) {
+        	if (document.getElementById('tools1').hidden === true) {
+	        	replacement = 'toolbox{{'+tools[2]+'}} %tools';
+            } else {
+            	replacement = 'toolbox{{'+tools[1]+'}} %tools';
+            }
+        } else if (tools.length===4) {
+        	replacement = 'toolbox{{'+tools[2]+'}, {'+tools[3]+'}} %tools';
+        }
+    } else {
+    	if (tools.length===2) {
+        	replacement = 'toolbox{} %tools';
+        } else if (tools.length===3) {
+        	replacement = 'toolbox{{'+tools[1]+'}} %tools';
+        } else if (tools.length===4) {
+        	replacement = 'toolbox{{'+tools[1]+'}, {'+tools[2]+'}} %tools';
+        }
+    }
+    for (let i = 1; i < 4; i++) {
+      	document.getElementById(name+i.toString()).value = '';
+    }
+    to_replace = new RegExp("toolbox{(.*?)} %tools","g");
+    let result = editortext.replace(to_replace, replacement);
+    document.getElementById('tex').innerHTML = result;
+    button_off_name = name+'buttonoff';
+    button_on_name = name+'buttonon';
+    document.getElementById(button_off_name).hidden = true;
+    document.getElementById(button_on_name).hidden = false;
+  }
+  
+  var loadFile = function(event) {
+  	var image = document.getElementById('cvpict');
+  	image.src = URL.createObjectURL(event.target.files[0]); 
+  	
+  };
+
+  const compileBtn = document.getElementById("compilebtn");
+  const consoleOutput = document.getElementById("console");
+  const pdfbox = document.getElementById("pdfbox");
+
+  const globalEn = new PdfTeXEngine();
+  
+  async function init() {
+    await globalEn.loadEngine();
+    compileBtn.innerHTML = "Preview";
+    compileBtn.disabled = false;
+    
+  }
+
+  async function compile() {
+      if(!globalEn.isReady()) {
+          console.log("Engine not ready yet");
+          return;
+      }
+      compileBtn.disabled = true;
+      compileBtn.innerHTML = "Creating preview...";
+      
+      if(document.getElementById("cvpict").src.includes('blob')){
+        url = document.getElementById("cvpict").src;
+      } else {
+        url = 'assets/troll.jpg';
+      }
+      
+      // Make header -----------------------------------------------------------
+      editortext = document.getElementById('tex').innerHTML;
+      
+      if (document.getElementById('firstname').value.trim() === '') {
+        firstname = "Fist Name";
+      } else {
+        firstname = document.getElementById('firstname').value;
+      };
+      if (document.getElementById('lastname').value.trim() === '') {
+        lastname = "Last Name";
+      } else {
+        lastname = document.getElementById('lastname').value;
+      };
+      if (document.getElementById('roles').value.trim() === '') {
+        roles = "Professional Role(s)";
+      } else {
+        roles = document.getElementById('roles').value;
+      };
+      to_replace = new RegExp("\makeheader{.*}{.*}{.*}", "g");
+      let header = editortext.replace(
+        to_replace,
+        '\makeheader{'+firstname+'}{'+lastname+'}{' + roles + '}'
+      );
+      document.getElementById('tex').innerHTML = header;
+      
+      // Make contact table ----------------------------------------------------
+      // Phone -----------------------------------------------------------------
+      editortext = document.getElementById('tex').innerHTML;
+      
+      if (document.getElementById('phone').value.trim() === '') {
+        display_val = '--PhoneNr--';
+      } else {
+        display_val = document.getElementById('phone').value;
+      };
+      to_replace = new RegExp("\contactitem{phone}{}{.*}", "g");
+      let phone_nr = editortext.replace(
+        to_replace,
+        '\contactitem{phone}{}{'+display_val+'}'
+      );
+      document.getElementById('tex').innerHTML = phone_nr;
+      
+      // Email -----------------------------------------------------------------
+      editortext = document.getElementById('tex').innerHTML;
+      
+      if (document.getElementById('envelope').value.trim() === '') {
+        display_val = '--default@mail--';
+      } else {
+        display_val = document.getElementById('envelope').value;
+      };
+      to_replace = new RegExp("\contactitem{envelope}{.*}{.*}", "g");
+      let email_adr = editortext.replace(
+        to_replace,
+        '\contactitem{envelope}{mailto:'+display_val+'}{'+display_val+'}'
+      );
+      document.getElementById('tex').innerHTML = email_adr;
+      
+      // Github profile --------------------------------------------------------
+      editortext = document.getElementById('tex').innerHTML;
+      
+      if (document.getElementById('gitdisp').value.trim() === '') {
+        display_val = '--GitHub';
+        if (document.getElementById('gitlink').value.trim() === '') {
+          github_link = '';
+        } else {
+          github_link = document.getElementById('gitlink').value;
+        }
+      } else {
+        display_val = document.getElementById('gitdisp').value;
+        if (document.getElementById('gitlink').value.trim() === '') {
+          github_link = '';
+          display_val = '--NOT-CLICKABLE';
+        } else {
+          github_link = document.getElementById('gitlink').value;
+        }
+      };
+      to_replace = new RegExp("\contactitem{github}{.*}{.*}", "g");
+      let github = editortext.replace(to_replace, '\contactitem{github}{'+github_link+'}{'+display_val+'}');
+      document.getElementById('tex').innerHTML = github;
+      
+      // Personal website ------------------------------------------------------
+      editortext = document.getElementById('tex').innerHTML;
+      
+      if (document.getElementById('globedisp').value.trim() === '') {
+        display_val = '--PersonalWebsite';
+        if (document.getElementById('globelink').value.trim() === '') {
+          website_link = '';
+        } else {
+          website_link = document.getElementById('globelink').value;
+        }
+      } else {
+        display_val = document.getElementById('globedisp').value;
+        if (document.getElementById('globelink').value.trim() === '') {
+          website_link = '';
+          display_val = '--NOT-CLICKABLE';
+        } else {
+          website_link = document.getElementById('globelink').value;
+        }
+      };
+      to_replace = new RegExp("\contactitem{globe}{.*}{.*}", "g");
+      let website = editortext.replace(
+        to_replace,
+        '\contactitem{globe}{'+website_link+'}{'+display_val+'}'
+      );
+      document.getElementById('tex').innerHTML = website;
+      
+      // Linkedin profile ------------------------------------------------------
+      editortext = document.getElementById('tex').innerHTML;
+      
+      if (document.getElementById('linkdisp').value.trim() === '') {
+        display_val = '--LinkedinProfile';
+        if (document.getElementById('linklink').value.trim() === '') {
+          linkedin_link = '';
+        } else {
+          linkedin_link = document.getElementById('linklink').value;
+        }
+      } else {
+        display_val = document.getElementById('linkdisp').value;
+        if (document.getElementById('linklink').value.trim() === '') {
+          linkedin_link = '';
+          display_val = '--NOT-CLICKABLE';
+        } else {
+          linkedin_link = document.getElementById('linklink').value;
+        }
+      };
+      to_replace = new RegExp("\contactitem{linkedin}{.*}{.*}", "g");
+      let linkedin = editortext.replace(
+        to_replace,
+        '\contactitem{linkedin}{'+linkedin_link+'}{'+display_val+'}'
+      );
+      document.getElementById('tex').innerHTML = linkedin;
+      
+      // Make skills section ---------------------------------------------------
+      function fill_skill(name) {
+        editortext = document.getElementById('tex').innerHTML;
+        if (document.getElementById(name+'dis').value.trim() === '') {
+          skill_name = name;
+          if (document.getElementById(name+'det').value.trim() === '') {
+            skill_descript = '';
+          } else {
+            skill_descript = document.getElementById(name+'det').value;
+          }
+        } else {
+          skill_name = document.getElementById(name+'dis').value;
+          if (document.getElementById(name+'det').value.trim() === '') {
+            skill_descript = '';
+        } else {
+            skill_descript = document.getElementById(name+'det').value;
+          }
+        };
+        to_replace = new RegExp("skillitem {\\\\textbf{.*}: .*} %"+name, "g");
+        let new_skill = editortext.replace(
+          to_replace,
+          'skillitem {\\textbf{'+skill_name+'}: '+skill_descript+'} %'+name
+        );
+        document.getElementById('tex').innerHTML = new_skill;
+      }
+      // Skills 1-5
+      fill_skill('skill1');
+      fill_skill('skill2');
+      fill_skill('skill3');
+      fill_skill('skill4');
+      fill_skill('skill5');
+      
+      // Make toolbox section --------------------------------------------------
+      function gettools(name) {
+      	toolsstr = '';
+      	for (let i = 1; i < 6; i++) {
+          	if (document.getElementById(name+i.toString()).value.trim()===''){
+              	if (i>1 && document.getElementById(name+(i+1).toString())!=null && document.getElementById(name+(i+1).toString()).value.trim()!='') {
+                  	toolsstr += ' $\\bullet$ ';
+                  }
+              } else {
+              	toolsstr += document.getElementById(name+i.toString()).value;
+                  if (document.getElementById(name+(i+1).toString())!=null) {
+                  	if (document.getElementById(name+(i+1).toString()).value.trim()===''){
+                      } else {
+                          toolsstr += ' $\\bullet$ ';
+                      }
+                  }
+              }
+          }
+          perc = document.getElementById(name+'perc').value;
+          if (toolsstr.trim()!=''){
+          	toolsstr += " /"+perc;
+          } else {
+          	toolsstr += "No Tools /0.12 "
+          }
+      	editortext = document.getElementById('tex').innerHTML;
+          alltools = editortext.matchAll(/toolbox{(.*)} %tools/g);
+          tools = Array.from(alltools)[0];
+          if (tools[1].trim()==='') {
+          	tools.pop();
+          } else {
+              matches = tools[1].match(/(?<=\{).+?(?=\})/g);
+              tools.pop();
+              for (let i = 0; i < matches.length; i++) {
+                  tools.push(matches[i]);
+              }
+          }
+          to_replace = new RegExp("toolbox{(.*?)} %tools","g");
+          if (tools.length===1) {
+          	result = editortext.replace(to_replace, 'toolbox{} %tools');
+          }
+          if (document.getElementById(name).hidden === false) {
+              if (name.includes('1')){
+                  if (tools.length===2){
+                    result = editortext.replace(to_replace, 'toolbox{{'+toolsstr+'}} %tools');
+                  } else if (tools.length===3){
+                    result = editortext.replace(to_replace, 'toolbox{{'+toolsstr+'}, {'+tools[2]+'}} %tools');
+                  } else if (tools.length===4){
+                    result = editortext.replace(to_replace, 'toolbox{{'+toolsstr+'}, {'+tools[2]+'}, {'+tools[3]+'}} %tools');
+                  }
+              } else if (name.includes('2')){
+                  if (tools.length===2){
+                      result = editortext.replace(to_replace, 'toolbox{{'+toolsstr+'}} %tools');
+                  } else if (tools.length===3){
+                      if (document.getElementById('tools1').hidden === true) {
+                          result = editortext.replace(to_replace, 'toolbox{{'+toolsstr+'}, {'+tools[2]+'}} %tools');
+                      } else {
+                          result = editortext.replace(to_replace, 'toolbox{{'+tools[1]+'}, {'+toolsstr+'}} %tools');
+                      }
+                  } else if (tools.length===4){
+                      result = editortext.replace(to_replace, 'toolbox{{'+tools[1]+'}, {'+toolsstr+'}, {'+tools[3]+'}} %tools');
+                  }
+              } else {
+                  if (tools.length===2){
+                      result = editortext.replace(to_replace, 'toolbox{{'+toolsstr+'}} %tools');
+                  } else if (tools.length===3){
+                      result = editortext.replace(to_replace, 'toolbox{{'+tools[1]+'}, {'+toolsstr+'}} %tools');
+                  } else if (tools.length===4){
+                      result = editortext.replace(to_replace, 'toolbox{{'+tools[1]+'}, {'+tools[2]+'}, {'+toolsstr+'}} %tools');
+                  }
+              }
+              document.getElementById('tex').innerHTML = result;
+          }
+          
+      }
+      // Fill tools ------------------------------------------------------------
+      gettools('tools1');
+      gettools('tools2');
+      gettools('tools3');
+      
+
+      let profile_pic = await fetch(url);
+      let profile_blob = await profile_pic.arrayBuffer();
+      let cv_class = await fetch('cvclass.cls');
+      let str_cv_class = await cv_class.text();
+
+      globalEn.writeMemFSFile("main.tex", document.getElementById('tex').value);
+      globalEn.writeMemFSFile("cvtemplate.cls", str_cv_class);
+      globalEn.writeMemFSFile('profile.jpg', new Uint8Array(profile_blob));
+      globalEn.setEngineMainFile("main.tex");
+
+      let r = await globalEn.compileLaTeX();
+      consoleOutput.innerHTML = r.log;
+      compileBtn.innerHTML = "Preview";
+      compileBtn.disabled = false;
+      if (r.status === 0) {
+          const pdfblob = new Blob([r.pdf], {type : 'application/pdf'});
+          const objectURL = URL.createObjectURL(pdfblob);
+          setTimeout(()=>{
+              URL.revokeObjectURL(objectURL);
+          }, 30000);
+          console.log(objectURL);
+          pdfbox.innerHTML = `<embed src="${objectURL}" width="100%" height="400px" type="application/pdf">`;
+      }
+  }
+
+  init();
+  
+  window.onload = function() {
+    document.getElementById("compilebtn").click();
+  }
+
+</script>
+</html>

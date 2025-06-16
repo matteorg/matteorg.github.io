@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Basic Page Needs
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <meta charset="utf-8">
+    <title>PdfTeX Tikz example</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Mobile Specific Metas
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style type="text/css" media="screen">
+        #editor {
+            width: 100%;
+            height: 400px;
+        }
+        pre {
+    		white-space: pre-wrap;
+    		max-height: 400px;
+    		overflow-y: scroll;
+		}
+    </style>
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <!--link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script-->
+    
+    <script type="text/javascript">
+      /* <![CDATA[ */
+          // flattr button
+          (function() {
+              var s = document.createElement('script'), t = document.getElementsByTagName('script')[0];
+              s.type = 'text/javascript';
+              s.async = true;
+              s.src = 'http://api.flattr.com/js/0.6/load.js?mode=auto';
+              t.parentNode.insertBefore(s, t);
+          })();
+      /* ]]> */</script>
+
+</head>
+<body class="code-snippets-visible">
+  
+    <input type="file"  accept="image/*" name="image" id="file"  onchange="loadFile(event)" style="display: none;">
+    <p><label for="file" style="cursor: pointer;">Upload Image</label></p>
+    <img id="cvpict" width="500" />	
+    
+    <!--button id='run' type='button' class='button is-primary'>Button</button>
+    <!--py-script>
+      from pyodide import create_proxy
+      load_pic_button = document.getElementById('run')
+      
+      def colorChange(event):
+        load_pic_button.setAttribute('style','background_colod:red')
+      cc = create_proxy(colorChange)
+      load_pic_button.addEventListener('click',cc)
+    </py-script>
+    
+    <!--py-button label="Click me" styles="btn big">
+    def on_click(event):
+        print(event)
+    </py-button-->
+
+
+    <div class="docs-section" id="demo">
+        <div id="editor">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Stylish Curriculum Vitae
+% LaTeX Template
+% Version 1.1 (September 10, 2021)
+%
+% This template originates from:
+% https://www.LaTeXTemplates.com
+%
+% Authors:
+% Stefano (https://www.kindoblue.nl)
+% Vel (vel@LaTeXTemplates.com)
+%
+% License:
+% CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[a4paper]{article} % a4paper for A4
+\NeedsTeXFormat{LaTeX2e}
+
+%----------------------------------------------------------------------------------------
+%	 REQUIRED PACKAGES
+%----------------------------------------------------------------------------------------
+
+% Remove margins
+%\RequirePackage[left=0cm,top=-1cm,right=0cm,bottom=0cm,nohead,nofoot]{geometry}
+
+% Box setup
+\usepackage[absolute,overlay]{textpos} % showboxes option to show boxes
+
+% Font
+\RequirePackage[default]{raleway}
+
+% Other
+\usepackage{calc}           % operations with measures e.g. 3cm + 1cm
+\usepackage{tikz}           % figures
+\usepackage{xcolor}         % colors
+\usepackage{ifmtarg}
+\usepackage{ifthen}
+\usepackage{pgffor}
+\usepackage{marvosym}
+\usepackage{parskip}
+\usepackage{wrapfig}
+\usepackage{fontawesome5}   % icons
+\usepackage{enumitem}       % enumerate
+\setlist[itemize]{leftmargin=*}
+\usepackage[hidelinks]{hyperref}
+\usepackage[abspath]{currfile}
+
+%----------------------------------------------------------------------------------------
+%	 COLORS
+%----------------------------------------------------------------------------------------
+
+\definecolor{maincolor}{HTML}{092947}
+\definecolor{white}{RGB}{255,255,255}
+\definecolor{gray}{HTML}{4D4D4D}
+\definecolor{sidecolor}{HTML}{E7E7E7}
+\definecolor{mainblue}{HTML}{0E5484}
+\definecolor{maingray}{HTML}{B9B9B9}
+\definecolor{pblue}{HTML}{0395DE}
+
+%----------------------------------------------------------------------------------------
+%	 MISC CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\pagestyle{empty} % Disable headers and footers
+\setlength{\parindent}{0pt} % Disable paragraph indentation
+\setlength{\tabcolsep}{0pt} 
+
+% automated the rules in the sidebar headers to automatically go to the end of the line
+\newcommand{\raisedrule}[2][0em]{\leaders\hbox{\rule[#1]{1pt}{#2}}\hfill}
+\newcommand{\profilesection}[1]{\vspace{.4cm}{\color{black!80} \huge #1 \raisedrule[0.15\baselineskip]{1pt}}\vspace{.2cm}}
+
+%----------------------------------------------------------------------------------------
+%  BACKGROUND SHAPES
+%----------------------------------------------------------------------------------------
+
+\newcommand{\makebackground}[2]{
+
+% Get measures
+\newlength{\colwidth}
+\setlength{\colwidth}{#1}
+\newlength{\barheight}
+\setlength{\barheight}{#2}
+
+% Generate header block
+\begin{tikzpicture}[remember picture, overlay]
+\node [rectangle, fill=maincolor, anchor=north west, minimum width=\paperwidth, minimum height=\barheight] (box) at (0cm,0cm){};
+\end{tikzpicture}
+
+% Generate sidebar shape    
+\begin{tikzpicture}[remember picture,overlay]
+    \node [rectangle, fill=sidecolor, anchor=north west, minimum width=\colwidth, minimum height=\paperheight] (box) at (.5cm,0cm){};
+\end{tikzpicture}
+
+}
+
+
+
+%----------------------------------------------------------------------------------------
+%   HEADER LAYOUT
+%----------------------------------------------------------------------------------------
+
+\newcommand{\makeheader}[3]{
+
+% Get measures
+\newlength{\headerwidth}
+\setlength{\headerwidth}{21cm - 1cm - \colwidth}
+\newlength{\headerX}
+\setlength{\headerX}{\colwidth + 1.5cm}
+
+% Generate block
+\begin{textblock*}{\headerwidth}(\headerX, 0.8cm)
+\textcolor{white}{
+    {\Huge \textcolor{white}{\MakeUppercase{#1 \textbf{#2}}}}\\
+    {}\\
+    {\large \textcolor{white}{#3}}
+}
+\end{textblock*}
+
+}
+
+
+%----------------------------------------------------------------------------------------
+%   SIDEBAR LAYOUT
+%----------------------------------------------------------------------------------------
+
+\newenvironment{sidebar}{
+
+% Get measures
+\newlength{\textcolwidth}
+\setlength{\textcolwidth}{\colwidth - 1cm}
+\newlength{\firstcolwidth}
+\setlength{\firstcolwidth}{.5cm}
+\newlength{\colspace}
+\setlength{\colspace}{.5cm}
+\newlength{\secondcolwidth}
+\setlength{\secondcolwidth}{\colwidth - 1cm - \firstcolwidth - \colspace}
+
+% Generate block
+\begin{textblock*}{\textcolwidth}(1cm, 0.5cm)
+}{
+\end{textblock*}
+}
+
+%----------------------------------------------------------------------------------------
+%   SIDEBAR PIECES
+%----------------------------------------------------------------------------------------
+
+% --- PROFILE PICTURE --- %
+
+\newcommand{\makepicture}[1]{
+
+\newlength{\picureradius}
+\setlength{\picureradius}{#1}
+
+\begin{center}
+\begin{tikzpicture}
+\clip (0,0) circle (\picureradius);
+\node[anchor=center] at (0,0) {\includegraphics[width=2\picureradius]{img/profile.jpg}}; 
+\end{tikzpicture}
+\end{center}
+\vspace{5mm}
+
+}
+\usepackage{graphicx}
+\begin{document}
+
+\thepwd
+
+%----------------------------------------------------------------------------------------
+% BACKGROUND SHAPES
+%----------------------------------------------------------------------------------------
+
+% Specify sidebar width and header height
+%\makebackground{7cm}{3.5cm}
+
+%----------------------------------------------------------------------------------------
+% HEADER
+%----------------------------------------------------------------------------------------
+
+% Specify name, surname and title
+%\makeheader{Matteo}{Courthoud}{Ph.D. Candidate in Economics}
+
+%----------------------------------------------------------------------------------------
+% SIDEBAR
+%----------------------------------------------------------------------------------------
+
+%\begin{sidebar}
+
+% Specify radius of profile picture
+%\makepicture{2.1cm}
+
+%-------------------------------%
+
+%\begin{contacttable}
+%	\contactitem{phone}{}{+39 3314266587}
+%	\contactitem{envelope}{mailto:matteo.courthoud@gmail.com}{matteo.courthoud@gmail.com}
+%	\contactitem{globe}{https://matteocourthoud.github.io/}{matteocourthoud.github.io}
+%	\contactitem{github}{https://github.com/matteocourthoud}{matteocourthoud}
+%	\contactitem{linkedin}{https://www.linkedin.com/in/matteo-courthoud}{matteo-courthoud}
+%\end{contacttable}
+
+%-------------------------------%
+
+%\profilesection{Skills}
+%\begin{skilltable}
+%	\skillitem
+%	{\textbf{Statistics}: causal inference, A/B testing, MonteCarlo simulation, bootstrapping, bagging, bayesian inference, GMM, maximum likelihood}
+%	\skillitem
+%	{\textbf{Machine Learning}: supervised and unsupervised models, NLP (BERT), reinforcement learning}
+%	\skillitem
+%	{\textbf{Mathematics}: numerical optimization, gradient descent, dynamic programming}
+%	\skillitem
+%	{\textbf{Economics}: industrial organization, demand estimation, recommendation systems, game theory, market design, combinatorial auctions}
+%	\skillitem
+%	{\textbf{Computing}: parallelization, multithreading, probabilistic programming}
+%\end{skilltable}
+
+%-------------------------------%
+
+%\profilesection{Toolbox}
+%\toolbox{
+%    {Docker $\textbullet$ AWS $\textbullet$ Redshift /0.55},
+%    {SQL $\textbullet$ MS Office $\textbullet$ CSS $\textbullet$ HTML /0.8},
+%    {Github $\textbullet$ Unix $\textbullet$ Latex /1}}
+
+%-------------------------------%
+
+%\profilesection{Coding}
+%\begin{codingtable}
+%	\codingitem{python.png}
+%	{\textbf{Python}: numpy, scipy, pandas, sklearn, XGBoost, LightGBM, pytorch, seaborn}
+%	\codingitem{julia.png}
+%	{\textbf{Julia}: Optim, DataFrames, Turing, Plots}
+%	\codingitem{r.png}
+%	{\textbf{R}: tidyverse, dplyr, data.table, ggplot2}
+%	\codingitem{tools.png}
+%	{\textbf{Misc}: Stata, Matlab, Go, C++, Visual Basic, Pascal}
+%\end{codingtable}
+
+
+%\end{sidebar}
+
+
+
+%----------------------------------------------------------------------------------------
+% MAIN
+%----------------------------------------------------------------------------------------
+
+Hello world!
+
+\includegraphics{profile-pic-here}
+
+\end{document} 
+
+        </div>
+
+        <div id="pdfbox">
+        </div>
+
+        <h4>Console Output:</h4>
+        <pre id="console">
+		</pre>
+
+		<button type="button" onclick="compile()" id="compilebtn" disabled>Initializing</button>
+
+    </div>
+
+</div>
+
+
+<!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+</body>
+<script>
+function getBase64Image(img) {
+    var canvas = document.createElement("canvas");
+    canvas.width = img.width;
+    canvas.height = img.height;
+
+    var ctx = canvas.getContext("2d");
+    ctx.drawImage(img, 0, 0);
+
+    var dataURL = canvas.toDataURL("image/png");
+
+    return dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
+}
+
+var loadFile = function(event) {
+	var image = document.getElementById('cvpict');
+	image.src = URL.createObjectURL(event.target.files[0]);
+	//imgData = getBase64Image(image);
+  //localStorage.setItem(image);
+  document.body.innerHTML = document.body.innerHTML.replace('profile-pic-here', 'image/png/imgData');
+};
+
+
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.14/ace.js" type="text/javascript" charset="utf-8"></script>
+<script src="PdfTeXEngine.js"></script>
+
+<script>
+  bannerImage = document.getElementById('bannerImg');
+  
+</script>
+
+<script>
+
+    const compileBtn = document.getElementById("compilebtn");
+    const consoleOutput = document.getElementById("console");
+    const pdfbox = document.getElementById("pdfbox");
+
+    const editor = ace.edit("editor");
+    editor.setTheme("ace/theme/monokai");
+    editor.session.setMode("ace/mode/latex");
+    editor.session.setUseWrapMode(true);
+    editor.setFontSize(18);
+    
+    const globalEn = new PdfTeXEngine();
+
+    async function init() {
+      await globalEn.loadEngine();
+      compileBtn.innerHTML = "Compile";
+      compileBtn.disabled = false;
+      
+    }
+
+    async function compile() {
+        if(!globalEn.isReady()) {
+            console.log("Engine not ready yet");
+            return;
+        }
+        compileBtn.disabled = true;
+        compileBtn.innerHTML = "Compiling...";
+
+        let downloadReq = await fetch('assets/troll.jpg');
+        let imageBlob = await downloadReq.arrayBuffer();
+        globalEn.writeMemFSFile("main.tex", editor.getValue());
+        globalEn.writeMemFSFile("troll.jpg", new Uint8Array(imageBlob));
+        globalEn.setEngineMainFile("main.tex");
+        
+        // if image uploaded, document.getElementById("console");
+        // else load some random funny picture
+
+        let r = await globalEn.compileLaTeX();
+        consoleOutput.innerHTML = r.log;
+        compileBtn.innerHTML = "Compile";
+        compileBtn.disabled = false;
+        if (r.status === 0) {
+            const pdfblob = new Blob([r.pdf], {type : 'application/pdf'});
+            const objectURL = URL.createObjectURL(pdfblob);
+            setTimeout(()=>{
+                URL.revokeObjectURL(objectURL);
+            }, 30000);
+            console.log(objectURL);
+            pdfbox.innerHTML = `<embed src="${objectURL}" width="100%" height="400px" type="application/pdf">`;
+        }
+    }
+
+    init();
+
+</script>
+</html>

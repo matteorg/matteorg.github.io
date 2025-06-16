@@ -1,0 +1,28 @@
+body {
+  background-color: lightblue !important;
+}
+
+#about .home-section-bg {
+  background-image: url('/images/my-bg.jpg') !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  height: 100%; /* Ensure it covers the section height */
+  width: 100%; /* Ensure it covers the section width */
+}
+
+#about .container {
+  background: transparent !important; /* Keep container transparent */
+  position: relative; /* May be needed to ensure content is above the bg */
+  z-index: 1; /* Ensure content is above the bg */
+}
+
+#about #about-widget-background {
+  background: transparent !important; /* Keep widget background transparent */
+  position: relative; /* Ensure widget content is above the bg */
+  z-index: 2; /* Ensure widget content is above the bg */
+}
+
+#about {
+  position: relative; /* Needed for proper stacking context */
+}
