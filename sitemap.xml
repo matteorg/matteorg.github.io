@@ -2,19 +2,60 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://matteorg.github.io/tag/academic/</loc>
-    <lastmod>2020-12-13T00:00:00+00:00</lastmod>
+    <loc>https://matteorg.github.io/archive/archived-home/demo-hero/</loc>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>https://matteorg.github.io/categories/</loc>
-    <lastmod>2020-12-13T00:00:00+00:00</lastmod>
+    <loc>https://matteorg.github.io/archive/archived-home/demo-links/</loc>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>https://matteorg.github.io/category/demo/</loc>
-    <lastmod>2020-12-13T00:00:00+00:00</lastmod>
+    <loc>https://matteorg.github.io/archive/archived-home/experience/</loc>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>https://matteorg.github.io/archive/archived-home/accomplishments/</loc>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>https://matteorg.github.io/archive/archived-home/projects/</loc>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>https://matteorg.github.io/archive/archived-home/featured/</loc>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>https://matteorg.github.io/archive/archived-home/contact/</loc>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>https://matteorg.github.io/archive/</loc>
+    <lastmod>2030-06-01T13:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>https://matteorg.github.io/archive/archive-event/example/</loc>
+    <lastmod>2030-06-01T13:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
     <loc>https://matteorg.github.io/</loc>
+    <lastmod>2030-06-01T13:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>https://matteorg.github.io/archive/archive-event/</loc>
+    <lastmod>2030-06-01T13:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>https://matteorg.github.io/categories/</loc>
+    <lastmod>2022-10-23T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>https://matteorg.github.io/archive/archived-posts/textest/</loc>
+    <lastmod>2022-10-23T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>https://matteorg.github.io/category/demo/</loc>
+    <lastmod>2022-10-23T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>https://matteorg.github.io/category/%E6%95%99%E7%A8%8B/</loc>
+    <lastmod>2022-10-23T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>https://matteorg.github.io/tag/academic/</loc>
     <lastmod>2020-12-13T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
@@ -31,10 +72,6 @@
     <changefreq>weekly</changefreq>
   </url><url>
     <loc>https://matteorg.github.io/tag/%E5%BC%80%E6%BA%90/</loc>
-    <lastmod>2020-12-13T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-  </url><url>
-    <loc>https://matteorg.github.io/category/%E6%95%99%E7%A8%8B/</loc>
     <lastmod>2020-12-13T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
@@ -62,8 +99,32 @@
     <lastmod>2019-07-12T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
+    <loc>https://matteorg.github.io/publication-type/3/</loc>
+    <lastmod>2019-04-07T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>https://matteorg.github.io/archive/archive-publication/preprint/</loc>
+    <lastmod>2019-04-07T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>https://matteorg.github.io/publication_types/</loc>
+    <lastmod>2019-04-07T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>https://matteorg.github.io/archive/archive-publication/</loc>
+    <lastmod>2019-04-07T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>https://matteorg.github.io/tag/source-themes/</loc>
+    <lastmod>2019-04-07T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
     <loc>https://matteorg.github.io/post/jupyter/</loc>
     <lastmod>2019-09-05T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>https://matteorg.github.io/archive/archive-slides/example/</loc>
+    <lastmod>2019-02-05T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
     <loc>https://matteorg.github.io/privacy/</loc>
@@ -74,10 +135,39 @@
     <lastmod>2018-06-28T00:00:00+01:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>https://matteorg.github.io/admin/</loc>
+    <loc>https://matteorg.github.io/tag/deep-learning/</loc>
+    <lastmod>2016-04-27T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>https://matteorg.github.io/publication_types/</loc>
+    <loc>https://matteorg.github.io/tag/demo/</loc>
+    <lastmod>2016-04-27T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>https://matteorg.github.io/archive/archive-project/example/</loc>
+    <lastmod>2016-04-27T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>https://matteorg.github.io/archive/archive-project/external-project/</loc>
+    <lastmod>2016-04-27T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>https://matteorg.github.io/publication-type/2/</loc>
+    <lastmod>2015-09-01T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>https://matteorg.github.io/archive/archive-publication/journal-article/</loc>
+    <lastmod>2015-09-01T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>https://matteorg.github.io/publication-type/1/</loc>
+    <lastmod>2013-07-01T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>https://matteorg.github.io/archive/archive-publication/conference-paper/</loc>
+    <lastmod>2013-07-01T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>https://matteorg.github.io/admin/</loc>
     <changefreq>weekly</changefreq>
   </url>
 </urlset>
