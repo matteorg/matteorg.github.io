@@ -10,6 +10,6 @@ main:
   - name: Posts
     url: '#posts'
     weight: 20
-  - name: CV
-    url: '#cv'
+  #- name: CV
+    #url: '#cv'
     #weight: 30

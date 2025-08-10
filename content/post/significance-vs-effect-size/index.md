@@ -13,13 +13,13 @@ In the world of online experiments and product iteration, there's a recurring pa
 
 The statistical reality behind this flawed approach is straightforward: as your sample size grows, the precision of your estimates naturally increases. This is why the confidence intervals around your statistical tests—whether for a difference in means or proportions—will invariably shrink. Think of the standard error of the mean, for instance, which is often approximated as $\frac{\sigma}{\sqrt{n}}$, where $\sigma$ is the standard deviation and $n$ is your sample size {{< infotip "" "In the case of a Welch's test for the difference in means of continuous variables with unequal variance, standard error of the difference is computed as $SE_{(\bar{x}_1 - \bar{x}_2)} = \sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}$ where $s$ and $n$ indicate the group specific sample variance and size.">}}. As $n$ gets larger, the denominator grows, making the standard error smaller. This means that if you simply keep an experiment running indefinitely, given enough data, you'll almost always eventually detect a 'statistically significant' difference, even if the real-world effect is negligible or purely due to random chance. It effectively allows you to 'manufacture' confidence, risking the rollout of features that have no true impact, or worse, a negative one.
 
-![Meme picture 1](/images/effect_size1.jpg "Run, experiment! Run!")
+![Meme picture 1](/images/fat_tail_size/effect_size1.jpg "Run, experiment! Run!")
 
 ### When variance refuses to shrink
 
 Compounding this issue of 'running until confidence' is the nature of many real-world outcome metrics, particularly when dealing with revenue. For variables like transaction value or total revenue per user, we often encounter what are known as fat-tailed distributions. Unlike the neat, predictable bell curve where extreme values are rare, a fat-tailed distribution means that very large, infrequent observations have a disproportionately significant impact on the variance, and thus on the confidence intervals. In such scenarios, the variance of your difference in means will decrease much slower with increasing sample size than you'd intuitively expect. Those less frequent, large values keep the 'noise' level high, making it genuinely harder to distinguish a true signal from random fluctuations, regardless of how much data you collect.
 
-![Meme picture 2](/images/effect_size2.jpg "Fat tails at work")
+![Meme picture 2](/images/fat_tail_size/effect_size2.jpg "Fat tails at work")
 
 Consider, for example, the revenue generated from airline passengers on an online booking platform. You might have thousands of daily bookings, but only a small percentage convert additional services (e.g. seat reservation, additional baggage) into transactions. Most of these transactions are for a single seat, perhaps with a basic baggage allowance. However, occasionally, a single user books five seats, adds five checked bags, and purchases five travel insurance policies – a transaction that dwarfs hundreds of typical bookings combined. The same user rarely makes multiple such large purchases within a year. This pattern, where a vast majority of transactions are small, but a handful are exceptionally large and infrequent, creates that characteristic fat tail in your revenue distribution. In such an environment, the average revenue can swing wildly with just few 'whale' bookings in a group, making it difficult to achieve stable confidence in your experimental results without an exceptionally large and truly representative sample{{<infotip "" "Similarly, think of the total order value on a typical e-commerce site. You might process tens of thousands of orders daily. A vast majority of these will be for single, relatively inexpensive items – a t-shirt, a book, a small gadget. However, every so often, a customer comes along and purchases a high-end electronics bundle, several pieces of furniture, or an entire seasonal wardrobe. ">}}.
 
@@ -118,7 +118,7 @@ def generate_synthetic_data_flexible_purchase_prob(
 
 To visually illustrate how the sigma parameter of the Log-Normal distribution influences the "fatness" of the tail, let's generate two datasets using our `generate_synthetic_data_flexible_purchase_prob` function: one with `skewed_revenue=False` (corresponding to a sigma of $0.3$), and another with `skewed_revenue=True` (corresponding to a sigma of $1.0$). I'll then plot their revenue distributions side-by-side. For the example below I set the purchase probability parameters to $0.45$
 
-![Revenue plots 1](/images/effect_size4.png "Log-normally distributed revenues with different values of sigma")
+![Revenue plots 1](/images/fat_tail_size/effect_size4.png "Log-normally distributed revenues with different values of sigma")
 
 Observing these two plots side-by-side, the impact of $\sigma$ on the log-normal distribution's tail becomes strikingly clear. On the left, with a lower sigma ($0.3$), the revenue distribution is still right-skewed, but the bulk of the purchases are more concentrated around a central value, and extreme high-value transactions are notably rare and closer to the main body of data. The tail, while present, is relatively 'thin' or light. In stark contrast, the plot on the right, generated with a higher sigma ($1.0$), displays the characteristic 'fat tail'. Here, the vast majority of transactions cluster very close to zero, representing typical, small purchases. However, the distribution stretches out dramatically to the right, showing that while very infrequent, extremely large revenue events do occur (look at the different scale of the $x$ axis!), pulling the average significantly higher and introducing substantial variability.
 
@@ -285,7 +285,7 @@ def cumulative_plot(
 cumulative_plot(synthetic_df, 'made_purchase', "Purchase Rate")
 ```
 
-![Cumulative purchase plot 1](/images/effect_size5.png "Reaching confidence...and then losing it.")
+![Cumulative purchase plot 1](/images/fat_tail_size/effect_size5.png "Reaching confidence...and then losing it.")
 
 Turning our attention to the revenue plot from the same simulation, the picture is even starker. Despite the genuine difference in underlying purchase probabilities, the 95% confidence interval for the cumulative difference in revenue consistently includes zero throughout the entire 50-day period. The extreme variability introduced by the fat-tailed revenue distribution (driven by that high sigma) means that even with 50 days of data from 150 individuals, the 'noise' from those few large, infrequent purchases completely overwhelms any true signal. In such a scenario, detecting a statistically significant revenue uplift becomes virtually impossible, underscoring why managing experiments with fat-tailed metrics requires a fundamentally different approach than simply 'waiting for confidence.'
 
@@ -293,7 +293,7 @@ Turning our attention to the revenue plot from the same simulation, the picture 
 cumulative_plot(synthetic_df, 'revenue', "Average Revenue")
 ```
 
-![Cumulative revenue plot 1](/images/effect_size6.png "Not a chance to 'reach confidence'.")
+![Cumulative revenue plot 1](/images/fat_tail_size/effect_size6.png "Not a chance to 'reach confidence'.")
 
 #### A tale of thinner tails
 
@@ -314,7 +314,7 @@ cumulative_plot(synthetic_df, 'revenue', "Average Revenue")
 
 Yet, for revenue, the story changes dramatically. While it might not strictly 'reach' the 95% confidence threshold within the 50-day window (one would indeed see it stably above zero with a longer duration, say 70 days), the crucial difference is the stability and predictability of its confidence intervals. Instead of erratic swings, the estimated difference in revenue remains (almost) consistently positive, showing a steady, albeit slow, convergence. The intervals shrink predictably, reflecting a more 'well-behaved' underlying distribution. This stark contrast highlights that even if an effect is small, a non-skewed outcome allows for a much more reliable path to inference, making it far easier to manage, interpret, and confidently extend an experiment to reach significance, unlike the volatile battle against fat tails.
 
-![Cumulative revenue plot 1](/images/effect_size9.png "A more stable path to 'confidence'.")
+![Cumulative revenue plot 1](/images/fat_tail_size/effect_size9.png "A more stable path to 'confidence'.")
 
 #### The more (data) the merrier
 
@@ -333,8 +333,8 @@ synthetic_df = generate_synthetic_data_flexible_purchase_prob(
 
 In this larger-scale simulation, the plots tell a seemingly more reassuring story. For purchase probability, we see significance reached relatively quickly, around day 10. This is the moment when management might confidently pop the champagne bottle, believing the experiment has unequivocally delivered a positive result. The revenue plot, while lagging due to its inherent volatility, also eventually shows significance, becoming 'barely significant' after approximately 25 days, perhaps prompting more celebratory corks. These results, achieved with a much larger sample size, seem to perfectly align with the expectation that simply collecting more data will eventually unveil any true effect, allowing confidence intervals to shrink and the coveted 'significance' to be achieved.
 
-![Cumulative purchase plot 2](/images/effect_size7.png "Amazing CI always above zero quite early!")
-![Cumulative revenue plot 2](/images/effect_size8.png "Also revenue has made it!")
+![Cumulative purchase plot 2](/images/fat_tail_size/effect_size7.png "Amazing CI always above zero quite early!")
+![Cumulative revenue plot 2](/images/fat_tail_size/effect_size8.png "Also revenue has made it!")
 
 However, despite these ostensibly 'successful' outcomes, a critical question looms: what is the true, underlying effect size we're actually observing, and how meaningful is it in the face of such noisy, fat-tailed data? Are we truly detecting a robust, practically significant lift, or merely catching fleeting signals in a sea of extreme values, simply because we've collected enough data to overcome the sheer variance? The answers to these questions are crucial for making informed business decisions and avoiding the trap of statistical significance without practical relevance.
 
@@ -496,7 +496,7 @@ def plot_effect_size(metrics_dict, df, target_var, target_name):
 ```python
 plot_effect_size(cohens_dict, synthetic_df, 'revenue', 'Average Revenue')
 ```
-![Cohen's d plot](/images/effect_size10.png "Effect size standardized...or deflated?")
+![Cohen's d plot](/images/fat_tail_size/effect_size10.png "Effect size standardized...or deflated?")
 
 #### Cliff's delta: A robust alternative
 
@@ -529,7 +529,7 @@ Now, in practical terms, is Cliff's delta detecting any non-negligible effect on
 ```python
 plot_effect_size(cliff_dict, synthetic_df, 'revenue', 'Average Revenue')
 ```
-![Cliff's delta plot](/images/effect_size11.png "Effect size negligible throughout the experiment")
+![Cliff's delta plot](/images/fat_tail_size/effect_size11.png "Effect size negligible throughout the experiment")
 
 ### Conclusion
 
