@@ -39,11 +39,11 @@
     <lastmod>2030-06-01T13:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>https://matteorg.github.io/post/</loc>
+    <loc>https://matteorg.github.io/post/significance-vs-effect-size/</loc>
     <lastmod>2025-06-20T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>https://matteorg.github.io/post/significance-vs-effect-size/</loc>
+    <loc>https://matteorg.github.io/post/</loc>
     <lastmod>2025-06-20T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
@@ -63,7 +63,7 @@
     <lastmod>2022-10-23T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>https://matteorg.github.io/post/writing-technical-content/</loc>
+    <loc>https://matteorg.github.io/archive/archived-posts/writing-technical-content/index_old/</loc>
     <lastmod>2021-04-12T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
@@ -75,7 +75,7 @@
     <lastmod>2020-12-13T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>https://matteorg.github.io/post/getting-started/</loc>
+    <loc>https://matteorg.github.io/archive/archived-posts/getting-started/</loc>
     <lastmod>2020-12-13T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
@@ -83,7 +83,7 @@
     <lastmod>2020-12-13T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>https://matteorg.github.io/post/2020-12-01-r-rmarkdown/</loc>
+    <loc>https://matteorg.github.io/archive/archived-posts/2020-12-01-r-rmarkdown/</loc>
     <lastmod>2020-12-01T21:13:14-05:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
@@ -123,11 +123,15 @@
     <lastmod>2019-04-07T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>https://matteorg.github.io/post/jupyter/</loc>
+    <loc>https://matteorg.github.io/archive-slides/</loc>
+    <lastmod>2019-02-05T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>https://matteorg.github.io/archive/archived-posts/jupyter/</loc>
     <lastmod>2019-09-05T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>https://matteorg.github.io/archive/archive-slides/example/</loc>
+    <loc>https://matteorg.github.io/archive-slides/example/</loc>
     <lastmod>2019-02-05T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
