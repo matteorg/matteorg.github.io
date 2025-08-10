@@ -1,0 +1,91 @@
+{{/*
+    infotip.html: A shortcode to create a superscript info circle with hover text.
+    Usage:
+    {{< infotip "Your main text here." "This is the additional text that appears on hover." >}}
+
+    Parameters:
+    - .Get 0 (string): The text to display normally (the 'main text').
+    - .Get 1 (string): The text to display when hovering (the 'tooltip text').
+*/}}
+<span class="infotip-container">
+    {{ .Get 0 | safeHTML }}<sup class="infotip-icon">i</sup>
+    <span class="infotip-content">{{ .Get 1 | safeHTML }}</span>
+</span>
+
+<style>
+/* --- Styling for the Infotip --- */
+
+/* Container for the main text, icon, and hidden content */
+.infotip-container {
+    position: relative;     /* Allows absolute positioning of tooltip content */
+    display: inline-block;  /* Keeps it inline with text flow, but allows block properties */
+    cursor: help;           /* Changes mouse cursor to a help icon */
+    text-decoration: none;  /* Ensure no underline from parent links if applicable */
+}
+
+/* The superscript info circle icon */
+.infotip-icon {
+    font-size: 0.7em;           /* Smaller size for superscript */
+    vertical-align: super;      /* Superscript alignment */
+    border: 1px solid #777;     /* Light gray border for the circle */
+    border-radius: 50%;         /* Makes it a circle */
+    width: 1.2em;               /* Adjust size based on font-size */
+    height: 1.2em;              /* Make width and height equal for circle */
+    display: inline-flex;       /* For centering 'i' inside the circle */
+    justify-content: center;    /* Center horizontally */
+    align-items: center;        /* Center vertically */
+    line-height: 1;             /* Prevents extra line spacing */
+    margin-left: 0.2em;         /* Small gap from preceding text */
+    color: #555;                /* Dark gray text color for 'i' */
+    background-color: #f0f0f0;  /* Light background for the circle */
+    font-weight: bold;
+    user-select: none;          /* Prevent accidental text selection */
+    transition: background-color 0.2s ease, color 0.2s ease; /* Smooth hover effect */
+}
+
+.infotip-container:hover .infotip-icon {
+    background-color: #66d9ef; /* Example hover background (e.g., light blue from Monokai) */
+    color: #fff;                /* White text on hover */
+    border-color: #66d9ef;
+}
+
+/* The actual tooltip content that appears on hover */
+.infotip-content {
+    font-size: 0.7em;
+    position: absolute;
+    bottom: calc(100% + 5px); /* Position slightly above the icon, plus a small gap */
+    left: 50%; /* Attempt to center horizontally relative to container */
+    transform: translateX(-50%); /* Adjust to truly center horizontally */
+    min-width: 250px;           /* Minimum width for readability */
+    max-width: 350px;           /* Maximum width */
+    background-color: #444;     /* Dark background for the tooltip box */
+    color: #fff;                /* Light text for readability */
+    padding: 12px 18px;         /* Padding inside the box */
+    border-radius: 6px;         /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3); /* Subtle shadow */
+    z-index: 100;               /* Ensure it's on top of other content */
+
+    opacity: 0;                 /* Initially fully transparent */
+    visibility: hidden;         /* Initially hidden from layout and screen readers */
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease; /* Smooth fade-in/out */
+
+    /* Optional: Add a small triangle/arrow pointing down to the icon */
+    &::after {
+        content: '';
+        position: absolute;
+        top: 100%; /* At the bottom of the tooltip content box */
+        left: 50%;
+        transform: translateX(-50%);
+        border-width: 8px;
+        border-style: solid;
+        border-color: #333 transparent transparent transparent; /* Arrow pointing down */
+    }
+}
+
+/* Show content on hover over the container */
+.infotip-container:hover .infotip-content {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(-10px); /* Move up slightly as it fades in */
+}
+</style>

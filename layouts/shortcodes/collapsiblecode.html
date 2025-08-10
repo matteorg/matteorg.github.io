@@ -1,0 +1,58 @@
+{{/*
+    collapsiblecode.html: A shortcode to create a collapsible code block.
+    Usage:
+    {{< collapsiblecode lang="python" title="My Python Script" >}}
+    # Your Python code goes here
+    print("Hello, world!")
+    {{< /collapsiblecode >}}
+
+    Parameters:
+    - lang (string): The language for syntax highlighting (e.g., "python", "go", "json"). Required.
+    - title (string): The text to display on the summary/toggler. Optional, defaults to "Show Code".
+*/}}
+<details>
+    <summary>{{ .Get "title" | default "Show Code" }}</summary>
+    {{/*
+        CRITICAL CHANGE: Use Hugo's built-in 'highlight' shortcode to process .Inner
+        This will add the <div class="highlight"><pre><code class="language-xyz">...</code></pre></div>
+        and populate it with span tags for syntax highlighting.
+    */}}
+    {{ highlight .Inner (.Get "lang") }}
+</details>
+
+<style>
+/* --- Styling for the Collapsible Summary Header --- */
+details summary {
+    cursor: pointer;
+    padding: 8px 12px;
+    border: 1px solid #444; /* Darker border */
+    border-radius: 4px;
+    margin-bottom: 5px;
+    background-color: #333; /* Dark gray background for summary */
+    color: #f0f0f0; /* Light text color for contrast */
+    font-weight: bold;
+    user-select: none; /* Prevent text selection on double click */
+}
+details summary:hover {
+    background-color: #555; /* Slightly lighter dark gray on hover */
+}
+
+/* --- No need to style .highlight directly here for colors,
+       as that will come from your generated syntax.css.
+       Keep layout properties if desired. --- */
+/* You might want to remove these or adjust based on your theme's .highlight styling */
+/* The .highlight padding, border-radius, overflow-x, etc. will still be applied,
+   but the background and foreground colors for syntax will come from syntax.css */
+.highlight {
+    margin-top: 10px; /* Space between summary and code */
+    /* Remove background-color and color from here, they are handled by syntax.css */
+    /* background-color: #282c34; */
+    /* color: #abb2bf; */
+    padding: 10px; /* You can keep padding, border-radius etc if you want */
+    border-radius: 4px;
+    overflow-x: auto;
+}
+.highlight pre {
+    margin: 0;
+}
+</style>
