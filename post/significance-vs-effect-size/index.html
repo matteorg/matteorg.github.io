@@ -1728,8 +1728,12 @@ details summary:hover {
 <p>This is where it becomes crucial to move away from metrics that rely on means and standard deviations. A more robust alternative for fat-tailed distributions is Cliff&rsquo;s delta ($\delta$). This is a non-parametric measure of effect size that assesses the degree of overlap between two distributions without relying on their means or standard deviations. Instead, it is calculated based on the number of times an observation from one group is larger than an observation from the other.</p>
 <p>$$\delta = P(x_1 &gt; x_2) - P(x_1 &lt; x_2)$$</p>
 <p>or, in more practical terms:</p>
-<p>$$\delta = \frac{#{(x_i,y_j):x_i&gt;y_j}-#{(x_i,y_j):x_i&lt;y_j}}{n_1n_2}$$</p>
-<p>This formula effectively measures the probability that a randomly chosen value from one group is larger than a randomly chosen value from the other, minus the probability of the opposite. Because it uses rank-based comparisons, Cliff&rsquo;s delta is highly resistant to outliers and skewed data. Its value ranges from -1 to 1, where, according to <a href="https://www.researchgate.net/publication/377696423_Using_Cliff%27s_Delta_as_a_Non-Parametric_Effect_Size_Measure_An_Accessible_Web_App_and_R_Tutorial" target="_blank" rel="noopener">Meissel and Yao (2024)</a>:</p>
+<p>$$\delta = \frac{\#\left\{(x_i,y_j):x_i&gt;y_j\right\}-\#\left\{(x_i,y_j):x_i&lt;y_j\right\}}{n_1n_2}$$</p>
+<p>Imagine you have two groups with the following observations: $T=\left\{5,3,8\right\}$ and $C=\left\{4,6,4\right\}$.</p>
+<p>We would need to compare every observation in group $T$ to every observation in group $C$. This means that we&rsquo;d have $3x3=9$ comparisons. Specifically, $5&gt;4$, $5&gt;4$, $\color{red}{5&lt;6}$, $\color{red}{3&lt;6}$, $\color{red}{3&lt;4}$, $\color{red}{3&lt;6}$, $8&gt;4$, $8&gt;4$, $8&gt;6$ (in red you see the cases where observations in $T$ are smaller than those in $C$ and white otherwise). Since in 5 cases observations in $T$ are larger than those in $C$ and in 4 they are smaller, we get:</p>
+<p>$$\delta=\frac{5-4}{3*3}=0.11$$</p>
+<p>Which reads: &ldquo;Observations in $T$ tend to be larger but magnitude of the difference seems negligible&rdquo; (see below for suggested reference values).</p>
+<p>This formula effectively measures the probability that a randomly chosen value from one group is larger than a randomly chosen value from the other, minus the probability of the opposite. Because it uses rank-based comparisons, Cliff&rsquo;s delta is highly resistant to outliers and skewed data. Its value ranges from $-1$ to $1$ ($1$ means all values in one group are larger than all values in the other - no overlap), where, according to <a href="https://www.researchgate.net/publication/377696423_Using_Cliff%27s_Delta_as_a_Non-Parametric_Effect_Size_Measure_An_Accessible_Web_App_and_R_Tutorial" target="_blank" rel="noopener">Meissel and Yao (2024)</a>:</p>
 <ul>
 <li>
 <p>Negligible effect: $\vert\delta\vert&lt;0.147$</p>
