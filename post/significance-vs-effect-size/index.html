@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- This site was created with Wowchemy. https://www.wowchemy.com -->
-<!-- Last Published: August 10, 2025 --><html lang="en-us" >
+<!-- Last Published: August 25, 2025 --><html lang="en-us" >
 
 
 <head>
@@ -1727,6 +1727,8 @@ details summary:hover {
 <h4 id="cliffs-delta-a-robust-alternative">Cliff&rsquo;s delta: A robust alternative</h4>
 <p>This is where it becomes crucial to move away from metrics that rely on means and standard deviations. A more robust alternative for fat-tailed distributions is Cliff&rsquo;s delta ($\delta$). This is a non-parametric measure of effect size that assesses the degree of overlap between two distributions without relying on their means or standard deviations. Instead, it is calculated based on the number of times an observation from one group is larger than an observation from the other.</p>
 <p>$$\delta = P(x_1 &gt; x_2) - P(x_1 &lt; x_2)$$</p>
+<p>or, in more practical terms:</p>
+<p>$$\delta = \frac{#{(x_i,y_j):x_i&gt;y_j}-#{(x_i,y_j):x_i&lt;y_j}}{n_1n_2}$$</p>
 <p>This formula effectively measures the probability that a randomly chosen value from one group is larger than a randomly chosen value from the other, minus the probability of the opposite. Because it uses rank-based comparisons, Cliff&rsquo;s delta is highly resistant to outliers and skewed data. Its value ranges from -1 to 1, where, according to <a href="https://www.researchgate.net/publication/377696423_Using_Cliff%27s_Delta_as_a_Non-Parametric_Effect_Size_Measure_An_Accessible_Web_App_and_R_Tutorial" target="_blank" rel="noopener">Meissel and Yao (2024)</a>:</p>
 <ul>
 <li>

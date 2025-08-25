@@ -1117,6 +1117,8 @@ details summary:hover {
 &lt;h4 id=&#34;cliffs-delta-a-robust-alternative&#34;&gt;Cliff&amp;rsquo;s delta: A robust alternative&lt;/h4&gt;
 &lt;p&gt;This is where it becomes crucial to move away from metrics that rely on means and standard deviations. A more robust alternative for fat-tailed distributions is Cliff&amp;rsquo;s delta ($\delta$). This is a non-parametric measure of effect size that assesses the degree of overlap between two distributions without relying on their means or standard deviations. Instead, it is calculated based on the number of times an observation from one group is larger than an observation from the other.&lt;/p&gt;
 &lt;p&gt;$$\delta = P(x_1 &amp;gt; x_2) - P(x_1 &amp;lt; x_2)$$&lt;/p&gt;
+&lt;p&gt;or, in more practical terms:&lt;/p&gt;
+&lt;p&gt;$$\delta = \frac{#{(x_i,y_j):x_i&amp;gt;y_j}-#{(x_i,y_j):x_i&amp;lt;y_j}}{n_1n_2}$$&lt;/p&gt;
 &lt;p&gt;This formula effectively measures the probability that a randomly chosen value from one group is larger than a randomly chosen value from the other, minus the probability of the opposite. Because it uses rank-based comparisons, Cliff&amp;rsquo;s delta is highly resistant to outliers and skewed data. Its value ranges from -1 to 1, where, according to &lt;a href=&#34;https://www.researchgate.net/publication/377696423_Using_Cliff%27s_Delta_as_a_Non-Parametric_Effect_Size_Measure_An_Accessible_Web_App_and_R_Tutorial&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Meissel and Yao (2024)&lt;/a&gt;:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -1334,9 +1336,9 @@ details summary:hover {
     
     <item>
       <title>Writing Technical Content</title>
-      <link>https://matteorg.github.io/archive/archived-posts/writing-technical-content/index_old/</link>
+      <link>https://matteorg.github.io/archive/archived-posts/writing-technical-content/</link>
       <pubDate>Mon, 12 Apr 2021 00:00:00 +0000</pubDate>
-      <guid>https://matteorg.github.io/archive/archived-posts/writing-technical-content/index_old/</guid>
+      <guid>https://matteorg.github.io/archive/archived-posts/writing-technical-content/</guid>
       <description>&lt;p&gt;Wowchemy is designed to give technical content creators a seamless experience. You can focus on the content and Wowchemy handles the rest.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Highlight your code snippets, take notes on math classes, and draw diagrams from textual representation.&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;On this page, you&amp;rsquo;ll find some examples of the types of technical content that can be rendered with Wowchemy.&lt;/p&gt;
@@ -1436,7 +1438,7 @@ data.head()
 
 
 
-&lt;div id=&#34;chart-856321794&#34; class=&#34;chart&#34;&gt;&lt;/div&gt;
+&lt;div id=&#34;chart-917285346&#34; class=&#34;chart&#34;&gt;&lt;/div&gt;
 &lt;script&gt;
   (function() {
     let a = setInterval( function() {
@@ -1446,7 +1448,7 @@ data.head()
       clearInterval( a );
 
       Plotly.d3.json(&#34;./line-chart.json&#34;, function(chart) {
-        Plotly.plot(&#39;chart-856321794&#39;, chart.data, chart.layout, {responsive: true});
+        Plotly.plot(&#39;chart-917285346&#39;, chart.data, chart.layout, {responsive: true});
       });
     }, 500 );
   })();
