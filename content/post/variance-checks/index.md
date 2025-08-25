@@ -1,10 +1,10 @@
 ---
-date: "2025-06-20"
+date: "2025-08-25"
 image:
   caption: 'Image credit: [**Costas Gabrielatos**](https://www.researchgate.net/figure/Statistical-Significance-vs-Effect-Size_fig1_323830370)'
   placement: 2
 math: true
-title: Fat Tails, Statistical Significance and Meaningful Effect Size
+title: Investigating High Variance Distributions
 ---
 
 In the world of online experiments and product iteration, there's a recurring pattern that always gives me pause. Time and again, I see teams kick off an A/B test without any real discussion about statistical power, or even a clear idea of the minimum effect size they'd be interested in detecting. Instead, the default approach often seems to be to simply 'turn the experiment on' and then, to use a common phrase, keep it running 'until we reach confidence.' To me, this is fundamentally missing the point of rigorous experimentation. It's a method that not only wastes resources but, more importantly, often leads to spurious conclusions, undermining the very data-driven culture we strive for.
