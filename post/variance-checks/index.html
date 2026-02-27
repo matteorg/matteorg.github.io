@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- This site was created with Wowchemy. https://www.wowchemy.com -->
-<!-- Last Published: February 8, 2026 --><html lang="en-us" >
+<!-- Last Published: February 27, 2026 --><html lang="en-us" >
 
 
 <head>
@@ -295,8 +295,7 @@
 
   
 
-<meta name="description" content="Work in progress&hellip;! coming soon&hellip; Fat tailed distributions Power calculations with high variance Code You can find the notebook with the full code here.
-Thank you for reading! Disclaimer: I write to learn, based on my background and personal experience." />
+<meta name="description" content="&ldquo;Your A/B test is wrong.&rdquo; It’s the kind of feedback that stops a data scientist cold, especially when it comes from colleagues who know just enough about statistics to be dangerous." />
 
 
 
@@ -324,23 +323,21 @@ Thank you for reading! Disclaimer: I write to learn, based on my background and 
 
 
   
-  
 
 
 
 
 
 
-<meta property="twitter:card" content="summary" />
+<meta property="twitter:card" content="summary_large_image" />
 
   <meta property="twitter:site" content="@wowchemy" />
   <meta property="twitter:creator" content="@wowchemy" />
-<meta property="twitter:image" content="https://matteorg.github.io/media/icon_hufe0bf023893a36fd468464b12c9bc07d_11738_512x512_fill_lanczos_center_3.png" />
+<meta property="twitter:image" content="https://matteorg.github.io/post/variance-checks/featured.jpg" />
 <meta property="og:site_name" content="Matteo Greco" />
 <meta property="og:url" content="https://matteorg.github.io/post/variance-checks/" />
 <meta property="og:title" content="Investigating High Variance Distributions | Matteo Greco" />
-<meta property="og:description" content="Work in progress&hellip;! coming soon&hellip; Fat tailed distributions Power calculations with high variance Code You can find the notebook with the full code here.
-Thank you for reading! Disclaimer: I write to learn, based on my background and personal experience." /><meta property="og:image" content="https://matteorg.github.io/media/icon_hufe0bf023893a36fd468464b12c9bc07d_11738_512x512_fill_lanczos_center_3.png" /><meta property="og:locale" content="en-us" />
+<meta property="og:description" content="&ldquo;Your A/B test is wrong.&rdquo; It’s the kind of feedback that stops a data scientist cold, especially when it comes from colleagues who know just enough about statistics to be dangerous." /><meta property="og:image" content="https://matteorg.github.io/post/variance-checks/featured.jpg" /><meta property="og:locale" content="en-us" />
 
   
     <meta
@@ -379,6 +376,10 @@ Thank you for reading! Disclaimer: I write to learn, based on my background and 
   },
   "headline": "Investigating High Variance Distributions",
   
+  "image": [
+    "https://matteorg.github.io/post/variance-checks/featured.jpg"
+  ],
+  
   "datePublished": "2025-08-25T00:00:00Z",
   "dateModified": "2025-08-25T00:00:00Z",
   
@@ -390,7 +391,7 @@ Thank you for reading! Disclaimer: I write to learn, based on my background and 
       "url": "https://matteorg.github.io/media/icon_hufe0bf023893a36fd468464b12c9bc07d_11738_192x192_fill_lanczos_center_3.png"
     }
   },
-  "description": "Work in progress\u0026hellip;! coming soon\u0026hellip; Fat tailed distributions Power calculations with high variance Code You can find the notebook with the full code here.\nThank you for reading! Disclaimer: I write to learn, based on my background and personal experience."
+  "description": "\u0026ldquo;Your A/B test is wrong.\u0026rdquo; It’s the kind of feedback that stops a data scientist cold, especially when it comes from colleagues who know just enough about statistics to be dangerous."
 }
 </script>
 
@@ -658,18 +659,25 @@ Thank you for reading! Disclaimer: I write to learn, based on my background and 
 
 
 
-  
+
+
+
+
+
+
+
+
 
   
   
-  
+
+
 <div class="article-container pt-3">
   <h1>Investigating High Variance Distributions</h1>
 
   
 
   
-    
 
 
 <div class="article-metadata">
@@ -692,7 +700,7 @@ Thank you for reading! Disclaimer: I write to learn, based on my background and 
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    24 min read
   </span>
   
 
@@ -706,13 +714,20 @@ Thank you for reading! Disclaimer: I write to learn, based on my background and 
 
 </div>
 
-    
-
-
-
-
-
   
+
+
+
+
+
+</div>
+
+
+<div class="article-header container featured-image-wrapper mt-4 mb-4" style="max-width: 680px; max-height: 438px;">
+  <div style="position: relative">
+    <img src="/post/variance-checks/featured_huf8423bc7b3c46fad1594473641b8affe_54229_1200x2500_fit_q75_h2_lanczos.webp" width="680" height="438" alt="" class="featured-image">
+    
+  </div>
 </div>
 
 
@@ -720,7 +735,232 @@ Thank you for reading! Disclaimer: I write to learn, based on my background and 
   <div class="article-container">
 
     <div class="article-style">
-      <p>Work in progress&hellip;!
+      <p>&ldquo;Your A/B test is wrong.&rdquo; It’s the kind of feedback that stops a data scientist cold, especially when it comes from colleagues who know just enough about statistics to be dangerous. The argument usually goes like this: because our revenue is driven by a handful of &ldquo;whales&rdquo; making massive purchases amidst a sea of small interactions, the underlying distribution has infinite variance. If the variance is infinite, the Central Limit Theorem (CLT) collapses, your p-values are fantasies, and your uplift is just noise. But before you scrap your results, you need to move beyond intuition and actually test the tail.</p>
+<p>The Central Limit Theorem is often treated like a law of nature, but it carries a strict &ldquo;fine print&rdquo; requirement: the underlying distribution must have a finite variance. The CLT relies on the idea that as you collect more data, the &ldquo;noise&rdquo; of individual outliers eventually gets drowned out by the sheer volume of average observations, causing the sample mean to settle into a predictable bell curve. However, in an infinite variance regime - like a true power law - the outliers are so massive that they scale faster than the sample size. Instead of being diluted, a single new &ldquo;whale&rdquo; can appear at any moment and completely shift the mean, no matter how many thousands of data points you’ve already collected. In this world, the &ldquo;average&rdquo; is a moving target that never stabilizes, rendering standard $p$-values and confidence intervals mathematically meaningless.</p>
+<p>In this article, we’ll walk through how to rigorously check if your empirical data actually belongs to a &ldquo;fat-tailed&rdquo; family (like Pareto or Levy distributions) where the CLT fails, or if it’s simply a high-variance but well-behaved distribution (like Log-Normal). We’ll cover diagnostic plots and the stability of the mean so you can defend your results, or admit when the &ldquo;infinite variance&rdquo; skeptics actually have a point.</p>
+<h3 id="fat-tailed-distributions">Fat tailed distributions</h3>
+<p>When a distribution is described as &ldquo;fat-tailed,&rdquo; it means the probability of extreme, &ldquo;black swan&rdquo; events is significantly higher than what a standard Normal distribution would predict. In a typical bell curve, the probability of an observation being several standard deviations from the mean drops off exponentially—essentially becoming impossible. In a fat-tailed world, however, the &ldquo;tail&rdquo; decays so slowly (following a power law) that these outliers aren&rsquo;t just possible; they dominate the entire system. When the tail is heavy enough, the variance mathematically fails to converge, meaning no amount of data will ever give you a stable &ldquo;average&rdquo; because one massive new data point can move the needle back to zero.</p>
+<h4 id="common-infinite-variance-distributions">Common Infinite Variance Distributions</h4>
+<ul>
+<li><strong>Pareto Distribution (Type I)</strong>: Specifically when the shape parameter $\alpha \le 2$.</li>
+<li><strong>Cauchy Distribution</strong>: A famous &ldquo;pathological&rdquo; case where even the mean is undefined.</li>
+<li><strong>Lévy Distribution</strong>: Often used to describe stochastic processes with large, sudden jumps.</li>
+</ul>
+<h4 id="real-world-phenomena">Real-World Phenomena</h4>
+<p>These distributions aren&rsquo;t just mathematical curiosities; they define systems where winner-take-all dynamics or recursive growth exist.</p>
+<ul>
+<li><strong>Wealth &amp; Revenue</strong>: A tiny fraction of &ldquo;whales&rdquo; or &ldquo;super-users&rdquo; often account for the vast majority of total spend.</li>
+<li><strong>Social Networks</strong>: The number of followers or links to a website follows a power law (the &ldquo;rich get richer&rdquo; effect).</li>
+<li><strong>Natural Disasters</strong>: The frequency and magnitude of earthquakes or forest fires, where rare mega-events cause more damage than thousands of smaller ones combined.</li>
+<li><strong>Finance</strong>: Stock market returns during a crash, where price movements far exceed the predictions of &ldquo;random walk&rdquo; models.</li>
+</ul>
+<h3 id="visual-inspections">Visual inspections</h3>
+<h4 id="histograms">Histograms</h4>
+<p>Before diving into complex diagnostics, the humble histogram remains your best first line of defense because it provides an immediate, visceral look at asymmetry and outliers. While a well-behaved distribution looks like a centered mound, a fat-tailed revenue distribution will look like a &ldquo;hockey stick&rdquo; - a massive spike at zero or low values with a long, thin trail of data points stretching far to the right. Here are some examples from simulated data.</p>
+
+<details>
+    <summary>Define data generating function</summary>
+    
+    <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">powerlaw</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">tqdm</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># --- 1. Data Generation (Simulation) ---</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">generate_data</span><span class="p">(</span><span class="n">num_rows</span><span class="p">,</span> <span class="n">share_zeros</span><span class="p">,</span> <span class="n">distribution_dict</span><span class="p">,</span> <span class="n">seed</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span> <span class="c1"># for reproducibility</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># Part 1: Zeros</span>
+</span></span><span class="line"><span class="cl">    <span class="n">num_zeros</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">num_rows</span> <span class="o">*</span> <span class="n">share_zeros</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">zeros</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">num_zeros</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">num_non_zeros</span> <span class="o">=</span> <span class="n">num_rows</span> <span class="o">-</span> <span class="n">num_zeros</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># Part 2: Non-Zeros based on Distribution</span>
+</span></span><span class="line"><span class="cl">    <span class="n">dist_type</span> <span class="o">=</span> <span class="n">distribution_dict</span><span class="p">[</span><span class="s1">&#39;distribution&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">dist_type</span> <span class="o">==</span> <span class="s1">&#39;lognormal&#39;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># NumPy uses &#39;mean&#39; and &#39;sigma&#39;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">non_zeros_raw</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">lognormal</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">            <span class="n">mean</span><span class="o">=</span><span class="n">distribution_dict</span><span class="p">[</span><span class="s1">&#39;mu&#39;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">            <span class="n">sigma</span><span class="o">=</span><span class="n">distribution_dict</span><span class="p">[</span><span class="s1">&#39;sigma&#39;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">            <span class="n">size</span><span class="o">=</span><span class="n">num_non_zeros</span>
+</span></span><span class="line"><span class="cl">        <span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">elif</span> <span class="n">dist_type</span> <span class="o">==</span> <span class="s1">&#39;exponential&#39;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># NumPy uses &#39;scale&#39; (1/lambda)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">non_zeros_raw</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">exponential</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">            <span class="n">scale</span><span class="o">=</span><span class="n">distribution_dict</span><span class="p">[</span><span class="s1">&#39;scale&#39;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">            <span class="n">size</span><span class="o">=</span><span class="n">num_non_zeros</span>
+</span></span><span class="line"><span class="cl">        <span class="p">)</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">    <span class="k">elif</span> <span class="n">dist_type</span> <span class="o">==</span> <span class="s1">&#39;powerlaw&#39;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># Using Pareto transformation: (Pareto + 1) * xmin</span>
+</span></span><span class="line"><span class="cl">        <span class="n">alpha</span> <span class="o">=</span> <span class="n">distribution_dict</span><span class="p">[</span><span class="s1">&#39;alpha&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="n">xmin</span> <span class="o">=</span> <span class="n">distribution_dict</span><span class="p">[</span><span class="s1">&#39;xmin&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="n">non_zeros_raw</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">pareto</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="n">alpha</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">num_non_zeros</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">xmin</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="k">elif</span> <span class="n">dist_type</span> <span class="o">==</span> <span class="s1">&#39;weibull&#39;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># NumPy weibull only takes &#39;a&#39; (shape). Scale is applied manually.</span>
+</span></span><span class="line"><span class="cl">        <span class="n">shape</span> <span class="o">=</span> <span class="n">distribution_dict</span><span class="p">[</span><span class="s1">&#39;shape&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="n">scale</span> <span class="o">=</span> <span class="n">distribution_dict</span><span class="p">[</span><span class="s1">&#39;scale&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="n">non_zeros_raw</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">weibull</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="n">shape</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">num_non_zeros</span><span class="p">)</span> <span class="o">*</span> <span class="n">scale</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Invalid distribution specified: </span><span class="si">{</span><span class="n">dist_type</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">    <span class="c1"># Filter out values less than 10 as per your original logic</span>
+</span></span><span class="line"><span class="cl">    <span class="n">non_zeros_filtered</span> <span class="o">=</span> <span class="n">non_zeros_raw</span><span class="p">[</span><span class="n">non_zeros_raw</span> <span class="o">&gt;=</span> <span class="mi">10</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># Print internal stats for the non-zero portion</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">non_zeros_filtered</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;--- </span><span class="si">{</span><span class="n">dist_type</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="si">}</span><span class="s2"> Distribution Diagnostics ---&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Simulated non-zero max value: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">non_zeros_filtered</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Simulated non-zero 90th percentile: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">non_zeros_filtered</span><span class="p">,</span> <span class="mi">90</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Simulated non-zero 50th percentile (median): </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">non_zeros_filtered</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Warning: All generated </span><span class="si">{</span><span class="n">dist_type</span><span class="si">}</span><span class="s2"> values were filtered out by the &gt;= 10 threshold.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># Combine zeros and non-zeros</span>
+</span></span><span class="line"><span class="cl">    <span class="n">revenue_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">zeros</span><span class="p">,</span> <span class="n">non_zeros_filtered</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># Create a Pandas DataFrame</span>
+</span></span><span class="line"><span class="cl">    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;revenue&#39;</span><span class="p">:</span> <span class="n">revenue_data</span><span class="p">})</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;</span><span class="se">\n</span><span class="s2">Total simulated data points: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Number of zeros: </span><span class="si">{</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;revenue&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Number of non-zeros: </span><span class="si">{</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;revenue&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">gt</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1"># Final Descriptive Stats</span>
+</span></span><span class="line"><span class="cl">    <span class="n">non_zero_df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;revenue&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="ow">not</span> <span class="n">non_zero_df</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Descriptive statistics for non-zero revenue:</span><span class="se">\n</span><span class="si">{</span><span class="n">non_zero_df</span><span class="p">[</span><span class="s1">&#39;revenue&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">df</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">log_normal_dict</span> <span class="o">=</span> <span class="p">{</span> <span class="c1"># Non-zero, skewed, fat-tailed (Log-Normal)</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;distribution&#39;</span><span class="p">:</span> <span class="s1">&#39;lognormal&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;mu&#39;</span><span class="p">:</span> <span class="mf">3.5</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;sigma&#39;</span><span class="p">:</span> <span class="mf">1.2</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">exponential_dict</span> <span class="o">=</span> <span class="p">{</span> <span class="c1"># always has finite variance</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;distribution&#39;</span><span class="p">:</span> <span class="s1">&#39;exponential&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;scale&#39;</span><span class="p">:</span> <span class="mi">20</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">powerlaw_dict</span> <span class="o">=</span> <span class="p">{</span> <span class="c1"># alpha between 1 and 2 has finite mean and infinite variance. &gt;2 both are finite</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;distribution&#39;</span><span class="p">:</span> <span class="s1">&#39;powerlaw&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;xmin&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;alpha&#39;</span><span class="p">:</span> <span class="mf">1.1</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="n">weibull_dict</span> <span class="o">=</span> <span class="p">{</span> <span class="c1"># always finite variance. Heavy tail with shape &lt; 1</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;distribution&#39;</span><span class="p">:</span> <span class="s1">&#39;weibull&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;scale&#39;</span><span class="p">:</span> <span class="mi">25</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;shape&#39;</span><span class="p">:</span> <span class="mf">0.4</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">df</span> <span class="o">=</span> <span class="n">generate_data</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">num_rows</span><span class="o">=</span><span class="mi">5000</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">share_zeros</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">distribution_dict</span><span class="o">=</span><span class="n">weibull_dict</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">seed</span><span class="o">=</span><span class="mi">42</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span></code></pre></div>
+</details>
+
+<style>
+ 
+details summary {
+    cursor: pointer;
+    padding: 8px 12px;
+    border: 1px solid #444;  
+    border-radius: 4px;
+    margin-bottom: 5px;
+    background-color: #333;  
+    color: #f0f0f0;  
+    font-weight: bold;
+    user-select: none;  
+}
+details summary:hover {
+    background-color: #555;  
+}
+
+ 
+ 
+ 
+.highlight {
+    margin-top: 10px;  
+     
+     
+     
+    padding: 10px;  
+    border-radius: 4px;
+    overflow-x: auto;
+}
+.highlight pre {
+    margin: 0;
+}
+</style>
+
+<details>
+    <summary>Histogram plotting</summary>
+    
+    <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># --- 2. Initial Data Preparation and Visual Inspection ---</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Filter out zeros for tail analysis</span>
+</span></span><span class="line"><span class="cl"><span class="n">non_zero_revenue</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;revenue&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">][</span><span class="s1">&#39;revenue&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;</span><span class="se">\n</span><span class="s2">Analyzing </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">non_zero_revenue</span><span class="p">)</span><span class="si">}</span><span class="s2"> non-zero revenue points.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Visualizations:</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Histogram (linear scale)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">non_zero_revenue</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">kde</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Histogram of Non-Zero Revenue (Linear Scale)&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Revenue&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Frequency&#39;</span><span class="p">)</span>
+</span></span></code></pre></div>
+</details>
+
+<style>
+ 
+details summary {
+    cursor: pointer;
+    padding: 8px 12px;
+    border: 1px solid #444;  
+    border-radius: 4px;
+    margin-bottom: 5px;
+    background-color: #333;  
+    color: #f0f0f0;  
+    font-weight: bold;
+    user-select: none;  
+}
+details summary:hover {
+    background-color: #555;  
+}
+
+ 
+ 
+ 
+.highlight {
+    margin-top: 10px;  
+     
+     
+     
+    padding: 10px;  
+    border-radius: 4px;
+    overflow-x: auto;
+}
+.highlight pre {
+    margin: 0;
+}
+</style>
+<p>
 
 
 
@@ -736,20 +976,958 @@ Thank you for reading! Disclaimer: I write to learn, based on my background and 
 
 
 
-
-<figure  id="figure-coming-soon">
+<figure  id="figure-log-normally-distributed-revenue-with-high-variance-sigma15">
   <div class="d-flex justify-content-center">
-    <div class="w-100" ><img src="/images/variance_test/wip.jpg" alt="Ccoming soon plot" loading="lazy" data-zoomable /></div>
+    <div class="w-100" ><img src="/images/variance_test/histlognormal.png" alt="Revenue plots 1" loading="lazy" data-zoomable /></div>
   </div><figcaption>
-      coming soon&hellip;
+      Log-normally distributed revenue with high variance ($\sigma=1.5)$)
     </figcaption></figure>
 </p>
-<h3 id="fat-tailed-distributions">Fat tailed distributions</h3>
-<h3 id="power-calculations-with-high-variance">Power calculations with high variance</h3>
-<h3 id="code">Code</h3>
-<p>You can find the notebook with the full code <a href="https://cdn-icons-png.flaticon.com/512/5578/5578703.png" target="_blank" rel="noopener">here</a>.</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  id="figure-pareto-distributed-revenue-with-high-variance-alpha11">
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img src="/images/variance_test/histpowerlaw.png" alt="Revenue plots 2" loading="lazy" data-zoomable /></div>
+  </div><figcaption>
+      Pareto distributed revenue with high variance ($\alpha=1.1$)
+    </figcaption></figure>
+</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  id="figure-weibull-distributed-revenue-with-high-variance-alpha04">
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img src="/images/variance_test/histweibull.png" alt="Revenue plots 3" loading="lazy" data-zoomable /></div>
+  </div><figcaption>
+      Weibull distributed revenue with high variance ($\alpha=0.4$)
+    </figcaption></figure>
+</p>
+<h4 id="complementary-cumulative-distribution-function-ccdf-on-log-log-scale">Complementary Cumulative Distribution Function (CCDF) on log-log scale</h4>
+<p>To move beyond the visual &ldquo;messiness&rdquo; of a histogram, the Complementary Cumulative Distribution Function (CCDF) plotted on a log-log scale is the gold standard for spotting infinite variance. While a standard CDF tells you the probability that a value is less than $x$, the CCDF tells you the probability that a value is greater than $x$ (i.e. \(1-P(X\leq x)\)); essentially, it focuses entirely on the behavior of the &ldquo;whales&rdquo; in your data. When you plot the CCDF on a log-log scale, something magical happens: if your data follows a power law (the hallmark of infinite variance), the plot will show up as a straight line.</p>
+
+<details>
+    <summary>CCDF plotting</summary>
+    
+    <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Complementary Cumulative Distribution Function (CCDF) on log-log scale</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">fit_prelim</span> <span class="o">=</span> <span class="n">powerlaw</span><span class="o">.</span><span class="n">Fit</span><span class="p">(</span><span class="n">non_zero_revenue</span><span class="p">,</span> <span class="n">discrete</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="c1"># Use a preliminary fit just for plotting CCDF</span>
+</span></span><span class="line"><span class="cl"><span class="n">fit_prelim</span><span class="o">.</span><span class="n">plot_ccdf</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">(),</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Observed Data CCDF&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">fit_prelim</span><span class="o">.</span><span class="n">power_law</span><span class="o">.</span><span class="n">plot_ccdf</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">(),</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Power Law CCDF&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;CCDF of Non-Zero Revenue (Log-Log Scale)&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Revenue ($x$)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;P($X \geq x$)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">xscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">yscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s2">&#34;both&#34;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s2">&#34;--&#34;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;0.7&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</span></span></code></pre></div>
+</details>
+
+<style>
+ 
+details summary {
+    cursor: pointer;
+    padding: 8px 12px;
+    border: 1px solid #444;  
+    border-radius: 4px;
+    margin-bottom: 5px;
+    background-color: #333;  
+    color: #f0f0f0;  
+    font-weight: bold;
+    user-select: none;  
+}
+details summary:hover {
+    background-color: #555;  
+}
+
+ 
+ 
+ 
+.highlight {
+    margin-top: 10px;  
+     
+     
+     
+    padding: 10px;  
+    border-radius: 4px;
+    overflow-x: auto;
+}
+.highlight pre {
+    margin: 0;
+}
+</style>
+<p>This happens because of one attribute of power laws: their scale invariance. Given a relation \(f(x) = Cx^{-\alpha}\) (pdf of a power law)  scaling the argument \(x\) by a constant factor \(c\)
+causes only a proportionate scaling of the function itself. That is, $$f(kx)=Ck^{-\alpha}x^{-\alpha}= k^{-\alpha}f(x)\propto f(x)$$
+Thus, it follows that all power laws with a particular scaling exponent are equivalent up to constant factors, since each is simply a scaled version of the others. This produces always a linear relationship in the log-log plot. Indeed if you take logs of the first equation (call \(y=f(x)\)) you get $$\log(y)=\log(C)-\alpha\log(x)$$ where the power parameter is the slope of the line.</p>
+<p><strong>Implication:</strong> with real data, such straightness is a <em>necessary, but not sufficient</em> condition for the data following a power-law relation.</p>
+<p>The slope of this line ($\alpha$) is the &ldquo;smoking gun&rdquo; your skeptic colleagues are looking for. If the slope is shallow (specifically if the power-law exponent $\alpha \le 2$), you are officially in the &ldquo;infinite variance&rdquo; zone where the Central Limit Theorem breaks down. If the line curves downward, your distribution is likely &ldquo;thin-tailed&rdquo; or log-normal, and your A/B test results are much safer than the skeptics think.</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  id="figure-ccdf-of-observed-data-against-that-of-a-pareto-distribution">
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img src="/images/variance_test/CCDF.png" alt="CCDF Plot 1" loading="lazy" data-zoomable /></div>
+  </div><figcaption>
+      CCDF of observed data against that of a Pareto distribution
+    </figcaption></figure>
+</p>
+<p>Either way, as mentioned above, this is a first check, and in case the two lines are very similar this would only fulfill a <em>necessary</em> condition for power law.</p>
+<h4 id="recursive-mean-plot">Recursive Mean Plot</h4>
+<p>Another powerful plot is the Mean Stability Plot (also known as a Recursive Mean Plot). It’s a simple but devastatingly effective visualization: you calculate the cumulative average of your revenue as each new data point is added and plot it over time.</p>
+
+<details>
+    <summary>RMP plotting</summary>
+    
+    <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">simulate_daily_convergence</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">obs_per_day</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">dist_type</span><span class="o">=</span><span class="s1">&#39;lognormal&#39;</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="mi">42</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Simulates daily data collection and plots the evolution of the mean.
+</span></span></span><span class="line"><span class="cl"><span class="s2">    &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">daily_means</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cumulative_data</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">day</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">days</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">dist_type</span> <span class="o">==</span> <span class="s1">&#39;lognormal&#39;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># High variance but finite</span>
+</span></span><span class="line"><span class="cl">            <span class="n">day_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">lognormal</span><span class="p">(</span><span class="n">mean</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">obs_per_day</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">elif</span> <span class="n">dist_type</span> <span class="o">==</span> <span class="s1">&#39;pareto&#39;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># Infinite variance (alpha=1.01)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">day_data</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">pareto</span><span class="p">(</span><span class="mf">1.01</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">obs_per_day</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="mi">50</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        <span class="n">cumulative_data</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">day_data</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">daily_means</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">cumulative_data</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># Plotting</span>
+</span></span><span class="line"><span class="cl">    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">days</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="n">daily_means</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;#16a085&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">daily_means</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Evolution of Cumulative Mean over </span><span class="si">{</span><span class="n">days</span><span class="si">}</span><span class="s1"> Days (</span><span class="si">{</span><span class="n">dist_type</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Day of Experiment&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Cumulative Revenue Mean&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Run it for the &#34;dangerous&#34; Pareto distribution</span>
+</span></span><span class="line"><span class="cl"><span class="n">simulate_daily_convergence</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">90</span><span class="p">,</span> <span class="n">obs_per_day</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">dist_type</span><span class="o">=</span><span class="s1">&#39;pareto&#39;</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</span></span></code></pre></div>
+</details>
+
+<style>
+ 
+details summary {
+    cursor: pointer;
+    padding: 8px 12px;
+    border: 1px solid #444;  
+    border-radius: 4px;
+    margin-bottom: 5px;
+    background-color: #333;  
+    color: #f0f0f0;  
+    font-weight: bold;
+    user-select: none;  
+}
+details summary:hover {
+    background-color: #555;  
+}
+
+ 
+ 
+ 
+.highlight {
+    margin-top: 10px;  
+     
+     
+     
+    padding: 10px;  
+    border-radius: 4px;
+    overflow-x: auto;
+}
+.highlight pre {
+    margin: 0;
+}
+</style>
+<p>In a well-behaved &ldquo;finite variance&rdquo; world, the line will be volatile at first but quickly flatten out, oscillating narrower and narrower around a single horizontal value; this is the CLT in action (as in Log-Normal case below).</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  id="figure-log-normal-recursive-mean-plot-sigma15">
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img src="/images/variance_test/RMPLognormal.png" alt="Revenue plots 4" loading="lazy" data-zoomable /></div>
+  </div><figcaption>
+      Log-Normal Recursive Mean Plot ($\sigma=1.5$)
+    </figcaption></figure>
+</p>
+<p>However, if your colleagues are right about infinite variance, the plot will look like a series of jagged, unpredictable jumps. Every time a &ldquo;whale&rdquo; purchase hits, the mean will spike vertically and stay high, never truly settling (as in Pareto case below).</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  id="figure-pareto-recursive-mean-plot-alpha101">
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img src="/images/variance_test/RMPPareto.png" alt="Revenue plots 4" loading="lazy" data-zoomable /></div>
+  </div><figcaption>
+      Pareto Recursive Mean Plot ($\alpha=1.01$)
+    </figcaption></figure>
+</p>
+<h3 id="statistical-tests">Statistical Tests</h3>
+<p>Moving away from visual diagnostic, we will initially tackle statistical tests do detect whether a distribution is consistent with an infinite variance one by following the spirit of the Clauset, Shalizi, Newman (CSN) <a href="https://arxiv.org/pdf/0706.1062" target="_blank" rel="noopener">paper</a>. SUMMARY SENTENCE ON PAPER .We will finish with an additional approach from Extreme Value Theory (EVT).</p>
+<h4 id="csn-approach-in-short">CSN Approach in Short</h4>
+<p>The best way to proceed is a mix of theoretical explanation and immediate practical implementation with a simulated dataset. This will make the concepts concrete.</p>
+<p>Here&rsquo;s a simplified description of the steps to follow, relevant to our challenge:</p>
+<ul>
+<li>Prerequisites &amp; data preprocessing:
+<ul>
+<li>Handle zeros: power laws are defined for positive values ($x &gt; 0$).We must exclude zeros from the analysis when fitting the tail distribution. This is crucial. We&rsquo;ll focus only on the non-zero revenue values.</li>
+<li>Threshold ($x_{min}$): power laws describe the tail of a distribution. They rarely fit the entire range of non-zero data. We need to find a suitable lower bound $x_{min}$ above which the power-law behavior truly begins. The CSN paper suggests a method for this, which minimizes the Kolmogorov-Smirnov (KS) statistic between the fitted power law and the observed data above $x_{min}$.</li>
+</ul>
+</li>
+</ul>
+<p>Steps:</p>
+<ul>
+<li>Power-law fitting &amp; $x_{min}$ estimation: fit the power-law distribution to the non-zero data. The <code>powerlaw</code> library includes robust methods for estimating the exponent $\alpha$ and the optimal $x_{min}$. From the estimated $\alpha$:
+<ul>
+<li>if $\alpha \le 2$, the fitted power law suggests infinite variance.</li>
+<li>if $\alpha &gt; 2$, the fitted power law suggests finite variance.</li>
+</ul>
+</li>
+<li>Goodness-of-Fit test for power law:
+<ul>
+<li>Once a power law is fitted (with its $\alpha$ and $x_{min}$), we need to assess how well it actually describes the data above $x_{min}$.</li>
+<li>The CSN paper suggests a bootstrap-based method: Generate many synthetic power-law datasets from the fitted parameters. Compare the KS statistic between the observed data and the fitted power law to the distribution of KS statistics from the synthetic data. If the observed KS statistic is &ldquo;too large,&rdquo; the power law is not a good fit.</li>
+</ul>
+</li>
+<li>Likelihood Ratio Tests (Comparison with Alternatives):
+<ul>
+<li>This is the core of testing against finite-variance alternatives. We compare the power law&rsquo;s fit against other heavy-tailed distributions (e.g., log-normal, exponential, stretched exponential, Weibull) using a likelihood ratio test.</li>
+<li>The test essentially asks: &ldquo;Is the data significantly more likely to have come from Distribution A than from Distribution B?&rdquo;</li>
+<li>The <code>powerlaw</code> library automates this: it fits several distributions and then provides $R$ values and p-values for pair-wise comparisons.
+<ul>
+<li>$R &gt; 0$: Power law is more likely.</li>
+<li>$R &lt; 0$: Alternative is more likely.</li>
+<li>p-value &lt; 0.1 (or your chosen significance level): The difference in likelihood is statistically significant, favoring the distribution associated with the sign of $R$.</li>
+<li>p-value &gt;= 0.1: The difference is not statistically significant, meaning neither distribution can be confidently favored over the other based on likelihood.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="csn-step-1-power-law-fitting">CSN Step 1: Power Law Fitting</h4>
+
+<details>
+    <summary>Power Law Fitting</summary>
+    
+    <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># --- 3. Power-Law Fitting &amp; x_min Estimation ---</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;</span><span class="se">\n</span><span class="s2">--- Step 3: Fitting Power Law and Estimating x_min ---&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">fit</span> <span class="o">=</span> <span class="n">powerlaw</span><span class="o">.</span><span class="n">Fit</span><span class="p">(</span><span class="n">non_zero_revenue</span><span class="p">,</span> <span class="n">discrete</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">alpha</span> <span class="o">=</span> <span class="n">fit</span><span class="o">.</span><span class="n">power_law</span><span class="o">.</span><span class="n">alpha</span>
+</span></span><span class="line"><span class="cl"><span class="n">xmin</span> <span class="o">=</span> <span class="n">fit</span><span class="o">.</span><span class="n">power_law</span><span class="o">.</span><span class="n">xmin</span>
+</span></span><span class="line"><span class="cl"><span class="n">KS</span> <span class="o">=</span> <span class="n">fit</span><span class="o">.</span><span class="n">power_law</span><span class="o">.</span><span class="n">D</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;</span><span class="se">\n</span><span class="s2">Estimated Power Law Exponent (alpha): </span><span class="si">{</span><span class="n">alpha</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Estimated Power Law x_min: </span><span class="si">{</span><span class="n">xmin</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="n">alpha</span> <span class="o">&lt;=</span> <span class="mi">2</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;  Interpretation: Since alpha (</span><span class="si">{</span><span class="n">alpha</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">) &lt;= 2, the fitted power law suggests infinite variance.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">elif</span> <span class="n">alpha</span> <span class="o">&gt;</span> <span class="mi">2</span> <span class="ow">and</span> <span class="n">alpha</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;  Interpretation: Since 2 &lt; alpha (</span><span class="si">{</span><span class="n">alpha</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">) &lt; 3, the fitted power law suggests finite variance but infinite skewness.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">else</span><span class="p">:</span> <span class="c1"># alpha &gt;= 3</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;  Interpretation: Since alpha (</span><span class="si">{</span><span class="n">alpha</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">) &gt;= 3, the fitted power law suggests finite variance and finite skewness.&#34;</span><span class="p">)</span>
+</span></span></code></pre></div>
+</details>
+
+<style>
+ 
+details summary {
+    cursor: pointer;
+    padding: 8px 12px;
+    border: 1px solid #444;  
+    border-radius: 4px;
+    margin-bottom: 5px;
+    background-color: #333;  
+    color: #f0f0f0;  
+    font-weight: bold;
+    user-select: none;  
+}
+details summary:hover {
+    background-color: #555;  
+}
+
+ 
+ 
+ 
+.highlight {
+    margin-top: 10px;  
+     
+     
+     
+    padding: 10px;  
+    border-radius: 4px;
+    overflow-x: auto;
+}
+.highlight pre {
+    margin: 0;
+}
+</style>
+<p>Suppose we draw data from a LogNormal distribution with $\mu=3.5$ and $\sigma=1.8$ (such distribution would have a very large variance of $686971.832$). When we fit a power law distribution to the non-zero data we obtain the following.</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  id="figure-fitting-a-pareto-law-to-simulated-high-variance-log-normal">
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img src="/images/variance_test/PLFLogNormal.png" alt="Power Law Fitting 1" loading="lazy" data-zoomable /></div>
+  </div><figcaption>
+      Fitting a Pareto Law to simulated high-variance Log-Normal
+    </figcaption></figure>
+</p>
+<p>As you can see, even if we are simulating data from a LogNormal, the first estimation step would return an $\alpha$ consistent with a Pareto distribution with infinite variance. Therefore this estimation procedure alone is not sufficient!</p>
+<h4 id="csn-step-2-goodness-of-fit-test-for-power-law">CSN Step 2: Goodness-of-Fit Test for Power Law</h4>
+<p>When testing whether your revenue data follows a specific distribution, Goodness-of-Fit (GoF) is simply a measure of how well your observed data matches a theoretical model. It’s the statistical version of &ldquo;does this key fit the lock?&rdquo;. If the GoF is high, your data likely follows that distribution; if it’s low, your model (like the Normal distribution) is a poor representation of reality.</p>
+<p>In the context of the CSN framework the bootstrapping procedure is used to determine if a Power Law is actually a plausible fit.</p>
+<p>Here is how it works:</p>
+<ul>
+<li>Generate &ldquo;Synthetic&rdquo; Datasets: The algorithm creates thousands of fake datasets that perfectly follow the Power Law model you&rsquo;ve estimated from your real data.</li>
+<li>Calculate Distance ($D$): It measures the distance (via the Kolmogorov-Smirnov statistic) between your real data and the model, and then does the same for every synthetic dataset.</li>
+<li>The p-value Comparison: It counts how often the synthetic (perfect) data deviates from the model <em>more</em> than your real data does. If this happens at least 10% of the time ($p \ge 0.1$), the Power Law is considered a plausible match. If the p-value is tiny, you can reject the Power Law—even if the log-log plot looks like a straight line - meaning your variance might not be as &ldquo;infinite&rdquo; as your colleagues fear.</li>
+</ul>
+
+<details>
+    <summary>GoF test</summary>
+    
+    <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">calculate_powerlaw_gof_p_value</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">fit</span><span class="p">,</span> <span class="n">num_bootstraps</span><span class="o">=</span><span class="mi">2500</span><span class="p">,</span> <span class="n">discrete</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Calculates the p-value for the power-law goodness-of-fit
+</span></span></span><span class="line"><span class="cl"><span class="s2">    using the bootstrapping method described in Clauset, Newman, and Moore (2009).
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Args:
+</span></span></span><span class="line"><span class="cl"><span class="s2">        data (numpy.ndarray): The observed data to be fitted. Must be strictly positive.
+</span></span></span><span class="line"><span class="cl"><span class="s2">        fit (powerlaw.Fit): The fitted powerlaw object.
+</span></span></span><span class="line"><span class="cl"><span class="s2">        num_bootstraps (int): The number of synthetic datasets to generate.
+</span></span></span><span class="line"><span class="cl"><span class="s2">        discrete (bool): Whether the data is discrete or continuous.
+</span></span></span><span class="line"><span class="cl"><span class="s2">        seed (int): Seed for the random number generator.
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Returns:
+</span></span></span><span class="line"><span class="cl"><span class="s2">        float: The p-value for the power-law goodness-of-fit.
+</span></span></span><span class="line"><span class="cl"><span class="s2">        list: A list of D statistics from the synthetic datasets.
+</span></span></span><span class="line"><span class="cl"><span class="s2">    &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">data</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&#34;Data must be strictly positive for power-law fitting.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1"># The size of synthetic data should be the same as the observed data &gt;= xmin</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># This is crucial for consistency with CNS paper&#39;s methodology</span>
+</span></span><span class="line"><span class="cl">    <span class="n">data_above_xmin</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span> <span class="o">&gt;=</span> <span class="n">fit</span><span class="o">.</span><span class="n">power_law</span><span class="o">.</span><span class="n">xmin</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">n_for_gof</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data_above_xmin</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;</span><span class="se">\n</span><span class="s2">Performing </span><span class="si">{</span><span class="n">num_bootstraps</span><span class="si">}</span><span class="s2"> bootstraps...&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># Seed numpy for reproducibility of the bootstrap samples</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">seed</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1"># Step 2: Generate synthetic datasets and calculate their KS statistics</span>
+</span></span><span class="line"><span class="cl">    <span class="n">synthetic_D_values</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1"># Use tqdm for a progress bar as this can take time</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="o">.</span><span class="n">trange</span><span class="p">(</span><span class="n">num_bootstraps</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s2">&#34;Bootstrapping&#34;</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># Generate a synthetic dataset from the *fitted* power law</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># Use fit_obs.power_law.generate_random() as it handles the distribution type (discrete/continuous)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">synthetic_data</span> <span class="o">=</span> <span class="n">fit</span><span class="o">.</span><span class="n">power_law</span><span class="o">.</span><span class="n">generate_random</span><span class="p">(</span><span class="n">n_for_gof</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># Fit a new power law to the synthetic data, but crucially,</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># FIX the xmin to the original fitted xmin (as per CNS, Section 3, steps 2-4)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">try</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">fit_synthetic</span> <span class="o">=</span> <span class="n">powerlaw</span><span class="o">.</span><span class="n">Fit</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">                <span class="n">synthetic_data</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="n">xmin</span><span class="o">=</span><span class="n">fit</span><span class="o">.</span><span class="n">power_law</span><span class="o">.</span><span class="n">xmin</span><span class="p">,</span>        <span class="c1"># FIX xmin to the original fitted xmin</span>
+</span></span><span class="line"><span class="cl">                <span class="c1">#fixed_xmin=True,      # Crucial: tell the fit to use this fixed xmin</span>
+</span></span><span class="line"><span class="cl">                <span class="n">discrete</span><span class="o">=</span><span class="n">discrete</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span>         <span class="c1"># Keep quiet for the inner loop</span>
+</span></span><span class="line"><span class="cl">            <span class="p">)</span>
+</span></span><span class="line"><span class="cl">            
+</span></span><span class="line"><span class="cl">            <span class="c1"># The D attribute of this synthetic fit is the KS statistic</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># between the synthetic data and the power law with the fixed xmin.</span>
+</span></span><span class="line"><span class="cl">            <span class="n">D_synthetic</span> <span class="o">=</span> <span class="n">fit_synthetic</span><span class="o">.</span><span class="n">power_law</span><span class="o">.</span><span class="n">D</span>
+</span></span><span class="line"><span class="cl">            <span class="n">synthetic_D_values</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">D_synthetic</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># Handle cases where a fit might fail for a synthetic dataset (rare but possible for edge cases)</span>
+</span></span><span class="line"><span class="cl">            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;  Warning: Fit failed for a synthetic dataset: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">. Skipping this sample.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="k">continue</span> <span class="c1"># Skip this sample if fit fails</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># Step 3: Calculate the p-value</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># The p-value is the fraction of synthetic D values that are &gt;= D_obs</span>
+</span></span><span class="line"><span class="cl">    <span class="n">count_greater_or_equal</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">synthetic_D_values</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">fit</span><span class="o">.</span><span class="n">power_law</span><span class="o">.</span><span class="n">D</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1"># Ensure no division by zero if all fits failed</span>
+</span></span><span class="line"><span class="cl">    <span class="n">p_value</span> <span class="o">=</span> <span class="n">count_greater_or_equal</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">synthetic_D_values</span><span class="p">)</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">synthetic_D_values</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;</span><span class="se">\n</span><span class="s2">Bootstrapping complete. Performed </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">synthetic_D_values</span><span class="p">)</span><span class="si">}</span><span class="s2"> successful bootstraps.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">p_value</span> <span class="o">&gt;</span> <span class="mf">0.1</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;  Interpretation: p-value (</span><span class="si">{</span><span class="n">p_value</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">) &gt; 0.1. The data above x_min is consistent with a power law distribution.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;  Interpretation: p-value (</span><span class="si">{</span><span class="n">p_value</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">) &lt;= 0.1. The data above x_min is NOT consistent with a power law distribution.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">p_value</span><span class="p">,</span> <span class="n">synthetic_D_values</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl"><span class="n">p_value_gof</span><span class="p">,</span> <span class="n">synthetic_D_values</span> <span class="o">=</span> <span class="n">calculate_powerlaw_gof_p_value</span><span class="p">(</span><span class="n">non_zero_revenue</span><span class="p">,</span> <span class="n">fit</span><span class="p">,</span> <span class="n">num_bootstraps</span><span class="o">=</span><span class="mi">2500</span><span class="p">,</span> <span class="n">discrete</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">observed_D</span> <span class="o">=</span> <span class="n">fit</span><span class="o">.</span><span class="n">power_law</span><span class="o">.</span><span class="n">D</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">synthetic_D_values</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;skyblue&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Synthetic D values (N=</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">synthetic_D_values</span><span class="p">)</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">observed_D</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Observed D: </span><span class="si">{</span><span class="n">observed_D</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Distribution of Bootstrapped KS Statistics (p-value: </span><span class="si">{</span><span class="n">p_value_gof</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Kolmogorov-Smirnov Statistic (D)&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Density&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</span></span></code></pre></div>
+</details>
+
+<style>
+ 
+details summary {
+    cursor: pointer;
+    padding: 8px 12px;
+    border: 1px solid #444;  
+    border-radius: 4px;
+    margin-bottom: 5px;
+    background-color: #333;  
+    color: #f0f0f0;  
+    font-weight: bold;
+    user-select: none;  
+}
+details summary:hover {
+    background-color: #555;  
+}
+
+ 
+ 
+ 
+.highlight {
+    margin-top: 10px;  
+     
+     
+     
+    padding: 10px;  
+    border-radius: 4px;
+    overflow-x: auto;
+}
+.highlight pre {
+    margin: 0;
+}
+</style>
+<p>Let us see in practice what the test says for our LogNormal distribution with high variance as in the previous paragraph.</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  id="figure-gof-test-for-a-high-variance-log-normal">
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img src="/images/variance_test/GoFLogNormal.png" alt="GoF test" loading="lazy" data-zoomable /></div>
+  </div><figcaption>
+      GoF test for a high-variance Log-Normal
+    </figcaption></figure>
+</p>
+<p>As you can see, the observed KS statistic from the high-variance LogNormal is larger than one computed on synthetic data 53% of the times, meaning that the data above $x_{min}$ is consistent with a Power Law distribution, even though we know it&rsquo;s drawn from a finite variance one
+<span class="infotip-container">
+    <sup class="infotip-icon">i</sup>
+    <span class="infotip-content">There is one subtle point regarding the Clauset et al. (2009) methodology that I should mention, as may trip you up when writing these functions: in the paper (Section 3), for a truly rigorous $p$-value, the synthetic fits are actually supposed to re-estimate $x_{min}$ for every synthetic dataset, rather than fixing it to the original $x_{min}$. In the function presented in this paragraph $x_{min}$ is fixed: this tests if our data matches the specific power law model we found. It is a faster and more 'conservative' test. The paper suggests instead letting $powerlaw.Fit$ find the best $x_{min}$ for each synthetic sample. This accounts for the fact that the $x_{min}$ estimation itself is a source of variance. If you want to follow the paper exactly, remove the $xmin=fit.power\_law.xmin$ argument from the internal loop. However, be warned: this makes the function significantly slower because it has to run the KS-minimization algorithm 2,500 times.</span>
+</span>
+
+<style>
+ 
+
+ 
+.infotip-container {
+    position: relative;      
+    display: inline-block;   
+    cursor: help;            
+    text-decoration: none;   
+}
+
+ 
+.infotip-icon {
+    font-size: 0.7em;            
+    vertical-align: super;       
+    border: 1px solid #777;      
+    border-radius: 50%;          
+    width: 1.2em;                
+    height: 1.2em;               
+    display: inline-flex;        
+    justify-content: center;     
+    align-items: center;         
+    line-height: 1;              
+    margin-left: 0.2em;          
+    color: #555;                 
+    background-color: #f0f0f0;   
+    font-weight: bold;
+    user-select: none;           
+    transition: background-color 0.2s ease, color 0.2s ease;  
+}
+
+.infotip-container:hover .infotip-icon {
+    background-color: #66d9ef;  
+    color: #fff;                 
+    border-color: #66d9ef;
+}
+
+ 
+.infotip-content {
+    font-size: 0.7em;
+    position: absolute;
+    bottom: calc(100% + 5px);  
+    left: 50%;  
+    transform: translateX(-50%);  
+    min-width: 250px;            
+    max-width: 350px;            
+    background-color: #444;      
+    color: #fff;                 
+    padding: 12px 18px;          
+    border-radius: 6px;          
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);  
+    z-index: 100;                
+
+    opacity: 0;                  
+    visibility: hidden;          
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;  
+
+     
+    &::after {
+        content: '';
+        position: absolute;
+        top: 100%;  
+        left: 50%;
+        transform: translateX(-50%);
+        border-width: 8px;
+        border-style: solid;
+        border-color: #333 transparent transparent transparent;  
+    }
+}
+
+ 
+.infotip-container:hover .infotip-content {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(-10px);  
+}
+</style>.</p>
+<h4 id="csn-step-3-likelihood-ratio-tests">CSN Step 3: Likelihood Ratio Tests</h4>
+<p>The Likelihood Ratio Test is the &ldquo;ultimate&rdquo; arbiter because it doesn&rsquo;t just ask if one distribution is a plausible fit, but mathematically compares two competing models (like Power Law vs. Log-Normal) to calculate which one is objectively more likely to have produced your specific dataset. Since how it works is summarized above, let&rsquo;s jump to some tests!</p>
+<p>We&rsquo;ll check whether the Pareto distribution we fitted starting from a high-variance LogNormal is more likely to be a better fit for - indeed - a Pareto Law than for other distributions (LogNormal, Exponetial and Stretched Exponential in this paragraph).</p>
+
+<details>
+    <summary>Likelihood Ratio tests</summary>
+    
+    <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># --- 5. Likelihood Ratio Tests (Comparison with Alternatives) ---</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;</span><span class="se">\n</span><span class="s2">--- Step 5: Likelihood Ratio Tests (Power Law vs. Alternatives) ---&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;</span><span class="se">\n</span><span class="s2">--- Power Law vs. Log-Normal ---&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">R_ln</span><span class="p">,</span> <span class="n">p_ln</span> <span class="o">=</span> <span class="n">fit</span><span class="o">.</span><span class="n">distribution_compare</span><span class="p">(</span><span class="s1">&#39;power_law&#39;</span><span class="p">,</span> <span class="s1">&#39;lognormal&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;R (Power Law vs. Log-Normal): </span><span class="si">{</span><span class="n">R_ln</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">, p-value: </span><span class="si">{</span><span class="n">p_ln</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="n">p_ln</span> <span class="o">&lt;</span> <span class="mf">0.1</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">R_ln</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;  Interpretation: Power Law is a significantly better fit than Log-Normal.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;  Interpretation: Log-Normal is a significantly better fit than Power Law.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">else</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;  Interpretation: No significant difference between Power Law and Log-Normal (cannot favor one).&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;</span><span class="se">\n</span><span class="s2">--- Power Law vs. Exponential ---&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">R_exp</span><span class="p">,</span> <span class="n">p_exp</span> <span class="o">=</span> <span class="n">fit</span><span class="o">.</span><span class="n">distribution_compare</span><span class="p">(</span><span class="s1">&#39;power_law&#39;</span><span class="p">,</span> <span class="s1">&#39;exponential&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;R (Power Law vs. Exponential): </span><span class="si">{</span><span class="n">R_exp</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">, p-value: </span><span class="si">{</span><span class="n">p_exp</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="n">p_exp</span> <span class="o">&lt;</span> <span class="mf">0.1</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">R_exp</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;  Interpretation: Power Law is a significantly better fit than Exponential.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;  Interpretation: Exponential is a significantly better fit than Power Law (unlikely for fat tail).&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">else</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;  Interpretation: No significant difference between Power Law and Exponential.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;</span><span class="se">\n</span><span class="s2">--- Power Law vs. Stretched Exponential ---&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">R_strexp</span><span class="p">,</span> <span class="n">p_strexp</span> <span class="o">=</span> <span class="n">fit</span><span class="o">.</span><span class="n">distribution_compare</span><span class="p">(</span><span class="s1">&#39;power_law&#39;</span><span class="p">,</span> <span class="s1">&#39;stretched_exponential&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;R (Power Law vs. Stretched Exponential): </span><span class="si">{</span><span class="n">R_strexp</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">, p-value: </span><span class="si">{</span><span class="n">p_strexp</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="n">p_strexp</span> <span class="o">&lt;</span> <span class="mf">0.1</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">R_strexp</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;  Interpretation: Power Law is a significantly better fit than Stretched Exponential.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;  Interpretation: Stretched Exponential is a significantly better fit than Power Law.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">else</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;  Interpretation: No significant difference between Power Law and Stretched Exponential.&#34;</span><span class="p">)</span>
+</span></span></code></pre></div>
+</details>
+
+<style>
+ 
+details summary {
+    cursor: pointer;
+    padding: 8px 12px;
+    border: 1px solid #444;  
+    border-radius: 4px;
+    margin-bottom: 5px;
+    background-color: #333;  
+    color: #f0f0f0;  
+    font-weight: bold;
+    user-select: none;  
+}
+details summary:hover {
+    background-color: #555;  
+}
+
+ 
+ 
+ 
+.highlight {
+    margin-top: 10px;  
+     
+     
+     
+    padding: 10px;  
+    border-radius: 4px;
+    overflow-x: auto;
+}
+.highlight pre {
+    margin: 0;
+}
+</style>
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  id="figure-likelihood-ratio-tests-for-plausible-alternatives">
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img src="/images/variance_test/LRT.png" alt="LR Test" loading="lazy" data-zoomable /></div>
+  </div><figcaption>
+      Likelihood Ratio Tests for plausible alternatives
+    </figcaption></figure>
+</p>
+<p>It&rsquo;s interesting to see how the test for Pareto against LogNormal returns $R&lt;0$ which, if you recall from above, means that the LogNormal is more likely to be a good fit for the observed data (however the $p$-value is too high to conclude this with certainty).</p>
+<p>An interesting complementary visualization is that of the CCDF of both the observed data and the alternatives.</p>
+
+<details>
+    <summary>CCDF Observed vs Alternatives</summary>
+    
+    <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Visualizing the best fit from alternatives</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">fit</span><span class="o">.</span><span class="n">plot_ccdf</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">(),</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Observed Data CCDF&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">fit</span><span class="o">.</span><span class="n">power_law</span><span class="o">.</span><span class="n">plot_ccdf</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">(),</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Fitted Power Law ($</span><span class="se">\\</span><span class="s1">alpha$=</span><span class="si">{</span><span class="n">alpha</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">fit</span><span class="o">.</span><span class="n">lognormal</span><span class="o">.</span><span class="n">plot_ccdf</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">(),</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Fitted Log-Normal&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">fit</span><span class="o">.</span><span class="n">exponential</span><span class="o">.</span><span class="n">plot_ccdf</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">(),</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-.&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;purple&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Fitted Exponential&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">fit</span><span class="o">.</span><span class="n">stretched_exponential</span><span class="o">.</span><span class="n">plot_ccdf</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">(),</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;brown&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Fitted Stretched Exp.&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;CCDF and Fitted Distributions (Log-Log Scale)&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Revenue ($x$)&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;P($X \geq x$)&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">xscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">yscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s2">&#34;both&#34;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s2">&#34;--&#34;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;0.7&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</span></span></code></pre></div>
+</details>
+
+<style>
+ 
+details summary {
+    cursor: pointer;
+    padding: 8px 12px;
+    border: 1px solid #444;  
+    border-radius: 4px;
+    margin-bottom: 5px;
+    background-color: #333;  
+    color: #f0f0f0;  
+    font-weight: bold;
+    user-select: none;  
+}
+details summary:hover {
+    background-color: #555;  
+}
+
+ 
+ 
+ 
+.highlight {
+    margin-top: 10px;  
+     
+     
+     
+    padding: 10px;  
+    border-radius: 4px;
+    overflow-x: auto;
+}
+.highlight pre {
+    margin: 0;
+}
+</style>
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  id="figure-ccdf-of-observed-data-against-power-law-and-alternatives">
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img src="/images/variance_test/CCDFAll.png" alt="CCDF all" loading="lazy" data-zoomable /></div>
+  </div><figcaption>
+      CCDF of observed data against Power Law and alternatives
+    </figcaption></figure>
+</p>
+<p>Also from the above graph it is hard to distinguish whether the observed data CCDF is more similar to that of a LogNormal, a Pareto Law or a Stretched Exponential.</p>
+<h3 id="the-hill-estimator">The Hill Estimator</h3>
+<p>If the CCDF and Likelihood Ratio tests are your high-level diagnostics, the Hill Estimator is your microscope for the very tip of the tail. It is a tool specifically designed to estimate the tail index ($\alpha$) by looking only at the $k$ largest observations in your dataset. By plotting the Hill Estimator for varying values of $k$ — a Hill Plot — you can look for a stable &ldquo;regime&rdquo; where the index levels off. If this stable estimate consistently falls below $2$, you have mathematically grounded evidence that the variance is infinite. It serves as a vital reality check: if your tail index shifts wildly as you include more of the largest &ldquo;whales,&rdquo; your distribution might not be a pure Power Law at all, but rather a high-variance distribution that is simply being temporarily bullied by a few extreme outliers.</p>
+<p>If you&rsquo;re interested in the details: for a distribution $F(x)$ with a tail $1 - F(x) \sim x^{-1/\gamma} L(x)$ as $x \to \infty$, where $L(x)$ is a slowly varying function (meaning $L(tx)/L(x) \to 1$ as $x \to \infty$ for any $t&gt;0$), the parameter $\gamma$ is the tail index or extreme value index (EVI). The relationship between the Hill estimator&rsquo;s $\gamma$ and the power-law exponent $\alpha$ is simply: $\gamma = 1/(\alpha - 1)$.</p>
+<p>Given a sorted sample $X_{(1)} \ge X_{(2)} \ge \dots \ge X_{(n)}$ (order statistics, from largest to smallest), the Hill estimator for the tail index $\gamma$ based on the $k$ largest order statistics is: $$\hat{\gamma}_k=\frac{1}{k}\sum_{i=1}^{k}\log(X_{(i)})-\log(X_{(k+1)})$$</p>
+<p>Choice of $k$ (Number of Order Statistics): this is the most critical and challenging aspect of using the Hill estimator.</p>
+<ul>
+<li>Bias-Variance Trade-off: if $k$ is too small (e.g., only the very few largest values), the estimator has high variance (it&rsquo;s unstable because it relies on too little data). If $k$ is too large, the estimator might include values that are not truly in the &ldquo;tail region&rdquo; where the power-law approximation holds, leading to bias.</li>
+<li>Hill Plot: to address the choice of $k$, practitioners often create a Hill plot, which plots $\hat{\gamma}_k$ against $k$ (or $\log k$). The idea is to look for a &ldquo;stable region&rdquo; or &ldquo;plateau&rdquo; in the plot, where the estimate of $\gamma$ doesn&rsquo;t change much as $k$ varies. This plateau suggests a range of $k$ values where the power-law assumption is valid and the estimator is relatively stable. However, identifying such a plateau can be subjective.</li>
+</ul>
+<p>Let us see the Hill Plot for our simulated LogNormal distribution with high variance.</p>
+
+<details>
+    <summary>Hill Plot</summary>
+    
+    <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># --- Hill Estimator and Hill Plot ---</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;</span><span class="se">\n</span><span class="s2">--- Step 6: Hill Estimator and Hill Plot ---&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Ensure data is sorted in descending order</span>
+</span></span><span class="line"><span class="cl"><span class="n">sorted_non_zero_revenue</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">non_zero_revenue</span><span class="p">)[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">sorted_non_zero_revenue</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Define a range for k.</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># k usually ranges from a small number (e.g., 10 or 0.5% of data)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># up to N/2 or N/3, but not too close to N due to bias.</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># A common starting range is from 10 to sqrt(N) or N/10 for initial visualization.</span>
+</span></span><span class="line"><span class="cl"><span class="n">k_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">n</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span> <span class="c1"># From 10 to 20% of data, step 10</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">k_values</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Not enough data points or k_values range to compute Hill plot.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">hill_estimates</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">k_values</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">k</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">:</span> <span class="c1"># Ensure X_(k+1) exists</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># Using the formula: (1/k) * sum(log(X_i) - log(X_k+1))</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># Where X_i are the k largest values, and X_k+1 is the (k+1)-th largest</span>
+</span></span><span class="line"><span class="cl">            <span class="n">term1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">sorted_non_zero_revenue</span><span class="p">[:</span><span class="n">k</span><span class="p">]))</span> <span class="o">/</span> <span class="n">k</span>
+</span></span><span class="line"><span class="cl">            <span class="n">term2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">sorted_non_zero_revenue</span><span class="p">[</span><span class="n">k</span><span class="p">])</span> <span class="c1"># Note: Python indexing is 0-based, so k-th element is X_(k+1)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">hill_gamma</span> <span class="o">=</span> <span class="n">term1</span> <span class="o">-</span> <span class="n">term2</span>
+</span></span><span class="line"><span class="cl">            <span class="n">hill_estimates</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">hill_gamma</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">hill_estimates</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span> <span class="c1"># Mark as NaN if k+1 out of bounds</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># Convert to numpy array for easier plotting</span>
+</span></span><span class="line"><span class="cl">    <span class="n">hill_estimates</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">hill_estimates</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># Plot the Hill Plot</span>
+</span></span><span class="line"><span class="cl">    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">k_values</span><span class="p">,</span> <span class="n">hill_estimates</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># Add a horizontal line at gamma = 1 (alpha = 2) for variance check</span>
+</span></span><span class="line"><span class="cl">    <span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$\gamma=1$ ($</span><span class="se">\\</span><span class="s1">alpha=2$, Infinite Variance)&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$\gamma=0.5$ ($</span><span class="se">\\</span><span class="s1">alpha=3$, Finite Skewness)&#39;</span><span class="p">)</span> <span class="c1"># For reference</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Hill Plot (Hill Estimator vs. k)&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Number of Order Statistics (k)&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Hill Estimator ($\hat{\gamma}_k$)&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># plt.xscale(&#39;log&#39;) # Can also plot k on log scale, sometimes makes plateau clearer</span>
+</span></span><span class="line"><span class="cl">    <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s2">&#34;both&#34;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s2">&#34;--&#34;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;0.7&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># Find the Hill estimate corresponding to powerlaw&#39;s alpha (gamma = 1/(alpha - 1))</span>
+</span></span><span class="line"><span class="cl">    <span class="n">gamma_from_powerlaw_alpha</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="n">alpha</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="k">if</span> <span class="n">alpha</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;</span><span class="se">\n</span><span class="s2">Equivalent gamma from powerlaw.Fit alpha (</span><span class="si">{</span><span class="n">alpha</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">): </span><span class="si">{</span><span class="n">gamma_from_powerlaw_alpha</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># Interpretation</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;</span><span class="se">\n</span><span class="s2">--- Interpretation of Hill Plot ---&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Look for a plateau in the Hill plot:&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;  - If the plateau is consistently above or around 1, it suggests infinite variance (gamma greater or equal than 1 implies alpha smaller or equal than 2).&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;  - If the plateau is consistently below 1 (e.g., around 0.5 for alpha=3), it suggests finite variance.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;  - The stability of the estimate over a range of k indicates robustness.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Note: For data not truly power-law, the Hill plot might not show a clear plateau.&#34;</span><span class="p">)</span>
+</span></span></code></pre></div>
+</details>
+
+<style>
+ 
+details summary {
+    cursor: pointer;
+    padding: 8px 12px;
+    border: 1px solid #444;  
+    border-radius: 4px;
+    margin-bottom: 5px;
+    background-color: #333;  
+    color: #f0f0f0;  
+    font-weight: bold;
+    user-select: none;  
+}
+details summary:hover {
+    background-color: #555;  
+}
+
+ 
+ 
+ 
+.highlight {
+    margin-top: 10px;  
+     
+     
+     
+    padding: 10px;  
+    border-radius: 4px;
+    overflow-x: auto;
+}
+.highlight pre {
+    margin: 0;
+}
+</style>
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  id="figure-hill-plot-for-a-high-variance-simulated-lognormal">
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img src="/images/variance_test/Hill.png" alt="Hill plot" loading="lazy" data-zoomable /></div>
+  </div><figcaption>
+      Hill Plot for a high-variance simulated LogNormal
+    </figcaption></figure>
+</p>
+<p>Surprisingly - for me, at least - the Hill Plot in this case kind of shows a plateau consistently above 1. If the plateau is consistently above or around 1, it suggests infinite variance ($\gamma$ greater or equal than 1 implies $\alpha$ smaller or equal than 2) - even though we know that the data is drawn from a finite variance distribution! But again, as I said above, identifying a plateau is quite subjective&hellip;</p>
+<h3 id="conclusion">Conclusion</h3>
+<p>Navigating the &ldquo;infinite variance&rdquo; debate doesn&rsquo;t mean you have to surrender your A/B test results to skepticism; it means you must shift from blind trust in the CLT to active tail diagnostics. By combining the visual intuition of Mean Stability Plots with the mathematical rigor of the Hill Estimator and Likelihood Ratio Tests, you can distinguish between a distribution that is simply &ldquo;noisy&rdquo; (log-normal) and one that is truly &ldquo;pathological&rdquo; (power-law). If your data proves to have finite variance, you’ve earned the right to stand by your p-values. If the skeptics are right and the variance is infinite, you haven&rsquo;t failed—you’ve simply discovered that &ldquo;average revenue&rdquo; is the wrong metric to track, and it’s time to switch to more robust statistics like the median or winsorized means to tell the real story of your experiment.</p>
+<p>Even when the &ldquo;infinite variance&rdquo; bogeyman is disproven, a distribution with a heavy (but finite) tail remains a nightmare for the standard &ldquo;Normal&rdquo; intuition.</p>
+<p>In a world of Gaussian curves, the mean is the &ldquo;typical&rdquo; experience, and the standard deviation is a reliable ruler. But in a heavy-tailed revenue model, a &ldquo;one standard deviation increase&rdquo; is a mathematically valid but practically meaningless unit - it’s an abstraction driven by a few massive values that most of your users will never approach.</p>
+<p>Using non-parametric tests (like Mann-Whitney U, Bootstrapping or Permutations) or robust statistics (like the Median or Trimmed Mean) becomes more useful here because they describe the experience of the typical user rather than a mathematical average skewed by a few outliers. Even if the CLT eventually kicks in, a $p$-value telling you the &ldquo;means are different&rdquo; might just be reflecting the fact that one group happened to have two whales while the other had one. Switching to rank-based or robust methods allows you to tell a much more honest story: &ldquo;Our product change improved the experience for the 95% of users who aren&rsquo;t whales,&rdquo; which is often a far more actionable business insight than a fragile shift in a volatile mean.</p>
+<p>You can find the notebook with the full code <a href="https://github.com/matteorg/posts/blob/main/investigate_high_variance.ipynb" target="_blank" rel="noopener">here</a>.</p>
 <h4 id="thank-you-for-reading">Thank you for reading!</h4>
-<p><strong>Disclaimer</strong>: <em>I write to learn, based on my background and personal experience. Errors are my own, and if you spot them, let me know! I also appreciate suggestion to investigate new topics!</em></p>
+<p><strong>Disclaimer</strong>: <em>I write to learn, based on my background and personal experience. Errors are my own, and if you spot them, let me know! I also appreciate suggestions to investigate new topics!</em></p>
 
     </div>
 
