@@ -1,0 +1,560 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Competition Economics | Matteo Greco</title>
+    <link>https://matteorg.github.io/others/competition-economics/</link>
+      <atom:link href="https://matteorg.github.io/others/competition-economics/index.xml" rel="self" type="application/rss+xml" />
+    <description>Competition Economics</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Thu, 05 Mar 2026 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://matteorg.github.io/media/icon_hufe0bf023893a36fd468464b12c9bc07d_11738_512x512_fill_lanczos_center_3.png</url>
+      <title>Competition Economics</title>
+      <link>https://matteorg.github.io/others/competition-economics/</link>
+    </image>
+    
+    <item>
+      <title>Perfect Competition</title>
+      <link>https://matteorg.github.io/others/competition-economics/perfect-competition/</link>
+      <pubDate>Thu, 05 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://matteorg.github.io/others/competition-economics/perfect-competition/</guid>
+      <description>&lt;h2 id=&#34;definition&#34;&gt;Definition&lt;/h2&gt;
+&lt;p&gt;I learned in class that: &amp;ldquo;An agent is said to be competitive if she assumes or believes that the market price is given and that her actions do not influence the market price.&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;In oder words, think of a single wheat farmer in a world of millions. If she tries to sell her wheat for $\$1$ more than the going rate, nobody buys. If she sells it for $\$1$ less, she’s just leaving money on the table. She is a &amp;ldquo;price taker&amp;rdquo;, or otherwise said, the market is the boss.&lt;/p&gt;
+&lt;p&gt;In the real world, &amp;ldquo;Perfect Competition&amp;rdquo; almost never exists. It’s a theoretical North Star. We use it to measure how &amp;ldquo;broken&amp;rdquo; or &amp;ldquo;imperfect&amp;rdquo; a real market is. If a market isn&amp;rsquo;t acting like this benchmark, IO economists start looking for the &amp;ldquo;imperfections&amp;rdquo;.&lt;/p&gt;
+&lt;h2 id=&#34;pillars&#34;&gt;Pillars&lt;/h2&gt;
+&lt;p&gt;The main assumptions behind Perfect Competition are the following:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Price-Taking Behavior&lt;/strong&gt;: No single buyer or seller is big enough to nudge the price.
+&lt;ul&gt;
+&lt;li&gt;The Vibe: You are a drop in the ocean. If a wheat farmer doubles her production or quits entirely, the global price of wheat doesn&amp;rsquo;t move an inch. Everyone just reacts to the price &amp;ldquo;given&amp;rdquo; by the market.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Homogenous Goods&lt;/strong&gt;: Every single unit of the product is identical.
+&lt;ul&gt;
+&lt;li&gt;The Vibe: There is no &amp;ldquo;branding,&amp;rdquo; no &amp;ldquo;organic&amp;rdquo; vs. &amp;ldquo;regular,&amp;rdquo; and no &amp;ldquo;cool packaging.&amp;rdquo; If you can&amp;rsquo;t tell the difference between Farmer A’s corn and Farmer B’s corn, you will strictly buy the cheapest one. This kills a firm&amp;rsquo;s power to raise prices.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Perfectly Divisible Output&lt;/strong&gt;: You can buy or sell any tiny fraction of a product.
+&lt;ul&gt;
+&lt;li&gt;The Vibe: In this math-heavy world, you aren&amp;rsquo;t stuck buying &amp;ldquo;one whole car.&amp;rdquo; You can buy $0.00001$ of a car or a single grain of sand. This ensures the math stays &amp;ldquo;smooth&amp;rdquo; and firms can adjust their production to the exact atom where profit is maximized.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Perfect Information &amp;amp; No Transaction Costs&lt;/strong&gt;: Everyone knows everything instantly, and it costs nothing to trade.
+&lt;ul&gt;
+&lt;li&gt;The Vibe: Consumers know every price at every store without looking. There are no &amp;ldquo;hidden fees&amp;rdquo;, no &amp;ldquo;searching for a deal&amp;rdquo;, and no &amp;ldquo;shipping costs&amp;rdquo;. If a store across town is $0.01$ cheaper, you are there instantly and effortlessly.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;No Externalities&lt;/strong&gt;: The trade only affects the buyer and the seller.
+&lt;ul&gt;
+&lt;li&gt;The Vibe: There is no &amp;ldquo;third-party&amp;rdquo; drama. No pollution (a negative externality) and no bees pollinating a neighbor&amp;rsquo;s orchard (a positive externality). The price on the tag reflects the total cost to society.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Free Entry and Exit&lt;/strong&gt;: There are zero &amp;ldquo;Keep Out&amp;rdquo; signs.
+&lt;ul&gt;
+&lt;li&gt;The Vibe: If a lemonade stand is making a huge profit, you can start your own in one second for $0. If you start losing money, you can quit instantly without losing a dime on rent or equipment. This keeps profits at exactly zero in the long run.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;main-learnings&#34;&gt;Main learnings&lt;/h2&gt;
+&lt;p&gt;When all six the above assumptions are true, we reach &lt;strong&gt;Pareto Efficiency&lt;/strong&gt;. This is a state where it is impossible to make one person better off without making someone else worse off. It’s the &amp;ldquo;Maximum Happiness&amp;rdquo; setting for an economy.&lt;/p&gt;
+&lt;p&gt;In what follows we&amp;rsquo;ll try to illustrate shortly how this equilibrium state materializes in simple mathematical and graphical terms.&lt;/p&gt;
+&lt;h2 id=&#34;short--and-long-run-equilibrium&#34;&gt;Short- and Long-Run Equilibrium&lt;/h2&gt;
+&lt;h3 id=&#34;supply-side&#34;&gt;Supply Side&lt;/h3&gt;
+&lt;p&gt;Let us start with the problem of the firm. Each firm wants to maximize its profit, intuitively defined as revenue net of costs.&lt;/p&gt;
+&lt;h4 id=&#34;costs&#34;&gt;Costs&lt;/h4&gt;
+&lt;p&gt;Types of costs:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Fixed cost ($FC$): The cost that doesn’t depend on the output level.
+&lt;ul&gt;
+&lt;li&gt;Examples of &lt;em&gt;explicit&lt;/em&gt; fixed costs:
+&lt;ul&gt;
+&lt;li&gt;Loan payments&lt;/li&gt;
+&lt;li&gt;Rent&lt;/li&gt;
+&lt;li&gt;Maintenance&lt;/li&gt;
+&lt;li&gt;Part of the wage bill&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;In the short run, most of these fixed costs are &lt;em&gt;sunk&lt;/em&gt;.
+&lt;span class=&#34;infotip-container&#34;&gt;
+    &lt;sup class=&#34;infotip-icon&#34;&gt;i&lt;/sup&gt;
+    &lt;span class=&#34;infotip-content&#34;&gt;A fixed cost is an expense that doesn&#39;t change with how much you produce (like the monthly rent). It becomes sunk when that money is committed and cannot be recovered through resale or cancellation (e.g. permits, legal contracts, specialized trainings for staff, etc.).&lt;/span&gt;
+&lt;/span&gt;
+
+&lt;style&gt;
+ 
+
+ 
+.infotip-container {
+    position: relative;      
+    display: inline-block;   
+    cursor: help;            
+    text-decoration: none;   
+}
+
+ 
+.infotip-icon {
+    font-size: 0.7em;            
+    vertical-align: super;       
+    border: 1px solid #777;      
+    border-radius: 50%;          
+    width: 1.2em;                
+    height: 1.2em;               
+    display: inline-flex;        
+    justify-content: center;     
+    align-items: center;         
+    line-height: 1;              
+    margin-left: 0.2em;          
+    color: #555;                 
+    background-color: #f0f0f0;   
+    font-weight: bold;
+    user-select: none;           
+    transition: background-color 0.2s ease, color 0.2s ease;  
+}
+
+.infotip-container:hover .infotip-icon {
+    background-color: #66d9ef;  
+    color: #fff;                 
+    border-color: #66d9ef;
+}
+
+ 
+.infotip-content {
+    font-size: 0.7em;
+    position: absolute;
+    bottom: calc(100% + 5px);  
+    left: 50%;  
+    transform: translateX(-50%);  
+    min-width: 250px;            
+    max-width: 350px;            
+    background-color: #444;      
+    color: #fff;                 
+    padding: 12px 18px;          
+    border-radius: 6px;          
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);  
+    z-index: 100;                
+
+    opacity: 0;                  
+    visibility: hidden;          
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;  
+
+     
+    &amp;::after {
+        content: &#39;&#39;;
+        position: absolute;
+        top: 100%;  
+        left: 50%;
+        transform: translateX(-50%);
+        border-width: 8px;
+        border-style: solid;
+        border-color: #333 transparent transparent transparent;  
+    }
+}
+
+ 
+.infotip-container:hover .infotip-content {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(-10px);  
+}
+&lt;/style&gt;&lt;/li&gt;
+&lt;li&gt;In the long run, if the business isn&amp;rsquo;t profitable, the firm for example simply doesn&amp;rsquo;t renew the lease. The cost disappears. This makes almost all costs &lt;em&gt;avoidable&lt;/em&gt; rather than sunk. This comes from the free exit assumption.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Implicit&lt;/em&gt; fixed costs: the firm owner&amp;rsquo;s &amp;ldquo;lost&amp;rdquo; salary and the &amp;ldquo;normal&amp;rdquo; return on the capital invested in the business (the &lt;em&gt;opportunity cost&lt;/em&gt;). Suppose that you own some land. You can either rent it out or do something with it (e.g. build a factory). When deciding whether to build your factory, you should take into account the opportunity cost of not renting out your land. Or suppose you leave your job to open a bakery: on top of the costs to start and operate the new business you should add the salary you&amp;rsquo;re giving up on as an implicit cost.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Variable cost ($VC$): That cost which would be zero if the output level were zero. Since it&amp;rsquo;s &lt;em&gt;variable&lt;/em&gt; by definition we can express it as a function of the quantity of output produced $Q$, $VC(Q)$
+&lt;ul&gt;
+&lt;li&gt;Inputs (cement, electricity, gravel, water, etc.)&lt;/li&gt;
+&lt;li&gt;Part of the wage bill&lt;/li&gt;
+&lt;li&gt;Taxes&lt;/li&gt;
+&lt;li&gt;Trucking, fuel, etc.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Total cost ($TC$): $TC(Q) ≡ FC + VC(Q)$.
+&lt;ul&gt;
+&lt;li&gt;Total cost is usually higher in the short run because of inflexibility. In the short run, you are &amp;ldquo;stuck&amp;rdquo; with certain decisions (fixed inputs), whereas in the long run, you have the freedom to choose the most cost-effective combination of everything.&lt;/li&gt;
+&lt;li&gt;Economists often say the Long-Run Average Cost (LRAC) curve &amp;ldquo;envelopes&amp;rdquo; the Short-Run Average Cost (SRAC) curves (the &lt;strong&gt;Envelope Theorem&lt;/strong&gt;):
+&lt;ul&gt;
+&lt;li&gt;In the short run, you are forced to operate on one specific SRAC curve based on the factory size you already have.&lt;/li&gt;
+&lt;li&gt;In the long run, you can jump to the lowest point of whichever SRAC curve is most efficient for your desired production level.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;When it is cheaper for one single firm to produce two (or more) different products together than it is for two separate firms to produce them individually, we talk about &lt;strong&gt;Economies of scope&lt;/strong&gt;: given two products $A$ and $B$, $TC(Q_A,Q_B)&amp;lt;TC(Q_A,0)+TC(0,Q_B)$
+&lt;ul&gt;
+&lt;li&gt;An airline example: NYC to Paris (A) and Paris to NYC (B) flights. Why is it cheaper for one airline to do both?
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Avoided &amp;ldquo;Deadheading&amp;rdquo;&lt;/strong&gt;: If an airline only flew from NYC to Paris (Product A), the plane would be stuck in France. To fly it back empty just to start the next trip is incredibly expensive. By selling the return trip (Product B), the airline uses the same &amp;ldquo;input&amp;rdquo; (the plane and crew) to generate a second product.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Shared Fixed Assets&lt;/strong&gt;: One airline needs only one check-in counter at JFK and one at Charles de Gaulle to handle both flights. Two separate airlines would each need their own counters, staff, and landing slots.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Maintenance &amp;amp; Logistics&lt;/strong&gt;: A single airline can house its spare parts and mechanics in one hub to service the plane regardless of which leg of the trip it just finished.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Average cost ($AC$, also unit cost): $AC(Q) ≡ TC(Q)/Q$.
+&lt;ul&gt;
+&lt;li&gt;Empirically, $AC(Q)$ is U-shaped, implying &lt;strong&gt;Economies of scale&lt;/strong&gt; for low $Q$, &lt;strong&gt;Diseconomies of scale&lt;/strong&gt; for high $Q$.
+&lt;ul&gt;
+&lt;li&gt;When a firm is small (low $Q$), increasing production usually makes the cost per unit drop. This happens for three main reasons:
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Spreading Fixed Costs&lt;/strong&gt;: Imagine renting a bakery for $\$1,000$ a month. If you bake 1 loaf of bread, that loaf costs $\$1,000$ in rent. If you bake 1,000 loaves, the rent cost per loaf drops to $\$1$.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Specialization&lt;/strong&gt;: In a small shop, one person does everything. As you grow, you can hire a specialist for the oven and a specialist for the dough. They get faster and better, reducing waste and time.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Technological Efficiencies&lt;/strong&gt;: Larger machines are often more efficient. A giant industrial oven uses less energy per loaf than ten tiny home ovens.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Eventually, if the firm keeps growing (high $Q$), the cost per unit starts to climb again. This isn&amp;rsquo;t usually because the machines break, but because of human and organizational limits:
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Managerial Complexity&lt;/strong&gt;: When a company gets massive, it needs &amp;ldquo;managers to manage the managers.&amp;rdquo; Communication slows down, and paperwork piles up. This is often called &amp;ldquo;Bureaucratic Congestion&amp;rdquo;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Coordination Failure&lt;/strong&gt;: In a huge factory, the left hand might not know what the right hand is doing. Miscommunications lead to expensive mistakes and idle time.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Worker Alienation&lt;/strong&gt;: In a tiny shop, everyone is motivated. In a massive corporation, an individual worker might feel like a &amp;ldquo;cog in the machine,&amp;rdquo; leading to lower effort or the need for expensive supervisors to keep them on task.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Marginal cost ($MC$): the cost of one additional unit. $MC(Q) ≡ \frac{dTC}{dQ}$.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Assume that $AC(Q)$ is U-shaped. Then, $MC(Q)$ crosses $AC(Q)$ at minimum average cost level. To grasp the intuition, think of a coffee shop making cappuccinos:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Decreasing&lt;/strong&gt; $AC$: The first few cappucinos are expensive because of the mortgage. $AC$ might be $\$5.00$. Then you&amp;rsquo;re done paying mortgage and the next latte only costs you $\$1.00$ ($MC$) in milk and beans, your new $AC$ will drop (say, to $\$4.00$).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Increasing&lt;/strong&gt; $AC$: Eventually, the shop gets too crowded. You have to pay workers &amp;ldquo;overtime&amp;rdquo; or buy a second, less efficient machine. Now, the additional cappucino costs you $\$6.00$ to make. Because $\$6.00$ is higher than the current average, it &amp;ldquo;drags&amp;rdquo; the average up.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;details&gt;
+&lt;summary&gt;&lt;b&gt; Proof&lt;/b&gt;&lt;/summary&gt;
+&lt;br&gt;
+Let $\hat{Q}$ the output that minimizes $AC$: $$\left. \frac{dAC(Q)}{dQ}\right|_{Q=\hat{Q}}=0$$
+&lt;br&gt;
+Since: $$\frac{dAC(Q)}{dQ} = \frac{d(TC(Q)/Q)}{dQ} = \frac{(dTC(Q)/dQ)Q-TC(Q)}{dQ^2}$$
+&lt;br&gt;
+$\hat{Q}$ solves: $$\frac{(dTC(Q)/dQ)Q-TC(Q)}{dQ^2}=0 \iff (dTC(Q)/dQ)Q-TC(Q)=0$$
+Rearranging terms we get: $$MC(\hat{Q})=\left. \frac{dTC(Q)}{dQ}\right|_{Q=\hat{Q}}=\frac{TC(\hat{Q})}{\hat{Q}}=AC(\hat{Q})$$
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-ac-and-mc-curves&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;https://matteorg.github.io/images/comp_econ/perfect-competition/ACMC.png&#34; alt=&#34;ACMC&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      AC and MC curves
+    &lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;/details&gt;
+&lt;h4 id=&#34;profit-maximizing-decision&#34;&gt;Profit Maximizing Decision&lt;/h4&gt;
+&lt;p&gt;Each firms tries to maximize the difference between revenue and costs. Formally they solve: $$\max_{Q} \pi(Q) \equiv PQ - TC(Q)$$ where revenue is obviously given by multiplying the quantity of product sold times its price $P$. Note that in this case I did not write $P(Q)$ as under Perfect Competition assumptions the price is taken as given.&lt;/p&gt;
+&lt;p&gt;The optimal level $Q^*$ will be such that $P=MC(Q^*)$. However, as we just said before that with a U-shaped $AC$ curve the $MC$ curve will cross the $AC$ one at $AC$ mininum, for decreasing $AC$ the $MC$ will be lower than the $AC$. Producing at $MC&amp;lt;AC$ would cause a firm to lose money!&lt;/p&gt;
+&lt;p&gt;This is clear if you look at how we can reformulate profits at the optimum: $$\pi(Q^*) \equiv MC(Q^*)Q^* - TC(Q^*) \equiv Q^*(MC(Q^*)-AC(Q^*))$$&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Implication&lt;/strong&gt;: the firm chooses $Q = 0$. Therefore, the aggregate supply curve will look like this:&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-aggregate-supply-curve&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;https://matteorg.github.io/images/comp_econ/perfect-competition/agg-supply.png&#34; alt=&#34;AggS&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      Aggregate Supply Curve
+    &lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;h3 id=&#34;demand-side&#34;&gt;Demand Side&lt;/h3&gt;
+&lt;p&gt;In the world of microeconomics, deriving the aggregate demand curve is essentially a giant &amp;ldquo;summing up&amp;rdquo; exercise. While it feels intuitive that prices and quantities have an inverse relationship, the formal derivation relies on individual optimization.&lt;/p&gt;
+&lt;p&gt;To get to the aggregate level, we start with the individual consumer. We assume each consumer $i$ maximizes their utility $U_i$ subject to a budget constraint $I_i$.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Individual Demand&lt;/strong&gt;: Through the process of constrained optimization (usually using Lagrange multipliers), we derive the Marshallian Demand for an individual: $q_i(P, I)$.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Horizontal Summation&lt;/strong&gt;: The aggregate demand $Q(P)$ is the sum of all individual quantities demanded at every possible price point. Mathematically:$$Q(P) = \sum_{i=1}^{n} q_i(P, I_i)$$&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;The Inverse Function&lt;/strong&gt;: Once we have $Q(P)$, we invert it to get $P(Q)$. This represents the &lt;em&gt;willingness to pay&lt;/em&gt; for the last unit produced in the market. Since $Q(P)$ is typically monotonic, the inverse $P(Q)$ inherits the downward slope ($P&amp;rsquo;(Q) &amp;lt; 0$).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;downward-slopealways&#34;&gt;Downward slope&amp;hellip;always?&lt;/h4&gt;
+&lt;p&gt;The short answer is: &lt;em&gt;&amp;ldquo;Usually, but not always&amp;rdquo;&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;In most cases, the &lt;strong&gt;Law of Demand&lt;/strong&gt; holds because of two forces working in the same direction:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Substitution Effect&lt;/strong&gt;: When price rises, consumers switch to cheaper alternatives.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Income Effect&lt;/strong&gt;: When price rises, your purchasing power drops. For normal goods, this leads you to buy less.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;However, there are two famous exceptions where the demand curve can actually slope &lt;strong&gt;upward&lt;/strong&gt;:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Giffen Goods&lt;/strong&gt;: A Giffen good is an extreme type of &lt;strong&gt;inferior&lt;/strong&gt; good. For these goods, the negative income effect is so strong that it outweighs the substitution effect. If the price of a staple (like bread or rice for someone in extreme poverty) rises, the consumer is so much &amp;ldquo;poorer&amp;rdquo; that they can no longer afford meat, forcing them to buy more bread to survive.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Veblen Goods (Conspicuous Consumption)&lt;/strong&gt;: These are luxury items where the high price is part of the appeal (e.g., designer handbags, high-end watches). Here, the price acts as a signal of status. If the price drops, the &amp;ldquo;snob appeal&amp;rdquo; vanishes, and demand might actually decrease.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;price-elasticity-of-demand&#34;&gt;Price elasticity of demand&lt;/h4&gt;
+&lt;p&gt;In Perfect Competition, we assume the aggregate demand curve is downward sloping for the &lt;em&gt;entire industry&lt;/em&gt;. However, because an individual firm is a price taker, the demand curve that &lt;em&gt;a specific firm&lt;/em&gt; sees is perfectly elastic (horizontal). They can sell as much as they want at the market price, but nothing above it.&lt;/p&gt;
+&lt;p&gt;As a recap, what is the price elasticity of demand? It is the percentage change in demand which results from a 1% change in price, or: $$\varepsilon_{D}(P) \equiv -\frac{dQ}{dP} \frac{P}{Q} = -\frac{dQ/Q}{dP/P} \approx -\frac{\Delta Q/Q}{\Delta P/P}$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;$\varepsilon_{D}(P) &amp;gt; 1$: Demand is elastic (at price $P$), i.e., consumers are quite price sensitive.&lt;/li&gt;
+&lt;li&gt;$\varepsilon_{D}(P) = 1$: Demand is unit elastic.&lt;/li&gt;
+&lt;li&gt;$\varepsilon_{D}(P) &amp;lt; 1$: Demand is inelastic, i.e. consumers do not respond much to price changes.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;A word of caution&lt;/strong&gt;: Demand elasticity is a &lt;strong&gt;local&lt;/strong&gt; concept, not a global one. No reason to expect $\varepsilon_{D}(P_1)$ and $\varepsilon_{D}(P_2)$ to be equal.&lt;/p&gt;
+&lt;h3 id=&#34;equilibrium&#34;&gt;Equilibrium&lt;/h3&gt;
+&lt;p&gt;In the &lt;strong&gt;short run&lt;/strong&gt;, the number of firms is fixed. The Perfect Competition equilibrium lies at the intersection of demand and supply curves. If $P^*$ is above firms’ average costs, firms make profits. In the &lt;strong&gt;long run&lt;/strong&gt; there is free entry/exit:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Because of free entry, firms make zero profit in the long run: $P = AC$.&lt;/li&gt;
+&lt;li&gt;We still have $P = MC$ for each firm.&lt;/li&gt;
+&lt;li&gt;$MC = AC \implies$ The long-run supply curve is horizontal: $P = P_{LR}$, where $P_{LR} = min_{q} AC(q)$.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-short-run-vs-long-run-equilibrium&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;https://matteorg.github.io/images/comp_econ/perfect-competition/lrsreq.png&#34; alt=&#34;AggS&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      Short Run vs Long Run equilibrium
+    &lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;This diagram is a classic economics illustration showing how a market moves from a short-term &amp;ldquo;shock&amp;rdquo; back to long-term equilibrium in a perfectly competitive market.&lt;/p&gt;
+&lt;p&gt;On the left, we see what happens to a single firm; on the right, we see the entire market.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;The Starting Point ($D_1$ and $S_1$)&lt;/strong&gt;: Initially, the market is in equilibrium where the black lines $D_1$ and $S_1$ intersect. The price is at $P^{LR}$ (the Long Run price). At this price, the individual firm is producing at $q^{LR}$, which is the bottom of their Average Cost ($AC$) curve.
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Key takeaway&lt;/strong&gt;: At this point, firms are making &amp;ldquo;zero economic profit&amp;rdquo;; they are covering all costs, but there&amp;rsquo;s no &amp;ldquo;extra&amp;rdquo; money attracting new competitors.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;The Short-Run Shift ($D_2$)&lt;/strong&gt;: Something happens (like a surge in popularity for a product) that shifts the demand curve from $D_1$ to $D_2$ (the orange line).
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;In the Market&lt;/strong&gt;: The price jumps up to $P^{SR}$.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;For the Firm&lt;/strong&gt;: The firm sees this higher price and follows its Marginal Cost ($MC$) curve up to produce more ($q^{SR}$).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;The Result&lt;/strong&gt;: Because the price ($P^{SR}$) is now higher than the Average Cost ($AC$), the firm is making positive economic profit.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;The Long-Run Adjustment ($S_2$)&lt;/strong&gt;: In a perfectly competitive market, profit acts like a giant &amp;ldquo;Open&amp;rdquo; sign for new businesses.
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Entry&lt;/strong&gt;: Seeing the extra profit, new firms enter the market.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Supply Shifts&lt;/strong&gt;: As more firms enter, the market supply curve shifts to the right ($S_1 \rightarrow S_2$).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Price Drops&lt;/strong&gt;: The increased supply pushes the market price back down until it hits $P^{LR}$ again.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;You can see this happening in the animated illustration below:&lt;/p&gt;
+&lt;div id=&#34;graph-wrapper&#34; style=&#34;width: 100%; max-width: 900px; margin: auto; background: #fff; padding: 20px; border-radius: 8px; border: 1px solid #eee;&#34;&gt;
+  &lt;svg viewBox=&#34;0 0 850 400&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34; style=&#34;width: 100%; height: auto; font-family: sans-serif;&#34;&gt;
+    
+    &lt;g transform=&#34;translate(50, 50)&#34;&gt;
+      &lt;text x=&#34;-40&#34; y=&#34;-10&#34; font-size=&#34;16&#34; font-weight=&#34;bold&#34; fill=&#34;black&#34;&gt;Cost/Price&lt;/text&gt;
+      &lt;line x1=&#34;0&#34; y1=&#34;0&#34; x2=&#34;0&#34; y2=&#34;300&#34; stroke=&#34;black&#34; stroke-width=&#34;2&#34; /&gt; 
+      &lt;line x1=&#34;0&#34; y1=&#34;300&#34; x2=&#34;350&#34; y2=&#34;300&#34; stroke=&#34;black&#34; stroke-width=&#34;2&#34; /&gt; 
+      &lt;text x=&#34;340&#34; y=&#34;320&#34; font-size=&#34;14&#34; fill=&#34;black&#34;&gt;q&lt;/text&gt;
+
+      &lt;path id=&#34;ac&#34; d=&#34;M 90 90 Q 145 245 320 1&#34; fill=&#34;none&#34; stroke=&#34;#444&#34; stroke-width=&#34;3&#34; /&gt;
+      &lt;text x=&#34;325&#34; y=&#34;0&#34; font-size=&#34;14&#34; fill=&#34;blue&#34;&gt;AC&lt;/text&gt;
+
+      &lt;path id=&#34;mc&#34; d=&#34;M 40 160 Q 145 260 300 -70&#34; fill=&#34;none&#34; stroke=&#34;#222&#34; stroke-width=&#34;3&#34; /&gt;
+      &lt;text x=&#34;285&#34; y=&#34;-25&#34; font-size=&#34;14&#34; fill=&#34;blue&#34;&gt;MC&lt;/text&gt;
+    &lt;/g&gt;
+
+    &lt;g transform=&#34;translate(450, 50)&#34;&gt;
+      &lt;text x=&#34;-10&#34; y=&#34;-10&#34; font-size=&#34;16&#34; font-weight=&#34;bold&#34; fill=&#34;black&#34;&gt;Price&lt;/text&gt;
+      &lt;line x1=&#34;0&#34; y1=&#34;0&#34; x2=&#34;0&#34; y2=&#34;300&#34; stroke=&#34;black&#34; stroke-width=&#34;2&#34; /&gt; 
+      &lt;line x1=&#34;0&#34; y1=&#34;300&#34; x2=&#34;350&#34; y2=&#34;300&#34; stroke=&#34;black&#34; stroke-width=&#34;2&#34; /&gt; 
+      &lt;text x=&#34;340&#34; y=&#34;320&#34; font-size=&#34;14&#34; fill=&#34;black&#34;&gt;Q&lt;/text&gt;
+
+      &lt;line id=&#34;s-line&#34; x1=&#34;40&#34; y1=&#34;260&#34; x2=&#34;280&#34; y2=&#34;40&#34; stroke=&#34;black&#34; stroke-width=&#34;3&#34; /&gt;
+      &lt;text id=&#34;s-label&#34; x=&#34;285&#34; y=&#34;45&#34; font-size=&#34;14&#34; fill=&#34;black&#34;&gt;S&lt;/text&gt;
+
+      &lt;line id=&#34;d1&#34; x1=&#34;40&#34; y1=&#34;40&#34; x2=&#34;280&#34; y2=&#34;260&#34; stroke=&#34;black&#34; stroke-width=&#34;3&#34; /&gt;
+      &lt;text id=&#34;d1-label&#34; x=&#34;285&#34; y=&#34;265&#34; font-size=&#34;14&#34; fill=&#34;black&#34;&gt;D&lt;/text&gt;
+      
+      &lt;line id=&#34;d2&#34; x1=&#34;40&#34; y1=&#34;-20&#34; x2=&#34;280&#34; y2=&#34;200&#34; stroke=&#34;orange&#34; stroke-width=&#34;3&#34; opacity=&#34;0&#34; /&gt;
+      &lt;text id=&#34;d2-label&#34; x=&#34;285&#34; y=&#34;205&#34; fill=&#34;orange&#34; font-size=&#34;14&#34; opacity=&#34;0&#34; fill=&#34;black&#34;&gt;D&lt;/text&gt;
+    &lt;/g&gt;
+
+    &lt;g id=&#34;price-system&#34; transform=&#34;translate(0, 200)&#34;&gt;
+      &lt;line x1=&#34;50&#34; y1=&#34;0&#34; x2=&#34;800&#34; y2=&#34;0&#34; stroke=&#34;orange&#34; stroke-width=&#34;2&#34; stroke-dasharray=&#34;5,5&#34; /&gt;
+      &lt;text x=&#34;10&#34; y=&#34;-10&#34; id=&#34;price-label&#34; fill=&#34;orange&#34; font-weight=&#34;bold&#34; font-size=&#34;14&#34;&gt;Equilibrium Price&lt;/text&gt;
+    &lt;/g&gt;
+  &lt;/svg&gt;
+
+  &lt;div style=&#34;text-align: center; margin-top: 20px; display: flex; justify-content: center; gap: 10px;&#34;&gt;
+    &lt;button id=&#34;play-btn&#34; style=&#34;padding: 10px 20px; cursor: pointer; background: #2563eb; color: white; border: none; border-radius: 4px;&#34;&gt;Start Shift&lt;/button&gt;
+    &lt;button id=&#34;reset-btn&#34; style=&#34;padding: 10px 20px; cursor: pointer; background: #64748b; color: white; border: none; border-radius: 4px;&#34;&gt;Reset Graph&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;script src=&#34;https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js&#34;&gt;&lt;/script&gt;
+&lt;script&gt;
+  let tl;
+  const playBtn = document.getElementById(&#39;play-btn&#39;);
+  const resetBtn = document.getElementById(&#39;reset-btn&#39;);
+
+  
+  const BASELINE_P = 200;
+  const SHORT_RUN_P = 170;
+
+  function animateMarket() {
+    if (tl) tl.kill(); 
+    tl = gsap.timeline();
+    
+    playBtn.disabled = true;
+
+    tl.to(&#34;#d2, #d2-label&#34;, { opacity: 1, duration: 2 })
+      .to(&#34;#d1, #d1-label&#34;, { opacity: 0.1, duration: 1.5 }, &#34;&lt;&#34;)
+      
+      .to(&#34;#price-system&#34;, { y: SHORT_RUN_P, duration: 2, ease: &#34;power2.inOut&#34; })
+      .to(&#34;#price-label&#34;, { textContent: &#34;Equilibrium Price&#34;, duration: 0.1 }, &#34;&lt;&#34;)
+      .to(&#34;#s-line&#34;, { x: 15, y: 50, stroke: &#34;orange&#34;, duration: 1.5, delay: 0.5 })
+      .to(&#34;#s-label&#34;, { x: 15, y: 45, textContent: &#34;S&#34;, fill: &#34;orange&#34;, duration: 1.5 }, &#34;&lt;&#34;)
+      
+      .to(&#34;#price-system&#34;, { y: BASELINE_P, duration: 2, ease: &#34;power2.out&#34; })
+      .to(&#34;#price-label&#34;, { textContent: &#34;Equilibrium Price&#34;, duration: 0.1 }, &#34;&lt;&#34;);
+  }
+
+  function resetMarket() {
+    if (tl) tl.kill();
+    playBtn.disabled = false;
+    
+    
+    gsap.set([&#34;#d1&#34;, &#34;#d1-label&#34;, &#34;#s-line&#34;, &#34;#s-label&#34;, &#34;#d2&#34;, &#34;#d2-label&#34;], { clearProps: &#34;all&#34; });
+    gsap.set(&#34;#price-system&#34;, { y: BASELINE_P });
+    
+    document.getElementById(&#39;price-label&#39;).textContent = &#34;Equilibrium Price&#34;;
+    document.getElementById(&#39;s-label&#39;).textContent = &#34;S&#34;;
+    document.getElementById(&#39;s-label&#39;).style.fill = &#34;black&#34;;
+  }
+
+  playBtn.onclick = animateMarket;
+  resetBtn.onclick = resetMarket;
+&lt;/script&gt;
+&lt;h4 id=&#34;efficiency-of-perfect-competition&#34;&gt;Efficiency of Perfect Competition&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;Productive efficiency&lt;/strong&gt; occurs because competition is so fierce that firms are forced to produce at the lowest possible cost per unit just to survive. If they don&amp;rsquo;t, they&amp;rsquo;ll be undercut by someone who does.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;First welfare theorem&lt;/strong&gt;: Perfect competition maximizes social welfare (or, perfect
+competition ensures allocative efficiency).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Social welfare = consumer surplus + producer surplus&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Graphically the allocative efficiency with the maximum social welfare given by $PS$ (producer surplus) and $CS$ (consumer surplus) can be represented as follows:&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-social-welfare-maximized&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;https://matteorg.github.io/images/comp_econ/perfect-competition/welfare.png&#34; alt=&#34;welfare&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      Social welfare maximized
+    &lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;h5 id=&#34;consumer-surplus&#34;&gt;Consumer Surplus&lt;/h5&gt;
+&lt;p&gt;In economics, we assume people only trade when it makes them better off (or at least no worse off).&lt;/p&gt;
+&lt;p&gt;If a consumer&amp;rsquo;s Willingness to Pay (WTP) is lower than the equilibrium market price $P^*$, the transaction doesn&amp;rsquo;t happen.&lt;/p&gt;
+&lt;p&gt;If you look at the Market Demand curve ($D$) from above, the line continues to the right of the equilibrium points $Q^*$:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The bargain hunters (left of $Q^*$): these are the consumers whose WTP is higher than $P^*$. They buy the product and enjoy the Consumer Surplus.
+&lt;ul&gt;
+&lt;li&gt;Consumer surplus is the &amp;ldquo;deal&amp;rdquo; you get as a shopper. The demand curve ($D$) represents the &lt;strong&gt;maximum price&lt;/strong&gt; consumers are willing to pay for each unit. If you were willing to pay $\$10$ for a coffee, but the market price ($P^*$) is only $\$4$, you just &amp;ldquo;gained&amp;rdquo; $\$6$ in value.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;The excluded (right of $Q^*$): these are the consumers represented by the part of the demand curve that is below the $P^*$ line.
+&lt;ul&gt;
+&lt;li&gt;For these people, the cost ($P^*$) is higher than the value they place on the good. Buying it would actually result in &amp;ldquo;negative surplus&amp;rdquo; (a loss of utility), so they simply do not participate in the market.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Why does this matters for &lt;strong&gt;efficiency&lt;/strong&gt;? Perfect Competition is considered &lt;em&gt;efficient&lt;/em&gt; because it ensures that every person who values the good more than it costs to make (WTP &amp;gt; MC) gets to buy it. The people &amp;ldquo;not buying&amp;rdquo; are &lt;strong&gt;not&lt;/strong&gt; a sign of failure; they are a sign of efficient allocation. It wouldn&amp;rsquo;t make sense for society to use scarce resources to make a product for someone who values it less than the cost of the resources used to create it.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;A Real-World Intuition&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Imagine a concert ticket costs $\$100$:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Consumer A loves the band and would have paid $\$500$. He buys it and feels like he &amp;ldquo;made&amp;rdquo; $\$400$ (Consumer Surplus).&lt;/li&gt;
+&lt;li&gt;Consumer B thinks the band is okay and would pay exactly $\$100$. She buys it but has $0 surplus.&lt;/li&gt;
+&lt;li&gt;Consumer C only likes one song and would only pay $\$40$. He sees the $\$100$ price tag and walks away. He is in the &amp;ldquo;right side of the curve.&amp;rdquo;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5 id=&#34;producers-surplus&#34;&gt;Producers Surplus&lt;/h5&gt;
+&lt;p&gt;Why talk about &lt;em&gt;producer surplus&lt;/em&gt; when firms make zero profits in the long run? Think about how we defined &lt;em&gt;implicit&lt;/em&gt; fixed costs before. Then the following distinction becomes clearer:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Producer Surplus&lt;/strong&gt; = Total Revenue - Total Variable Costs.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Economic Profit&lt;/strong&gt; = Total Revenue - Total (Variable + Fixed) Costs.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;So in summary:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The Supply Curve ($S$) is the sum of everyone&amp;rsquo;s $MC$.&lt;/li&gt;
+&lt;li&gt;The Producer Surplus is the &amp;ldquo;extra&amp;rdquo; money above &lt;em&gt;variable&lt;/em&gt; costs.&lt;/li&gt;
+&lt;li&gt;In the Long Run, all that &amp;ldquo;extra&amp;rdquo; money is exactly enough to cover the Explicit Fixed Costs + Opportunity Costs of all the firms in the market.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In Perfect Competition recall that all firms have the same $AC$:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;We assume all firms have access to the same technology and pay the same prices for inputs (like electricity and labor).&lt;/li&gt;
+&lt;li&gt;If one firm had a &amp;ldquo;secret&amp;rdquo; lower $AC$, they would dominate the market, or other firms would copy them until everyone had that same low $AC$.&lt;/li&gt;
+&lt;li&gt;Therefore, in the LR equilibrium, every single firm is &amp;ldquo;cloned&amp;rdquo; at the same size ($q^{LR}$), producing at the same minimum cost.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;But then how do we interpret left or right of $Q^*$ for the supply side? In the Market Graph (the one with $S$ and $D$ curves):&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Firms to the left of $Q^*$: These represent the &amp;ldquo;first&amp;rdquo; units produced. For the very first unit produced in the market, the Marginal Cost is very low (at the start of the $MC$ curve). However, the market price $P^*$ is much higher.&lt;/li&gt;
+&lt;li&gt;Producer Surplus vs. Profit: That gap between the market price and the low marginal cost of the &amp;ldquo;early&amp;rdquo; units is the Producer Surplus.&lt;/li&gt;
+&lt;li&gt;The Bottom Line: At the equilibrium $Q^*$, the last unit produced costs exactly $P^*$ to make. For that last unit, surplus is zero. But for all the units before it, the firm was selling them for $P^*$ even though their marginal cost was lower.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In the Long Run, the Producer Surplus is exactly equal to the total Fixed Costs the firms have to pay to exist. They aren&amp;rsquo;t &amp;ldquo;taking home&amp;rdquo; the surplus as extra cash; they are using it to pay for their factories and equipment, and to compensate the opportunity cost, so that their final profit ends up at zero.&lt;/p&gt;
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;While Perfect Competition provides a beautiful, &amp;ldquo;frictionless&amp;rdquo; benchmark where efficiency is maximized and prices are fair, it is ultimately a theoretical ideal, or the economic equivalent of studying physics in a vacuum. In the real world, brands matter, information is messy, and big firms often have the power to dictate terms. By mastering this benchmark, you’ve learned what a &amp;ldquo;perfect&amp;rdquo; market looks like; now, the real fun of Competition Economics begins as we add back the layers of reality. We move from a world where firms are passive &amp;ldquo;price-takers&amp;rdquo; to one where they are strategic players, using everything from game theory to clever marketing to carve out their own piece of the pie.&lt;/p&gt;
+&lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
+&lt;p&gt;Much of what you&amp;rsquo;ll read comes from personal notes or course slides from Industrial Organization and Game Theory courses I attended during my BS and MS at Bocconi University and PhD at the University of Zurich, plus other freely available material (like &lt;a href=&#34;https://ocw.mit.edu/courses/14-271-industrial-organization-i-fall-2022/lists/lecture-notes/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;MIT Grad IO course&lt;/a&gt;).&lt;/p&gt;
+&lt;h4 id=&#34;thank-you-for-reading&#34;&gt;Thank you for reading!&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;Disclaimer&lt;/strong&gt;: &lt;em&gt;I write to learn, based on my background and personal experience. Errors are my own, and if you spot them, let me know! I also appreciate suggestions to investigate new topics!&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Game Theory</title>
+      <link>https://matteorg.github.io/others/competition-economics/game-theory/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://matteorg.github.io/others/competition-economics/game-theory/</guid>
+      <description>&lt;p&gt;Coming soon&amp;hellip;&lt;/p&gt;
+&lt;h4 id=&#34;thank-you-for-reading&#34;&gt;Thank you for reading!&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;Disclaimer&lt;/strong&gt;: &lt;em&gt;I write to learn, based on my background and personal experience. Errors are my own, and if you spot them, let me know! I also appreciate suggestions to investigate new topics!&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
