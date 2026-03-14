@@ -1057,6 +1057,206 @@ $$
     &lt;/figcaption&gt;&lt;/figure&gt;
 &lt;/p&gt;
 &lt;p&gt;So the only equilibrium in this game becomes ($\$2$,(a,a)).&lt;/p&gt;
+&lt;p&gt;In the above example we set two arbitrary values of $\pi_i$ for $i \in \{S,B\}$. Do you think you can derive the values (or ranges of values) of $\pi_i$ such that the equilibria change? If interested, you can play around with the hidden &lt;strong&gt;equilibrium finder&lt;/strong&gt; and later you&amp;rsquo;ll find a rigorous way to define equilibria for different values of $\pi_S$ and $\pi_B$.&lt;/p&gt;
+&lt;details&gt;
+&lt;summary&gt;&lt;b&gt; Equilibrium Finder &lt;/b&gt;&lt;/summary&gt;
+&lt;br&gt;
+While imperfect, the below simulator can help you find different equilibria for different combination of $\pi_S$ and $\pi_B$.
+&lt;div id=&#34;game-theory-suite&#34; style=&#34;background-color: #2c3e50; color: #ffffff; padding: 20px; border-radius: 12px; margin: 20px 0; font-family: sans-serif; box-shadow: 0 10px 30px rgba(0,0,0,0.5);&#34;&gt;
+&lt;h3 style=&#34;color: #ecf0f1; text-align: center; margin-top: 0;&#34;&gt;Extensive &amp; Normal Form Simulator&lt;/h3&gt;
+&lt;table style=&#34;width: 100%; border: none; margin-bottom: 10px;&#34;&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: center; border: none; width: 50%;&#34;&gt;
+&lt;label style=&#34;display: block; font-size: 0.9em;&#34;&gt;Seller Value (π&lt;sub&gt;S&lt;/sub&gt;)&lt;/label&gt;
+&lt;input type=&#34;range&#34; id=&#34;inputPiS&#34; min=&#34;0&#34; max=&#34;3&#34; step=&#34;0.1&#34; value=&#34;0.5&#34; style=&#34;width: 80%;&#34;&gt;
+&lt;div id=&#34;displayPiS&#34; style=&#34;font-weight: bold; color: #3498db;&#34;&gt;0.5&lt;/div&gt;
+&lt;/td&gt;
+&lt;td style=&#34;text-align: center; border: none; width: 50%;&#34;&gt;
+&lt;label style=&#34;display: block; font-size: 0.9em;&#34;&gt;Buyer Value (π&lt;sub&gt;B&lt;/sub&gt;)&lt;/label&gt;
+&lt;input type=&#34;range&#34; id=&#34;inputPiB&#34; min=&#34;0&#34; max=&#34;5&#34; step=&#34;0.1&#34; value=&#34;2.5&#34; style=&#34;width: 80%;&#34;&gt;
+&lt;div id=&#34;displayPiB&#34; style=&#34;font-weight: bold; color: #e74c3c;&#34;&gt;2.5&lt;/div&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;div style=&#34;background: #34495e; padding: 15px; border-radius: 8px; margin-bottom: 20px; text-align: center;&#34;&gt;
+&lt;svg width=&#34;360&#34; height=&#34;200&#34; viewBox=&#34;0 0 360 200&#34;&gt;
+&lt;line id=&#34;edge-s1&#34; x1=&#34;180&#34; y1=&#34;20&#34; x2=&#34;90&#34; y2=&#34;70&#34; stroke=&#34;#bdc3c7&#34; stroke-width=&#34;2&#34; /&gt;
+&lt;line id=&#34;edge-s2&#34; x1=&#34;180&#34; y1=&#34;20&#34; x2=&#34;270&#34; y2=&#34;70&#34; stroke=&#34;#bdc3c7&#34; stroke-width=&#34;2&#34; /&gt;
+&lt;line id=&#34;edge-b1a&#34; x1=&#34;90&#34; y1=&#34;70&#34; x2=&#34;50&#34; y2=&#34;140&#34; stroke=&#34;#bdc3c7&#34; stroke-width=&#34;2&#34; /&gt;
+&lt;line id=&#34;edge-b1r&#34; x1=&#34;90&#34; y1=&#34;70&#34; x2=&#34;130&#34; y2=&#34;140&#34; stroke=&#34;#bdc3c7&#34; stroke-width=&#34;2&#34; /&gt;
+&lt;line id=&#34;edge-b2a&#34; x1=&#34;270&#34; y1=&#34;70&#34; x2=&#34;230&#34; y2=&#34;140&#34; stroke=&#34;#bdc3c7&#34; stroke-width=&#34;2&#34; /&gt;
+&lt;line id=&#34;edge-b2r&#34; x1=&#34;270&#34; y1=&#34;70&#34; x2=&#34;310&#34; y2=&#34;140&#34; stroke=&#34;#bdc3c7&#34; stroke-width=&#34;2&#34; /&gt;
+&lt;circle cx=&#34;180&#34; cy=&#34;20&#34; r=&#34;6&#34; fill=&#34;#fff&#34; stroke=&#34;#3498db&#34; stroke-width=&#34;2&#34; /&gt;
+&lt;circle cx=&#34;90&#34; cy=&#34;70&#34; r=&#34;5&#34; fill=&#34;#e74c3c&#34; /&gt;
+&lt;circle cx=&#34;270&#34; cy=&#34;70&#34; r=&#34;5&#34; fill=&#34;#e74c3c&#34; /&gt;
+&lt;text x=&#34;180&#34; y=&#34;15&#34; text-anchor=&#34;middle&#34; font-size=&#34;12&#34; fill=&#34;white&#34;&gt;S&lt;/text&gt;
+&lt;text x=&#34;80&#34; y=&#34;75&#34; text-anchor=&#34;end&#34; font-size=&#34;12&#34; fill=&#34;white&#34;&gt;B&lt;/text&gt;
+&lt;text x=&#34;280&#34; y=&#34;75&#34; text-anchor=&#34;start&#34; font-size=&#34;12&#34; fill=&#34;white&#34;&gt;B&lt;/text&gt;
+&lt;text x=&#34;120&#34; y=&#34;40&#34; font-size=&#34;10&#34; fill=&#34;#bdc3c7&#34;&gt;Offer 1&lt;/text&gt;
+&lt;text x=&#34;240&#34; y=&#34;40&#34; font-size=&#34;10&#34; fill=&#34;#bdc3c7&#34;&gt;Offer 2&lt;/text&gt;
+&lt;g font-size=&#34;11&#34; font-family=&#34;monospace&#34;&gt;
+&lt;text x=&#34;50&#34; y=&#34;160&#34; text-anchor=&#34;middle&#34; fill=&#34;#3498db&#34; id=&#34;t1s&#34;&gt;0.5&lt;/text&gt;
+&lt;text x=&#34;50&#34; y=&#34;175&#34; text-anchor=&#34;middle&#34; fill=&#34;#e74c3c&#34; id=&#34;t1b&#34;&gt;1.5&lt;/text&gt;
+&lt;text x=&#34;130&#34; y=&#34;160&#34; text-anchor=&#34;middle&#34; fill=&#34;#bdc3c7&#34;&gt;0.0&lt;/text&gt;
+&lt;text x=&#34;130&#34; y=&#34;175&#34; text-anchor=&#34;middle&#34; fill=&#34;#bdc3c7&#34;&gt;0.0&lt;/text&gt;
+&lt;text x=&#34;230&#34; y=&#34;160&#34; text-anchor=&#34;middle&#34; fill=&#34;#3498db&#34; id=&#34;t2s&#34;&gt;1.5&lt;/text&gt;
+&lt;text x=&#34;230&#34; y=&#34;175&#34; text-anchor=&#34;middle&#34; fill=&#34;#e74c3c&#34; id=&#34;t2b&#34;&gt;0.5&lt;/text&gt;
+&lt;text x=&#34;310&#34; y=&#34;160&#34; text-anchor=&#34;middle&#34; fill=&#34;#bdc3c7&#34;&gt;0.0&lt;/text&gt;
+&lt;text x=&#34;310&#34; y=&#34;175&#34; text-anchor=&#34;middle&#34; fill=&#34;#bdc3c7&#34;&gt;0.0&lt;/text&gt;
+&lt;/g&gt;
+&lt;/svg&gt;
+&lt;/div&gt;
+&lt;table style=&#34;width: 100%; border-collapse: collapse; background-color: #34495e; color: white; font-size: 0.8em; text-align: center;&#34;&gt;
+&lt;thead&gt;
+&lt;tr style=&#34;background-color: #1a252f;&#34;&gt;
+&lt;th style=&#34;padding: 8px; border: 1px solid #555;&#34;&gt;S \ B&lt;/th&gt;
+&lt;th style=&#34;padding: 8px; border: 1px solid #555;&#34;&gt;AA&lt;/th&gt;
+&lt;th style=&#34;padding: 8px; border: 1px solid #555;&#34;&gt;AR&lt;/th&gt;
+&lt;th style=&#34;padding: 8px; border: 1px solid #555;&#34;&gt;RA&lt;/th&gt;
+&lt;th style=&#34;padding: 8px; border: 1px solid #555;&#34;&gt;RR&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;padding: 8px; border: 1px solid #555; background: #1a252f;&#34;&gt;&lt;b&gt;Offer 1&lt;/b&gt;&lt;/td&gt;
+&lt;td id=&#34;m00&#34; style=&#34;padding: 8px; border: 1px solid #555;&#34;&gt;&lt;/td&gt;
+&lt;td id=&#34;m01&#34; style=&#34;padding: 8px; border: 1px solid #555;&#34;&gt;&lt;/td&gt;
+&lt;td id=&#34;m02&#34; style=&#34;padding: 8px; border: 1px solid #555;&#34;&gt;&lt;/td&gt;
+&lt;td id=&#34;m03&#34; style=&#34;padding: 8px; border: 1px solid #555;&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;padding: 8px; border: 1px solid #555; background: #1a252f;&#34;&gt;&lt;b&gt;Offer 2&lt;/b&gt;&lt;/td&gt;
+&lt;td id=&#34;m10&#34; style=&#34;padding: 8px; border: 1px solid #555;&#34;&gt;&lt;/td&gt;
+&lt;td id=&#34;m11&#34; style=&#34;padding: 8px; border: 1px solid #555;&#34;&gt;&lt;/td&gt;
+&lt;td id=&#34;m12&#34; style=&#34;padding: 8px; border: 1px solid #555;&#34;&gt;&lt;/td&gt;
+&lt;td id=&#34;m13&#34; style=&#34;padding: 8px; border: 1px solid #555;&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;script&gt;
+(function() {
+const sS = document.getElementById(&#39;inputPiS&#39;);
+const sB = document.getElementById(&#39;inputPiB&#39;);
+const dS = document.getElementById(&#39;displayPiS&#39;);
+const dB = document.getElementById(&#39;displayPiB&#39;);
+
+function update() {
+const pS = parseFloat(sS.value);
+const pB = parseFloat(sB.value);
+dS.innerHTML = pS.toFixed(1);
+dB.innerHTML = pB.toFixed(1);
+
+const s1 = 1 - pS; const b1 = pB - 1;
+const s2 = 2 - pS; const b2 = pB - 2;
+
+// Update Tree Text
+document.getElementById(&#39;t1s&#39;).textContent = s1.toFixed(1);
+document.getElementById(&#39;t1b&#39;).textContent = b1.toFixed(1);
+document.getElementById(&#39;t2s&#39;).textContent = s2.toFixed(1);
+document.getElementById(&#39;t2b&#39;).textContent = b2.toFixed(1);
+
+// Backward Induction Logic for Tree Highlighting
+const bAccepts1 = b1 &gt;= 0;
+const bAccepts2 = b2 &gt;= 0;
+document.getElementById(&#39;edge-b1a&#39;).style.stroke = bAccepts1 ? &#34;#2ecc71&#34; : &#34;#bdc3c7&#34;;
+document.getElementById(&#39;edge-b1r&#39;).style.stroke = !bAccepts1 ? &#34;#2ecc71&#34; : &#34;#bdc3c7&#34;;
+document.getElementById(&#39;edge-b2a&#39;).style.stroke = bAccepts2 ? &#34;#2ecc71&#34; : &#34;#bdc3c7&#34;;
+document.getElementById(&#39;edge-b2r&#39;).style.stroke = !bAccepts2 ? &#34;#2ecc71&#34; : &#34;#bdc3c7&#34;;
+
+const val1 = bAccepts1 ? s1 : 0;
+const val2 = bAccepts2 ? s2 : 0;
+const sPrefers1 = val1 &gt;= val2;
+document.getElementById(&#39;edge-s1&#39;).style.stroke = sPrefers1 ? &#34;#2ecc71&#34; : &#34;#bdc3c7&#34;;
+document.getElementById(&#39;edge-s2&#39;).style.stroke = !sPrefers1 ? &#34;#2ecc71&#34; : &#34;#bdc3c7&#34;;
+
+// Matrix Data
+const data = [
+[[s1, b1], [s1, b1], [0, 0], [0, 0]],
+[[s2, b2], [0, 0], [s2, b2], [0, 0]]
+];
+
+for (let r = 0; r &lt; 2; r++) {
+for (let c = 0; c &lt; 4; c++) {
+const cell = document.getElementById(`m${r}${c}`);
+const sPay = data[r][c][0];
+const bPay = data[r][c][1];
+let isBBest = true; for (let k = 0; k &lt; 4; k++) { if (data[r][k][1] &gt; bPay) isBBest = false; }
+let isSBest = true; for (let k = 0; k &lt; 2; k++) { if (data[k][c][0] &gt; sPay) isSBest = false; }
+cell.innerHTML = `${sPay.toFixed(1)}, ${bPay.toFixed(1)}`;
+cell.style.backgroundColor = (isBBest &amp;&amp; isSBest) ? &#34;#27ae60&#34; : &#34;transparent&#34;;
+}
+}
+}
+sS.oninput = update; sB.oninput = update;
+update();
+})();
+&lt;/script&gt;
+&lt;br&gt;
+Can we derive general conditions on $\pi_B$ and $\pi_S$ such that the outcome of the game changes based on those?
+&lt;br&gt;&lt;br&gt;
+Let&#39;s start from the buyer. The buyer moves second and simply compares his utility from accepting to the zero utility of rejecting.
+&lt;br&gt;
+&lt;div style=&#34;overflow-x: auto; text-align: center;&#34;&gt;
+&lt;table style=&#34;width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 0.95em; line-height: 1.4;&#34;&gt;
+  &lt;thead&gt;
+    &lt;tr style=&#34;border-bottom: 2px solid #ccc; text-align: left;&#34;&gt;
+      &lt;th style=&#34;padding: 10px; width: 25%;&#34;&gt;Condition&lt;/th&gt;
+      &lt;th style=&#34;padding: 10px; width: 25%;&#34;&gt;Buyer Strategy&lt;/th&gt;
+      &lt;th style=&#34;padding: 10px; width: 50%;&#34;&gt;Intuition&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr style=&#34;border-bottom: 1px solid #eee;&#34;&gt;
+      &lt;td style=&#34;padding: 10px;&#34;&gt;$\pi_B &lt; 1$&lt;/td&gt;
+      &lt;td style=&#34;padding: 10px;&#34;&gt;&lt;b&gt;RR&lt;/b&gt; (Always Reject)&lt;/td&gt;
+      &lt;td style=&#34;padding: 10px;&#34;&gt;The object is worth so little that even the cheap price is too high.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr style=&#34;border-bottom: 1px solid #eee;&#34;&gt;
+      &lt;td style=&#34;padding: 10px;&#34;&gt;$1 &lt; \pi_B &lt; 2$&lt;/td&gt;
+      &lt;td style=&#34;padding: 10px;&#34;&gt;&lt;b&gt;AR&lt;/b&gt; (Accept 1, Reject 2)&lt;/td&gt;
+      &lt;td style=&#34;padding: 10px;&#34;&gt;The buyer values the object just enough to accept the lower price.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr style=&#34;border-bottom: 1px solid #eee;&#34;&gt;
+      &lt;td style=&#34;padding: 10px;&#34;&gt;$\pi_B &gt; 2$&lt;/td&gt;
+      &lt;td style=&#34;padding: 10px;&#34;&gt;&lt;b&gt;AA&lt;/b&gt; (Always Accept)&lt;/td&gt;
+      &lt;td style=&#34;padding: 10px;&#34;&gt;The buyer values the object so much he will take either offer.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;br&gt;
+The seller anticipates the buyer&#39;s profile above and chooses the offer that maximizes his own payoff.
+&lt;br&gt;
+&lt;ul&gt;
+    &lt;li&gt; &lt;b&gt;Case A: The &#34;high value&#34; buyer ($\pi_B &gt; 2$)&lt;/b&gt; &lt;br&gt;
+        The buyer will accept anything. The seller compares:
+        &lt;ul&gt;
+            &lt;li&gt;Offer 1: $1 - \pi_S$&lt;/li&gt;
+            &lt;li&gt;Offer 2: $2 - \pi_S$&lt;/li&gt;
+        &lt;/ul&gt;
+        Since $2 - \pi_S &gt; 1 - \pi_S$ is always true, the seller always chooses Offer 2 $\implies$ &lt;b&gt;SPE: (Offer 2, AA)&lt;/b&gt;.
+    &lt;/li&gt;
+    &lt;br&gt;
+    &lt;li&gt; &lt;b&gt;Case B: The &#34;medium value&#34; buyer ($1 &lt; \pi_B &lt; 2$)&lt;/b&gt; &lt;br&gt;
+        The buyer will reject Offer 2. The seller compares:
+        &lt;ul&gt;
+            &lt;li&gt;Offer 1: $1 - \pi_S$ (Accepted)&lt;/li&gt;
+            &lt;li&gt;Offer 2: $0$ (Rejected)&lt;/li&gt;
+        &lt;/ul&gt;
+        The seller chooses Offer 1 if $1 - \pi_S &gt; 0$, which means $\pi_S &lt; 1$ $\implies$ &lt;b&gt;SPE: (Offer 1, AR)&lt;/b&gt; if $\pi_S &lt; 1$.
+    &lt;/li&gt;
+    &lt;br&gt;
+    &lt;li&gt; &lt;b&gt;Case C: The &#34;low value&#34; buyer ($\pi_B &lt; 1$)&lt;/b&gt; &lt;br&gt;
+        The buyer rejects everything $\implies$ &lt;b&gt;SPE: (Either offer, RR)&lt;/b&gt; with a payoff of $(0,0)$.
+    &lt;/li&gt;
+&lt;/ul&gt;
+&lt;br&gt;
+&lt;b&gt;Nash Equilibria (NE) vs. Subgame Perfect Equilibria (SPE)&lt;/b&gt;
+&lt;br&gt;
+In the normal form matrix you will often find Nash Equilibria that are not Subgame Perfect.
+&lt;br&gt;&lt;b&gt;Example&lt;/b&gt;: Set $\pi_S = 0.5$ and $\pi_B = 2.5$. One NE is (Offer 1, AR). In this scenario, the buyer &#34;threatens&#34; to reject Offer 2. If the seller believes this, he plays Offer 1. However, this is not Subgame Perfect because if the seller actually made Offer 2, the buyer would realize $2.5 - 2 = 0.5$, which is better than $0$. The threat to reject is &lt;b&gt;not credible&lt;/b&gt;.
+&lt;/details&gt;
 
 &lt;div class=&#34;beamer-block type-definition&#34;&gt;
     &lt;div class=&#34;beamer-header&#34;&gt;
@@ -1067,7 +1267,7 @@ $$
     &lt;/div&gt;
 &lt;/div&gt;
 &lt;p&gt;Assume that the game has a &lt;strong&gt;finite&lt;/strong&gt; number of periods. Then, even if some players move simultaneously at some nodes, we can still use backward induction to solve the game. The trick is again to start with the deepest subgames and to solve for Nash equilibrium in these subgames. Then, in the extensive form, replace these smallest subgames by the players’ payoffs at the Nash equilibrium you’ve just calculated. Iterate until there are no subgames left.&lt;/p&gt;
-&lt;p&gt;Let&amp;rsquo;s look at an example with the battle of the sexes &lt;strong&gt;with outside option&lt;/strong&gt;. In this modified version of the game &lt;strong&gt;A&lt;/strong&gt;nn has the possibility to decide first whether to play the game or sit it out. If she doesn&amp;rsquo;t play, both Ann and Bill (&lt;strong&gt;B&lt;/strong&gt;) get a payoff of 2. If ann plays, Ann and Bill choose simultaneously. The game can be represented as follows:&lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s look at an example with the battle of the sexes &lt;strong&gt;with outside option&lt;/strong&gt;. In this modified version of the game &lt;strong&gt;A&lt;/strong&gt;nn has the possibility to decide first whether to play the game or sit it out. If she doesn&amp;rsquo;t play, both Ann and Bob (&lt;strong&gt;B&lt;/strong&gt;) get a payoff of 2. If ann plays, Ann and Bob choose simultaneously. The game can be represented as follows:&lt;/p&gt;
 &lt;p&gt;
 
 

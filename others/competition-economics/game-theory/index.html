@@ -1296,6 +1296,206 @@ $$
     </figcaption></figure>
 </p>
 <p>So the only equilibrium in this game becomes ($\$2$,(a,a)).</p>
+<p>In the above example we set two arbitrary values of $\pi_i$ for $i \in \{S,B\}$. Do you think you can derive the values (or ranges of values) of $\pi_i$ such that the equilibria change? If interested, you can play around with the hidden <strong>equilibrium finder</strong> and later you&rsquo;ll find a rigorous way to define equilibria for different values of $\pi_S$ and $\pi_B$.</p>
+<details>
+<summary><b> Equilibrium Finder </b></summary>
+<br>
+While imperfect, the below simulator can help you find different equilibria for different combination of $\pi_S$ and $\pi_B$.
+<div id="game-theory-suite" style="background-color: #2c3e50; color: #ffffff; padding: 20px; border-radius: 12px; margin: 20px 0; font-family: sans-serif; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+<h3 style="color: #ecf0f1; text-align: center; margin-top: 0;">Extensive & Normal Form Simulator</h3>
+<table style="width: 100%; border: none; margin-bottom: 10px;">
+<tr>
+<td style="text-align: center; border: none; width: 50%;">
+<label style="display: block; font-size: 0.9em;">Seller Value (π<sub>S</sub>)</label>
+<input type="range" id="inputPiS" min="0" max="3" step="0.1" value="0.5" style="width: 80%;">
+<div id="displayPiS" style="font-weight: bold; color: #3498db;">0.5</div>
+</td>
+<td style="text-align: center; border: none; width: 50%;">
+<label style="display: block; font-size: 0.9em;">Buyer Value (π<sub>B</sub>)</label>
+<input type="range" id="inputPiB" min="0" max="5" step="0.1" value="2.5" style="width: 80%;">
+<div id="displayPiB" style="font-weight: bold; color: #e74c3c;">2.5</div>
+</td>
+</tr>
+</table>
+<div style="background: #34495e; padding: 15px; border-radius: 8px; margin-bottom: 20px; text-align: center;">
+<svg width="360" height="200" viewBox="0 0 360 200">
+<line id="edge-s1" x1="180" y1="20" x2="90" y2="70" stroke="#bdc3c7" stroke-width="2" />
+<line id="edge-s2" x1="180" y1="20" x2="270" y2="70" stroke="#bdc3c7" stroke-width="2" />
+<line id="edge-b1a" x1="90" y1="70" x2="50" y2="140" stroke="#bdc3c7" stroke-width="2" />
+<line id="edge-b1r" x1="90" y1="70" x2="130" y2="140" stroke="#bdc3c7" stroke-width="2" />
+<line id="edge-b2a" x1="270" y1="70" x2="230" y2="140" stroke="#bdc3c7" stroke-width="2" />
+<line id="edge-b2r" x1="270" y1="70" x2="310" y2="140" stroke="#bdc3c7" stroke-width="2" />
+<circle cx="180" cy="20" r="6" fill="#fff" stroke="#3498db" stroke-width="2" />
+<circle cx="90" cy="70" r="5" fill="#e74c3c" />
+<circle cx="270" cy="70" r="5" fill="#e74c3c" />
+<text x="180" y="15" text-anchor="middle" font-size="12" fill="white">S</text>
+<text x="80" y="75" text-anchor="end" font-size="12" fill="white">B</text>
+<text x="280" y="75" text-anchor="start" font-size="12" fill="white">B</text>
+<text x="120" y="40" font-size="10" fill="#bdc3c7">Offer 1</text>
+<text x="240" y="40" font-size="10" fill="#bdc3c7">Offer 2</text>
+<g font-size="11" font-family="monospace">
+<text x="50" y="160" text-anchor="middle" fill="#3498db" id="t1s">0.5</text>
+<text x="50" y="175" text-anchor="middle" fill="#e74c3c" id="t1b">1.5</text>
+<text x="130" y="160" text-anchor="middle" fill="#bdc3c7">0.0</text>
+<text x="130" y="175" text-anchor="middle" fill="#bdc3c7">0.0</text>
+<text x="230" y="160" text-anchor="middle" fill="#3498db" id="t2s">1.5</text>
+<text x="230" y="175" text-anchor="middle" fill="#e74c3c" id="t2b">0.5</text>
+<text x="310" y="160" text-anchor="middle" fill="#bdc3c7">0.0</text>
+<text x="310" y="175" text-anchor="middle" fill="#bdc3c7">0.0</text>
+</g>
+</svg>
+</div>
+<table style="width: 100%; border-collapse: collapse; background-color: #34495e; color: white; font-size: 0.8em; text-align: center;">
+<thead>
+<tr style="background-color: #1a252f;">
+<th style="padding: 8px; border: 1px solid #555;">S \ B</th>
+<th style="padding: 8px; border: 1px solid #555;">AA</th>
+<th style="padding: 8px; border: 1px solid #555;">AR</th>
+<th style="padding: 8px; border: 1px solid #555;">RA</th>
+<th style="padding: 8px; border: 1px solid #555;">RR</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="padding: 8px; border: 1px solid #555; background: #1a252f;"><b>Offer 1</b></td>
+<td id="m00" style="padding: 8px; border: 1px solid #555;"></td>
+<td id="m01" style="padding: 8px; border: 1px solid #555;"></td>
+<td id="m02" style="padding: 8px; border: 1px solid #555;"></td>
+<td id="m03" style="padding: 8px; border: 1px solid #555;"></td>
+</tr>
+<tr>
+<td style="padding: 8px; border: 1px solid #555; background: #1a252f;"><b>Offer 2</b></td>
+<td id="m10" style="padding: 8px; border: 1px solid #555;"></td>
+<td id="m11" style="padding: 8px; border: 1px solid #555;"></td>
+<td id="m12" style="padding: 8px; border: 1px solid #555;"></td>
+<td id="m13" style="padding: 8px; border: 1px solid #555;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<script>
+(function() {
+const sS = document.getElementById('inputPiS');
+const sB = document.getElementById('inputPiB');
+const dS = document.getElementById('displayPiS');
+const dB = document.getElementById('displayPiB');
+
+function update() {
+const pS = parseFloat(sS.value);
+const pB = parseFloat(sB.value);
+dS.innerHTML = pS.toFixed(1);
+dB.innerHTML = pB.toFixed(1);
+
+const s1 = 1 - pS; const b1 = pB - 1;
+const s2 = 2 - pS; const b2 = pB - 2;
+
+// Update Tree Text
+document.getElementById('t1s').textContent = s1.toFixed(1);
+document.getElementById('t1b').textContent = b1.toFixed(1);
+document.getElementById('t2s').textContent = s2.toFixed(1);
+document.getElementById('t2b').textContent = b2.toFixed(1);
+
+// Backward Induction Logic for Tree Highlighting
+const bAccepts1 = b1 >= 0;
+const bAccepts2 = b2 >= 0;
+document.getElementById('edge-b1a').style.stroke = bAccepts1 ? "#2ecc71" : "#bdc3c7";
+document.getElementById('edge-b1r').style.stroke = !bAccepts1 ? "#2ecc71" : "#bdc3c7";
+document.getElementById('edge-b2a').style.stroke = bAccepts2 ? "#2ecc71" : "#bdc3c7";
+document.getElementById('edge-b2r').style.stroke = !bAccepts2 ? "#2ecc71" : "#bdc3c7";
+
+const val1 = bAccepts1 ? s1 : 0;
+const val2 = bAccepts2 ? s2 : 0;
+const sPrefers1 = val1 >= val2;
+document.getElementById('edge-s1').style.stroke = sPrefers1 ? "#2ecc71" : "#bdc3c7";
+document.getElementById('edge-s2').style.stroke = !sPrefers1 ? "#2ecc71" : "#bdc3c7";
+
+// Matrix Data
+const data = [
+[[s1, b1], [s1, b1], [0, 0], [0, 0]],
+[[s2, b2], [0, 0], [s2, b2], [0, 0]]
+];
+
+for (let r = 0; r < 2; r++) {
+for (let c = 0; c < 4; c++) {
+const cell = document.getElementById(`m${r}${c}`);
+const sPay = data[r][c][0];
+const bPay = data[r][c][1];
+let isBBest = true; for (let k = 0; k < 4; k++) { if (data[r][k][1] > bPay) isBBest = false; }
+let isSBest = true; for (let k = 0; k < 2; k++) { if (data[k][c][0] > sPay) isSBest = false; }
+cell.innerHTML = `${sPay.toFixed(1)}, ${bPay.toFixed(1)}`;
+cell.style.backgroundColor = (isBBest && isSBest) ? "#27ae60" : "transparent";
+}
+}
+}
+sS.oninput = update; sB.oninput = update;
+update();
+})();
+</script>
+<br>
+Can we derive general conditions on $\pi_B$ and $\pi_S$ such that the outcome of the game changes based on those?
+<br><br>
+Let's start from the buyer. The buyer moves second and simply compares his utility from accepting to the zero utility of rejecting.
+<br>
+<div style="overflow-x: auto; text-align: center;">
+<table style="width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 0.95em; line-height: 1.4;">
+  <thead>
+    <tr style="border-bottom: 2px solid #ccc; text-align: left;">
+      <th style="padding: 10px; width: 25%;">Condition</th>
+      <th style="padding: 10px; width: 25%;">Buyer Strategy</th>
+      <th style="padding: 10px; width: 50%;">Intuition</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="border-bottom: 1px solid #eee;">
+      <td style="padding: 10px;">$\pi_B < 1$</td>
+      <td style="padding: 10px;"><b>RR</b> (Always Reject)</td>
+      <td style="padding: 10px;">The object is worth so little that even the cheap price is too high.</td>
+    </tr>
+    <tr style="border-bottom: 1px solid #eee;">
+      <td style="padding: 10px;">$1 < \pi_B < 2$</td>
+      <td style="padding: 10px;"><b>AR</b> (Accept 1, Reject 2)</td>
+      <td style="padding: 10px;">The buyer values the object just enough to accept the lower price.</td>
+    </tr>
+    <tr style="border-bottom: 1px solid #eee;">
+      <td style="padding: 10px;">$\pi_B > 2$</td>
+      <td style="padding: 10px;"><b>AA</b> (Always Accept)</td>
+      <td style="padding: 10px;">The buyer values the object so much he will take either offer.</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<br>
+The seller anticipates the buyer's profile above and chooses the offer that maximizes his own payoff.
+<br>
+<ul>
+    <li> <b>Case A: The "high value" buyer ($\pi_B > 2$)</b> <br>
+        The buyer will accept anything. The seller compares:
+        <ul>
+            <li>Offer 1: $1 - \pi_S$</li>
+            <li>Offer 2: $2 - \pi_S$</li>
+        </ul>
+        Since $2 - \pi_S > 1 - \pi_S$ is always true, the seller always chooses Offer 2 $\implies$ <b>SPE: (Offer 2, AA)</b>.
+    </li>
+    <br>
+    <li> <b>Case B: The "medium value" buyer ($1 < \pi_B < 2$)</b> <br>
+        The buyer will reject Offer 2. The seller compares:
+        <ul>
+            <li>Offer 1: $1 - \pi_S$ (Accepted)</li>
+            <li>Offer 2: $0$ (Rejected)</li>
+        </ul>
+        The seller chooses Offer 1 if $1 - \pi_S > 0$, which means $\pi_S < 1$ $\implies$ <b>SPE: (Offer 1, AR)</b> if $\pi_S < 1$.
+    </li>
+    <br>
+    <li> <b>Case C: The "low value" buyer ($\pi_B < 1$)</b> <br>
+        The buyer rejects everything $\implies$ <b>SPE: (Either offer, RR)</b> with a payoff of $(0,0)$.
+    </li>
+</ul>
+<br>
+<b>Nash Equilibria (NE) vs. Subgame Perfect Equilibria (SPE)</b>
+<br>
+In the normal form matrix you will often find Nash Equilibria that are not Subgame Perfect.
+<br><b>Example</b>: Set $\pi_S = 0.5$ and $\pi_B = 2.5$. One NE is (Offer 1, AR). In this scenario, the buyer "threatens" to reject Offer 2. If the seller believes this, he plays Offer 1. However, this is not Subgame Perfect because if the seller actually made Offer 2, the buyer would realize $2.5 - 2 = 0.5$, which is better than $0$. The threat to reject is <b>not credible</b>.
+</details>
 
 <div class="beamer-block type-definition">
     <div class="beamer-header">
@@ -1306,7 +1506,7 @@ $$
     </div>
 </div>
 <p>Assume that the game has a <strong>finite</strong> number of periods. Then, even if some players move simultaneously at some nodes, we can still use backward induction to solve the game. The trick is again to start with the deepest subgames and to solve for Nash equilibrium in these subgames. Then, in the extensive form, replace these smallest subgames by the players’ payoffs at the Nash equilibrium you’ve just calculated. Iterate until there are no subgames left.</p>
-<p>Let&rsquo;s look at an example with the battle of the sexes <strong>with outside option</strong>. In this modified version of the game <strong>A</strong>nn has the possibility to decide first whether to play the game or sit it out. If she doesn&rsquo;t play, both Ann and Bill (<strong>B</strong>) get a payoff of 2. If ann plays, Ann and Bill choose simultaneously. The game can be represented as follows:</p>
+<p>Let&rsquo;s look at an example with the battle of the sexes <strong>with outside option</strong>. In this modified version of the game <strong>A</strong>nn has the possibility to decide first whether to play the game or sit it out. If she doesn&rsquo;t play, both Ann and Bob (<strong>B</strong>) get a payoff of 2. If ann plays, Ann and Bob choose simultaneously. The game can be represented as follows:</p>
 <p>
 
 
