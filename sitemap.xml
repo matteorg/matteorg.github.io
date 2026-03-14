@@ -13,6 +13,7 @@
     <changefreq>weekly</changefreq>
   </url><url>
     <loc>https://matteorg.github.io/others/competition-economics/game-theory/</loc>
+    <lastmod>2026-03-14T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
     <loc>https://matteorg.github.io/archive/archived-home/experience/</loc>
@@ -46,12 +47,12 @@
     <lastmod>2030-06-01T13:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>https://matteorg.github.io/others/competition-economics/</loc>
-    <lastmod>2026-03-05T00:00:00+00:00</lastmod>
+    <loc>https://matteorg.github.io/others/</loc>
+    <lastmod>2026-03-14T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>https://matteorg.github.io/others/</loc>
-    <lastmod>2026-03-05T00:00:00+00:00</lastmod>
+    <loc>https://matteorg.github.io/others/competition-economics/</loc>
+    <lastmod>2026-02-26T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
     <loc>https://matteorg.github.io/post/variance-checks/</loc>
@@ -195,6 +196,9 @@
     <changefreq>weekly</changefreq>
   </url><url>
     <loc>https://matteorg.github.io/admin/</loc>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>https://matteorg.github.io/archive/wip/game-theory/</loc>
     <changefreq>weekly</changefreq>
   </url>
 </urlset>

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- This site was created with Wowchemy. https://www.wowchemy.com -->
-<!-- Last Published: March 8, 2026 --><html lang="en-us" >
+<!-- Last Published: March 14, 2026 --><html lang="en-us" >
 
 
 <head>
@@ -215,7 +215,7 @@
   
   
   
-  <link rel="stylesheet" href="/css/wowchemy.88967517460f8bc21cd218459d6641b0.css" />
+  <link rel="stylesheet" href="/css/wowchemy.39d6c029cc35466e720c1c729ab2d583.css" />
 
   
   
@@ -295,8 +295,7 @@
 
   
 
-<meta name="description" content="Coming soon&hellip;
-Thank you for reading! Disclaimer: I write to learn, based on my background and personal experience. Errors are my own, and if you spot them, let me know! I also appreciate suggestions to investigate new topics!" />
+<meta name="description" content="Russel Crowe interpreting John Nash in &lsquo;A Beautiful Mind&rsquo; Introduction Game theory is the formal analysis of the behavior of interacting individuals. The crucial feature of an interactive situation is that the consequences of the actions of an individual depend (also) on the actions of other individuals." />
 
 
 
@@ -339,10 +338,16 @@ Thank you for reading! Disclaimer: I write to learn, based on my background and 
 <meta property="og:site_name" content="Matteo Greco" />
 <meta property="og:url" content="https://matteorg.github.io/others/competition-economics/game-theory/" />
 <meta property="og:title" content="Game Theory | Matteo Greco" />
-<meta property="og:description" content="Coming soon&hellip;
-Thank you for reading! Disclaimer: I write to learn, based on my background and personal experience. Errors are my own, and if you spot them, let me know! I also appreciate suggestions to investigate new topics!" /><meta property="og:image" content="https://matteorg.github.io/media/icon_hufe0bf023893a36fd468464b12c9bc07d_11738_512x512_fill_lanczos_center_3.png" /><meta property="og:locale" content="en-us" />
+<meta property="og:description" content="Russel Crowe interpreting John Nash in &lsquo;A Beautiful Mind&rsquo; Introduction Game theory is the formal analysis of the behavior of interacting individuals. The crucial feature of an interactive situation is that the consequences of the actions of an individual depend (also) on the actions of other individuals." /><meta property="og:image" content="https://matteorg.github.io/media/icon_hufe0bf023893a36fd468464b12c9bc07d_11738_512x512_fill_lanczos_center_3.png" /><meta property="og:locale" content="en-us" />
 
   
+    <meta
+      property="article:published_time"
+      content="2026-03-14T00:00:00&#43;00:00"
+    />
+  
+  
+    <meta property="article:modified_time" content="2026-03-14T00:00:00&#43;00:00">
   
 
 
@@ -729,7 +734,20 @@ Thank you for reading! Disclaimer: I write to learn, based on my background and 
 
       <nav id="TableOfContents">
   <ul>
-    <li>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#static-games">Static games</a>
+      <ul>
+        <li><a href="#equilibrium-in-dominant-strategies">Equilibrium in dominant strategies</a></li>
+        <li><a href="#nash-equilibrium">Nash equilibrium</a></li>
+      </ul>
+    </li>
+    <li><a href="#sequential-games">Sequential games</a>
+      <ul>
+        <li><a href="#subgame-perfect-equilibrium">Subgame-perfect equilibrium</a></li>
+      </ul>
+    </li>
+    <li><a href="#conclusion">Conclusion</a></li>
+    <li><a href="#references">References</a>
       <ul>
         <li></li>
       </ul>
@@ -771,7 +789,672 @@ Thank you for reading! Disclaimer: I write to learn, based on my background and 
           
           
 
-          <p>Coming soon&hellip;</p>
+          <p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  id="figure-russel-crowe-interpreting-john-nash-in-a-beautiful-mind">
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img src="/images/comp_econ/game-theory/beautiful-mind.jpg" alt="A Beautiful Mind" loading="lazy" data-zoomable /></div>
+  </div><figcaption>
+      Russel Crowe interpreting John Nash in &lsquo;A Beautiful Mind&rsquo;
+    </figcaption></figure>
+</p>
+<h2 id="introduction">Introduction</h2>
+<p><strong>Game theory</strong> is the formal analysis of the behavior of interacting individuals. The crucial feature of an interactive situation is that the consequences of the actions of an individual depend (also) on the actions of other individuals. This is typical of many games people play for fun, such as chess or poker. Hence, interactive situations are called <strong>games</strong> and interactive individuals are called <strong>players</strong>. If a player’s behavior is intentional and he is aware of the interaction (which is not always the case), he should try and anticipate the behavior of other players. This is the essence of strategic thinking.</p>
+<p>Why is it important to introduce some game theory concepts for competition economics? Well, imperfect competition usually involves strategic interactions. A firm’s action (price choice, quantity produced, $R\&amp;D$, advertising expenditures, etc. ) affects its rivals’ profits and incentives. Game theory helps us predict outcomes for industries in which firms interact strategically.</p>
+<p>The following short review is aimed recapping the most basic game theory concepts used in industrial organization. For an exhaustive and more formal deep dive into game theory I strongly recommend using Pierpaolo Battigalli&rsquo;s notes, which are freely available <a href="https://didattica.unibocconi.eu/mypage/doc.php?idDoc=29501&amp;IdUte=48808&amp;idr=703&amp;Tipo=m&amp;lingua=eng" target="_blank" rel="noopener">here</a>.</p>
+<h2 id="static-games">Static games</h2>
+<p>In <strong>static games</strong> active players move simultaneously once and for all. In this case each player has only one <strong>action</strong> to take. In <strong>dynamic games</strong>, some or all moves are sequential. In this case each player can have multiple actions to take. The full sequence of actions that leads to the final outcome of the game can be referred to as a <strong>strategy</strong>. In certain cases we will use <em>strategy</em> and <em>action</em> interchangeably for simplicity (especially in static games, where strategy and action can be considered the same). Games with sequential moves are sometimes analyzed as if the players moved only once and simultaneously. The <strong>normal form</strong> or <strong>strategic form</strong> of a game can be seen as a static game where players simultaneously choose strategies in advance.</p>
+
+<div class="beamer-block type-definition">
+    <div class="beamer-header">
+        Definition: static game
+    </div>
+    <div class="beamer-body"  style="overflow-x: auto;">
+        <p>A <strong>static game</strong> is described by:</p>
+<ol>
+<li>A set of <strong>players</strong>, $I = \{1,2,&hellip;,N\}$.</li>
+<li>For each player, an <strong>action set</strong> $A_i$. Let $a = (a_1, a_2,&hellip;, a_N) \in \times_{i \in I} A_i$ the list of the actions chosen by each player. We say that $a$ is an outcome of the game, or an <em>action profile</em>.</li>
+<li>For each player $i$, a <strong>payoff function</strong> $$\pi_i:a \in \times_{j \in I}A_j \to \pi_i(a) \in \mathbb{R}$$</li>
+</ol>
+
+    </div>
+</div>
+
+<div class="beamer-block type-example">
+    <div class="beamer-header">
+        Example: price competition with differentiated products
+    </div>
+    <div class="beamer-body"  style="overflow-x: auto;">
+        <p>The <strong>static game</strong> is described by:</p>
+<ol>
+<li>Two <strong>players</strong>, firm $1$ and firm $2$.</li>
+<li><strong>Action set</strong> of firm $i$: $p_i \in [0,+\infty)$ for $i \in \{1,2\}$ (the set of non-negative prices). An example of <strong>action profile</strong> could be $p_1=3$ and $p_2=4$.</li>
+<li>For each firm $i$, a <strong>payoff function</strong> (the profit function) $$\pi_i(p_i,p_j) = (p_i-c_i)q_i(p_i,p_j)$$ where $q_i(p_i,p_j)$ denotes firm $i$&rsquo;s demand at prices $p_i$ and $p_j$.</li>
+</ol>
+
+    </div>
+</div>
+<p>It is sometimes possible to represent the game in matrix form, which ultimately simplifies our search for possible <em>solutions</em> of the game. To best illustrate how to build a matrix representation let&rsquo;s start from another example, undoubtedly the most famous game to start grasping game theory concepts: <strong>the prisoners&rsquo; dilemma</strong>.</p>
+<p>Suppose <strong>Alan</strong> and <strong>Bob</strong> are caught by the police and accused of having committed a crime. Currently the police has no proof, so they decide to interrogate the suspects in two separate rooms. Alan and Bob are both presented with the following options:</p>
+<ul>
+<li>if <strong>both</strong> confess, they&rsquo;ll have to spend 5 years in prison.</li>
+<li>if <strong>one</strong> confesses while the other stays silent, the defector (the one confessing) will be released immediately while the partner will have to spend 10 years in prison.</li>
+<li>if <strong>neither</strong> confesses, they&rsquo;ll both have to spend only 1 year in prison as suspects.</li>
+</ul>
+<p>Not knowing what the other partner will say in the separate room, Alan and Bob (from now on <strong>A</strong> and <strong>B</strong>) are both left with the choice to either <strong>cooperate</strong> (i.e. remain silent) or <strong>defect</strong> (i.e. confess and testify against the partner), which we&rsquo;ll refer to as <strong>C</strong> and <strong>D</strong> from now on.</p>
+<p>If you imagine their payoff (or utility) to be measured in <strong>years of life</strong> (so any year spent in prison is a <em>lost</em> year), <strong>A</strong> and <strong>B</strong> will have the following: $$
+\pi_i(a_i, a_j) =
+\begin{cases}
+-1 &amp; \text{if } a_i = a_j = C \\
+0 &amp; \text{if } a_i = D \text{ and } a_j = C \\
+-10 &amp; \text{if } a_i = C \text{ and } a_j = D \\
+-5 &amp; \text{if } a_i = a_j = D
+\end{cases}
+$$</p>
+<p>Given this utility function, we can conveniently represent this game in its <strong>matrix form</strong>:
+$$
+\begin{array}{c|c|c}
+&amp; C &amp; D \\ \hline
+C &amp; (-1, -1) &amp; (-10, 0) \\ \hline
+D &amp; (0, -10) &amp; (-5, -5)
+\end{array}
+$$
+where, by convention:</p>
+<ul>
+<li>row player is A, column player is B.</li>
+<li>the first number in parentheses is the row player’s payoff; the second one is the column player’s payoff.</li>
+</ul>
+<p>Now that we have defined a game, we would like to make predictions about what players will actually do. Put differently, we need a <strong>solution concept</strong> (or an <strong>equilibrium concept</strong>)</p>
+<h3 id="equilibrium-in-dominant-strategies">Equilibrium in dominant strategies</h3>
+<p>Before defining what a dominant strategy is, it is convenient to rewrite the action profile as $a=(a_i, a_{-i})$, where $\forall i \in I$ $a_{-i}=(a_1,a_2,&hellip;,a_{i-1},a_{i+1},&hellip;,a_{N-1},a_N)$, namely the set of all actions of all players other than $i$.</p>
+
+<div class="beamer-block type-definition">
+    <div class="beamer-header">
+        Definition: dominant strategy
+    </div>
+    <div class="beamer-body"  style="overflow-x: auto;">
+        $\tilde{a}_i \in A_i$ is a (strictly) <strong>dominant strategy</strong> for player $i$ if:
+$$
+\forall a_{-i} \in \times_{j \in I \setminus \{i\}}A_j, \forall a_i \in A_i \text{ s.t. } a_i \neq \tilde{a}_i, \pi_i(\tilde{a}_i, a_{-i}) &gt; \pi_i(a_i, a_{-i})
+$$
+    </div>
+</div>
+<p>In other words, a strategy is strictly dominant if it gives player $i$ a higher payoff than any other possible move, regardless of what the other players choose to do. You don&rsquo;t even need to try and &ldquo;predict&rdquo; your opponents; you should just play this move every single time because it always wins.</p>
+<p>Let&rsquo;s consider our prisoner&rsquo;s dilemma again and specifically on player $A$. To make it more visually clear, underline in red the highest payoff that player $A$ can get by choosing $C$ or $D$ given the opponents&rsquo; choice. This means, given player $B$ chooses $C$ (focus on first column), player $A$ should compare payoffs $-1$ (from choosing $C$, first row) and $0$ (from choosing $D$, second row). Clearly, being $0&gt;-1$, $A$ would choose $D$ if he knew $B$ was playing $C$.
+$$
+\begin{array}{c|c|c}
+&amp; C &amp; D \\ \hline
+C &amp; (-1, -1) &amp; (-10, 0) \\ \hline
+D &amp; (\color{red}{\underline{\color{white}{0}}}\color{white}{,} -10) &amp; (-5, -5)
+\end{array}
+$$</p>
+<p>If you apply the same reasoning to both players and both choices you obtain the following representation:
+$$
+\begin{array}{c|c|c}
+&amp; C &amp; D \\ \hline
+C &amp; (-1, -1) &amp; (-10, \color{red}{\underline{\color{white}{0}}}\color{white}{)} \\ \hline
+D &amp; (\color{red}{\underline{\color{white}{0}}}\color{white}{,} -10) &amp; (\color{red}{\underline{\color{white}{-5}}}\color{white}{,} \color{red}{\underline{\color{white}{-5}}}\color{white}{)}
+\end{array}
+$$</p>
+<p>You can immediately see that for both $A$ and $B$ choice $D$ is a <strong>dominant strategy</strong>. No matter what the other does, the payoff is always higher by choosing $D$ over $C$. Now, we can define our first <strong>equilibrium concept</strong>.</p>
+<div style="overflow-x: auto; text-align: center;">
+
+<div class="beamer-block type-definition">
+    <div class="beamer-header">
+        Definition: equilibrium in dominant strategies
+    </div>
+    <div class="beamer-body"  style="overflow-x: auto;">
+        A strategy profile $\tilde{a}=(\tilde{a}_1,&hellip;,\tilde{a}_N) \in \times_{j \in I}A_j$ is an <strong>equilibrium in dominant strategies</strong> if $\tilde{a}_i$ is a dominant strategy for ever player $i$, namely if:
+$$
+\forall i \in I, \forall a_{-i} \in \times_{j \in I \setminus \{i\}}A_j, \forall a_i \in A_i \text{ s.t. } a_i \neq \tilde{a}_i, \pi_i(\tilde{a}_i, a_{-i}) &gt; \pi_i(a_i, a_{-i})
+$$
+    </div>
+</div>
+</div>
+<p>In our prisoner&rsquo;s dilemma it is clear that $(D,D)$ is the only equilibrium in dominant strategies (easy to spot also by checking for those boxes where both payoffs are underlined).</p>
+<p>Most people look at the prisoner&rsquo;s dilemma and think the tragedy comes from a <strong>lack of trust</strong>. We tell ourselves: &ldquo;I only betrayed my partner because I was afraid they would betray me first.&rdquo;. But if you look at the cold, hard math of Game Theory, that explanation is actually incorrect.</p>
+<ul>
+<li><strong>The trap of individual logic</strong>: in this game, the equilibrium outcome $(-5, -5)$ is what we call Pareto-dominated. This is just a way of saying there is another outcome $(-1, -1)$ where <em>everyone</em> would be better off. From a &ldquo;utilitarian&rdquo; view, the outcome where both players defect is actually the <em>absolute worst-case scenario</em>. Yet, decentralized decision-making (everyone choosing for themselves) leads us there every time.</li>
+<li><strong>Why &ldquo;fear&rdquo; isn&rsquo;t the driver</strong>: here is the counterintuitive part. You don&rsquo;t defect because you&rsquo;re afraid of your partner. You defect because it is the <strong>strictly dominant</strong> thing to do. If your partner stays silent, you get a better deal by defecting ($0$ instead of $-1$). If your partner betrays you, you still get a better deal by defecting ($-5$ instead of $-10$). You aren&rsquo;t reacting to their choice out of fear; you are choosing the best option for yourself regardless of what they do. Even if you knew for a fact that your partner was the most loyal person on earth, the &ldquo;rational&rdquo; move in this specific vacuum is still to betray them.</li>
+<li><strong>The power of commitment</strong>: this is why communication alone doesn&rsquo;t solve the problem. If you and your partner simply talk before the game, you&rsquo;ll both promise to stay silent. But once the doors close, the incentive to &ldquo;cheat&rdquo; remains. To reach the better outcome, you don&rsquo;t just need to talk; you need a binding commitment, a contract or a shared code of honor that makes defecting impossible or too expensive to consider. Without that structure, individual rationality will always lead to a collective disaster.</li>
+</ul>
+<p>The prisoner&rsquo;s dilemma always reminds me of the movie <em>Four Brothers</em>, a good example of when the <em>code of honor</em> comes into place: 
+ <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+   <iframe src="https://www.youtube.com/embed/RdMfFtoOP_c" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+ </div>
+</p>
+<p>At this point you should ask yourself &ldquo;Do dominant strategies always exist?&rdquo;. Let&rsquo;s consider the following game, famously known as <strong>The Battle of the Sexes</strong>. In the battle of the sexes, we move from the jail cell to the ultimate arena of conflict: date night. Imagine a couple, <strong>A</strong>nn (row player) and <strong>B</strong>ill (column player): <strong>B</strong> wants to see a football match, <strong>A</strong> wants to weep through a three-hour opera.</p>
+<p>They both hate being apart, but they have zero ways to coordinate where they’re going. If they end up at different venues, they’re miserable and alone (both get payoff $0$); if they go to the same place, one is thrilled (payoff $2$) and the other is bored, but at least with snacks and company (payoff $1$). It’s the classic &ldquo;I love you, but I really want my way&rdquo; dilemma that proves coordination is easy, but agreeing on who gets the remote is where the real game theory begins. Here is the matrix representation of battle of sexes:</p>
+<p>$$
+\begin{array}{c|c|c}
+&amp; \text{Football} &amp; \text{Opera} \\ \hline
+\text{Football} &amp; (1, 2) &amp; (0, 0) \\ \hline
+\text{Opera} &amp; (0, 0) &amp; (2, 1)
+\end{array}
+$$</p>
+<p>Following the same reasoning as above you will see that if $B$ chose football, $A$ would be better off by choosing football as well ($\pi_A(\text{Football}, \text{Football})=1&gt;0=\pi_A(\text{Opera}, \text{Football})$). However, if $B$ chose opera, $A$ would be better off choosing opera, making neither football nor opera dominant strategies. Therefore there is no dominant strategy equilibrium in the battle of sexes game.</p>
+<h3 id="nash-equilibrium">Nash equilibrium</h3>
+<p>In 1951 John Nash introduced a different solution concept. Let&rsquo;s consider the battle of the sexes where we do the same &ldquo;underlining&rdquo; exercise as before:
+$$
+\begin{array}{c|c|c}
+&amp; \text{Football} &amp; \text{Opera} \\ \hline
+\text{Football} &amp; (\color{red}{\underline{\color{white}{1}}}\color{white}{,} \color{red}{\underline{\color{white}{2}}}\color{white}{)} &amp; (0, 0) \\ \hline
+\text{Opera} &amp; (0, 0) &amp; \color{red}{\underline{\color{white}{2}}}\color{white}{,} \color{red}{\underline{\color{white}{1}}}\color{white}{)}
+\end{array}
+$$
+As you can see there are two cases where both payoffs are underlined: $(\text{Football},\text{Football})$ and $(\text{Opera},\text{Opera})$. Consider the former. Would either $A$ or $B$ have any incentive to deviate from $(\text{Football},\text{Football})$? Of course not. If $A$ chose $\text{opera}$ he would lose a payoff of $1$. We can say that playing $\text{Football}$, while not being a dominant strategy, is the <strong>best reply</strong> (or <strong>best response</strong>) to the opponent playing $\text{Football}$ (i.e. any other choice would not be able to yield strictly higher payoff). While this not being the case in the battle of sexes, you may already guess that the best response need not be a unique action but rather a set.</p>
+
+<div class="beamer-block type-definition">
+    <div class="beamer-header">
+        Definition: best response
+    </div>
+    <div class="beamer-body"  style="overflow-x: auto;">
+        An action $\tilde{a}_i$ is a <strong>best response</strong> to $a_{-i}$ if: $$\tilde{a}_i=BR(a_{-i})=\arg\max_{a_i \in A_i} \pi_i(a_i,a_{-i})$$
+Since $BR(a_{-i})$ may not be a singleton, we formally talk about <strong>best response correspondence</strong>: $$BR(a_{-i}): \times_{j \in I \setminus \{i\}}A_j \rightrightarrows A_i$$
+    </div>
+</div>
+<p>In the context of competition economics here we will mostly think of the best response as a function.</p>
+<p>Given the definition of best response, it is straightforward to formalize Nash equilibrium.
+
+<div class="beamer-block type-definition">
+    <div class="beamer-header">
+        Definition: Nash equilibrium
+    </div>
+    <div class="beamer-body"  style="overflow-x: auto;">
+        A strategy profile $\tilde{a} = (\tilde{a}_1, \tilde{a}_2, \dots, \tilde{a}_N)  \in \times_{j \in I}A_j$ is a <strong>Nash equilibrium</strong> if:
+$$
+\forall i, \tilde{a}_i \in BR_i(\tilde{a}_{-i})
+$$
+    </div>
+</div>
+In words, each player chooses a strategy that is a best response to other players’ (equilibrium) strategies.</p>
+<p>In the battle of the sexes game, and in general in every game that allows a matrix representation, every combination where <strong>all players&rsquo; payoffs are underlined</strong> constitute Nash equilibria.</p>
+<p>When a matrix representation is not possible (e.g. with continuous action profiles), to do a best response analysis and solve for the Nash equilibria of a game, just do the following:</p>
+<ul>
+<li>For each player $i$ compute $BR_i(.)$.</li>
+<li>Find the intersection of these best responses.</li>
+</ul>
+
+<div class="beamer-block type-example">
+    <div class="beamer-header">
+        Example: price competition with differentiated products
+    </div>
+    <div class="beamer-body"  style="overflow-x: auto;">
+        <p>Consider the price competition with differentiated products model, and let&rsquo;s make a few additional assumptions:</p>
+<ul>
+<li>$c_1 = c_2 = 0$</li>
+<li>$q_i = 1 - 2p_i + p_j$</li>
+</ul>
+<p>So the profit function of firm $i \in {1, 2}$ is just $\pi_i(p_1, p_2) = p_i(1 - 2p_i + p_j)$.
+By definition, $BR_i(p_j) = \arg \max_{p_i} {p_i(1 - 2p_i + p_j)}$.</p>
+<p>As the objective function is concave ($\partial^2 \pi_i / \partial p_i^2 &lt; 0$), we can use the <strong>First Order Condition (FOC)</strong>:</p>
+<p>$$
+1 - 4p_i + p_j = 0
+$$</p>
+<p>Solving for $p_i$, we get:</p>
+<p>$$
+p_i = BR_i(p_j) = \frac{1 + p_j}{4}
+$$</p>
+<p>In this particular example, the best response correspondence is single-valued (i.e. it&rsquo;s a <em>function</em>).
+$(\hat{p}_1, \hat{p}_2)$ is a Nash equilibrium if and only if:</p>
+<ul>
+<li>$\hat{p}_1 \in BR_1(\hat{p}_2)$</li>
+<li>$\hat{p}_2 \in BR_2(\hat{p}_1)$</li>
+</ul>
+<p>Therefore, we have to solve the following system of equations (to get the intersection of best-responses):</p>
+<p>$$
+\begin{cases}
+\hat{p}_1 = \frac{1 + \hat{p}_2}{4} \\
+\hat{p}_2 = \frac{1 + \hat{p}_1}{4}
+\end{cases}
+$$</p>
+<p>We get $\hat{p}_1 = \hat{p}_2 = 1/3$.</p>
+<p>Therefore, $(1/3, 1/3)$ is the only Nash equilibrium of this price competition game.</p>
+
+    </div>
+</div>
+<p>If you think about the previous solution concept, the equilibrium in dominant strategies, that is <em>always</em> a Nash equilibrium. Intuitively, a dominant strategy is a best response to <em>any</em> strategy profile. However, obviously a Nash equilibrium is <strong>not</strong> always an equilibrium in dominant strategies. Additionally, if you recall how we thought about best responses in the battle of the sexes, when looking for Nash equilibria you should <em>always</em> and <em>only</em> consider <strong>unilateral deviations</strong> from a given profile, and not <strong>joint</strong> ones.</p>
+<p>How do we actually <em>reach</em> a Nash equilibrium? It’s not just about math; it’s about what you think, what I think, and what I think you think. In game theory we refer to this as <strong>introspective foundation</strong>.</p>
+<p>Imagine you&rsquo;re playing a game. To reach an equilibrium, you have to follow a logic loop that sounds like a line from <em>The Princess Bride</em>:</p>
+<ul>
+<li>I am rational, so I will maximize my own payoff.</li>
+<li>I know you are rational, so I know you’ll do the same.</li>
+<li>You know that I know you’re rational&hellip; and so on, forever.
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/sE2qa96pq8I" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+</li>
+</ul>
+<p>This &ldquo;common knowledge of rationality&rdquo; suggests that if we are both perfectly logical, we will naturally settle on a strategy profile where neither of us has any reason to change our minds. We reach a state of perfect, mutual &ldquo;no-regrets&rdquo;.</p>
+<p>But let’s be honest: this &ldquo;introspective&rdquo; approach isn&rsquo;t always convincing. In fact, it often fails for three very human reasons:</p>
+<ul>
+<li><strong>It’s mathematically exhausting</strong>: even for PhD-level game theorists, calculating a Nash equilibrium in a complex game is hard. Expecting two people at a bar or two CEOs in a price war to solve multi-variable calculus in their heads is a stretch.</li>
+<li><strong>The &ldquo;correct conjecture&rdquo; trap</strong>: A Nash equilibrium only works if everyone has correct beliefs about what the other person is going to do. If I incorrectly guess your move, my best response becomes a total disaster.</li>
+<li><strong>The coordination headache</strong>: What happens when a game has multiple Nash equilibria? If there are two &ldquo;logical&rdquo; stable points, how do we make sure we don&rsquo;t both pick different ones and end up unhappy?
+<ul>
+<li>Consider for example the battle of the sexes. How should a player choose, even knowing that two Nash equilibria are possible? The introspection story does not tell us how players can coordinate on one of these equilibria!</li>
+</ul>
+</li>
+</ul>
+<p>So, Nash equilibrium appears to be a beautiful theoretical benchmark, though it relies on players being &ldquo;hyper-rational.&rdquo; In reality, we often rely on habits, social norms, or trial-and-error rather than infinite logical loops to figure out our next move.</p>
+<p>Last but not least, just like we did in the previous paragraph before introducing the battle of the sexes, you should ask yourself &ldquo;Does a Nash equilibrium always exist?&rdquo;. The answer is simple and is of course <strong>no</strong>. The definition of Nash equilibrium does not guarantee its existence. Try to find one or more Nash equilibria in the following game, which I&rsquo;m sure you&rsquo;re familiar with:
+$$
+\begin{array}{c|c|c|c}
+&amp; \text{Rock} &amp; \text{Paper} &amp; \text{Scissor} \\ \hline
+\text{Rock} &amp; (0, 0) &amp; (-1, \color{red}{\underline{\color{white}{1}}}\color{white}{)} &amp; (\color{red}{\underline{\color{white}{1}}}\color{white}{,} -1)\\ \hline
+\text{Paper} &amp; (\color{red}{\underline{\color{white}{1}}}\color{white}{,} -1) &amp; (0, 0) &amp; (-1, \color{red}{\underline{\color{white}{1}}}\color{white}{)}\\ \hline
+\text{Scissor} &amp; (-1, \color{red}{\underline{\color{white}{1}}}\color{white}{)} &amp; (\color{red}{\underline{\color{white}{1}}}\color{white}{,} -1) &amp; (0, 0)
+\end{array}
+$$</p>
+<p>For simplicity I already underlined each player&rsquo;s best response. As you can see, there&rsquo;s no combination where a player&rsquo;s best response to a given opponent&rsquo;s move is also the opponent&rsquo;s best response to the player&rsquo;s action. So no Nash equilibrium exists in this game.
+<span class="infotip-container">
+    <sup class="infotip-icon">i</sup>
+    <span class="infotip-content">Under weak assumptions, even in the Rock-Paper-Scissor game an equilibrium may exist, called $\text{Nash equilibrium in mixed strategies}$, which I will however not cover when talking about competition economics.</span>
+</span>
+
+<style>
+ 
+
+ 
+.infotip-container {
+    position: relative;      
+    display: inline-block;   
+    cursor: help;            
+    text-decoration: none;   
+}
+
+ 
+.infotip-icon {
+    font-size: 0.7em;            
+    vertical-align: super;       
+    border: 1px solid #777;      
+    border-radius: 50%;          
+    width: 1.2em;                
+    height: 1.2em;               
+    display: inline-flex;        
+    justify-content: center;     
+    align-items: center;         
+    line-height: 1;              
+    margin-left: 0.2em;          
+    color: #555;                 
+    background-color: #f0f0f0;   
+    font-weight: bold;
+    user-select: none;           
+    transition: background-color 0.2s ease, color 0.2s ease;  
+}
+
+.infotip-container:hover .infotip-icon {
+    background-color: #66d9ef;  
+    color: #fff;                 
+    border-color: #66d9ef;
+}
+
+ 
+.infotip-content {
+    font-size: 0.7em;
+    position: absolute;
+    bottom: calc(100% + 5px);  
+    left: 50%;  
+    transform: translateX(-50%);  
+    min-width: 250px;            
+    max-width: 350px;            
+    background-color: #444;      
+    color: #fff;                 
+    padding: 12px 18px;          
+    border-radius: 6px;          
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);  
+    z-index: 100;                
+
+    opacity: 0;                  
+    visibility: hidden;          
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;  
+
+     
+    &::after {
+        content: '';
+        position: absolute;
+        top: 100%;  
+        left: 50%;
+        transform: translateX(-50%);
+        border-width: 8px;
+        border-style: solid;
+        border-color: #333 transparent transparent transparent;  
+    }
+}
+
+ 
+.infotip-container:hover .infotip-content {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(-10px);  
+}
+</style></p>
+<h2 id="sequential-games">Sequential games</h2>
+<p>As we introduced before, some games may have multiple steps (and some players may have multiple moves). Let&rsquo;s start with a simple example of a seller-buyer game. Consider two individuals, $S$ (Seller) and $B$ (Buyer). Let $S$ be the owner of an object and $B$ a potential buyer. For simplicity, consider the following bargaining protocol: $S$ can ask one Dollar (1) or two Dollars (2) to sell the object, $B$ can only accept (a) or reject (r). The monetary value of the object for individual $i$ ($i = S, B$) is denoted by $\pi_i$. This situation can be analyzed as a game which can be represented with a <strong>rooted tree</strong> with utility numbers attached to <strong>terminal nodes</strong> (leaves), player labels attached to <strong>nonterminal nodes</strong>, and action labels attached to <strong>branches</strong>.</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  id="figure-seller-buyer-mini-game">
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img src="/images/comp_econ/game-theory/sb-mini-game.png" alt="SellerBuyer" loading="lazy" data-zoomable /></div>
+  </div><figcaption>
+      Seller-Buyer mini game
+    </figcaption></figure>
+</p>
+<p>An intuitive definition for an <strong>sequential game</strong> is a game that can be represented by a game tree, or equivalently in its <strong>extensive form</strong>.</p>
+
+<div class="beamer-block type-definition">
+    <div class="beamer-header">
+        Definition: sequential game
+    </div>
+    <div class="beamer-body"  style="overflow-x: auto;">
+        <p>A <strong>sequential game</strong> is:</p>
+<ol>
+<li>A game tree containing a starting node, other decision nodes, terminal nodes, and branches linking nodes.</li>
+<li>A list of players $\{1,2,&hellip;,N\}$.</li>
+<li>For each decision node, the name of the player(s) entitled to choose an
+action.</li>
+<li>For each player $i$, a specification of $i$’s action set at each node where player $i$ is entitled to choose an action.</li>
+<li>A specification of the payoff of each player at each terminal node.</li>
+</ol>
+
+    </div>
+</div>
+<p>While in static games a strategy was just an action - therefore we could use the terms interchangeably - in sequential games we refer to a strategy as a <strong>plan of actions</strong>, so the distinction becomes crucial.</p>
+<p>Continuing the comparison with static games, it is interesting to note that it is possible to represent sequential games <em>also</em> in a normal form, and in certain cases even via matrix representation. Consider the seller-buyer game. The actions and payoffs could be rewritten as follows:</p>
+<div style="overflow-x: auto; text-align: center;">
+$$
+\begin{array}{c|c|c|c|c}
+ & \text{a,a} & \text{a,r} & \text{r,a} & \text{r,r} \\\\ \hline
+\text{1 dollar} & (1-\pi_S, \pi_B-1) & (1-\pi_S, \pi_B-1) & (0,0) & (0,0) \\\\ \hline
+\text{2 dollars} & (2-\pi_S, \pi_B-2) & (0,0) & (2-\pi_S, \pi_B-2) & (0,0)
+\end{array}
+$$
+</div>
+<p>In this representation think of the buyer’s strategy not as a single move, but as a remote-controlled instruction manual he hands over before the game starts. In a static game, you just react to what’s happening. In a sequential game represented this way, the buyer has to decide his response to every possible scenario the seller might create.</p>
+<p>When you see a strategy like (a, r), read it as an &ldquo;If-Then&rdquo; statement. The position in the couple corresponds to the specific &ldquo;node&rdquo; or choice the seller makes:</p>
+<ul>
+<li>The 1st slot is the response to 1 dollar.</li>
+<li>The 2nd slot is the response to 2 dollars.
+So, if the buyer chooses the column (a, r), they are saying: &ldquo;If you charge me $\$1$, I will accept; but if you charge me $\$2$, I will reject.&rdquo;</li>
+</ul>
+<p>Now, we can just extend our definition of a Nash equilibrium to these somewhat more complicated games: in words, a profile of strategies is a Nash equilibrium if and only if no player has an incentive to deviate from his strategy. To begin with, let’s look for Nash equilibria in the seller-buyer mini game. Let&rsquo;s assume for simplicity that $\pi_S=0.5$ and $\pi_B=2.5$:</p>
+<div style="overflow-x: auto; text-align: center;">
+$$
+\begin{array}{c|c|c|c|c}
+ & \text{a,a} & \text{a,r} & \text{r,a} & \text{r,r} \\\\ \hline
+\text{1 dollar} & (0.5, \color{red}{\underline{\color{white}{1.5}}}\color{white}{)} & (\color{red}{\underline{\color{white}{0.5}}}\color{white}{,} \color{red}{\underline{\color{white}{1.5}}}\color{white}{)} & (0, 0) & (\color{red}{\underline{\color{white}{0}}}\color{white}{,} 0) \\\\ \hline
+\text{2 dollars} & (\color{red}{\underline{\color{white}{1.5}}}\color{white}{,} \color{red}{\underline{\color{white}{0.5}}}\color{white}{)} & (0, 0) & (\color{red}{\underline{\color{white}{1.5}}}\color{white}{,} \color{red}{\underline{\color{white}{0.5}}}\color{white}{)} & (\color{red}{\underline{\color{white}{0}}}\color{white}{,} 0)
+\end{array}
+$$
+</div>
+<p>In this game we have 3 Nash equilibria:</p>
+<ul>
+<li>($\$1$,(a,r))</li>
+<li>($\$2$,(a,a))</li>
+<li>($\$2$,(r,a))</li>
+</ul>
+<p>Now, not all of the equilibria seem to make sense. Why would the seller ever want to reach the equilibrium in which he sells for $\$1$? Forget about Nash equilibrium for a moment. A rational seller should be able to make the following reasoning: &ldquo;If I sell for $\$2$ the buyer is going to make a positive profit by accepting, so he&rsquo;s going to accept no matter what I charge. Why should I sell for $\$2$ and deprive myself of $\$1$ extra profit?&rdquo;. Ultimatly the equilibrium should be reached by the seller choosing $\$2$ and the buyer accepting.</p>
+<p>This kind of intuitive reasoning is called <strong>backward induction</strong>:</p>
+<ul>
+<li>Start solving for optimal decisions in terminal nodes, and derive the implied payoffs.</li>
+<li>Go one step back and, again, solve for optimal decisions, anticipating that people will behave optimally in subsequent nodes. Derive the implied payoffs.</li>
+<li>Iterate until you reach the initial node.</li>
+</ul>
+<p>This thought process is not contained in the Nash equilibrium concept.</p>
+<p>Bottom line:</p>
+<ul>
+<li>Nash generates weird equilibria in some simple multistage games.</li>
+<li>Backward induction seems to eliminate these equilibria.</li>
+<li>A &ldquo;backward induction equilibrium&rdquo;&quot; is <em>always</em> a Nash equilibrium.</li>
+<li>A Nash equilibrium may not be consistent with backward induction.</li>
+</ul>
+<h3 id="subgame-perfect-equilibrium">Subgame-perfect equilibrium</h3>
+
+<div class="beamer-block type-definition">
+    <div class="beamer-header">
+        Definition: subgame
+    </div>
+    <div class="beamer-body"  style="overflow-x: auto;">
+        A <strong>subgame</strong> is a decision node from the original game along with the decision nodes and and terminal nodes directly following this node. A subgame is called a <strong>strict subgame</strong> if it differs from the original game.
+    </div>
+</div>
+<p>In our seller-buyer game there are only two <strong>strict subgames</strong>.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  id="figure-strict-subgames-in-seller-buyer-mini-game">
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img src="/images/comp_econ/game-theory/subgames.png" alt="Subgames" loading="lazy" data-zoomable /></div>
+  </div><figcaption>
+      Strict subgames in Seller-Buyer mini game
+    </figcaption></figure>
+</p>
+<p>The idea of backward induction is to look precisely at these subgames first, them move up. You can even make it more visually clear by drawing arrows to highlight what each player would choose in each subgame. Consider the numeric example of the seller-buyer game from before: at the terminal node the buyer needs to choose between accepting and rejecting. Since no matter what the seller does, the buyer has a strictly positive payoff by accepting, we can draw 2 red arrows indicating what the buyer will do. In the upper node, the seller needs to only compare the payoffs of the paths indicated by the two red arrows and <strong>ignore</strong> the others (as they won&rsquo;t be chosen by the seller anyway). Since the payoff from selling for $\$2$ is higher than in the other scenario, we can draw a blue arrow (the seller&rsquo;s decision) indicating the final seller&rsquo;s choice. The path that from the beginning of the tree reaches a terminal node with a &lsquo;continuous&rsquo; arrow identifies the equilibrium.</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  id="figure-backward-induction-to-find-unique-rational-path">
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img src="/images/comp_econ/game-theory/spe.png" alt="Backward Induction" loading="lazy" data-zoomable /></div>
+  </div><figcaption>
+      Backward induction to find unique rational path.
+    </figcaption></figure>
+</p>
+<p>So the only equilibrium in this game becomes ($\$2$,(a,a)).</p>
+
+<div class="beamer-block type-definition">
+    <div class="beamer-header">
+        Definition: subgame-perfect equilibrium
+    </div>
+    <div class="beamer-body"  style="overflow-x: auto;">
+        A profile of strategies is a <strong>subgame-perfect equilibrium</strong> (SPE) if it induces a Nash equilibrium in every subgame of the original game.
+    </div>
+</div>
+<p>Assume that the game has a <strong>finite</strong> number of periods. Then, even if some players move simultaneously at some nodes, we can still use backward induction to solve the game. The trick is again to start with the deepest subgames and to solve for Nash equilibrium in these subgames. Then, in the extensive form, replace these smallest subgames by the players’ payoffs at the Nash equilibrium you’ve just calculated. Iterate until there are no subgames left.</p>
+<p>Let&rsquo;s look at an example with the battle of the sexes <strong>with outside option</strong>. In this modified version of the game <strong>A</strong>nn has the possibility to decide first whether to play the game or sit it out. If she doesn&rsquo;t play, both Ann and Bill (<strong>B</strong>) get a payoff of 2. If ann plays, Ann and Bill choose simultaneously. The game can be represented as follows:</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  id="figure-battle-of-the-sexes-with-outside-option">
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img src="/images/comp_econ/game-theory/bos-seq.png" alt="BoS Sequential" loading="lazy" data-zoomable /></div>
+  </div><figcaption>
+      Battle of the sexes with outside option.
+    </figcaption></figure>
+</p>
+<p>In this case we know already that in case Ann entered the game, the simultaneous battle of the sexes Nash equilibria would be 2, ($\text{Opera},\text{Opera}$) and ($\text{Football},\text{Football}$). However, only in 1 of these two cases does Ann obtain a payoff higher than under the outside option. So how do we find the subgame-perfect equilibria? An alternative representation could help us. The following extensive-form representation is excellent for visualizing information sets - the dashed line shows that Bob doesn&rsquo;t know which move Ann made inside that subgame. The biggest conceptual hurdle is how a matrix (which usually implies players move at the same time) can be turned into a tree (which usually implies one moves after another). With the matrix logic in the subgame, neither player knows what the other has chosen until both have committed. With the tree logic we draw Ann moving first ($\text{Opera}$ or $\text{Football}$), followed by Bob. However, the dashed line (the information set) connecting Bob’s nodes is the &ldquo;magic&rdquo; ingredient. It signifies that when Bob moves, he does not know whether he is at the left node or the right node (as if he got Ann&rsquo;s decision in a sealed envelope and now he had to decide). If you list the strategies for both players in either version, they remain the same, and the payoffs at the end of every branch in the tree match the corresponding cells in the matrix.</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  id="figure-equilibria-in-the-battle-of-the-sexes-with-outside-option">
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img src="/images/comp_econ/game-theory/bos-seq-spe.png" alt="BoS Sequential Equilibrium" loading="lazy" data-zoomable /></div>
+  </div><figcaption>
+      Equilibria in the battle of the sexes with outside option.
+    </figcaption></figure>
+</p>
+<p>As you can see it is now easy to derive the 2 subgame-perfect equilibria from the tree structure.</p>
+<p>Suppose Bob in the terminal node chooses $\text{Football}$ thinking (or hoping?) that Ann chooses $\text{Football}$. Following this decision, by backward induction Ann would opt-out from the game. This equilibrium is represented by the <strong>red arrows</strong>. Neither has incentive to deviate from this equilibrium. If Ann chose to opt-in and select either $\text{Opera}$ or $\text{Football}$ she would get a lower payoff. Bob has no way to deviate because Ann doesn&rsquo;t play anyway.</p>
+<p>Suppose Bob in the terminal node chooses $\text{Opera}$ thinking (or suspecting?) that Ann chooses $\text{Opera}$. Following this decision, by backward induction Ann would play the game and choose $\text{Opera}$. This equilibrium is represented by the <strong>blue arrows</strong>. Neither has incentive to deviate from this equilibrium. If Ann chose to opt-in and select $\text{Football}$ she would get a lower payoff (0 instaed of 3). If she chose not to play she&rsquo;d also get a lower payoff (2 instead of 3). If Bob chose $\text{Football}$ he would get a lower payoff (0 instead of 1).
+<span class="infotip-container">
+    <sup class="infotip-icon">i</sup>
+    <span class="infotip-content">Interesting side note: in many advanced Game Theory classes, professors discuss $\text{Forward Induction}$. This theory suggests that by choosing $in$, Ann is $signaling$ that she intends to play $\text{Opera}$ (because that's the only way $in$ makes sense). If Bob is rational and follows this logic, he should play $\text{Opera}$, making this SPE the most $logical$ one.</span>
+</span>
+
+<style>
+ 
+
+ 
+.infotip-container {
+    position: relative;      
+    display: inline-block;   
+    cursor: help;            
+    text-decoration: none;   
+}
+
+ 
+.infotip-icon {
+    font-size: 0.7em;            
+    vertical-align: super;       
+    border: 1px solid #777;      
+    border-radius: 50%;          
+    width: 1.2em;                
+    height: 1.2em;               
+    display: inline-flex;        
+    justify-content: center;     
+    align-items: center;         
+    line-height: 1;              
+    margin-left: 0.2em;          
+    color: #555;                 
+    background-color: #f0f0f0;   
+    font-weight: bold;
+    user-select: none;           
+    transition: background-color 0.2s ease, color 0.2s ease;  
+}
+
+.infotip-container:hover .infotip-icon {
+    background-color: #66d9ef;  
+    color: #fff;                 
+    border-color: #66d9ef;
+}
+
+ 
+.infotip-content {
+    font-size: 0.7em;
+    position: absolute;
+    bottom: calc(100% + 5px);  
+    left: 50%;  
+    transform: translateX(-50%);  
+    min-width: 250px;            
+    max-width: 350px;            
+    background-color: #444;      
+    color: #fff;                 
+    padding: 12px 18px;          
+    border-radius: 6px;          
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);  
+    z-index: 100;                
+
+    opacity: 0;                  
+    visibility: hidden;          
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;  
+
+     
+    &::after {
+        content: '';
+        position: absolute;
+        top: 100%;  
+        left: 50%;
+        transform: translateX(-50%);
+        border-width: 8px;
+        border-style: solid;
+        border-color: #333 transparent transparent transparent;  
+    }
+}
+
+ 
+.infotip-container:hover .infotip-content {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(-10px);  
+}
+</style></p>
+<p><strong>Final remarks</strong></p>
+<ul>
+<li><em>Caution</em>: Some games may have several Nash equilibria (or SPE) in some of their subgames, as we just saw. In this case, solving for SPE using backward induction becomes trickier. Never assume uniqueness of SPE.</li>
+<li><em>Caution</em>: If the game has an <strong>infinite</strong> number of periods, then you cannot use backward induction to find its SPEs. We&rsquo;ll see how to handle those cases.</li>
+</ul>
+<h2 id="conclusion">Conclusion</h2>
+<p>In competition economics, we treat firms as players and the market as the game board. With our toolkit from this chapter we&rsquo;ll be able to analyze classic competitive scenarios and more complex topics. Examples include:</p>
+<ul>
+<li><strong>The Quantity War (Cournot)</strong>: Imagine two tech giants deciding how many tablets to flood the market with. If both overproduce, prices crash; if they hold back, they leave money on the table. We use Nash Equilibrium to find that &ldquo;sweet spot&rdquo; where neither firm wants to change their production level given the other&rsquo;s output.</li>
+<li><strong>The Price Cut Trap (Bertrand)</strong>: This is the ultimate &ldquo;race to the bottom.&rdquo; We see how firms compete on price alone until they hit their marginal cost. It’s a classic example of a Nash Equilibrium where even two firms can end up acting like a perfectly competitive market.</li>
+<li><strong>The First-Mover Advantage (Stackelberg)</strong>: This is where Subgame Perfection shines. One firm (the Leader) commits to a strategy first, and the other (the Follower) must react. By &ldquo;looking ahead and reasoning back&rdquo;, the Leader can manipulate the market to its advantage, knowing exactly how the Follower will be forced to respond.</li>
+<li><strong>Beyond the Basics</strong>: We also use these models to understand <em>Entry Deterrence</em> (using the &ldquo;outside option&rdquo; logic you just saw in the battle of the sexes), <em>Collusion</em> (why cartels often break apart), <em>Product Differentiation</em> (why Coca-Cola and Pepsi spend billions just to stay &ldquo;different&rdquo;).</li>
+</ul>
+<p>And there&rsquo;s much much more&hellip;</p>
+<h2 id="references">References</h2>
+<p>Much of what you&rsquo;ll read comes from personal notes or course slides from Industrial Organization and Game Theory courses I attended during my BS and MS at Bocconi University and PhD at the University of Zurich, plus other freely available material (like <a href="https://ocw.mit.edu/courses/14-271-industrial-organization-i-fall-2022/lists/lecture-notes/" target="_blank" rel="noopener">MIT Grad IO course</a>).</p>
 <h4 id="thank-you-for-reading">Thank you for reading!</h4>
 <p><strong>Disclaimer</strong>: <em>I write to learn, based on my background and personal experience. Errors are my own, and if you spot them, let me know! I also appreciate suggestions to investigate new topics!</em></p>
 
@@ -809,7 +1492,7 @@ Thank you for reading! Disclaimer: I write to learn, based on my background and 
       </div>
 
       <div class="body-footer">
-        <p>Last updated on Jan 1, 0001</p>
+        <p>Last updated on Mar 14, 2026</p>
 
         
 
