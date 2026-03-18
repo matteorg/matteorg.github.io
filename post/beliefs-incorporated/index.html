@@ -1,0 +1,1580 @@
+<!DOCTYPE html>
+<!-- This site was created with Wowchemy. https://www.wowchemy.com -->
+<!-- Last Published: March 18, 2026 --><html lang="en-us" >
+
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
+  
+  
+    <meta name="generator" content="Wowchemy 5.7.0 for Hugo" />
+  
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+  
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  
+
+  
+  
+  
+    
+      
+      <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap" media="print" onload="this.media='all'">
+    
+  
+
+  
+  
+
+  
+  
+    
+    <script src="/js/mathjax-config.js"></script>
+  
+
+  
+
+  <link rel="stylesheet" href="/css/vendor-bundle.min.16f785cdb553c8c4431db6775122af35.css" media="print" onload="this.media='all'">
+
+  
+  
+  
+    
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.2/css/academicons.min.css" integrity="sha512-KlJCpRsLf+KKu2VQa5vmRuClRFjxc5lXO03ixZt82HZUk41+1I0bD8KBSA0fY290ayMfWYI9udIqeOWSu1/uZg==" crossorigin="anonymous" media="print" onload="this.media='all'">
+    
+
+    
+    
+    
+    
+      
+      
+    
+    
+    
+
+    
+    
+    
+
+    
+
+    
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" integrity="" crossorigin="anonymous" async></script>
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+  
+
+  
+  
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/wowchemy.39d6c029cc35466e720c1c729ab2d583.css" />
+
+  
+  
+  
+  
+  
+    
+    
+    
+      
+      <link rel="stylesheet" href="/css/libs/mystyle/syntax.css" />
+    
+  
+  
+  
+  
+  
+  
+  
+    
+    
+    
+      
+      <link rel="stylesheet" href="/css/libs/mystyle/custom.css" />
+    
+  
+
+  
+  
+  
+  
+  
+  
+  
+    
+    
+    <link rel="stylesheet" href="/css/libs/chroma/github-light.min.css" title="hl-light" media="print" onload="this.media='all'" >
+    <link rel="stylesheet" href="/css/libs/chroma/dracula.min.css" title="hl-dark" media="print" onload="this.media='all'" disabled>
+  
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+<meta name="description" content="In the world of A/B testing, we are taught to worship at the altar of the Minimum Detectable Effect (MDE). We obsess over lowering variance and tightening our &ldquo;rulers&rdquo; to detect the smallest possible changes." />
+
+
+
+<link rel="alternate" hreflang="en-us" href="https://matteorg.github.io/post/beliefs-incorporated/" />
+<link rel="canonical" href="https://matteorg.github.io/post/beliefs-incorporated/" />
+
+
+
+  <link rel="manifest" href="/manifest.webmanifest" />
+
+
+
+<link rel="icon" type="image/png" href="/media/icon_hufe0bf023893a36fd468464b12c9bc07d_11738_32x32_fill_lanczos_center_3.png" />
+<link rel="apple-touch-icon" type="image/png" href="/media/icon_hufe0bf023893a36fd468464b12c9bc07d_11738_180x180_fill_lanczos_center_3.png" />
+
+<meta name="theme-color" content="#1565c0" />
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+<meta property="twitter:card" content="summary_large_image" />
+
+  <meta property="twitter:site" content="@wowchemy" />
+  <meta property="twitter:creator" content="@wowchemy" />
+<meta property="twitter:image" content="https://matteorg.github.io/post/beliefs-incorporated/featured.png" />
+<meta property="og:site_name" content="Matteo Greco" />
+<meta property="og:url" content="https://matteorg.github.io/post/beliefs-incorporated/" />
+<meta property="og:title" content="Power calculations revisited | Matteo Greco" />
+<meta property="og:description" content="In the world of A/B testing, we are taught to worship at the altar of the Minimum Detectable Effect (MDE). We obsess over lowering variance and tightening our &ldquo;rulers&rdquo; to detect the smallest possible changes." /><meta property="og:image" content="https://matteorg.github.io/post/beliefs-incorporated/featured.png" /><meta property="og:locale" content="en-us" />
+
+  
+    <meta
+      property="article:published_time"
+      content="2026-03-15T00:00:00&#43;00:00"
+    />
+  
+  
+    <meta property="article:modified_time" content="2026-03-15T00:00:00&#43;00:00">
+  
+
+
+
+
+
+
+    
+
+
+
+
+
+
+  
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://matteorg.github.io/post/beliefs-incorporated/"
+  },
+  "headline": "Power calculations revisited",
+  
+  "image": [
+    "https://matteorg.github.io/post/beliefs-incorporated/featured.png"
+  ],
+  
+  "datePublished": "2026-03-15T00:00:00Z",
+  "dateModified": "2026-03-15T00:00:00Z",
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "Matteo Greco",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://matteorg.github.io/media/icon_hufe0bf023893a36fd468464b12c9bc07d_11738_192x192_fill_lanczos_center_3.png"
+    }
+  },
+  "description": "In the world of A/B testing, we are taught to worship at the altar of the Minimum Detectable Effect (MDE). We obsess over lowering variance and tightening our \u0026ldquo;rulers\u0026rdquo; to detect the smallest possible changes."
+}
+</script>
+
+  
+
+  
+
+
+
+
+  
+  
+  
+
+  
+  
+
+  
+
+
+  
+  <title>Power calculations revisited | Matteo Greco</title>
+
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper   " data-wc-page-id="fda563e86b6ac211cc30d6f48e5a6a34" >
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <script src="/js/wowchemy-init.min.ec9d49ca50e4b80bdb08f0417a28ed84.js"></script>
+
+  
+
+
+<aside class="search-modal" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#" aria-label="Close"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search" class="form-control"
+        aria-label="Search...">
+        
+      </div>
+
+      
+      
+
+      
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+
+  <div class="page-header header--fixed">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+<header>
+  <nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+    <div class="container-xl">
+
+      
+      <div class="d-none d-lg-inline-flex">
+        <a class="navbar-brand" href="/">Matteo Greco</a>
+      </div>
+      
+
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false" aria-label="Toggle navigation">
+      <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+      
+      <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+        <a class="navbar-brand" href="/">Matteo Greco</a>
+      </div>
+      
+
+      
+      
+      <div class="navbar-collapse main-menu-item collapse justify-content-end" id="navbar-content">
+
+        
+        <ul class="navbar-nav d-md-inline-flex">
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+              
+              
+              
+                
+              
+              
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/#about"><span>Home</span></a>
+          </li>
+
+          
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+              
+              
+              
+                
+              
+              
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/#posts"><span>Posts</span></a>
+          </li>
+
+          
+          
+
+          
+          <li class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"><span>Other</span><span class="caret"></span>
+            </a>
+            <div class="dropdown-menu">
+              
+                <a class="dropdown-item" href="/others/competition-economics"><span>Competition Topics</span></a>
+              
+            </div>
+          </li>
+
+          
+          
+
+        
+
+          
+        </ul>
+      </div>
+
+      <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+
+        
+        
+
+        
+        
+        
+
+        
+        
+        
+
+        
+        
+
+      </ul>
+
+    </div>
+  </nav>
+</header>
+
+
+  </div>
+
+  <div class="page-body">
+    
+    
+    
+
+    <article class="article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+<div class="article-container pt-3">
+  <h1>Power calculations revisited</h1>
+
+  
+
+  
+
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Mar 15, 2026
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    14 min read
+  </span>
+  
+
+  
+  
+  
+  
+
+  
+  
+
+</div>
+
+  
+
+
+
+
+
+</div>
+
+
+<div class="article-header container featured-image-wrapper mt-4 mb-4" style="max-width: 567px; max-height: 497px;">
+  <div style="position: relative">
+    <img src="/post/beliefs-incorporated/featured_hu6d57171c60f80eb64d8bf3b849311957_168609_1200x2500_fit_q75_h2_lanczos_3.webp" width="567" height="497" alt="" class="featured-image">
+    
+  </div>
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style">
+      <p>In the world of A/B testing, we are taught to worship at the altar of the Minimum Detectable Effect (MDE). We obsess over lowering variance and tightening our &ldquo;rulers&rdquo; to detect the smallest possible changes. But here is the uncomfortable truth: a metric that can detect a tiny ripple is useless if your feature changes only ever produce a microscopic hum. Traditional power calculations often ignore the most important variable in the equation—the distribution of true impacts. If your &ldquo;sensitive&rdquo; metric typically only sees tiny effects, its actual power to drive a launch decision might be lower than a &ldquo;noisy&rdquo; metric that captures massive swings. It&rsquo;s time to stop calculating power in a vacuum and start incorporating what we actually believe about the world. This is what three researchers at Amazon suggest, and I&rsquo;m going to summarize here their results.</p>
+<h2 id="power-calculations-recap">Power calculations: recap</h2>
+<p>Before we look at what’s missing, we have to understand the goal. In A/B testing, we are constantly fighting Type II Errors - the False Negatives. Statistical power is simply the probability that if a real impact exists, our test will actually be sensitive enough to detect it and reject the null hypothesis.</p>
+<p>Typically, an experimenter starts with an MDE. You decide on the <strong>smallest lift</strong> that would actually matter to your business (say, a 2% increase in conversion) and then calculate the <strong>sample size</strong> needed to detect that specific number with 80% probability.</p>
+<p>Suppose we want a test with significance level $\alpha=0.05$ and power $1-\beta=0.8$. What sample size $n$ do we need?</p>
+<p>We need a sample size such that:</p>
+<ul>
+<li>The probability of rejecting the null hypothesis $H_0$, when $H_0$ is true, is at most $\alpha=0.05$</li>
+<li>The probability of not rejecting the null hypothesis $H_0$, when $H_0$ is false (i.e. $H_1$ is true), is at most $\beta=0.2$.
+<span class="infotip-container">
+    <sup class="infotip-icon">i</sup>
+    <span class="infotip-content">If we do not know the sign of the unknown mean $\mu$, we have to run a two-sided test. This means that the maximum probability of type 1 error on each side of the distribution has to be $\alpha/2 = 0.025$, implying $z_{0.975}$</span>
+</span>
+
+<style>
+ 
+
+ 
+.infotip-container {
+    position: relative;      
+    display: inline-block;   
+    cursor: help;            
+    text-decoration: none;   
+}
+
+ 
+.infotip-icon {
+    font-size: 0.7em;            
+    vertical-align: super;       
+    border: 1px solid #777;      
+    border-radius: 50%;          
+    width: 1.2em;                
+    height: 1.2em;               
+    display: inline-flex;        
+    justify-content: center;     
+    align-items: center;         
+    line-height: 1;              
+    margin-left: 0.2em;          
+    color: #555;                 
+    background-color: #f0f0f0;   
+    font-weight: bold;
+    user-select: none;           
+    transition: background-color 0.2s ease, color 0.2s ease;  
+}
+
+.infotip-container:hover .infotip-icon {
+    background-color: #66d9ef;  
+    color: #fff;                 
+    border-color: #66d9ef;
+}
+
+ 
+.infotip-content {
+    font-size: 0.7em;
+    position: absolute;
+    bottom: calc(100% + 5px);  
+    left: 50%;  
+    transform: translateX(-50%);  
+    min-width: 250px;            
+    max-width: 350px;            
+    background-color: #444;      
+    color: #fff;                 
+    padding: 12px 18px;          
+    border-radius: 6px;          
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);  
+    z-index: 100;                
+
+    opacity: 0;                  
+    visibility: hidden;          
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;  
+
+     
+    &::after {
+        content: '';
+        position: absolute;
+        top: 100%;  
+        left: 50%;
+        transform: translateX(-50%);
+        border-width: 8px;
+        border-style: solid;
+        border-color: #333 transparent transparent transparent;  
+    }
+}
+
+ 
+.infotip-container:hover .infotip-content {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(-10px);  
+}
+</style></li>
+</ul>
+<p>In other words we need to find a critical value $c$ such that:</p>
+<ul>
+<li>$c = \mu_0+z_{0.975}\frac{\sigma}{\sqrt{n}}$</li>
+<li>$c = \mu_1-z_{0.8}\frac{\sigma}{\sqrt{n}}$</li>
+</ul>
+<p>where $z_p$ is the CDF inverse (or percent point function) at $p$, and $\mu_i$ are the values of the mean under the different hypotheses.</p>
+<p>Combining the two expressions together we can solve for the required minimum sample size: $$n:\ \mu_0+z_{0.975}\frac{\sigma}{\sqrt{n}} = \mu_1-z_{0.8}\frac{\sigma}{\sqrt{n}}$$
+from which we obtain: $$n = \left( \sigma \frac{z_{0.975} + z_{0.8}}{\mu_0 + \mu_1} \right)^2$$</p>
+<p>The problem is that this calculation treats the effect size as a single, static point. It asks, &ldquo;What if the lift is exactly 2%?&rdquo; but it ignores how likely a 2% lift actually is in the real world. This is where the core argument comes in: power depends not just on how well you can measure, but on <strong>what you are measuring</strong>. If you set for your metric an MDE of 0.1%, but the true impact of your features on that metric is usually 0.01%, your theoretical power is high, but your <strong>real-world power</strong> is zero.</p>
+<h2 id="bridge-the-gap-with-prior-informed-power">Bridge the Gap with Prior-Informed Power</h2>
+<p>If traditional power calculations are flawed because they assume a single, arbitrary effect size, how do we fix them? The Amazon researchers propose a more grounded approach: <strong>Prior-Informed Average Power</strong>.</p>
+<p>Instead of asking, <em>&ldquo;What is the power if the effect is exactly 2%?&rdquo;</em>, we ask, <em>&ldquo;What is the average power across all the effect sizes we actually expect to see?&rdquo;</em>.</p>
+<h3 id="the-frequentist-fix">The Frequentist Fix</h3>
+<p>For the frequentists, this means taking a weighted average of conventional power. We use our historical data to estimate a distribution of &ldquo;true impacts&rdquo;. In plain English: we are stress-testing our metric against reality. If the most likely outcomes for a feature change are tiny, this formula will penalize the power score, even if the metric’s variance is low.</p>
+<h3 id="the-bayesian-perspective-decision-power">The Bayesian Perspective: Decision Power</h3>
+<p>For those who prefer a Bayesian framework, the paper introduces <strong>Bayesian Decision Power</strong>. This doesn&rsquo;t just look for &ldquo;statistical significance&rdquo;, it calculates the probability that your experiment will actually reach your specific <em>launch</em> or <em>dial-down</em> criteria.</p>
+<p>By assuming true impacts follow a Normal distribution, the researchers derived a closed-form expression that allows you to calculate this probability instantly using data already sitting in your A/B testing tools.</p>
+<h2 id="a-simulation">A simulation</h2>
+<p>We now illustrate the simulation run in the paper, where we examine step by step the logic.</p>
+
+<details>
+    <summary>Simulation</summary>
+    
+    <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">norm</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">get_prior_informed_power</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">tau</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;Equation 4: Prior-informed average power closed-form.&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">z_crit</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">alpha</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">denom</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">tau</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">sigma</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="n">term1</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">((</span><span class="n">tau</span> <span class="o">*</span> <span class="n">z_crit</span> <span class="o">-</span> <span class="n">mu</span><span class="p">)</span> <span class="o">/</span> <span class="n">denom</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">term2</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">((</span><span class="o">-</span><span class="n">tau</span> <span class="o">*</span> <span class="n">z_crit</span> <span class="o">-</span> <span class="n">mu</span><span class="p">)</span> <span class="o">/</span> <span class="n">denom</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">term1</span> <span class="o">+</span> <span class="n">term2</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 1. Setup parameters from the paper (Section 3)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Metric A: Precise but small impacts</span>
+</span></span><span class="line"><span class="cl"><span class="n">mu_a</span><span class="p">,</span> <span class="n">sigma_a</span><span class="p">,</span> <span class="n">tau_a</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.001</span><span class="p">,</span> <span class="mf">0.002</span> <span class="c1"># [cite: 103]</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Metric B: Noisy but potentially large impacts</span>
+</span></span><span class="line"><span class="cl"><span class="n">mu_b</span><span class="p">,</span> <span class="n">sigma_b</span><span class="p">,</span> <span class="n">tau_b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.005</span>  <span class="c1"># [cite: 104]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 2. Theoretical Calculation</span>
+</span></span><span class="line"><span class="cl"><span class="n">power_a</span> <span class="o">=</span> <span class="n">get_prior_informed_power</span><span class="p">(</span><span class="n">mu_a</span><span class="p">,</span> <span class="n">sigma_a</span><span class="p">,</span> <span class="n">tau_a</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">power_b</span> <span class="o">=</span> <span class="n">get_prior_informed_power</span><span class="p">(</span><span class="n">mu_a</span><span class="p">,</span> <span class="n">sigma_b</span><span class="p">,</span> <span class="n">tau_b</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 3. Monte Carlo Simulation (The &#34;Manual&#34; Way)</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">run_simulation</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">tau</span><span class="p">,</span> <span class="n">iterations</span><span class="o">=</span><span class="mi">100000</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># Step i: Draw true impacts Delta from G [cite: 68]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">true_deltas</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">iterations</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1"># Step ii/iii: Compute frequentist power for each delta [cite: 70, 72]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">z_crit</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="mf">0.05</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">individual_powers</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">z_crit</span> <span class="o">-</span> <span class="n">true_deltas</span><span class="o">/</span><span class="n">tau</span><span class="p">)</span> <span class="o">+</span> <span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="o">-</span><span class="n">z_crit</span> <span class="o">-</span> <span class="n">true_deltas</span><span class="o">/</span><span class="n">tau</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1"># Step iv: Average them [cite: 75]</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">individual_powers</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">sim_power_a</span> <span class="o">=</span> <span class="n">run_simulation</span><span class="p">(</span><span class="n">mu_a</span><span class="p">,</span> <span class="n">sigma_a</span><span class="p">,</span> <span class="n">tau_a</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">sim_power_b</span> <span class="o">=</span> <span class="n">run_simulation</span><span class="p">(</span><span class="n">mu_b</span><span class="p">,</span> <span class="n">sigma_b</span><span class="p">,</span> <span class="n">tau_b</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Metric A (Low Var): Theoretical=</span><span class="si">{</span><span class="n">power_a</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">, Simulated=</span><span class="si">{</span><span class="n">sim_power_a</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Metric B (High Var): Theoretical=</span><span class="si">{</span><span class="n">power_b</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">, Simulated=</span><span class="si">{</span><span class="n">sim_power_b</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Calculate MDE for a 5% significance level (standard 1.96 * tau)</span>
+</span></span><span class="line"><span class="cl"><span class="n">mde_a</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mf">0.975</span><span class="p">)</span> <span class="o">*</span> <span class="n">tau_a</span>
+</span></span><span class="line"><span class="cl"><span class="n">mde_b</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mf">0.975</span><span class="p">)</span> <span class="o">*</span> <span class="n">tau_b</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Create the plot</span>
+</span></span><span class="line"><span class="cl"><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">0.025</span><span class="p">,</span> <span class="mf">0.025</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Plot Distribution G for Metric A</span>
+</span></span><span class="line"><span class="cl"><span class="n">y_a</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">mu_a</span><span class="p">,</span> <span class="n">sigma_a</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y_a</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Metric A: True Effects ($G$)&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y_a</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Plot Distribution G for Metric B</span>
+</span></span><span class="line"><span class="cl"><span class="n">y_b</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">mu_b</span><span class="p">,</span> <span class="n">sigma_b</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y_b</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Metric B: True Effects ($G$)&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;teal&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y_b</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;teal&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Add MDE lines</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">mde_a</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;darkorange&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Metric A MDE (</span><span class="si">{</span><span class="n">mde_a</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">mde_b</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;darkred&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Metric B MDE (</span><span class="si">{</span><span class="n">mde_b</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Formatting</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&#34;Why MDE is Misleading: True Effects vs. Detectability&#34;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&#34;Effect Size ($\delta$)&#34;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&#34;Density&#34;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Parameters from the paper (Section 3)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Metric A: tau=0.002, sigma=0.001 | Metric B: tau=0.005, sigma=0.01</span>
+</span></span><span class="line"><span class="cl"><span class="n">params</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;tau&#39;</span><span class="p">:</span> <span class="mf">0.002</span><span class="p">,</span> <span class="s1">&#39;sigma&#39;</span><span class="p">:</span> <span class="mf">0.001</span><span class="p">,</span> <span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;#4d4d4d&#39;</span><span class="p">,</span> <span class="s1">&#39;label&#39;</span><span class="p">:</span> <span class="s1">&#39;Metric A&#39;</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;B&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;tau&#39;</span><span class="p">:</span> <span class="mf">0.005</span><span class="p">,</span> <span class="s1">&#39;sigma&#39;</span><span class="p">:</span> <span class="mf">0.01</span><span class="p">,</span> <span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;#0e5a56&#39;</span><span class="p">,</span> <span class="s1">&#39;label&#39;</span><span class="p">:</span> <span class="s1">&#39;Metric B&#39;</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.05</span>
+</span></span><span class="line"><span class="cl"><span class="n">z_crit</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">alpha</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Calculation Functions</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">get_avg_power</span><span class="p">(</span><span class="n">sigma</span><span class="p">,</span> <span class="n">tau</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># Eq 4: Prior-informed average power</span>
+</span></span><span class="line"><span class="cl">    <span class="n">denom</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">tau</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">sigma</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">((</span><span class="n">tau</span><span class="o">*</span><span class="n">z_crit</span><span class="p">)</span><span class="o">/</span><span class="n">denom</span><span class="p">)</span> <span class="o">+</span> <span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">((</span><span class="o">-</span><span class="n">tau</span><span class="o">*</span><span class="n">z_crit</span><span class="p">)</span><span class="o">/</span><span class="n">denom</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">get_bayesian_power</span><span class="p">(</span><span class="n">sigma</span><span class="p">,</span> <span class="n">tau</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="mf">0.95</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mf">0.95</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># Eq 5: Bayesian decision power (simplified for mu=0)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># Using the paper&#39;s formula where mu=0</span>
+</span></span><span class="line"><span class="cl">    <span class="n">term1</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">tau</span> <span class="o">*</span> <span class="n">norm</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">b</span><span class="p">))</span> <span class="o">/</span> <span class="n">sigma</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">term2</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">tau</span> <span class="o">*</span> <span class="n">norm</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="n">a</span><span class="p">))</span> <span class="o">/</span> <span class="n">sigma</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">term1</span> <span class="o">+</span> <span class="n">term2</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Data for Plot B and C</span>
+</span></span><span class="line"><span class="cl"><span class="n">power_a</span> <span class="o">=</span> <span class="n">get_avg_power</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">][</span><span class="s1">&#39;sigma&#39;</span><span class="p">],</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">][</span><span class="s1">&#39;tau&#39;</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="n">power_b</span> <span class="o">=</span> <span class="n">get_avg_power</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;B&#39;</span><span class="p">][</span><span class="s1">&#39;sigma&#39;</span><span class="p">],</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;B&#39;</span><span class="p">][</span><span class="s1">&#39;tau&#39;</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Values from paper fig: 0.409 and 0.837</span>
+</span></span><span class="line"><span class="cl"><span class="n">bayes_a</span> <span class="o">=</span> <span class="mf">0.409</span> 
+</span></span><span class="line"><span class="cl"><span class="n">bayes_b</span> <span class="o">=</span> <span class="mf">0.837</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Initialize Subplots</span>
+</span></span><span class="line"><span class="cl"><span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">,</span> <span class="n">ax3</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># --- Plot A: True Effects vs MDE ---</span>
+</span></span><span class="line"><span class="cl"><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">0.03</span><span class="p">,</span> <span class="mf">0.03</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">]:</span> <span class="c1"># Plot B first so A is on top</span>
+</span></span><span class="line"><span class="cl">    <span class="n">p</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="n">m</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">mde</span> <span class="o">=</span> <span class="n">z_crit</span> <span class="o">*</span> <span class="n">p</span><span class="p">[</span><span class="s1">&#39;tau&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># Distribution of true effects G</span>
+</span></span><span class="line"><span class="cl">    <span class="n">y</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">p</span><span class="p">[</span><span class="s1">&#39;sigma&#39;</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ax1</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">/</span><span class="n">y</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">*</span><span class="mf">0.4</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="s2">&#34;mid&#34;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">p</span><span class="p">[</span><span class="s1">&#39;color&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="n">p</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># MDE Line</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ax1</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">mde</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="s1">&#39;#d35400&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;MDE&#39;</span> <span class="k">if</span> <span class="n">m</span><span class="o">==</span><span class="s1">&#39;A&#39;</span> <span class="k">else</span> <span class="s2">&#34;&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&#34;a) True Effects vs MDE&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&#34;Effect Size&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax1</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([])</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax1</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.03</span><span class="p">,</span> <span class="mf">0.03</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># --- Plot B: Prior-informed average power ---</span>
+</span></span><span class="line"><span class="cl"><span class="n">bars2</span> <span class="o">=</span> <span class="n">ax2</span><span class="o">.</span><span class="n">barh</span><span class="p">([</span><span class="s1">&#39;Metric B&#39;</span><span class="p">,</span> <span class="s1">&#39;Metric A&#39;</span><span class="p">],</span> <span class="p">[</span><span class="n">power_b</span><span class="p">,</span> <span class="n">power_a</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;B&#39;</span><span class="p">][</span><span class="s1">&#39;color&#39;</span><span class="p">],</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">][</span><span class="s1">&#39;color&#39;</span><span class="p">]])</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&#34;b) Prior-informed average power $\overline{\Pi}$&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&#34;Power&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax2</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax2</span><span class="o">.</span><span class="n">bar_label</span><span class="p">(</span><span class="n">bars2</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%.3f</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># --- Plot C: Bayesian decision power ---</span>
+</span></span><span class="line"><span class="cl"><span class="n">bars3</span> <span class="o">=</span> <span class="n">ax3</span><span class="o">.</span><span class="n">barh</span><span class="p">([</span><span class="s1">&#39;Metric B&#39;</span><span class="p">,</span> <span class="s1">&#39;Metric A&#39;</span><span class="p">],</span> <span class="p">[</span><span class="n">bayes_b</span><span class="p">,</span> <span class="n">bayes_a</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;B&#39;</span><span class="p">][</span><span class="s1">&#39;color&#39;</span><span class="p">],</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">][</span><span class="s1">&#39;color&#39;</span><span class="p">]])</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax3</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&#34;c) Bayesian decision power $</span><span class="se">\\</span><span class="s2">tilde{\Pi}$&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax3</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&#34;Probability of Effect &gt; 0&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax3</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax3</span><span class="o">.</span><span class="n">bar_label</span><span class="p">(</span><span class="n">bars3</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%.3f</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># General Styling</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="p">[</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">,</span> <span class="n">ax3</span><span class="p">]:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;top&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</span></span></code></pre></div>
+</details>
+
+<style>
+ 
+details summary {
+    cursor: pointer;
+    padding: 8px 12px;
+    border: 1px solid #444;  
+    border-radius: 4px;
+    margin-bottom: 5px;
+    background-color: #333;  
+    color: #f0f0f0;  
+    font-weight: bold;
+    user-select: none;  
+}
+details summary:hover {
+    background-color: #555;  
+}
+
+ 
+ 
+ 
+.highlight {
+    margin-top: 10px;  
+     
+     
+     
+    padding: 10px;  
+    border-radius: 4px;
+    overflow-x: auto;
+}
+.highlight pre {
+    margin: 0;
+}
+</style>
+<h3 id="defining-the-ground-truth-the-prior">Defining the &ldquo;Ground Truth&rdquo; (the Prior)</h3>
+<p>In a traditional power analysis, you pick one number (like a 2% lift) and stick to it. In this simulation, we acknowledge that every feature we ship has a different impact. We define a distribution $G$ (the Prior) that represents the &ldquo;universe&rdquo; of possible true impacts.</p>
+<ul>
+<li><strong>What the code does</strong>: it uses <code>np.random.normal(mu, sigma)</code> to draw thousands of &ldquo;true&rdquo; effects ($\Delta$ in the paper).</li>
+<li><strong>Outcome</strong>: For <strong>Metric A</strong>, these dots are all clustered extremely close to zero. For <strong>Metric B</strong>, the dots are spread out, meaning some features are duds, but others are &ldquo;home runs.&rdquo;</li>
+</ul>
+<h3 id="the-noisy-measurement-sampling">The Noisy Measurement (Sampling)</h3>
+<p>In the real world, we never see the &ldquo;true&rdquo; impact; we only see what the A/B test tells us, which includes noise ($\tau^2$ in the paper).</p>
+<ul>
+<li><strong>What the code does</strong>: For every &ldquo;true&rdquo; effect drawn in Step 1, the code simulates an experiment result ($\hat{\Delta}$ in the paper) by adding random noise based on the metric&rsquo;s variance.</li>
+<li><strong>The Outcome</strong>: This creates a cloud of &ldquo;observed&rdquo; results. Even if a feature&rsquo;s true impact was 0, the noise might make it look like a 1% gain or a 1% loss.</li>
+</ul>
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  id="figure-mdes-against-the-true-underlying-distribution-of-effects">
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img src="/images/incorporate-beliefs/detectability.png" alt="MDEs and true distributions" loading="lazy" data-zoomable /></div>
+  </div><figcaption>
+      MDEs against the &rsquo;true&rsquo; underlying distribution of effects.
+    </figcaption></figure>
+</p>
+<h3 id="the-frequentist-test">The Frequentist Test</h3>
+<p>Now we apply the standard &ldquo;significance&rdquo; rule. We check if the observed result ($\hat{\Delta}$) is far enough from zero to be considered &ldquo;statistically significant&rdquo; at the $\alpha = 0.05$ level.</p>
+<ul>
+<li>**What the code does*3: It calculates the probability of rejecting the null hypothesis for each individual true effect using the standard power formula.</li>
+<li><strong>The Outcome</strong>: For Metric A, even though the &ldquo;ruler&rdquo; is precise, the &ldquo;objects&rdquo; (true effects) are so small that they almost never cross the significance threshold.</li>
+</ul>
+<h3 id="aggregating-to-prior-informed-power">Aggregating to &ldquo;Prior-Informed&rdquo; Power</h3>
+<p>This is the final step where we calculate the average.</p>
+<ul>
+<li><strong>What the code does</strong>: It takes the average of all those individual power calculations.</li>
+<li><strong>The Outcome</strong>: This average is your Prior-Informed Average Power ($\overline{\Pi}$).</li>
+</ul>
+<h3 id="recap">Recap</h3>
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  id="figure-shortcomings-of-standard-power-analysis-and-proposed-alternatives">
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img src="/images/incorporate-beliefs/recap-plot.png" alt="Recap plot" loading="lazy" data-zoomable /></div>
+  </div><figcaption>
+      Shortcomings of standard power analysis and proposed alternatives.
+    </figcaption></figure>
+</p>
+<ol>
+<li>
+<p><strong>Plot (a): True Effects vs. MDE (The &ldquo;Reality Check&rdquo;)</strong>: This plot compares the distribution of actual impacts ($G$) against the &ldquo;detection bar&rdquo; (MDE).</p>
+<ul>
+<li>Metric A (Gray): The curve is very tall and narrow because its true impacts are almost always tiny ($\sigma = 0.001$). Even though its MDE line (orange vertical line) is close to zero, notice that the gray &ldquo;hump&rdquo; is almost entirely to the left of that line.</li>
+<li>Metric B (Teal): The curve is flat and wide because it has a much higher potential for &ldquo;home run&rdquo; impacts ($\sigma = 0.01$). Even though its MDE is much further out, a significant portion of its teal area sits to the right of the MDE.</li>
+<li><em>Takeaway</em>: This explains the paradox. Metric B has a &ldquo;harder&rdquo; goal, but it plays a game where it’s actually capable of scoring.</li>
+</ul>
+</li>
+<li>
+<p><strong>Plot (b): Prior-Informed Average Power ($\overline{\Pi}$)</strong>: This is the Frequentist solution. It doesn&rsquo;t just look at one hypothetical effect; it calculates the &ldquo;Expected Power&rdquo; across all likely outcomes.</p>
+<ul>
+<li>The Result: Metric A has a power of only 0.080, meaning you have an 8% chance of detecting a significant result given how small its effects usually are.</li>
+<li>The Result: Metric B jumps to 0.381.</li>
+<li><em>Takeaway</em>: If you only used traditional MDE, you’d think Metric A was &ldquo;better.&rdquo; By using Prior-Informed Power, you realize Metric B is nearly 5x more likely to actually find a winner.</li>
+</ul>
+</li>
+<li>
+<p><strong>Plot (c): Bayesian Decision Power ($\tilde{\Pi}$)</strong>: This shifts the focus from &ldquo;p-values&rdquo; to &ldquo;launch decisions&rdquo;. It shows the probability that the experiment will provide enough evidence to meet a launch or dial-down criterion.</p>
+<ul>
+<li>The Result: For Metric A, there is only a 40.9% chance you&rsquo;ll have enough Bayesian certainty to make a launch/dial-down call.</li>
+<li>The Result: For Metric B, that probability is 83.7%.</li>
+<li><em>Takeaway</em>: This is the most practical metric for stakeholders. It tells you: &ldquo;If we use Metric B, we are twice as likely to actually end this experiment with a clear &lsquo;Go&rsquo; or &lsquo;No-Go&rsquo; decision&rdquo;.</li>
+</ul>
+</li>
+</ol>
+<h2 id="a-simulated-real-world-scenario">A (simulated) real world scenario</h2>
+<p>Imagine you try to change the customer experience for a feature that usually has a low conversion rate (around 10%) and whose revenue is very skewed (most users spend little, but every now and then &ldquo;whales&rdquo; appear who make massive purchases). Consider the same data generating function from <a href="https://matteorg.github.io/post/significance-vs-effect-size/" target="_blank" rel="noopener">this article</a> to replicate such a scenario.</p>
+<p>Conversion rate has low variance (it&rsquo;s a 0 or 1), but its true impacts are often small (moving CR by 1% is hard). Revenue has high variance (fat tails), but its true impacts can be huge (one &ldquo;whale&rdquo; purchase changes everything). To &ldquo;backward calculate&rdquo; prior-informed power we need to do three things:</p>
+<ul>
+<li>Estimate $\tau$ (Sampling Error): Run the generator with ´purchase_prob_treatment = purchase_prob_control´ to see the natural noise.</li>
+<li>Define Beliefs ($G$): Make assumptions about what &ldquo;typical&rdquo; wins look like for these two metrics.</li>
+<li>Plug these into the paper&rsquo;s formula.</li>
+</ul>
+
+<details>
+    <summary>Simulation</summary>
+    
+    <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># --- 1. ESTIMATE SAMPLING ERROR (tau) ---</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># We run a &#34;A/A test&#34; (no difference) to see the variance of our metrics</span>
+</span></span><span class="line"><span class="cl"><span class="n">aa_data</span> <span class="o">=</span> <span class="n">generate_synthetic_data_flexible_purchase_prob</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">num_individuals</span><span class="o">=</span><span class="mi">2000</span><span class="p">,</span> <span class="n">num_dates</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">    <span class="n">purchase_prob_treatment</span><span class="o">=</span><span class="mf">0.12</span><span class="p">,</span> <span class="n">purchase_prob_control</span><span class="o">=</span><span class="mf">0.12</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">    <span class="n">skewed_revenue</span><span class="o">=</span><span class="kc">True</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">get_metric_stats</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">groups</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;treatment&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># Conversion Rate</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cr</span> <span class="o">=</span> <span class="n">groups</span><span class="p">[</span><span class="s1">&#39;made_purchase&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cr_std</span> <span class="o">=</span> <span class="n">groups</span><span class="p">[</span><span class="s1">&#39;made_purchase&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># Revenue </span>
+</span></span><span class="line"><span class="cl">    <span class="n">rev</span> <span class="o">=</span> <span class="n">groups</span><span class="p">[</span><span class="s1">&#39;revenue&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">rev_std</span> <span class="o">=</span> <span class="n">groups</span><span class="p">[</span><span class="s1">&#39;revenue&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;cr_tau&#39;</span><span class="p">:</span> <span class="n">cr_std</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="s1">&#39;rev_tau&#39;</span><span class="p">:</span> <span class="n">rev_std</span><span class="o">.</span><span class="n">mean</span><span class="p">()}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">taus</span> <span class="o">=</span> <span class="n">get_metric_stats</span><span class="p">(</span><span class="n">aa_data</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># --- 2. DEFINE BELIEFS (sigma) ---</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Assumption: </span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Most CR wins are tiny (0.1 percentage points) -&gt; sigma = 0.001</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Most Revenue wins are larger ($0.50 spread) -&gt; sigma = 0.50</span>
+</span></span><span class="line"><span class="cl"><span class="n">beliefs</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;CR&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;sigma&#39;</span><span class="p">:</span> <span class="mf">0.001</span><span class="p">,</span> <span class="s1">&#39;tau&#39;</span><span class="p">:</span> <span class="n">taus</span><span class="p">[</span><span class="s1">&#39;cr_tau&#39;</span><span class="p">]},</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;Rev&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;sigma&#39;</span><span class="p">:</span> <span class="mf">0.50</span><span class="p">,</span> <span class="s1">&#39;tau&#39;</span><span class="p">:</span> <span class="n">taus</span><span class="p">[</span><span class="s1">&#39;rev_tau&#39;</span><span class="p">]}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># --- 3. CALCULATE PRIOR-INFORMED POWER ---</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">prior_informed_power</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">tau</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">z_alpha</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">alpha</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">denom</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">tau</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">sigma</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">((</span><span class="n">tau</span><span class="o">*</span><span class="n">z_alpha</span> <span class="o">-</span> <span class="n">mu</span><span class="p">)</span><span class="o">/</span><span class="n">denom</span><span class="p">)</span> <span class="o">+</span> <span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">((</span><span class="o">-</span><span class="n">tau</span><span class="o">*</span><span class="n">z_alpha</span> <span class="o">-</span> <span class="n">mu</span><span class="p">)</span><span class="o">/</span><span class="n">denom</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;--- Prior-Informed Power Comparison ---&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">metric</span><span class="p">,</span> <span class="n">vals</span> <span class="ow">in</span> <span class="n">beliefs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="n">p</span> <span class="o">=</span> <span class="n">prior_informed_power</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">vals</span><span class="p">[</span><span class="s1">&#39;sigma&#39;</span><span class="p">],</span> <span class="n">vals</span><span class="p">[</span><span class="s1">&#39;tau&#39;</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;</span><span class="si">{</span><span class="n">metric</span><span class="si">}</span><span class="s2">: Tau=</span><span class="si">{</span><span class="n">vals</span><span class="p">[</span><span class="s1">&#39;tau&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">, Sigma=</span><span class="si">{</span><span class="n">vals</span><span class="p">[</span><span class="s1">&#39;sigma&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2"> -&gt; Avg Power: </span><span class="si">{</span><span class="n">p</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span></code></pre></div>
+</details>
+
+<style>
+ 
+details summary {
+    cursor: pointer;
+    padding: 8px 12px;
+    border: 1px solid #444;  
+    border-radius: 4px;
+    margin-bottom: 5px;
+    background-color: #333;  
+    color: #f0f0f0;  
+    font-weight: bold;
+    user-select: none;  
+}
+details summary:hover {
+    background-color: #555;  
+}
+
+ 
+ 
+ 
+.highlight {
+    margin-top: 10px;  
+     
+     
+     
+    padding: 10px;  
+    border-radius: 4px;
+    overflow-x: auto;
+}
+.highlight pre {
+    margin: 0;
+}
+</style>
+<p>Here we just built a synthetic E-commerce environment. On the surface, conversion rate looks like the superior metric because its MDE is tiny. But when we factored in the historical reality that our features move revenue more significantly than they change fundamental purchase probability, the &rsquo;noisy&rsquo; revenue metric actually gives us a higher probability of making a successful launch decision.</p>
+<p>Just remember: when you have a fat-tailed distribution (where 1% of users might account for 50% of revenue), a single &ldquo;whale&rdquo; who <em>happens to be</em> in the treatment group can swing the mean so much that it looks like your feature is a massive success, even if the feature did nothing.</p>
+<h3 id="the-role-of-tau-the-noise-filter">The Role of $\tau$ (The &ldquo;Noise&rdquo; Filter)</h3>
+<p>In the formulas the paper uses and that we mentioned so far, $\tau$ represents the standard error of the metric. For a skewed metric like revenue, $\tau$ will be very large because the variance is high. A large $\tau$ makes the &ldquo;significance threshold&rdquo; (the MDE) move further away from zero.</p>
+<ul>
+<li>The math&rsquo;s answer: the frequentist power calculation <em>knows</em> the data is noisy. It requires a much larger observed difference to claim &ldquo;significance&rdquo; for revenue than it does for purchase probability. It &ldquo;penalizes&rdquo; the metric for its potential to be swung by a single lucky purchase</li>
+</ul>
+<h3 id="the-prior-g-as-a-sanity-check">The &ldquo;Prior&rdquo; ($G$) as a Sanity Check</h3>
+<p>This is the &ldquo;Power Revisited&rdquo; part. If you know that your features usually only move revenue by a tiny amount ($\sigma$ is small), but you see a massive spike in your experiment, the Bayesian Decision Power will help you realize that the &ldquo;Posterior&rdquo; belief is still heavily influenced by the fact that such a large move is historically unlikely.</p>
+<h3 id="real-world-mitigation-capping-and-winsorization">Real-World Mitigation (Capping and Winsorization)</h3>
+<p>In real-life, when the data is so skewed, we don&rsquo;t just take the raw mean. We use techniques to handle those &ldquo;chance&rdquo; purchases:</p>
+<ul>
+<li><strong>Winsorization</strong>: we &ldquo;cap&rdquo; revenue at the 99th percentile. If a whale spends $\$10,000$, we treat it as $\$500$. This drastically reduces $\tau$ (noise) while keeping the metric&rsquo;s direction.</li>
+<li><strong>Log-transformation</strong>: Analyzing $log(Revenue)$ instead of raw revenue to &ldquo;pull in&rdquo; the tails.</li>
+<li><strong>Cuped</strong>: Using pre-experiment data to &ldquo;adjust&rdquo; for users who were already big spenders before the test started.</li>
+</ul>
+<p>If the &ldquo;Average Power&rdquo; of revenue is still higher than purchase probability after accounting for its massive noise ($\tau$), then revenue is actually the more useful metric for making decisions, despite the outliers.</p>
+<h2 id="conclusion">Conclusion</h2>
+<ol>
+<li><strong>Stop Worshipping MDE</strong>: A low MDE (High Sensitivity) is useless if your features never produce impacts large enough to be detected by that metric.</li>
+<li><strong>Bring Your Beliefs to the Table</strong>: Use historical data to estimate your &ldquo;Prior&rdquo; distribution of impacts ($\sigma$). If you don&rsquo;t know what to expect, you can&rsquo;t calculate your real chance of success.</li>
+<li><strong>Prior-Informed Power is the True North</strong>: It combines your metric&rsquo;s noise ($\tau$) with your business reality ($\sigma$) to give you a single, honest probability of finding a winner.</li>
+<li><strong>Noisy Metrics Can Be Fixed</strong>: Don&rsquo;t abandon &ldquo;revenue&rdquo; just because it&rsquo;s skewed. Use techniques like Winsorization to slash the noise and reveal the underlying power.</li>
+</ol>
+<p>You can find the notebook with the full code <a href="https://github.com/matteorg/posts/blob/main/effect_sizes_beliefs.ipynb" target="_blank" rel="noopener">here</a>.</p>
+<h4 id="thank-you-for-reading">Thank you for reading!</h4>
+<p><strong>Disclaimer</strong>: <em>I write to learn, based on my background and personal experience. Errors are my own, and if you spot them, let me know! I also appreciate suggestions to investigate new topics!</em></p>
+
+    </div>
+
+    
+
+
+
+
+
+
+
+<div class="share-box">
+  <ul class="share">
+    
+      
+      
+      
+        
+      
+      
+      
+      
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fmatteorg.github.io%2Fpost%2Fbeliefs-incorporated%2F&amp;text=Power&#43;calculations&#43;revisited" target="_blank" rel="noopener" class="share-btn-twitter" aria-label="twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=https%3A%2F%2Fmatteorg.github.io%2Fpost%2Fbeliefs-incorporated%2F&amp;t=Power&#43;calculations&#43;revisited" target="_blank" rel="noopener" class="share-btn-facebook" aria-label="facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a href="mailto:?subject=Power%20calculations%20revisited&amp;body=https%3A%2F%2Fmatteorg.github.io%2Fpost%2Fbeliefs-incorporated%2F" target="_blank" rel="noopener" class="share-btn-email" aria-label="envelope">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=https%3A%2F%2Fmatteorg.github.io%2Fpost%2Fbeliefs-incorporated%2F&amp;title=Power&#43;calculations&#43;revisited" target="_blank" rel="noopener" class="share-btn-linkedin" aria-label="linkedin-in">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      
+      
+      
+      
+      <li>
+        <a href="whatsapp://send?text=Power&#43;calculations&#43;revisited%20https%3A%2F%2Fmatteorg.github.io%2Fpost%2Fbeliefs-incorporated%2F" target="_blank" rel="noopener" class="share-btn-whatsapp" aria-label="whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=https%3A%2F%2Fmatteorg.github.io%2Fpost%2Fbeliefs-incorporated%2F&amp;title=Power&#43;calculations&#43;revisited" target="_blank" rel="noopener" class="share-btn-weibo" aria-label="weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+</article>
+  </div>
+
+  <div class="page-footer">
+    
+    
+    <div class="container">
+      <footer class="site-footer">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+
+
+<p class="powered-by">
+  
+  <a href="/privacy/">Privacy Policy</a>
+  
+  
+</p>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+</footer>
+
+    </div>
+    
+  </div>
+
+  
+
+
+<script src="/js/vendor-bundle.min.d26509351aa0ff874abbee824e982e9b.js"></script>
+
+
+
+
+  
+
+  
+  
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script id="search-hit-fuse-template" type="text/x-template">
+    <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+    </div>
+  </script>
+  
+    <script src="https://cdn.jsdelivr.net/gh/krisk/Fuse@v3.2.1/dist/fuse.min.js" integrity="sha512-o38bmzBGX+hD3JHWUFCDA09btWaqrNmoJ3RXLlrysA7PP01Kgs4UlE4MhelE1v5dJR3+cxlR4qQlotsW7jKsnw==" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/gh/julmot/mark.js@8.11.1/dist/jquery.mark.min.js" integrity="sha512-mhbv5DqBMgrWL+32MmsDOt/OAvqr/cHimk6B8y/bx/xS88MVkYGPiVv2ixKVrkywF2qHplNRUvFsAHUdxZ3Krg==" crossorigin="anonymous"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+<script id="page-data" type="application/json">{"use_headroom":true}</script>
+
+
+
+  <script src="/js/wowchemy-headroom.db4755770454eb63685f8de785c0a172.js" type="module"></script>
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+<script src="/en/js/wowchemy.min.e8ee06ba8371980ffde659871dd593b0.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
