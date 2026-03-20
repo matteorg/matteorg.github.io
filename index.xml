@@ -1494,6 +1494,31 @@ In the normal form matrix you will often find Nash Equilibria that are not Subga
     </item>
     
     <item>
+      <title>Monopoly</title>
+      <link>https://matteorg.github.io/others/competition-economics/monopoly/</link>
+      <pubDate>Mon, 30 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://matteorg.github.io/others/competition-economics/monopoly/</guid>
+      <description>&lt;p&gt;coming soon&amp;hellip;&lt;/p&gt;
+&lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
+&lt;p&gt;Much of what you&amp;rsquo;ll read comes from personal notes or course slides from Industrial Organization and Game Theory courses I attended during my BS and MS at Bocconi University and PhD at the University of Zurich.&lt;/p&gt;
+&lt;p&gt;The most common references are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Cabral, L. (2017). Introduction to Industrial Organization (2nd ed.). MIT Press.&lt;/li&gt;
+&lt;li&gt;Motta, M., Competition Policy, Theory and Practice, Cambridge University Press, lastest edition.&lt;/li&gt;
+&lt;li&gt;Belleflamme P., Peitz M., Industrial Organization, Markets and Strategies, Cambridge University Press, lastest edition.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The &lt;em&gt;freely&lt;/em&gt; available material that you can consult yourself mainly comes from:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Battigalli, P. (2020): Game Theory: Analysis of Strategic Thinking. Typescript, Bocconi University. [Downloadable from personal page]&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://ocw.mit.edu/courses/14-271-industrial-organization-i-fall-2022/lists/lecture-notes/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;MIT Grad IO course&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://sites.google.com/site/nicolasschutz/teaching?authuser=0#h.p_ID_32&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Nicolas Schutz teaching material&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;thank-you-for-reading&#34;&gt;Thank you for reading!&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;Disclaimer&lt;/strong&gt;: &lt;em&gt;I write to learn, based on my background and personal experience. Errors are my own, and if you spot them, let me know! I also appreciate suggestions to investigate new topics!&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Experience</title>
       <link>https://matteorg.github.io/archive/archived-home/experience/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -4592,7 +4617,7 @@ data.head()
 
 
 
-&lt;div id=&#34;chart-579381642&#34; class=&#34;chart&#34;&gt;&lt;/div&gt;
+&lt;div id=&#34;chart-172698534&#34; class=&#34;chart&#34;&gt;&lt;/div&gt;
 &lt;script&gt;
   (function() {
     let a = setInterval( function() {
@@ -4602,7 +4627,7 @@ data.head()
       clearInterval( a );
 
       Plotly.d3.json(&#34;./line-chart.json&#34;, function(chart) {
-        Plotly.plot(&#39;chart-579381642&#39;, chart.data, chart.layout, {responsive: true});
+        Plotly.plot(&#39;chart-172698534&#39;, chart.data, chart.layout, {responsive: true});
       });
     }, 500 );
   })();
