@@ -1,0 +1,2189 @@
+<!DOCTYPE html>
+<!-- This site was created with Wowchemy. https://www.wowchemy.com -->
+<!-- Last Published: March 29, 2026 --><html lang="en-us" >
+
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
+  
+  
+    <meta name="generator" content="Wowchemy 5.7.0 for Hugo" />
+  
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+  
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  
+
+  
+  
+  
+    
+      
+      <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap" media="print" onload="this.media='all'">
+    
+  
+
+  
+  
+
+  
+  
+    
+    <script src="/js/mathjax-config.js"></script>
+  
+
+  
+
+  <link rel="stylesheet" href="/css/vendor-bundle.min.16f785cdb553c8c4431db6775122af35.css" media="print" onload="this.media='all'">
+
+  
+  
+  
+    
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.2/css/academicons.min.css" integrity="sha512-KlJCpRsLf+KKu2VQa5vmRuClRFjxc5lXO03ixZt82HZUk41+1I0bD8KBSA0fY290ayMfWYI9udIqeOWSu1/uZg==" crossorigin="anonymous" media="print" onload="this.media='all'">
+    
+
+    
+    
+    
+    
+      
+      
+    
+    
+    
+
+    
+    
+    
+
+    
+
+    
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" integrity="" crossorigin="anonymous" async></script>
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+  
+
+  
+  
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/wowchemy.bd1576cbc33e3c494422bf7b116b2a41.css" />
+
+  
+  
+  
+  
+  
+    
+    
+    
+      
+      <link rel="stylesheet" href="/css/libs/mystyle/syntax.css" />
+    
+  
+  
+  
+  
+  
+  
+  
+    
+    
+    
+      
+      <link rel="stylesheet" href="/css/libs/mystyle/custom.css" />
+    
+  
+
+  
+  
+  
+  
+  
+  
+  
+    
+    
+    <link rel="stylesheet" href="/css/libs/chroma/github-light.min.css" title="hl-light" media="print" onload="this.media='all'" >
+    <link rel="stylesheet" href="/css/libs/chroma/dracula.min.css" title="hl-dark" media="print" onload="this.media='all'" disabled>
+  
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+<meta name="description" content="In the world of online experiments and product iteration, there&rsquo;s a recurring pattern that always gives me pause. Time and again, I see teams kick off an A/B test without any real discussion about statistical power, or even a clear idea of the minimum effect size they&rsquo;d be interested in detecting." />
+
+
+
+<link rel="alternate" hreflang="en-us" href="https://matteorg.github.io/post/significance-vs-effect-size/" />
+<link rel="canonical" href="https://matteorg.github.io/post/significance-vs-effect-size/" />
+
+
+
+  <link rel="manifest" href="/manifest.webmanifest" />
+
+
+
+<link rel="icon" type="image/png" href="/media/icon_hufe0bf023893a36fd468464b12c9bc07d_11738_32x32_fill_lanczos_center_3.png" />
+<link rel="apple-touch-icon" type="image/png" href="/media/icon_hufe0bf023893a36fd468464b12c9bc07d_11738_180x180_fill_lanczos_center_3.png" />
+
+<meta name="theme-color" content="#1565c0" />
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+<meta property="twitter:card" content="summary_large_image" />
+
+  <meta property="twitter:site" content="@wowchemy" />
+  <meta property="twitter:creator" content="@wowchemy" />
+<meta property="twitter:image" content="https://matteorg.github.io/post/significance-vs-effect-size/featured.png" />
+<meta property="og:site_name" content="Matteo Greco" />
+<meta property="og:url" content="https://matteorg.github.io/post/significance-vs-effect-size/" />
+<meta property="og:title" content="Fat Tails, Statistical Significance and Meaningful Effect Size | Matteo Greco" />
+<meta property="og:description" content="In the world of online experiments and product iteration, there&rsquo;s a recurring pattern that always gives me pause. Time and again, I see teams kick off an A/B test without any real discussion about statistical power, or even a clear idea of the minimum effect size they&rsquo;d be interested in detecting." /><meta property="og:image" content="https://matteorg.github.io/post/significance-vs-effect-size/featured.png" /><meta property="og:locale" content="en-us" />
+
+  
+    <meta
+      property="article:published_time"
+      content="2025-06-20T00:00:00&#43;00:00"
+    />
+  
+  
+    <meta property="article:modified_time" content="2025-06-20T00:00:00&#43;00:00">
+  
+
+
+
+
+
+
+    
+
+
+
+
+
+
+  
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://matteorg.github.io/post/significance-vs-effect-size/"
+  },
+  "headline": "Fat Tails, Statistical Significance and Meaningful Effect Size",
+  
+  "image": [
+    "https://matteorg.github.io/post/significance-vs-effect-size/featured.png"
+  ],
+  
+  "datePublished": "2025-06-20T00:00:00Z",
+  "dateModified": "2025-06-20T00:00:00Z",
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "Matteo Greco",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://matteorg.github.io/media/icon_hufe0bf023893a36fd468464b12c9bc07d_11738_192x192_fill_lanczos_center_3.png"
+    }
+  },
+  "description": "In the world of online experiments and product iteration, there\u0026rsquo;s a recurring pattern that always gives me pause. Time and again, I see teams kick off an A/B test without any real discussion about statistical power, or even a clear idea of the minimum effect size they\u0026rsquo;d be interested in detecting."
+}
+</script>
+
+  
+
+  
+
+
+
+
+  
+  
+  
+
+  
+  
+
+  
+
+
+  
+  <title>Fat Tails, Statistical Significance and Meaningful Effect Size | Matteo Greco</title>
+
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper   " data-wc-page-id="db77a9ce06f71182ff20e3a157ce359c" >
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <script src="/js/wowchemy-init.min.ec9d49ca50e4b80bdb08f0417a28ed84.js"></script>
+
+  
+
+
+<aside class="search-modal" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#" aria-label="Close"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search" class="form-control"
+        aria-label="Search...">
+        
+      </div>
+
+      
+      
+
+      
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+
+  <div class="page-header header--fixed">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+<header>
+  <nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+    <div class="container-xl">
+
+      
+      <div class="d-none d-lg-inline-flex">
+        <a class="navbar-brand" href="/">Matteo Greco</a>
+      </div>
+      
+
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false" aria-label="Toggle navigation">
+      <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+      
+      <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+        <a class="navbar-brand" href="/">Matteo Greco</a>
+      </div>
+      
+
+      
+      
+      <div class="navbar-collapse main-menu-item collapse justify-content-end" id="navbar-content">
+
+        
+        <ul class="navbar-nav d-md-inline-flex">
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+              
+              
+              
+                
+              
+              
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/#about"><span>Home</span></a>
+          </li>
+
+          
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+              
+              
+              
+                
+              
+              
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/#posts"><span>Posts</span></a>
+          </li>
+
+          
+          
+
+        
+
+          
+        </ul>
+      </div>
+
+      <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+
+        
+        
+
+        
+        
+        
+
+        
+        
+        
+
+        
+        
+
+      </ul>
+
+    </div>
+  </nav>
+</header>
+
+
+  </div>
+
+  <div class="page-body">
+    
+    
+    
+
+    <article class="article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+<div class="article-container pt-3">
+  <h1>Fat Tails, Statistical Significance and Meaningful Effect Size</h1>
+
+  
+
+  
+
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Jun 20, 2025
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    23 min read
+  </span>
+  
+
+  
+  
+  
+  
+
+  
+  
+
+</div>
+
+  
+
+
+
+
+
+</div>
+
+
+<div class="article-header container featured-image-wrapper mt-4 mb-4" style="max-width: 640px; max-height: 219px;">
+  <div style="position: relative">
+    <img src="/post/significance-vs-effect-size/featured_hu804beda7f9ceb89a515cd12be4f8220a_24255_1200x2500_fit_q75_h2_lanczos_3.webp" width="640" height="219" alt="" class="featured-image">
+    <span class="article-header-caption">Image credit: <a href="https://www.researchgate.net/figure/Statistical-Significance-vs-Effect-Size_fig1_323830370" target="_blank" rel="noopener"><strong>Costas Gabrielatos</strong></a></span>
+  </div>
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style">
+      <p>In the world of online experiments and product iteration, there&rsquo;s a recurring pattern that always gives me pause. Time and again, I see teams kick off an A/B test without any real discussion about statistical power, or even a clear idea of the minimum effect size they&rsquo;d be interested in detecting. Instead, the default approach often seems to be to simply &rsquo;turn the experiment on&rsquo; and then, to use a common phrase, keep it running &lsquo;until we reach confidence.&rsquo; To me, this is fundamentally missing the point of rigorous experimentation. It&rsquo;s a method that not only wastes resources but, more importantly, often leads to spurious conclusions, undermining the very data-driven culture we strive for.</p>
+<h3 id="manufacturing-confidence-the-sample-size-trap">Manufacturing confidence: the sample size trap</h3>
+<p>The statistical reality behind this flawed approach is straightforward: as your sample size grows, the precision of your estimates naturally increases. This is why the confidence intervals around your statistical tests—whether for a difference in means or proportions—will invariably shrink. Think of the standard error of the mean, for instance, which is often approximated as $\frac{\sigma}{\sqrt{n}}$, where $\sigma$ is the standard deviation and $n$ is your sample size 
+<span class="infotip-container">
+    <sup class="infotip-icon">i</sup>
+    <span class="infotip-content">In the case of a Welch's test for the difference in means of continuous variables with unequal variance, standard error of the difference is computed as $SE_{(\bar{x}_1 - \bar{x}_2)} = \sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}$ where $s$ and $n$ indicate the group specific sample variance and size.</span>
+</span>
+
+<style>
+ 
+
+ 
+.infotip-container {
+    position: relative;      
+    display: inline-block;   
+    cursor: help;            
+    text-decoration: none;   
+}
+
+ 
+.infotip-icon {
+    font-size: 0.7em;            
+    vertical-align: super;       
+    border: 1px solid #777;      
+    border-radius: 50%;          
+    width: 1.2em;                
+    height: 1.2em;               
+    display: inline-flex;        
+    justify-content: center;     
+    align-items: center;         
+    line-height: 1;              
+    margin-left: 0.2em;          
+    color: #555;                 
+    background-color: #f0f0f0;   
+    font-weight: bold;
+    user-select: none;           
+    transition: background-color 0.2s ease, color 0.2s ease;  
+}
+
+.infotip-container:hover .infotip-icon {
+    background-color: #66d9ef;  
+    color: #fff;                 
+    border-color: #66d9ef;
+}
+
+ 
+.infotip-content {
+    font-size: 0.7em;
+    position: absolute;
+    bottom: calc(100% + 5px);  
+    left: 50%;  
+    transform: translateX(-50%);  
+    min-width: 250px;            
+    max-width: 350px;            
+    background-color: #444;      
+    color: #fff;                 
+    padding: 12px 18px;          
+    border-radius: 6px;          
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);  
+    z-index: 100;                
+
+    opacity: 0;                  
+    visibility: hidden;          
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;  
+
+     
+    &::after {
+        content: '';
+        position: absolute;
+        top: 100%;  
+        left: 50%;
+        transform: translateX(-50%);
+        border-width: 8px;
+        border-style: solid;
+        border-color: #333 transparent transparent transparent;  
+    }
+}
+
+ 
+.infotip-container:hover .infotip-content {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(-10px);  
+}
+</style>. As $n$ gets larger, the denominator grows, making the standard error smaller. This means that if you simply keep an experiment running indefinitely, given enough data, you&rsquo;ll almost always eventually detect a &lsquo;statistically significant&rsquo; difference, even if the real-world effect is negligible or purely due to random chance. It effectively allows you to &lsquo;manufacture&rsquo; confidence, risking the rollout of features that have no true impact, or worse, a negative one.</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  id="figure-run-experiment-run">
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img src="/images/fat_tail_size/effect_size1.jpg" alt="Meme picture 1" loading="lazy" data-zoomable /></div>
+  </div><figcaption>
+      Run, experiment! Run!
+    </figcaption></figure>
+</p>
+<h3 id="when-variance-refuses-to-shrink">When variance refuses to shrink</h3>
+<p>Compounding this issue of &lsquo;running until confidence&rsquo; is the nature of many real-world outcome metrics, particularly when dealing with revenue. For variables like transaction value or total revenue per user, we often encounter what are known as fat-tailed distributions. Unlike the neat, predictable bell curve where extreme values are rare, a fat-tailed distribution means that very large, infrequent observations have a disproportionately significant impact on the variance, and thus on the confidence intervals. In such scenarios, the variance of your difference in means will decrease much slower with increasing sample size than you&rsquo;d intuitively expect. Those less frequent, large values keep the &rsquo;noise&rsquo; level high, making it genuinely harder to distinguish a true signal from random fluctuations, regardless of how much data you collect.</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  id="figure-fat-tails-at-work">
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img src="/images/fat_tail_size/effect_size2.jpg" alt="Meme picture 2" loading="lazy" data-zoomable /></div>
+  </div><figcaption>
+      Fat tails at work
+    </figcaption></figure>
+</p>
+<p>Consider, for example, the revenue generated from airline passengers on an online booking platform. You might have thousands of daily bookings, but only a small percentage convert additional services (e.g. seat reservation, additional baggage) into transactions. Most of these transactions are for a single seat, perhaps with a basic baggage allowance. However, occasionally, a single user books five seats, adds five checked bags, and purchases five travel insurance policies – a transaction that dwarfs hundreds of typical bookings combined. The same user rarely makes multiple such large purchases within a year. This pattern, where a vast majority of transactions are small, but a handful are exceptionally large and infrequent, creates that characteristic fat tail in your revenue distribution. In such an environment, the average revenue can swing wildly with just few &lsquo;whale&rsquo; bookings in a group, making it difficult to achieve stable confidence in your experimental results without an exceptionally large and truly representative sample
+<span class="infotip-container">
+    <sup class="infotip-icon">i</sup>
+    <span class="infotip-content">Similarly, think of the total order value on a typical e-commerce site. You might process tens of thousands of orders daily. A vast majority of these will be for single, relatively inexpensive items – a t-shirt, a book, a small gadget. However, every so often, a customer comes along and purchases a high-end electronics bundle, several pieces of furniture, or an entire seasonal wardrobe. </span>
+</span>
+
+<style>
+ 
+
+ 
+.infotip-container {
+    position: relative;      
+    display: inline-block;   
+    cursor: help;            
+    text-decoration: none;   
+}
+
+ 
+.infotip-icon {
+    font-size: 0.7em;            
+    vertical-align: super;       
+    border: 1px solid #777;      
+    border-radius: 50%;          
+    width: 1.2em;                
+    height: 1.2em;               
+    display: inline-flex;        
+    justify-content: center;     
+    align-items: center;         
+    line-height: 1;              
+    margin-left: 0.2em;          
+    color: #555;                 
+    background-color: #f0f0f0;   
+    font-weight: bold;
+    user-select: none;           
+    transition: background-color 0.2s ease, color 0.2s ease;  
+}
+
+.infotip-container:hover .infotip-icon {
+    background-color: #66d9ef;  
+    color: #fff;                 
+    border-color: #66d9ef;
+}
+
+ 
+.infotip-content {
+    font-size: 0.7em;
+    position: absolute;
+    bottom: calc(100% + 5px);  
+    left: 50%;  
+    transform: translateX(-50%);  
+    min-width: 250px;            
+    max-width: 350px;            
+    background-color: #444;      
+    color: #fff;                 
+    padding: 12px 18px;          
+    border-radius: 6px;          
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);  
+    z-index: 100;                
+
+    opacity: 0;                  
+    visibility: hidden;          
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;  
+
+     
+    &::after {
+        content: '';
+        position: absolute;
+        top: 100%;  
+        left: 50%;
+        transform: translateX(-50%);
+        border-width: 8px;
+        border-style: solid;
+        border-color: #333 transparent transparent transparent;  
+    }
+}
+
+ 
+.infotip-container:hover .infotip-content {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(-10px);  
+}
+</style>.</p>
+<h3 id="simulating-fat-tails-the-log-normal-distribution">Simulating fat tails: the Log-Normal distribution</h3>
+<p>To move from theoretical concepts to tangible examples, I&rsquo;ll now turn to simulating data that perfectly illustrates the challenges of fat tails in A/B testing. My tool of choice for this will be the Log-Normal distribution. What exactly is it? Simply put, if the natural logarithm of a random variable is normally (Gaussian) distributed, then the variable itself follows a log-normal distribution. This fundamental property makes it inherently non-negative – a crucial characteristic for metrics like revenue – and, more importantly for this discussion, right-skewed, often exhibiting a pronounced and realistic fat tail. Its shape is primarily governed by two parameters: $\mu$ (mu) and $\sigma$ (sigma). While $\mu$ relates to the scale or median of the distribution, it is $\sigma$ – the standard deviation of the underlying normal distribution – that directly controls how &lsquo;fat&rsquo; or heavy the tail becomes. A larger $\sigma$ leads to a more extreme skew and a more pronounced fat tail, perfectly mimicking the highly variable revenue patterns above discussed. I&rsquo;ll leverage this versatile distribution to generate the experiment outcomes in the Python examples that follow.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+</span></span></code></pre></div><p>Before we dive into the actual Python simulations, let&rsquo;s briefly introduce the data generating function: <code>generate_synthetic_data_flexible_purchase_prob</code>. This function is designed to simulate a realistic A/B testing scenario, providing us with a controlled environment to observe the effects of different experimental parameters. It allows us to define the <code>num_individuals</code> and <code>num_dates</code> to control the overall scale and duration of our simulated experiment. Crucially, it lets us set distinct <code>purchase_prob_treatment</code> and <code>purchase_prob_control</code> values, enabling us to embed a known, true difference (or lack thereof) between our groups. The most relevant parameter for our current discussion, however, is <code>skewed_revenue</code>. When set to <code>True</code>, the function generates purchase revenues from a highly skewed log-normal distribution (using $\sigma=1$ - but you can change it flexibly, even make it as an argument of the function -), designed to mimic those troublesome fat-tailed outcomes we discussed earlier. Conversely, when <code>skewed_revenue</code> is <code>False</code>, it simulates revenue from a less skewed log-normal distribution (with $\sigma=0.3$), offering a contrast. By controlling these parameters and ensuring reproducibility with a fixed seed, we can reliably demonstrate the impact of different data characteristics on our experiment analysis.
+<span class="infotip-container">
+    <sup class="infotip-icon">i</sup>
+    <span class="infotip-content">Note that results may differ to the ones presented below if you do not set the seed of use a different one. And that's ok. It's simulated data.</span>
+</span>
+
+<style>
+ 
+
+ 
+.infotip-container {
+    position: relative;      
+    display: inline-block;   
+    cursor: help;            
+    text-decoration: none;   
+}
+
+ 
+.infotip-icon {
+    font-size: 0.7em;            
+    vertical-align: super;       
+    border: 1px solid #777;      
+    border-radius: 50%;          
+    width: 1.2em;                
+    height: 1.2em;               
+    display: inline-flex;        
+    justify-content: center;     
+    align-items: center;         
+    line-height: 1;              
+    margin-left: 0.2em;          
+    color: #555;                 
+    background-color: #f0f0f0;   
+    font-weight: bold;
+    user-select: none;           
+    transition: background-color 0.2s ease, color 0.2s ease;  
+}
+
+.infotip-container:hover .infotip-icon {
+    background-color: #66d9ef;  
+    color: #fff;                 
+    border-color: #66d9ef;
+}
+
+ 
+.infotip-content {
+    font-size: 0.7em;
+    position: absolute;
+    bottom: calc(100% + 5px);  
+    left: 50%;  
+    transform: translateX(-50%);  
+    min-width: 250px;            
+    max-width: 350px;            
+    background-color: #444;      
+    color: #fff;                 
+    padding: 12px 18px;          
+    border-radius: 6px;          
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);  
+    z-index: 100;                
+
+    opacity: 0;                  
+    visibility: hidden;          
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;  
+
+     
+    &::after {
+        content: '';
+        position: absolute;
+        top: 100%;  
+        left: 50%;
+        transform: translateX(-50%);
+        border-width: 8px;
+        border-style: solid;
+        border-color: #333 transparent transparent transparent;  
+    }
+}
+
+ 
+.infotip-container:hover .infotip-content {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(-10px);  
+}
+</style></p>
+
+<details>
+    <summary>Define data generating function</summary>
+    
+    <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">generate_synthetic_data_flexible_purchase_prob</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">num_individuals</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">num_dates</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">purchase_prob_treatment</span><span class="o">=</span><span class="mf">0.18</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">purchase_prob_control</span><span class="o">=</span><span class="mf">0.12</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">skewed_revenue</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">seed</span> <span class="o">=</span> <span class="mi">21</span>
+</span></span><span class="line"><span class="cl"><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Generates a synthetic dataset for A/B testing, including individual IDs,
+</span></span></span><span class="line"><span class="cl"><span class="s2">    dates, treatment assignment, purchase indicators, and realized revenue.
+</span></span></span><span class="line"><span class="cl"><span class="s2">   
+</span></span></span><span class="line"><span class="cl"><span class="s2">    The function allows for setting different purchase probabilities for
+</span></span></span><span class="line"><span class="cl"><span class="s2">    treatment and control groups, and offers options for revenue distribution.
+</span></span></span><span class="line"><span class="cl"><span class="s2">   
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Args:
+</span></span></span><span class="line"><span class="cl"><span class="s2">        num_individuals (int): The total number of unique individuals in the dataset.
+</span></span></span><span class="line"><span class="cl"><span class="s2">                               Defaults to 1000.
+</span></span></span><span class="line"><span class="cl"><span class="s2">        num_dates (int): The number of days for which to generate data.
+</span></span></span><span class="line"><span class="cl"><span class="s2">                           Defaults to 30.
+</span></span></span><span class="line"><span class="cl"><span class="s2">        purchase_prob_treatment (float): The probability of an individual in the
+</span></span></span><span class="line"><span class="cl"><span class="s2">                                           &#39;treatment&#39; group making a purchase on any given day.
+</span></span></span><span class="line"><span class="cl"><span class="s2">                                           Must be between 0 and 1. Defaults to 0.18.
+</span></span></span><span class="line"><span class="cl"><span class="s2">        purchase_prob_control (float): The probability of an individual in the
+</span></span></span><span class="line"><span class="cl"><span class="s2">                                         &#39;control&#39; group making a purchase on any given day.
+</span></span></span><span class="line"><span class="cl"><span class="s2">                                         Must be between 0 and 1. Defaults to 0.12.
+</span></span></span><span class="line"><span class="cl"><span class="s2">        skewed_revenue (bool): If True, generates revenue from a highly skewed
+</span></span></span><span class="line"><span class="cl"><span class="s2">                                 (lognormal with specific parameters for more extreme skew)
+</span></span></span><span class="line"><span class="cl"><span class="s2">                                 distribution when a purchase is made. If False, generates
+</span></span></span><span class="line"><span class="cl"><span class="s2">                                 revenue from a less skewed (lognormal with different parameters)
+</span></span></span><span class="line"><span class="cl"><span class="s2">                                 distribution. Defaults to False.
+</span></span></span><span class="line"><span class="cl"><span class="s2">        seed (int): The seed for NumPy&#39;s random number generator to ensure
+</span></span></span><span class="line"><span class="cl"><span class="s2">                    reproducibility of the generated data. Defaults to 21.
+</span></span></span><span class="line"><span class="cl"><span class="s2">   
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Returns:
+</span></span></span><span class="line"><span class="cl"><span class="s2">        pandas.DataFrame: A DataFrame with the following columns:
+</span></span></span><span class="line"><span class="cl"><span class="s2">            - &#39;date&#39; (datetime): The date of the observation.
+</span></span></span><span class="line"><span class="cl"><span class="s2">            - &#39;individual_id&#39; (str): Unique identifier for each individual.
+</span></span></span><span class="line"><span class="cl"><span class="s2">            - &#39;treatment&#39; (str): &#39;treatment&#39; or &#39;control&#39;, indicating group assignment.
+</span></span></span><span class="line"><span class="cl"><span class="s2">            - &#39;made_purchase&#39; (int): 1 if a purchase was made, 0 otherwise.
+</span></span></span><span class="line"><span class="cl"><span class="s2">            - &#39;revenue&#39; (float): The realized revenue; 0 if no purchase was made.
+</span></span></span><span class="line"><span class="cl"><span class="s2">    &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">dates</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">([</span><span class="s1">&#39;2025-01-01&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s1">&#39;2025-01-01&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">num_dates</span><span class="p">)])</span>
+</span></span><span class="line"><span class="cl">    <span class="n">individual_ids</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s1">&#39;ID_</span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">:</span><span class="s1">04d</span><span class="si">}</span><span class="s1">&#39;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_individuals</span><span class="p">)]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">treatment_assignment</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="s1">&#39;treatment&#39;</span><span class="p">,</span> <span class="s1">&#39;control&#39;</span><span class="p">],</span> <span class="n">size</span><span class="o">=</span><span class="n">num_individuals</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">    <span class="n">data</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">date</span> <span class="ow">in</span> <span class="n">dates</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_individuals</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="n">treatment</span> <span class="o">=</span> <span class="n">treatment_assignment</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">treatment</span> <span class="o">==</span> <span class="s1">&#39;treatment&#39;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">purchase_prob</span> <span class="o">=</span> <span class="n">purchase_prob_treatment</span>
+</span></span><span class="line"><span class="cl">            <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">purchase_prob</span> <span class="o">=</span> <span class="n">purchase_prob_control</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">            <span class="n">made_purchase</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">binomial</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">purchase_prob</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">made_purchase</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="n">skewed_revenue</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                    <span class="c1"># Highly skewed revenue (lognormal with larger sigma for more extreme values)</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">revenue</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">lognormal</span><span class="p">(</span><span class="n">mean</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl">                <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                    <span class="c1"># Less skewed, more &#39;normal-like&#39; revenue (lognormal with smaller sigma)</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">revenue</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">lognormal</span><span class="p">(</span><span class="n">mean</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">revenue</span> <span class="o">=</span> <span class="mf">0.0</span>
+</span></span><span class="line"><span class="cl">            <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">                <span class="s1">&#39;date&#39;</span><span class="p">:</span> <span class="n">date</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="s1">&#39;individual_id&#39;</span><span class="p">:</span> <span class="n">individual_ids</span><span class="p">[</span><span class="n">i</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">                <span class="s1">&#39;treatment&#39;</span><span class="p">:</span> <span class="n">treatment</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="s1">&#39;made_purchase&#39;</span><span class="p">:</span> <span class="n">made_purchase</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="s1">&#39;revenue&#39;</span><span class="p">:</span> <span class="n">revenue</span>
+</span></span><span class="line"><span class="cl">            <span class="p">})</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</span></span></code></pre></div>
+</details>
+
+<style>
+ 
+details summary {
+    cursor: pointer;
+    padding: 8px 12px;
+    border: 1px solid #444;  
+    border-radius: 4px;
+    margin-bottom: 5px;
+    background-color: #333;  
+    color: #f0f0f0;  
+    font-weight: bold;
+    user-select: none;  
+}
+details summary:hover {
+    background-color: #555;  
+}
+
+ 
+ 
+ 
+.highlight {
+    margin-top: 10px;  
+     
+     
+     
+    padding: 10px;  
+    border-radius: 4px;
+    overflow-x: auto;
+}
+.highlight pre {
+    margin: 0;
+}
+</style>
+<p>To visually illustrate how the sigma parameter of the Log-Normal distribution influences the &ldquo;fatness&rdquo; of the tail, let&rsquo;s generate two datasets using our <code>generate_synthetic_data_flexible_purchase_prob</code> function: one with <code>skewed_revenue=False</code> (corresponding to a sigma of $0.3$), and another with <code>skewed_revenue=True</code> (corresponding to a sigma of $1.0$). I&rsquo;ll then plot their revenue distributions side-by-side. For the example below I set the purchase probability parameters to $0.45$</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  id="figure-log-normally-distributed-revenues-with-different-values-of-sigma">
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img src="/images/fat_tail_size/effect_size4.png" alt="Revenue plots 1" loading="lazy" data-zoomable /></div>
+  </div><figcaption>
+      Log-normally distributed revenues with different values of sigma
+    </figcaption></figure>
+</p>
+<p>Observing these two plots side-by-side, the impact of $\sigma$ on the log-normal distribution&rsquo;s tail becomes strikingly clear. On the left, with a lower sigma ($0.3$), the revenue distribution is still right-skewed, but the bulk of the purchases are more concentrated around a central value, and extreme high-value transactions are notably rare and closer to the main body of data. The tail, while present, is relatively &rsquo;thin&rsquo; or light. In stark contrast, the plot on the right, generated with a higher sigma ($1.0$), displays the characteristic &lsquo;fat tail&rsquo;. Here, the vast majority of transactions cluster very close to zero, representing typical, small purchases. However, the distribution stretches out dramatically to the right, showing that while very infrequent, extremely large revenue events do occur (look at the different scale of the $x$ axis!), pulling the average significantly higher and introducing substantial variability.</p>
+<h3 id="experiments-with-fat-tails-and-not-only">Experiments with fat-tails (and not only)</h3>
+<p>Let&rsquo;s now consider a specific simulation designed to highlight these challenges in a tangible way. Imagine an experiment running for 50 days with only 150 individuals participating, where our treatment aims for a modest increase in purchase probability from $10$% (control) to $11$% (treatment). Crucially, we&rsquo;ve set <code>skewed_revenue</code> to <code>True</code>, ensuring our revenue outcomes exhibit a pronounced fat tail.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">synthetic_df</span> <span class="o">=</span> <span class="n">generate_synthetic_data_flexible_purchase_prob</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">num_individuals</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">num_dates</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">purchase_prob_treatment</span><span class="o">=</span><span class="mf">0.11</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">purchase_prob_control</span><span class="o">=</span><span class="mf">0.10</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">skewed_revenue</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">seed</span><span class="o">=</span><span class="mi">1</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span></code></pre></div><p>As we monitor the cumulative estimated difference in purchase probability day by day, we observe a fascinating, yet misleading, pattern. Around day 18, the 95% confidence interval for purchase probability finally excludes zero, signaling &lsquo;statistical significance.&rsquo; This is often the moment management might go &lsquo;positively crazy,&rsquo; ready to celebrate a win. However, if the experiment were to continue, that initial confidence proves fleeting: after day 28, the confidence interval once again broadens to include zero for about ten days, a period that might cause &rsquo;negative craziness&rsquo; and frustration. This erratic behavior perfectly exemplifies the dangers of stopping an experiment based solely on reaching a fleeting confidence threshold, showcasing how easily one can jump to premature or contradictory conclusions without a proper power analysis and fixed horizon.</p>
+
+<details>
+    <summary>Cumulative plot function</summary>
+    
+    <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">cumulative_plot</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">target_var</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">target_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">confidence_level</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.95</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Generates and displays a time-series plot of the cumulative difference
+</span></span></span><span class="line"><span class="cl"><span class="s2">    between treatment and control groups for a specified target variable,
+</span></span></span><span class="line"><span class="cl"><span class="s2">    including a confidence interval.
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    This function calculates cumulative statistics up to each unique date
+</span></span></span><span class="line"><span class="cl"><span class="s2">    and then computes the difference and its confidence interval.
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Args:
+</span></span></span><span class="line"><span class="cl"><span class="s2">        df: The input pandas DataFrame containing &#39;date&#39;, &#39;treatment&#39;, and
+</span></span></span><span class="line"><span class="cl"><span class="s2">            `target_var` columns.
+</span></span></span><span class="line"><span class="cl"><span class="s2">        target_var: The name of the column in `df` representing the dependent
+</span></span></span><span class="line"><span class="cl"><span class="s2">                    variable (e.g., &#39;made_purchase&#39;, &#39;value_per_purchase&#39;).
+</span></span></span><span class="line"><span class="cl"><span class="s2">        target_name: A user-friendly name for the target variable, used in plot labels
+</span></span></span><span class="line"><span class="cl"><span class="s2">                     and titles (e.g., &#39;Purchase Rate&#39;, &#39;Average Order Value&#39;).
+</span></span></span><span class="line"><span class="cl"><span class="s2">        confidence_level: The confidence level for the confidence interval (e.g., 0.95).
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Returns:
+</span></span></span><span class="line"><span class="cl"><span class="s2">        None. Displays a matplotlib plot.
+</span></span></span><span class="line"><span class="cl"><span class="s2">    &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># Sort the DataFrame by date to ensure correct cumulative calculation</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sorted_df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;date&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">cumulative_results</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">unique_dates</span> <span class="o">=</span> <span class="n">sorted_df</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1"># Determine if the target variable is binary once</span>
+</span></span><span class="line"><span class="cl">    <span class="n">is_target_binary</span> <span class="o">=</span> <span class="n">sorted_df</span><span class="p">[</span><span class="n">target_var</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">(</span><span class="n">dropna</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1"># Z-score or T-score for the given confidence level (two-tailed)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">alpha</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">confidence_level</span>
+</span></span><span class="line"><span class="cl">    <span class="n">z_score</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">alpha</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="c1"># For proportions</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">current_date</span> <span class="ow">in</span> <span class="n">unique_dates</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># Get all data up to the current date</span>
+</span></span><span class="line"><span class="cl">        <span class="n">cumulative_data</span> <span class="o">=</span> <span class="n">sorted_df</span><span class="p">[</span><span class="n">sorted_df</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">current_date</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        <span class="n">treatment_target_series</span> <span class="o">=</span> <span class="n">cumulative_data</span><span class="p">[</span><span class="n">cumulative_data</span><span class="p">[</span><span class="s1">&#39;treatment&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;treatment&#39;</span><span class="p">][</span><span class="n">target_var</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="n">control_target_series</span> <span class="o">=</span> <span class="n">cumulative_data</span><span class="p">[</span><span class="n">cumulative_data</span><span class="p">[</span><span class="s1">&#39;treatment&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;control&#39;</span><span class="p">][</span><span class="n">target_var</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        <span class="n">n_treatment</span> <span class="o">=</span> <span class="n">treatment_target_series</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="n">n_control</span> <span class="o">=</span> <span class="n">control_target_series</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        <span class="n">difference</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+</span></span><span class="line"><span class="cl">        <span class="n">lower_ci</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+</span></span><span class="line"><span class="cl">        <span class="n">upper_ci</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">is_target_binary</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># Cumulative confidence interval for difference in proportions</span>
+</span></span><span class="line"><span class="cl">            <span class="n">success_treatment</span> <span class="o">=</span> <span class="n">treatment_target_series</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">            <span class="n">rate_treatment</span> <span class="o">=</span> <span class="n">success_treatment</span> <span class="o">/</span> <span class="n">n_treatment</span> <span class="k">if</span> <span class="n">n_treatment</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+</span></span><span class="line"><span class="cl">            
+</span></span><span class="line"><span class="cl">            <span class="n">success_control</span> <span class="o">=</span> <span class="n">control_target_series</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">            <span class="n">rate_control</span> <span class="o">=</span> <span class="n">success_control</span> <span class="o">/</span> <span class="n">n_control</span> <span class="k">if</span> <span class="n">n_control</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+</span></span><span class="line"><span class="cl">            
+</span></span><span class="line"><span class="cl">            <span class="n">difference</span> <span class="o">=</span> <span class="n">rate_treatment</span> <span class="o">-</span> <span class="n">rate_control</span>
+</span></span><span class="line"><span class="cl">            
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">n_treatment</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">n_control</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">pooled_proportion</span> <span class="o">=</span> <span class="p">(</span><span class="n">success_treatment</span> <span class="o">+</span> <span class="n">success_control</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">n_treatment</span> <span class="o">+</span> <span class="n">n_control</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="n">pooled_proportion</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">pooled_proportion</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># Ensure bounds</span>
+</span></span><span class="line"><span class="cl">                
+</span></span><span class="line"><span class="cl">                <span class="n">standard_error_diff</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">pooled_proportion</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">pooled_proportion</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="n">n_treatment</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">n_control</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">                
+</span></span><span class="line"><span class="cl">                <span class="n">margin_of_error</span> <span class="o">=</span> <span class="n">z_score</span> <span class="o">*</span> <span class="n">standard_error_diff</span>
+</span></span><span class="line"><span class="cl">                <span class="n">lower_ci</span> <span class="o">=</span> <span class="n">difference</span> <span class="o">-</span> <span class="n">margin_of_error</span>
+</span></span><span class="line"><span class="cl">                <span class="n">upper_ci</span> <span class="o">=</span> <span class="n">difference</span> <span class="o">+</span> <span class="n">margin_of_error</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># Cumulative confidence interval for difference in means</span>
+</span></span><span class="line"><span class="cl">            <span class="n">mean_target_treatment</span> <span class="o">=</span> <span class="n">treatment_target_series</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="k">if</span> <span class="n">n_treatment</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+</span></span><span class="line"><span class="cl">            <span class="n">mean_target_control</span> <span class="o">=</span> <span class="n">control_target_series</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="k">if</span> <span class="n">n_control</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+</span></span><span class="line"><span class="cl">            
+</span></span><span class="line"><span class="cl">            <span class="n">difference</span> <span class="o">=</span> <span class="n">mean_target_treatment</span> <span class="o">-</span> <span class="n">mean_target_control</span>
+</span></span><span class="line"><span class="cl">            
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">n_treatment</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">n_control</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">std_err_diff</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">treatment_target_series</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="n">n_treatment</span> <span class="o">+</span>
+</span></span><span class="line"><span class="cl">                                        <span class="n">control_target_series</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="n">n_control</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                
+</span></span><span class="line"><span class="cl">                <span class="c1"># Degrees of freedom for Welch&#39;s t-test (Satterthwaite approximation)</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="n">std_err_diff</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">degrees_freedom</span> <span class="o">=</span> <span class="n">n_treatment</span> <span class="o">+</span> <span class="n">n_control</span> <span class="o">-</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl">                <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">numerator</span> <span class="o">=</span> <span class="p">(</span><span class="n">treatment_target_series</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="n">n_treatment</span> <span class="o">+</span> <span class="n">control_target_series</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="n">n_control</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">denominator</span> <span class="o">=</span> <span class="p">(</span><span class="n">treatment_target_series</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="n">n_treatment</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="p">(</span><span class="n">n_treatment</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> \
+</span></span><span class="line"><span class="cl">                                  <span class="p">(</span><span class="n">control_target_series</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="n">n_control</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="p">(</span><span class="n">n_control</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">degrees_freedom</span> <span class="o">=</span> <span class="n">numerator</span> <span class="o">/</span> <span class="n">denominator</span> <span class="k">if</span> <span class="n">denominator</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">n_treatment</span> <span class="o">+</span> <span class="n">n_control</span> <span class="o">-</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl">                
+</span></span><span class="line"><span class="cl">                <span class="n">degrees_freedom</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">degrees_freedom</span><span class="p">)</span> <span class="c1"># Ensure at least 1</span>
+</span></span><span class="line"><span class="cl">                
+</span></span><span class="line"><span class="cl">                <span class="n">t_score</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">t</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">alpha</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="n">df</span><span class="o">=</span><span class="n">degrees_freedom</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="n">margin_of_error</span> <span class="o">=</span> <span class="n">t_score</span> <span class="o">*</span> <span class="n">std_err_diff</span>
+</span></span><span class="line"><span class="cl">                
+</span></span><span class="line"><span class="cl">                <span class="n">lower_ci</span> <span class="o">=</span> <span class="n">difference</span> <span class="o">-</span> <span class="n">margin_of_error</span>
+</span></span><span class="line"><span class="cl">                <span class="n">upper_ci</span> <span class="o">=</span> <span class="n">difference</span> <span class="o">+</span> <span class="n">margin_of_error</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        <span class="n">cumulative_results</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">            <span class="s1">&#39;date&#39;</span><span class="p">:</span> <span class="n">current_date</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s1">&#39;difference&#39;</span><span class="p">:</span> <span class="n">difference</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s1">&#39;lower_ci&#39;</span><span class="p">:</span> <span class="n">lower_ci</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s1">&#39;upper_ci&#39;</span><span class="p">:</span> <span class="n">upper_ci</span>
+</span></span><span class="line"><span class="cl">        <span class="p">})</span>
+</span></span><span class="line"><span class="cl">            
+</span></span><span class="line"><span class="cl">    <span class="n">cumulative_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">cumulative_results</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1"># Plot the cumulative difference with confidence intervals</span>
+</span></span><span class="line"><span class="cl">    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="n">cumulative_df</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">        <span class="n">cumulative_df</span><span class="p">[</span><span class="s1">&#39;difference&#39;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">        <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Cumulative Difference in </span><span class="si">{</span><span class="n">target_name</span><span class="si">}</span><span class="s1"> (Treatment - Control)&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="n">cumulative_df</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">        <span class="n">cumulative_df</span><span class="p">[</span><span class="s1">&#39;lower_ci&#39;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">        <span class="n">cumulative_df</span><span class="p">[</span><span class="s1">&#39;upper_ci&#39;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">        <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">confidence_level</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span><span class="si">}</span><span class="s1">% Confidence Interval&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">)</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1"># Add a horizontal line at zero</span>
+</span></span><span class="line"><span class="cl">    <span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Zero Difference&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1"># Add labels and title</span>
+</span></span><span class="line"><span class="cl">    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Date&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Cumulative Difference in </span><span class="si">{</span><span class="n">target_name</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Cumulative Difference in </span><span class="si">{</span><span class="n">target_name</span><span class="si">}</span><span class="s1"> (Treatment vs. Control) Over Time with </span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">confidence_level</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span><span class="si">}</span><span class="s1">% CI&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</span></span></code></pre></div>
+</details>
+
+<style>
+ 
+details summary {
+    cursor: pointer;
+    padding: 8px 12px;
+    border: 1px solid #444;  
+    border-radius: 4px;
+    margin-bottom: 5px;
+    background-color: #333;  
+    color: #f0f0f0;  
+    font-weight: bold;
+    user-select: none;  
+}
+details summary:hover {
+    background-color: #555;  
+}
+
+ 
+ 
+ 
+.highlight {
+    margin-top: 10px;  
+     
+     
+     
+    padding: 10px;  
+    border-radius: 4px;
+    overflow-x: auto;
+}
+.highlight pre {
+    margin: 0;
+}
+</style>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">cumulative_plot</span><span class="p">(</span><span class="n">synthetic_df</span><span class="p">,</span> <span class="s1">&#39;made_purchase&#39;</span><span class="p">,</span> <span class="s2">&#34;Purchase Rate&#34;</span><span class="p">)</span>
+</span></span></code></pre></div><p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  id="figure-reaching-confidenceand-then-losing-it">
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img src="/images/fat_tail_size/effect_size5.png" alt="Cumulative purchase plot 1" loading="lazy" data-zoomable /></div>
+  </div><figcaption>
+      Reaching confidence&hellip;and then losing it.
+    </figcaption></figure>
+</p>
+<p>Turning our attention to the revenue plot from the same simulation, the picture is even starker. Despite the genuine difference in underlying purchase probabilities, the 95% confidence interval for the cumulative difference in revenue consistently includes zero throughout the entire 50-day period. The extreme variability introduced by the fat-tailed revenue distribution (driven by that high sigma) means that even with 50 days of data from 150 individuals, the &rsquo;noise&rsquo; from those few large, infrequent purchases completely overwhelms any true signal. In such a scenario, detecting a statistically significant revenue uplift becomes virtually impossible, underscoring why managing experiments with fat-tailed metrics requires a fundamentally different approach than simply &lsquo;waiting for confidence.&rsquo;</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">cumulative_plot</span><span class="p">(</span><span class="n">synthetic_df</span><span class="p">,</span> <span class="s1">&#39;revenue&#39;</span><span class="p">,</span> <span class="s2">&#34;Average Revenue&#34;</span><span class="p">)</span>
+</span></span></code></pre></div><p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  id="figure-not-a-chance-to-reach-confidence">
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img src="/images/fat_tail_size/effect_size6.png" alt="Cumulative revenue plot 1" loading="lazy" data-zoomable /></div>
+  </div><figcaption>
+      Not a chance to &lsquo;reach confidence&rsquo;.
+    </figcaption></figure>
+</p>
+<h4 id="a-tale-of-thinner-tails">A tale of thinner tails</h4>
+<p>To truly appreciate the confounding nature of fat tails, let&rsquo;s consider the initial, smaller-scale experiment again: 150 individuals over 50 days, with the same 0.11% vs 0.10% purchase probability difference. However, this time, imagine our revenue distribution is not skewed (i.e., <code>skewed_revenue</code> is <code>False</code>, corresponding to a lower sigma). The beauty of our simulation setup, aided by using the same seed for individual assignment, is that the purchase rate plots will show an identical behavior to what we observed before – still reaching that fleeting significance around day 18.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">synthetic_df</span> <span class="o">=</span> <span class="n">generate_synthetic_data_flexible_purchase_prob</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">num_individuals</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">num_dates</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">purchase_prob_treatment</span><span class="o">=</span><span class="mf">0.11</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">purchase_prob_control</span><span class="o">=</span><span class="mf">0.10</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">skewed_revenue</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">seed</span><span class="o">=</span><span class="mi">1</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">cumulative_plot</span><span class="p">(</span><span class="n">synthetic_df</span><span class="p">,</span> <span class="s1">&#39;revenue&#39;</span><span class="p">,</span> <span class="s2">&#34;Average Revenue&#34;</span><span class="p">)</span>
+</span></span></code></pre></div><p>Yet, for revenue, the story changes dramatically. While it might not strictly &lsquo;reach&rsquo; the 95% confidence threshold within the 50-day window (one would indeed see it stably above zero with a longer duration, say 70 days), the crucial difference is the stability and predictability of its confidence intervals. Instead of erratic swings, the estimated difference in revenue remains (almost) consistently positive, showing a steady, albeit slow, convergence. The intervals shrink predictably, reflecting a more &lsquo;well-behaved&rsquo; underlying distribution. This stark contrast highlights that even if an effect is small, a non-skewed outcome allows for a much more reliable path to inference, making it far easier to manage, interpret, and confidently extend an experiment to reach significance, unlike the volatile battle against fat tails.</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  id="figure-a-more-stable-path-to-confidence">
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img src="/images/fat_tail_size/effect_size9.png" alt="Cumulative revenue plot 1" loading="lazy" data-zoomable /></div>
+  </div><figcaption>
+      A more stable path to &lsquo;confidence&rsquo;.
+    </figcaption></figure>
+</p>
+<h4 id="the-more-data-the-merrier">The more (data) the merrier</h4>
+<p>Now, let&rsquo;s pivot to a scenario that, on the surface, might appear to validate the intuition that &lsquo;more data&rsquo; always solves the problem. Imagine we scale up our experiment significantly, now observing 10,000 individuals over 30 days. We also dial down the true effect on purchase probability to a subtle 0.5 percentage point difference (0.105 for treatment vs. 0.10 for control), while still retaining our problematic fat-tailed revenue distribution.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">synthetic_df</span> <span class="o">=</span> <span class="n">generate_synthetic_data_flexible_purchase_prob</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">num_individuals</span><span class="o">=</span><span class="mi">10000</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">num_dates</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">purchase_prob_treatment</span><span class="o">=</span><span class="mf">0.105</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">purchase_prob_control</span><span class="o">=</span><span class="mf">0.10</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">skewed_revenue</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">seed</span><span class="o">=</span><span class="mi">1</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span></code></pre></div><p>In this larger-scale simulation, the plots tell a seemingly more reassuring story. For purchase probability, we see significance reached relatively quickly, around day 10. This is the moment when management might confidently pop the champagne bottle, believing the experiment has unequivocally delivered a positive result. The revenue plot, while lagging due to its inherent volatility, also eventually shows significance, becoming &lsquo;barely significant&rsquo; after approximately 25 days, perhaps prompting more celebratory corks. These results, achieved with a much larger sample size, seem to perfectly align with the expectation that simply collecting more data will eventually unveil any true effect, allowing confidence intervals to shrink and the coveted &lsquo;significance&rsquo; to be achieved.</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  id="figure-amazing-ci-always-above-zero-quite-early">
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img src="/images/fat_tail_size/effect_size7.png" alt="Cumulative purchase plot 2" loading="lazy" data-zoomable /></div>
+  </div><figcaption>
+      Amazing CI always above zero quite early!
+    </figcaption></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  id="figure-also-revenue-has-made-it">
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img src="/images/fat_tail_size/effect_size8.png" alt="Cumulative revenue plot 2" loading="lazy" data-zoomable /></div>
+  </div><figcaption>
+      Also revenue has made it!
+    </figcaption></figure>
+</p>
+<p>However, despite these ostensibly &lsquo;successful&rsquo; outcomes, a critical question looms: what is the true, underlying effect size we&rsquo;re actually observing, and how meaningful is it in the face of such noisy, fat-tailed data? Are we truly detecting a robust, practically significant lift, or merely catching fleeting signals in a sea of extreme values, simply because we&rsquo;ve collected enough data to overcome the sheer variance? The answers to these questions are crucial for making informed business decisions and avoiding the trap of statistical significance without practical relevance.</p>
+<h3 id="beyond-significance-when-is-the-effect-size-meaningful-for-business">Beyond significance: when is the effect size meaningful for business?</h3>
+<p>In the boardroom, the focus can quickly shift from the nuances of the data to simplified, yet misleading, narratives. A manager might present a 60% relative increase in revenue without mentioning that this lift is relative to an incredibly small baseline. Or they might extrapolate a tiny per-user effect—say, an extra €0.002 per person—across a massive user base, proclaiming &lsquo;we&rsquo;ll make €100k more per month!&rsquo; While a significant result may be technically correct, these presentations often dangerously abstract from critical factors like, among others, actual costs and the practicality of the effect, misrepresenting its true business value.</p>
+<h4 id="guidelines-for-interpreting-rates">Guidelines for interpreting rates</h4>
+<p>For metrics like purchase rate, it&rsquo;s a best practice to consider both the absolute difference and the relative difference. The absolute difference, measured in percentage points (p.p.), gives you the true magnitude of the change, while the relative difference shows the percentage increase from the baseline.</p>
+<p>Moving from a 53% to a 57% purchase rate gives you a 4 p.p. absolute difference, which is a significant 5.5% relative increase. The magnitude of the change is immediately clear.</p>
+<p>In another scenario, moving from 12.4% to 13.09% also represents a 5.5% relative increase, but the absolute difference is less than a percentage point at just 0.69 p.p..</p>
+<p>Both figures tell a different but equally important part of the story. The first case might justify a product overhaul, while the second might be considered a marginal gain not worth the development or full rollout cost. Combining these two views provides a more complete picture of the effect&rsquo;s practical significance.</p>
+<h4 id="why-cohens-d-falls-short-with-fat-tails">Why Cohen&rsquo;s $d$ falls short with fat tails</h4>
+<p>When we move to continuous variables like revenue, a common approach is to use a standardized effect size measure like <a href="https://en.wikipedia.org/wiki/Effect_size#Cohen%27s_d" target="_blank" rel="noopener">Cohen&rsquo;s $d$</a>. This metric is designed to show the difference between two means, expressed in units of their pooled standard deviation. Cohen&rsquo;s $d$ provides a useful, scale-independent way to interpret the magnitude of an effect, with general guidelines suggesting that $d$ values of 0.2, 0.5, and 0.8 correspond to small, medium, and large effects, respectively. For example, a Cohen&rsquo;s $d$ of 0.5 means the two group means are separated by half a standard deviation.</p>
+<p>However, for distributions with fat tails, Cohen&rsquo;s $d$ is a poor choice. The entire metric is predicated on the standard deviation, a measure that is highly sensitive to extreme values. As we&rsquo;ve seen, a single large transaction in a fat-tailed distribution can dramatically inflate the standard deviation, making a real and meaningful change in the average revenue appear <em>much smaller</em> than it actually is. This instability and reliance on a measure that is distorted by the very nature of our data make Cohen&rsquo;s $d$ an unreliable tool for informed decision-making in these cases.</p>
+<p>Below you see that even when stastitical significance is reached, the effect size computed using Cohen&rsquo;s $d$ (using the last sample presented above) is minimal and constantly low over time.</p>
+
+<details>
+    <summary>Effect size functions</summary>
+    
+    <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">cohens_dict</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;var&#39;</span><span class="p">:</span><span class="s1">&#39;cohens_d&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;metric&#39;</span><span class="p">:</span><span class="s2">&#34;Cohen&#39;s d&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;method&#39;</span><span class="p">:</span> <span class="n">calculate_cohens_d</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">cliff_dict</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;var&#39;</span><span class="p">:</span><span class="s1">&#39;cliff_d&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;metric&#39;</span><span class="p">:</span><span class="s2">&#34;Cliff&#39;s delta&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;method&#39;</span><span class="p">:</span> <span class="n">calculate_cliffs_delta</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">calculate_cohens_d</span><span class="p">(</span><span class="n">group1</span><span class="p">,</span> <span class="n">group2</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Calculates Cohen&#39;s d for the difference in means of two independent groups.
+</span></span></span><span class="line"><span class="cl"><span class="s2">    This function is applicable to both continuous and binary (0/1) variables.
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Args:
+</span></span></span><span class="line"><span class="cl"><span class="s2">        group1 (pd.Series): A pandas Series of numerical values for the first group.
+</span></span></span><span class="line"><span class="cl"><span class="s2">        group2 (pd.Series): A pandas Series of numerical values for the second group.
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Returns:
+</span></span></span><span class="line"><span class="cl"><span class="s2">        float: Cohen&#39;s d. Returns np.nan if calculation is not possible (e.g., zero variance
+</span></span></span><span class="line"><span class="cl"><span class="s2">               within groups, insufficient data for pooled standard deviation).
+</span></span></span><span class="line"><span class="cl"><span class="s2">    &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">mean1</span> <span class="o">=</span> <span class="n">group1</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">mean2</span> <span class="o">=</span> <span class="n">group2</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">n1</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">group1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">n2</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">group2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># Handle cases with insufficient data for variance calculation (need at least 2 samples for ddof=1)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">n1</span> <span class="o">&lt;</span> <span class="mi">2</span> <span class="ow">or</span> <span class="n">n2</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span> <span class="c1"># Cannot calculate pooled std if one group has less than 2 samples</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">var1</span> <span class="o">=</span> <span class="n">group1</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># Sample variance</span>
+</span></span><span class="line"><span class="cl">    <span class="n">var2</span> <span class="o">=</span> <span class="n">group2</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># Sample variance</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># Denominator for pooled standard deviation</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># This also implicitly handles cases where n1+n2 &lt; 3 (e.g., n1=1, n2=1)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">denominator_pooled_std</span> <span class="o">=</span> <span class="p">(</span><span class="n">n1</span> <span class="o">+</span> <span class="n">n2</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">denominator_pooled_std</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span> <span class="c1"># This means total samples are 2 or less.</span>
+</span></span><span class="line"><span class="cl">                                   <span class="c1"># We already handled n1&lt;2 or n2&lt;2, so this covers n1=1, n2=1</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># Calculate pooled standard deviation</span>
+</span></span><span class="line"><span class="cl">    <span class="n">pooled_std</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(((</span><span class="n">n1</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">var1</span> <span class="o">+</span> <span class="p">(</span><span class="n">n2</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">var2</span><span class="p">)</span> <span class="o">/</span> <span class="n">denominator_pooled_std</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">pooled_std</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># This happens if all values within both groups are identical (e.g., all 0s or all 1s for binary)</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># In such a case, the standard deviation is 0, and Cohen&#39;s d is undefined.</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">d</span> <span class="o">=</span> <span class="p">(</span><span class="n">mean1</span> <span class="o">-</span> <span class="n">mean2</span><span class="p">)</span> <span class="o">/</span> <span class="n">pooled_std</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">d</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">calculate_cliffs_delta</span><span class="p">(</span><span class="n">group1</span><span class="p">,</span> <span class="n">group2</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Calculates Cliff&#39;s delta for two independent groups.
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Args:
+</span></span></span><span class="line"><span class="cl"><span class="s2">        group1 (np.ndarray or list): A numerical array or list for the first group.
+</span></span></span><span class="line"><span class="cl"><span class="s2">        group2 (np.ndarray or list): A numerical array or list for the second group.
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Returns:
+</span></span></span><span class="line"><span class="cl"><span class="s2">        float: Cliff&#39;s delta value.
+</span></span></span><span class="line"><span class="cl"><span class="s2">    &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">group1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">group1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">group2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">group2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">n1</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">group1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">n2</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">group2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">n1</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">n2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># Create a grid of all pairwise comparisons</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># This is a key step where broadcasting makes the calculation efficient.</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># The result is a 2D array where each element is a comparison result.</span>
+</span></span><span class="line"><span class="cl">    <span class="n">comparisons</span> <span class="o">=</span> <span class="n">group1</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">group2</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># Count the number of pairs where group1 &gt; group2</span>
+</span></span><span class="line"><span class="cl">    <span class="n">group1_gt_group2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">comparisons</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># Count the number of pairs where group2 &gt; group1</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># We can do this by inverting the comparison result and subtracting the ties</span>
+</span></span><span class="line"><span class="cl">    <span class="n">group2_gt_group1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">group2</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">group1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># Calculate Cliff&#39;s delta</span>
+</span></span><span class="line"><span class="cl">    <span class="n">numerator</span> <span class="o">=</span> <span class="n">group1_gt_group2</span> <span class="o">-</span> <span class="n">group2_gt_group1</span>
+</span></span><span class="line"><span class="cl">    <span class="n">denominator</span> <span class="o">=</span> <span class="n">n1</span> <span class="o">*</span> <span class="n">n2</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">denominator</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">delta</span> <span class="o">=</span> <span class="n">numerator</span> <span class="o">/</span> <span class="n">denominator</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">delta</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">effect_size_df</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">effect_var</span><span class="p">,</span> <span class="n">method</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cumulative_results</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">unique_dates</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">df_sorted</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;date&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">current_date</span> <span class="ow">in</span> <span class="n">unique_dates</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">cumulative_data</span> <span class="o">=</span> <span class="n">df_sorted</span><span class="p">[</span><span class="n">df_sorted</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">current_date</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="n">treatment_cumulative</span> <span class="o">=</span> <span class="n">cumulative_data</span><span class="p">[</span><span class="n">cumulative_data</span><span class="p">[</span><span class="s1">&#39;treatment&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;treatment&#39;</span><span class="p">][</span><span class="n">target</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="n">control_cumulative</span> <span class="o">=</span> <span class="n">cumulative_data</span><span class="p">[</span><span class="n">cumulative_data</span><span class="p">[</span><span class="s1">&#39;treatment&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;control&#39;</span><span class="p">][</span><span class="n">target</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="n">results_cumulative</span> <span class="o">=</span> <span class="n">method</span><span class="p">(</span><span class="n">treatment_cumulative</span><span class="p">,</span> <span class="n">control_cumulative</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">cumulative_results</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s1">&#39;date&#39;</span><span class="p">:</span> <span class="n">current_date</span><span class="p">,</span> <span class="n">effect_var</span><span class="p">:</span> <span class="n">results_cumulative</span><span class="p">})</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">cumulative_results</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">plot_effect_size</span><span class="p">(</span><span class="n">metrics_dict</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">target_var</span><span class="p">,</span> <span class="n">target_name</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cumulative_effect_df</span> <span class="o">=</span> <span class="n">effect_size_df</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">target_var</span><span class="p">,</span> <span class="n">metrics_dict</span><span class="p">[</span><span class="s1">&#39;var&#39;</span><span class="p">],</span> <span class="n">metrics_dict</span><span class="p">[</span><span class="s1">&#39;method&#39;</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">cumulative_effect_df</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">],</span> <span class="n">cumulative_effect_df</span><span class="p">[</span><span class="n">metrics_dict</span><span class="p">[</span><span class="s1">&#39;var&#39;</span><span class="p">]],</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">metrics_dict</span><span class="p">[</span><span class="s1">&#39;var&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;cohens_d&#39;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&#34;Small effect (0.2)&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&#34;Medium effect (0.5)&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&#34;Large effect (0.8)&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&#34;No effect&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Date&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Cumulative </span><span class="si">{</span><span class="n">metrics_dict</span><span class="p">[</span><span class="s1">&#39;metric&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Cumulative </span><span class="si">{</span><span class="n">metrics_dict</span><span class="p">[</span><span class="s1">&#39;metric&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> for </span><span class="si">{</span><span class="n">target_name</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</span></span></code></pre></div>
+</details>
+
+<style>
+ 
+details summary {
+    cursor: pointer;
+    padding: 8px 12px;
+    border: 1px solid #444;  
+    border-radius: 4px;
+    margin-bottom: 5px;
+    background-color: #333;  
+    color: #f0f0f0;  
+    font-weight: bold;
+    user-select: none;  
+}
+details summary:hover {
+    background-color: #555;  
+}
+
+ 
+ 
+ 
+.highlight {
+    margin-top: 10px;  
+     
+     
+     
+    padding: 10px;  
+    border-radius: 4px;
+    overflow-x: auto;
+}
+.highlight pre {
+    margin: 0;
+}
+</style>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">plot_effect_size</span><span class="p">(</span><span class="n">cohens_dict</span><span class="p">,</span> <span class="n">synthetic_df</span><span class="p">,</span> <span class="s1">&#39;revenue&#39;</span><span class="p">,</span> <span class="s1">&#39;Average Revenue&#39;</span><span class="p">)</span>
+</span></span></code></pre></div><p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  id="figure-effect-size-standardizedor-deflated">
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img src="/images/fat_tail_size/effect_size10.png" alt="Cohen&amp;rsquo;s d plot" loading="lazy" data-zoomable /></div>
+  </div><figcaption>
+      Effect size standardized&hellip;or deflated?
+    </figcaption></figure>
+</p>
+<h4 id="cliffs-delta-a-robust-alternative">Cliff&rsquo;s delta: A robust alternative</h4>
+<p>This is where it becomes crucial to move away from metrics that rely on means and standard deviations. A more robust alternative for fat-tailed distributions is Cliff&rsquo;s delta ($\delta$). This is a non-parametric measure of effect size that assesses the degree of overlap between two distributions without relying on their means or standard deviations. Instead, it is calculated based on the number of times an observation from one group is larger than an observation from the other.</p>
+<p>$$\delta = P(x_1 &gt; x_2) - P(x_1 &lt; x_2)$$</p>
+<p>or, in more practical terms:</p>
+<p>$$\delta = \frac{\#\left\{(x_i,y_j):x_i&gt;y_j\right\}-\#\left\{(x_i,y_j):x_i&lt;y_j\right\}}{n_1n_2}$$</p>
+<p>Imagine you have two groups with the following observations: $T=\left\{5,3,8\right\}$ and $C=\left\{4,6,4\right\}$.</p>
+<p>We would need to compare every observation in group $T$ to every observation in group $C$. This means that we&rsquo;d have $3x3=9$ comparisons. Specifically, $5&gt;4$, $5&gt;4$, $\color{red}{5&lt;6}$, $\color{red}{3&lt;6}$, $\color{red}{3&lt;4}$, $\color{red}{3&lt;6}$, $8&gt;4$, $8&gt;4$, $8&gt;6$ (in red you see the cases where observations in $T$ are smaller than those in $C$ and white otherwise). Since in 5 cases observations in $T$ are larger than those in $C$ and in 4 they are smaller, we get:</p>
+<p>$$\delta=\frac{5-4}{3*3}=0.11$$</p>
+<p>Which reads: &ldquo;Observations in $T$ tend to be larger but magnitude of the difference seems negligible&rdquo; (see below for suggested reference values).</p>
+<p>This formula effectively measures the probability that a randomly chosen value from one group is larger than a randomly chosen value from the other, minus the probability of the opposite. Because it uses rank-based comparisons, Cliff&rsquo;s delta is highly resistant to outliers and skewed data. Its value ranges from $-1$ to $1$ ($1$ means all values in one group are larger than all values in the other - no overlap), where, according to <a href="https://www.researchgate.net/publication/377696423_Using_Cliff%27s_Delta_as_a_Non-Parametric_Effect_Size_Measure_An_Accessible_Web_App_and_R_Tutorial" target="_blank" rel="noopener">Meissel and Yao (2024)</a>:</p>
+<ul>
+<li>
+<p>Negligible effect: $\vert\delta\vert&lt;0.147$</p>
+</li>
+<li>
+<p>Small effect: $0.147≤\vert\delta\vert&lt;0.33$</p>
+</li>
+<li>
+<p>Medium effect: $0.33≤\vert\delta\vert&lt;0.474$</p>
+</li>
+<li>
+<p>Large effect: $\vert\delta\vert≥0.474$</p>
+</li>
+</ul>
+<p>By using Cliff&rsquo;s delta, you can make more reliable claims about the magnitude of an effect on revenue, even when your data is filled with the kind of high-value outliers that would derail a standard deviation-based metric like Cohen&rsquo;s $d$. It allows you to confidently say that your treatment group&rsquo;s revenues are &ldquo;stochastically superior&rdquo; to the control group&rsquo;s, without being misled by a handful of large transactions.</p>
+<p>Isn&rsquo;t this very similar to <a href="https://en.wikipedia.org/wiki/Mann%E2%80%93Whitney_U_test" target="_blank" rel="noopener">Mann-Whitney U test</a>? Your intuition is correct; Cliff&rsquo;s delta is very similar to the Mann-Whitney U test, but they serve different purposes.</p>
+<p>The Mann-Whitney U test is a hypothesis test that gives you a p-value. Its primary purpose is to determine if there is a statistically significant difference between the two distributions. A small p-value suggests that the observed difference is unlikely to be due to random chance alone.</p>
+<p>In contrast, Cliff&rsquo;s delta is an <strong>effect size</strong> measure. It quantifies the magnitude of the difference between the two distributions, providing a standardized value that is independent of sample size. It answers the question, &ldquo;How big is the difference?&rdquo;.</p>
+<p>Essentially, the Mann-Whitney U test tells you if a difference exists, while Cliff&rsquo;s delta tells you how large that difference is
+<span class="infotip-container">
+    <sup class="infotip-icon">i</sup>
+    <span class="infotip-content">There is also a direct mathematical relationship between the two. Cliff's delta ($\delta$) can be calculated from the Mann-Whitney U statistic (U) and the sample sizes of the two groups ($n_1$ and $n_2$) using the following formula: $$\delta = \frac{U_1 - U_2}{n_1 n_2} = \frac{2U}{n_1 n_2} - 1$$ where $U$ is the smaller of the two Mann-Whitney U statistics</span>
+</span>
+
+<style>
+ 
+
+ 
+.infotip-container {
+    position: relative;      
+    display: inline-block;   
+    cursor: help;            
+    text-decoration: none;   
+}
+
+ 
+.infotip-icon {
+    font-size: 0.7em;            
+    vertical-align: super;       
+    border: 1px solid #777;      
+    border-radius: 50%;          
+    width: 1.2em;                
+    height: 1.2em;               
+    display: inline-flex;        
+    justify-content: center;     
+    align-items: center;         
+    line-height: 1;              
+    margin-left: 0.2em;          
+    color: #555;                 
+    background-color: #f0f0f0;   
+    font-weight: bold;
+    user-select: none;           
+    transition: background-color 0.2s ease, color 0.2s ease;  
+}
+
+.infotip-container:hover .infotip-icon {
+    background-color: #66d9ef;  
+    color: #fff;                 
+    border-color: #66d9ef;
+}
+
+ 
+.infotip-content {
+    font-size: 0.7em;
+    position: absolute;
+    bottom: calc(100% + 5px);  
+    left: 50%;  
+    transform: translateX(-50%);  
+    min-width: 250px;            
+    max-width: 350px;            
+    background-color: #444;      
+    color: #fff;                 
+    padding: 12px 18px;          
+    border-radius: 6px;          
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);  
+    z-index: 100;                
+
+    opacity: 0;                  
+    visibility: hidden;          
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;  
+
+     
+    &::after {
+        content: '';
+        position: absolute;
+        top: 100%;  
+        left: 50%;
+        transform: translateX(-50%);
+        border-width: 8px;
+        border-style: solid;
+        border-color: #333 transparent transparent transparent;  
+    }
+}
+
+ 
+.infotip-container:hover .infotip-content {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(-10px);  
+}
+</style>.</p>
+<p>Now, in practical terms, is Cliff&rsquo;s delta detecting any non-negligible effect on revenue in the last data generated? It appears not. You can play around with the data generating function to see if you find statistically significant effect that also in terms of magnitude would have relevance.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">plot_effect_size</span><span class="p">(</span><span class="n">cliff_dict</span><span class="p">,</span> <span class="n">synthetic_df</span><span class="p">,</span> <span class="s1">&#39;revenue&#39;</span><span class="p">,</span> <span class="s1">&#39;Average Revenue&#39;</span><span class="p">)</span>
+</span></span></code></pre></div><p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  id="figure-effect-size-negligible-throughout-the-experiment">
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img src="/images/fat_tail_size/effect_size11.png" alt="Cliff&amp;rsquo;s delta plot" loading="lazy" data-zoomable /></div>
+  </div><figcaption>
+      Effect size negligible throughout the experiment
+    </figcaption></figure>
+</p>
+<h3 id="conclusion">Conclusion</h3>
+<p>This article has explored the critical pitfalls of interpreting A/B test results, particularly the flawed practice of running experiments until statistical significance is achieved (but not in a <em>peeking</em> or <em>sequential A/B test</em> sense - if you want to know more about the topic you can read <a href="https://medium.com/data-science/understanding-group-sequential-testing-befb35cec07a" target="_blank" rel="noopener">this article</a>). We&rsquo;ve seen how fat-tailed distributions, common in revenue metrics, introduce extreme volatility that can lead to misleading or erratic results. Even standard power calculations do not apply anymore in these settings. For further insights on how to analyze and handle such distributions stay tuned for the next article.</p>
+<h3 id="code">Code</h3>
+<p>You can find the notebook with the full code <a href="https://github.com/matteorg/posts/blob/main/fat_tail_significance_effect_size.ipynb" target="_blank" rel="noopener">here</a>.</p>
+<h4 id="thank-you-for-reading">Thank you for reading!</h4>
+<p><strong>Disclaimer</strong>: <em>I write to learn, based on my background and personal experience. Errors are my own, and if you spot them, let me know! I also appreciate suggestion to investigate new topics!</em></p>
+
+    </div>
+
+    
+
+
+
+
+
+
+
+<div class="share-box">
+  <ul class="share">
+    
+      
+      
+      
+        
+      
+      
+      
+      
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fmatteorg.github.io%2Fpost%2Fsignificance-vs-effect-size%2F&amp;text=Fat&#43;Tails%2C&#43;Statistical&#43;Significance&#43;and&#43;Meaningful&#43;Effect&#43;Size" target="_blank" rel="noopener" class="share-btn-twitter" aria-label="twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=https%3A%2F%2Fmatteorg.github.io%2Fpost%2Fsignificance-vs-effect-size%2F&amp;t=Fat&#43;Tails%2C&#43;Statistical&#43;Significance&#43;and&#43;Meaningful&#43;Effect&#43;Size" target="_blank" rel="noopener" class="share-btn-facebook" aria-label="facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a href="mailto:?subject=Fat%20Tails%2C%20Statistical%20Significance%20and%20Meaningful%20Effect%20Size&amp;body=https%3A%2F%2Fmatteorg.github.io%2Fpost%2Fsignificance-vs-effect-size%2F" target="_blank" rel="noopener" class="share-btn-email" aria-label="envelope">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=https%3A%2F%2Fmatteorg.github.io%2Fpost%2Fsignificance-vs-effect-size%2F&amp;title=Fat&#43;Tails%2C&#43;Statistical&#43;Significance&#43;and&#43;Meaningful&#43;Effect&#43;Size" target="_blank" rel="noopener" class="share-btn-linkedin" aria-label="linkedin-in">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      
+      
+      
+      
+      <li>
+        <a href="whatsapp://send?text=Fat&#43;Tails%2C&#43;Statistical&#43;Significance&#43;and&#43;Meaningful&#43;Effect&#43;Size%20https%3A%2F%2Fmatteorg.github.io%2Fpost%2Fsignificance-vs-effect-size%2F" target="_blank" rel="noopener" class="share-btn-whatsapp" aria-label="whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=https%3A%2F%2Fmatteorg.github.io%2Fpost%2Fsignificance-vs-effect-size%2F&amp;title=Fat&#43;Tails%2C&#43;Statistical&#43;Significance&#43;and&#43;Meaningful&#43;Effect&#43;Size" target="_blank" rel="noopener" class="share-btn-weibo" aria-label="weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+</article>
+  </div>
+
+  <div class="page-footer">
+    
+    
+    <div class="container">
+      <footer class="site-footer">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+
+
+<p class="powered-by">
+  
+  <a href="/privacy/">Privacy Policy</a>
+  
+  
+</p>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+</footer>
+
+    </div>
+    
+  </div>
+
+  
+
+
+<script src="/js/vendor-bundle.min.d26509351aa0ff874abbee824e982e9b.js"></script>
+
+
+
+
+  
+
+  
+  
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script id="search-hit-fuse-template" type="text/x-template">
+    <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+    </div>
+  </script>
+  
+    <script src="https://cdn.jsdelivr.net/gh/krisk/Fuse@v3.2.1/dist/fuse.min.js" integrity="sha512-o38bmzBGX+hD3JHWUFCDA09btWaqrNmoJ3RXLlrysA7PP01Kgs4UlE4MhelE1v5dJR3+cxlR4qQlotsW7jKsnw==" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/gh/julmot/mark.js@8.11.1/dist/jquery.mark.min.js" integrity="sha512-mhbv5DqBMgrWL+32MmsDOt/OAvqr/cHimk6B8y/bx/xS88MVkYGPiVv2ixKVrkywF2qHplNRUvFsAHUdxZ3Krg==" crossorigin="anonymous"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+<script id="page-data" type="application/json">{"use_headroom":true}</script>
+
+
+
+  <script src="/js/wowchemy-headroom.db4755770454eb63685f8de785c0a172.js" type="module"></script>
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+<script src="/en/js/wowchemy.min.e8ee06ba8371980ffde659871dd593b0.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
