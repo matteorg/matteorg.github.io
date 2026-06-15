@@ -7352,11 +7352,11 @@ a:focus {
 
 .dark a,
 .dark h3.article-title a:hover {
-  color: #bbdefb; }
+  color: #f76497; }
 
 .dark a:not(.btn):hover,
 .dark a:not(.btn):focus {
-  color: #bbdefb; }
+  color: #f76497; }
 
 pre,
 code {
@@ -8194,18 +8194,18 @@ a.summary-link {
     color: #2962ff !important; }
 
 .dark .navbar {
-  background: #282a36;
+  background: #141622;
   box-shadow: 0 0.125rem 0.25rem 0 rgba(255, 255, 255, 0.11); }
   .dark .navbar .navbar-nav .nav-link {
     color: rgba(255, 255, 255, 0.85); }
     .dark .navbar .navbar-nav .nav-link.active, .dark .navbar .navbar-nav .nav-link:hover, .dark .navbar .navbar-nav .nav-link:focus {
-      color: rgba(255, 255, 255, 0.8); }
+      color: white; }
     .dark .navbar .navbar-nav .nav-link.active {
       font-weight: bold !important;
-      color: rgba(255, 255, 255, 0.8) !important; }
+      color: white !important; }
   .dark .navbar .dropdown-item.active,
   .dark .navbar .dropdown-item-active {
-    color: rgba(255, 255, 255, 0.8) !important; }
+    color: white !important; }
 
 .navbar-toggler {
   border: 0 !important;
@@ -8213,7 +8213,7 @@ a.summary-link {
   z-index: 1030; }
 
 .dark .navbar-toggler {
-  color: white; }
+  color: rgba(255, 255, 255, 0.6); }
 
 .navbar-toggler:focus,
 .navbar-toggler:active {
@@ -8246,7 +8246,7 @@ a.summary-link {
   z-index: 1030; }
 
 .dark .navbar-brand {
-  color: white; }
+  color: #fff; }
 
 .navbar-brand img {
   width: auto;
@@ -8261,7 +8261,7 @@ a.summary-link {
   color: #34495e; }
 
 .dark #navbar-main .main-menu-item ul li .nav-link {
-  color: white; }
+  color: rgba(255, 255, 255, 0.6); }
 
 @media (max-width: 991.98px) {
   .navbar-brand-mobile-wrapper {
@@ -8286,7 +8286,7 @@ a.summary-link {
     background-color: #fff;
     text-align: center !important; }
   .dark .navbar-collapse {
-    background-color: #282a36; }
+    background-color: #141622; }
   #navbar-main .main-menu-item .nav-item {
     padding: 10px 15px !important; }
   #navbar-main .main-menu-item .nav-item .nav-link {
@@ -8309,16 +8309,16 @@ ul.nav-icons li.nav-item a.nav-link {
   padding: 0; }
 
 .dark .dropdown-menu {
-  background-color: #282a36 !important;
-  color: white !important; }
+  background-color: #141622 !important;
+  color: rgba(255, 255, 255, 0.6) !important; }
 
 .dropdown-item {
   background-color: #fff !important;
   color: #34495e !important; }
 
 .dark .dropdown-item {
-  background-color: #282a36 !important;
-  color: white !important; }
+  background-color: #141622 !important;
+  color: rgba(255, 255, 255, 0.6) !important; }
 
 /*************************************************
  *  Pager.
@@ -9000,7 +9000,7 @@ html[dir='rtl'] body {
   color: #1565c0; }
 
 .home-section.dark a {
-  color: #bbdefb; }
+  color: #f76497; }
 
 /* Override dark colors that may be inherited from body.dark */
 .home-section.dark,
@@ -9640,3 +9640,29 @@ div.chart {
   margin-right: auto;
   margin-bottom: 1rem;
   overflow-x: auto; }
+
+/* Force syntax highlighting variables to remain dark */
+:root, [data-theme="light"] {
+  --chroma-bg: #282a36 !important;
+  /* Dracula background */
+  --chroma-text: #f8f8f2 !important;
+  /* Dracula text */ }
+
+/* 1. Profile/Description links at the top */
+#about a, .profile-description a {
+  color: #60a5fa !important;
+  /* Your chosen blue */
+  text-decoration: underline; }
+
+/* 2. Article/Content links (e.g., "Find the code HERE") */
+.article-style a, .article-content a {
+  color: #60a5fa !important;
+  text-decoration: underline; }
+
+/* Hides the search box specifically in the docs/book sidebar */
+.docs-search {
+  display: none !important; }
+
+/* If that doesn't work, try this more general selector */
+.book-search {
+  display: none !important; }

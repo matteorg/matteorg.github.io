@@ -1,1 +1,28 @@
 // Override this file to add your own SCSS styling.
+/* Force syntax highlighting variables to remain dark */
+:root, [data-theme="light"] {
+  --chroma-bg: #282a36 !important; /* Dracula background */
+  --chroma-text: #f8f8f2 !important; /* Dracula text */
+}
+
+/* 1. Profile/Description links at the top */
+#about a, .profile-description a {
+    color: #60a5fa !important; /* Your chosen blue */
+    text-decoration: underline;
+}
+
+/* 2. Article/Content links (e.g., "Find the code HERE") */
+.article-style a, .article-content a {
+    color: #60a5fa !important;
+    text-decoration: underline;
+}
+
+/* Hides the search box specifically in the docs/book sidebar */
+.docs-search {
+  display: none !important;
+}
+
+/* If that doesn't work, try this more general selector */
+.book-search {
+  display: none !important;
+}

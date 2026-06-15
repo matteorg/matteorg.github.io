@@ -13,3 +13,10 @@ main:
   #- name: CV
     #url: '#cv'
     #weight: 30
+  - name: Other
+    identifier: "other"
+    url: "#other"
+    weight: 30
+  - name: Competition Theory
+    parent: other  # This puts it under the "Other" dropdown
+    url: "/other/competition-econ"

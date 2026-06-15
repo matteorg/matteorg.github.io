@@ -23,3 +23,17 @@
 #about {
   position: relative;
 }/Users/matteogreco/Documents/my_website/themes/github.com/wowchemy/wowchemy-hugo-themes/modules/wowchemy-plugin-reveal/assets/css/libs/mystyle
+
+/* If JS forces it to display, make it invisible and un-clickable */
+a.js-theme-selector,
+a.js-set-theme-light,
+a.js-set-theme-dark,
+li:has(.fa-moon),
+li:has(.fa-sun) {
+    opacity: 0 !important;
+    pointer-events: none !important;
+    visibility: hidden !important;
+    width: 0px !important;
+    padding: 0px !important;
+    margin: 0px !important;
+}

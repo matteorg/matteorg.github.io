@@ -1,0 +1,30 @@
+<script>
+  // 1. Force the engine into Dark Mode immediately
+  localStorage.setItem('wcTheme', '2'); 
+  localStorage.setItem('theme', '2'); 
+  document.documentElement.classList.add('dark');
+  document.documentElement.classList.remove('light');
+
+  // 2. The Terminator: Watch the DOM and kill the button the moment it spawns
+  const observer = new MutationObserver(function(mutations, obs) {
+      // Look for the icon (both webfont and SVG versions) or the link class
+      let targets = document.querySelectorAll('.fa-moon, .fa-sun, .js-set-theme-light, .js-set-theme-dark, .js-theme-selector');
+      
+      if (targets.length > 0) {
+          targets.forEach(function(target) {
+              // Find the parent list item (<li>) or link (<a>) in the navbar
+              let container = target.closest('li.nav-item') || target.closest('a');
+              if (container) {
+                  // Make it permanently invisible and unclickable (safer than removing it, 
+                  // which might cause Wowchemy's core JS to throw an error looking for it)
+                  container.style.cssText = 'display: none !important; opacity: 0 !important; pointer-events: none !important; width: 0 !important; overflow: hidden !important;';
+              }
+          });
+          // Mission accomplished, stop watching the DOM to save memory
+          obs.disconnect(); 
+      }
+  });
+
+  // Start watching the entire HTML document before it even finishes loading
+  observer.observe(document.documentElement, { childList: true, subtree: true });
+</script>

@@ -1,5 +1,12 @@
 {{ $scr := .Scratch }}
 <head>
+  <script>
+    localStorage.setItem('wcTheme', '2'); 
+    localStorage.setItem('theme', '2'); 
+    document.documentElement.classList.add('dark');
+    document.documentElement.classList.remove('light');
+  </script>
+
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -229,4 +236,32 @@
     {{ partial "custom_head" . }}
   {{ end }}
   {{ partial "functions/get_hook" (dict "hook" "head-end" "context" .) }}
+  
+  <style>
+  /* 1. Hide the toggle buttons */
+  .fa-moon, .fa-sun, i.fas.fa-moon, i.fas.fa-sun,
+  a.js-set-theme-light, a.js-set-theme-dark, a.js-theme-selector, .js-theme-selector {
+      display: none !important; opacity: 0 !important; visibility: hidden !important; pointer-events: none !important; width: 0 !important; height: 0 !important; position: absolute !important; margin: 0 !important; padding: 0 !important;
+  }
+  li.nav-item:has(a.js-theme-selector), li.nav-item:has(.fa-moon), li.nav-item:has(.fa-sun) {
+      display: none !important; width: 0 !important; margin: 0 !important; padding: 0 !important;
+  }
+
+  /* 2. NATIVE DARK MODE LOCK (Balanced) */
+  html.dark, html.dark body {
+      background-color: #1a1a1a !important;
+      color: #e2e8f0 !important;
+  }
+
+  /* Force background colors to stay dark */
+  html.dark .page-wrapper, 
+  html.dark .article-container, 
+  html.dark .main, 
+  html.dark .body,
+  html.dark footer {
+      background-color: #1a1a1a !important;
+  }
+</style>
+
+  {{/* EXTENSIBILITY HOOK: HEAD-END */}}
 </head>
