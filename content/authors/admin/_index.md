@@ -19,7 +19,7 @@ $$$$ $$$$
 
 I am a Data Scientist at [SWISS Airlines](https://www.linkedin.com/company/swiss-international-air-lines/) as part of the [LHG Digital Hangar](https://www.linkedin.com/company/lufthansa-group-digital-hangar/) where I am specialized in causal inference for customer analytics and in the personalization of the travellers' digital experience.
 
-I hold a PhD in Economics from the [University of Zurich](https://www.econ.uzh.ch/en/study/phd/zurichgse/recentplacements.html) where [my research](https://www.zora.uzh.ch/id/eprint/217102/1/217102.pdf) mainly focused on the link between mass media and economic outcomes.
+I hold a PhD in Economics from the [University of Zurich](https://www.econ.uzh.ch/en/study/phd/zurichgse/recentplacements.html) where [my research](https://www.zora.uzh.ch/entities/publication/7da6faf1-53c0-4627-b205-dff3e335f06e) mainly focused on the link between mass media and economic outcomes.
 
 <style>
 /* You can keep your .button CSS here or in your custom.css file */

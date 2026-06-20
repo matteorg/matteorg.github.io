@@ -16,13 +16,3 @@
     color: #60a5fa !important;
     text-decoration: underline;
 }
-
-/* Hides the search box specifically in the docs/book sidebar */
-.docs-search {
-  display: none !important;
-}
-
-/* If that doesn't work, try this more general selector */
-.book-search {
-  display: none !important;
-}
