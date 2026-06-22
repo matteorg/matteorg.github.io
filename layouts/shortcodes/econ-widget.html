@@ -1,0 +1,319 @@
+<div class="pc-widget-wrapper">
+  <style>
+    .pc-widget-wrapper {
+      font-family: system-ui, -apple-system, sans-serif;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 24px;
+      margin: 2rem 0;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      max-width: 100%;
+    }
+    .pc-controls {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 24px;
+      background: #f8fafc;
+      padding: 16px;
+      border-radius: 8px;
+    }
+    .pc-control-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .pc-control-header {
+      display: flex;
+      justify-content: space-between;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: #334155;
+    }
+    .pc-slider {
+      width: 100%;
+      accent-color: #3b82f6;
+    }
+    .pc-charts-container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+    @media (min-width: 768px) {
+      .pc-charts-container {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    .pc-chart-box {
+      position: relative;
+      width: 100%;
+      background: white;
+      border: 1px solid #f1f5f9;
+      border-radius: 8px;
+      padding: 12px;
+    }
+    .pc-chart-title {
+      text-align: center;
+      font-weight: bold;
+      color: #1e293b;
+      margin-bottom: 12px;
+      font-size: 1.1rem;
+    }
+    .pc-canvas-container {
+      position: relative;
+      height: 350px;
+      width: 100%;
+    }
+    .pc-status {
+      text-align: center;
+      padding: 12px;
+      margin-top: 16px;
+      background: #eff6ff;
+      color: #1e40af;
+      border-radius: 8px;
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+  </style>
+
+  <!-- Load Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <div class="pc-controls">
+    <div class="pc-control-group">
+      <div class="pc-control-header">
+        <span>1. Short-Run Shock: Demand Shift</span>
+        <span id="demand-val">Normal</span>
+      </div>
+      <input type="range" id="demand-slider" class="pc-slider" min="0" max="10" step="0.1" value="0">
+    </div>
+    
+    <div class="pc-control-group">
+      <div class="pc-control-header">
+        <span>2. Long-Run Adjustment: New Firms Entry (Supply Shift)</span>
+        <span id="supply-val">Stable</span>
+      </div>
+      <input type="range" id="supply-slider" class="pc-slider" min="0" max="10" step="0.1" value="0">
+    </div>
+  </div>
+
+  <div class="pc-charts-container">
+    <div class="pc-chart-box">
+      <div class="pc-chart-title">Market (Aggregate)</div>
+      <div class="pc-canvas-container">
+        <canvas id="marketChart"></canvas>
+      </div>
+    </div>
+    <div class="pc-chart-box">
+      <div class="pc-chart-title">Individual Firm</div>
+      <div class="pc-canvas-container">
+        <canvas id="firmChart"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <div id="pc-status-msg" class="pc-status">
+    Market is in Long-Run Equilibrium (Zero Economic Profit)
+  </div>
+
+  <script type="module">
+    // Use module scope to avoid clashing with other scripts on the blog
+    const demandSlider = document.getElementById('demand-slider');
+    const supplySlider = document.getElementById('supply-slider');
+    const demandVal = document.getElementById('demand-val');
+    const supplyVal = document.getElementById('supply-val');
+    const statusMsg = document.getElementById('pc-status-msg');
+
+    let marketChartInstance = null;
+    let firmChartInstance = null;
+
+    // --- Math & Economics Model ---
+    // Base Market: P = 20 - 0.1Q (Demand), P = 0 + 0.1Q (Supply)
+    // Equilibrium: P = 10, Q = 100
+    // Firm AC = 0.2*(Q - 10)^2 + 10  (Minimum is 10 at Q=10)
+    // Firm MC = 0.6*Q^2 - 8*Q + 30
+    
+    function calculateEquilibrium(dShift, sShift) {
+      // Shifting demand right increases intercept. Shifting supply right decreases intercept.
+      const P_star = 10 + (0.5 * dShift) - (0.5 * sShift);
+      const Q_market = 100 + (5 * dShift) + (5 * sShift);
+      
+      // Firm sets P = MC => 0.6Q^2 - 8Q + (30 - P) = 0
+      // Quadratic formula: Q = (8 + sqrt(64 - 2.4*(30 - P))) / 1.2
+      const discriminant = 64 - 2.4 * (30 - P_star);
+      let Q_firm = 10;
+      if (discriminant >= 0) {
+        Q_firm = (8 + Math.sqrt(discriminant)) / 1.2;
+      }
+
+      const AC_at_Q = 0.2 * Math.pow(Q_firm - 10, 2) + 10;
+      const profitPerUnit = P_star - AC_at_Q;
+      const totalProfit = profitPerUnit * Q_firm;
+
+      return { P_star, Q_market, Q_firm, AC_at_Q, totalProfit };
+    }
+
+    // --- Chart Data Generators ---
+    function generateMarketData(dShift, sShift) {
+      const qValues = Array.from({length: 25}, (_, i) => i * 10); // 0 to 240
+      const dLine = qValues.map(q => ({ x: q, y: Math.max(0, (20 + dShift) - 0.1 * q) }));
+      const sLine = qValues.map(q => ({ x: q, y: Math.max(0, (0 - sShift) + 0.1 * q) }));
+      return { dLine, sLine };
+    }
+
+    function generateFirmData(P_star) {
+      const qValues = Array.from({length: 40}, (_, i) => i * 0.5); // 0 to 20
+      const acLine = qValues.map(q => ({ x: q, y: 0.2 * Math.pow(q - 10, 2) + 10 }));
+      const mcLine = qValues.map(q => ({ x: q, y: 0.6 * Math.pow(q, 2) - 8 * q + 30 }));
+      const pLine = qValues.map(q => ({ x: q, y: P_star }));
+      return { acLine, mcLine, pLine };
+    }
+
+    // --- Custom Plugin to Draw Profit Box ---
+    const profitBoxPlugin = {
+      id: 'profitBox',
+      beforeDraw: (chart) => {
+        if (chart.canvas.id !== 'firmChart') return;
+        
+        const { ctx, chartArea, scales } = chart;
+        const x = scales.x;
+        const y = scales.y;
+        
+        // We injected this custom data in our update function
+        const profitData = chart.config.options.plugins.profitBox.data;
+        if (!profitData || profitData.profit <= 0.01) return; // No profit box if 0 profit
+
+        ctx.save();
+        ctx.fillStyle = 'rgba(34, 197, 94, 0.2)'; // Tailwind Green 500 w/ opacity
+        ctx.strokeStyle = 'rgba(34, 197, 94, 0.8)';
+        ctx.lineWidth = 1;
+
+        const startX = x.getPixelForValue(0);
+        const endX = x.getPixelForValue(profitData.Q_firm);
+        const topY = y.getPixelForValue(profitData.P_star);
+        const bottomY = y.getPixelForValue(profitData.AC);
+
+        // Draw rectangle
+        ctx.fillRect(startX, topY, endX - startX, bottomY - topY);
+        ctx.strokeRect(startX, topY, endX - startX, bottomY - topY);
+
+        // Add "Profit" text
+        ctx.fillStyle = '#166534'; // Dark green
+        ctx.font = 'bold 12px sans-serif';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText('PROFIT', startX + (endX - startX)/2, topY + (bottomY - topY)/2);
+
+        ctx.restore();
+      }
+    };
+
+    Chart.register(profitBoxPlugin);
+
+    // --- Initialization & Updates ---
+    function initCharts() {
+      const mCtx = document.getElementById('marketChart').getContext('2d');
+      const fCtx = document.getElementById('firmChart').getContext('2d');
+
+      const commonOptions = {
+        responsive: true,
+        maintainAspectRatio: false,
+        animation: { duration: 400, easing: 'easeOutQuart' },
+        scales: {
+          x: { type: 'linear', min: 0, title: { display: true, text: 'Quantity (Q)' } },
+          y: { type: 'linear', min: 0, title: { display: true, text: 'Price ($)' } }
+        },
+        plugins: {
+          legend: { position: 'bottom', labels: { usePointStyle: true, boxWidth: 8 } }
+        }
+      };
+
+      marketChartInstance = new Chart(mCtx, {
+        type: 'scatter',
+        data: { datasets: [] },
+        options: {
+          ...commonOptions,
+          scales: { ...commonOptions.scales, x: { ...commonOptions.scales.x, max: 240 }, y: { ...commonOptions.scales.y, max: 30 } }
+        }
+      });
+
+      firmChartInstance = new Chart(fCtx, {
+        type: 'scatter',
+        data: { datasets: [] },
+        options: {
+          ...commonOptions,
+          scales: { ...commonOptions.scales, x: { ...commonOptions.scales.x, max: 20 }, y: { ...commonOptions.scales.y, max: 20 } },
+          plugins: { ...commonOptions.plugins, profitBox: { data: null } }
+        }
+      });
+
+      updateSimulation();
+    }
+
+    function updateSimulation() {
+      const dShift = parseFloat(demandSlider.value);
+      const sShift = parseFloat(supplySlider.value);
+
+      // UI text updates
+      if (dShift === 0) demandVal.innerText = "Normal";
+      else if (dShift < 5) demandVal.innerText = "Increasing...";
+      else demandVal.innerText = "High Shock";
+
+      if (sShift === 0) supplyVal.innerText = "Stable";
+      else if (sShift < 5) supplyVal.innerText = "Entering...";
+      else supplyVal.innerText = "Fully Adjusted";
+
+      const eq = calculateEquilibrium(dShift, sShift);
+
+      // Status messaging
+      if (eq.totalProfit > 0.1) {
+         statusMsg.innerHTML = `<strong>Short-Run Dynamics:</strong> Market Price is $${eq.P_star.toFixed(2)}. Firms are making economic profit, which will attract new entrants!`;
+         statusMsg.style.backgroundColor = '#fef3c7'; // amber-50
+         statusMsg.style.color = '#92400e';
+      } else if (eq.totalProfit < -0.1) {
+         statusMsg.innerHTML = `<strong>Warning:</strong> Price is below average cost. Firms are making losses and will exit.`;
+         statusMsg.style.backgroundColor = '#fee2e2'; // red-50
+         statusMsg.style.color = '#991b1b';
+      } else {
+         statusMsg.innerHTML = `<strong>Long-Run Equilibrium:</strong> Price is $${eq.P_star.toFixed(2)}. Zero economic profit. Market is stable.`;
+         statusMsg.style.backgroundColor = '#eff6ff'; // blue-50
+         statusMsg.style.color = '#1e40af';
+      }
+
+      // Update Market Chart
+      const mData = generateMarketData(dShift, sShift);
+      marketChartInstance.data = {
+        datasets: [
+          { label: 'Demand (D)', data: mData.dLine, borderColor: '#ef4444', backgroundColor: '#ef4444', showLine: true, pointRadius: 0, borderWidth: 3 },
+          { label: 'Supply (S)', data: mData.sLine, borderColor: '#3b82f6', backgroundColor: '#3b82f6', showLine: true, pointRadius: 0, borderWidth: 3 },
+          { label: 'Equilibrium', data: [{x: eq.Q_market, y: eq.P_star}], backgroundColor: '#1e293b', pointRadius: 6 }
+        ]
+      };
+      marketChartInstance.update();
+
+      // Update Firm Chart
+      const fData = generateFirmData(eq.P_star);
+      firmChartInstance.config.options.plugins.profitBox.data = {
+        P_star: eq.P_star, Q_firm: eq.Q_firm, AC: eq.AC_at_Q, profit: eq.totalProfit
+      };
+      
+      firmChartInstance.data = {
+        datasets: [
+          { label: 'Marginal Cost (MC)', data: fData.mcLine, borderColor: '#f59e0b', backgroundColor: '#f59e0b', showLine: true, pointRadius: 0, borderWidth: 2 },
+          { label: 'Average Cost (AC)', data: fData.acLine, borderColor: '#10b981', backgroundColor: '#10b981', showLine: true, pointRadius: 0, borderWidth: 2 },
+          { label: 'Market Price (P=MR)', data: fData.pLine, borderColor: '#94a3b8', borderDash: [5, 5], showLine: true, pointRadius: 0, borderWidth: 2 },
+          { label: 'Optimum (P=MC)', data: [{x: eq.Q_firm, y: eq.P_star}], backgroundColor: '#1e293b', pointRadius: 6 }
+        ]
+      };
+      firmChartInstance.update();
+    }
+
+    // Event Listeners
+    demandSlider.addEventListener('input', updateSimulation);
+    supplySlider.addEventListener('input', updateSimulation);
+
+    // Initialize on load
+    initCharts();
+  </script>
+</div>
