@@ -8,7 +8,7 @@ sidebar:
   open: true                   # Ensures the sidebar is expanded by default
 ---
 
-![Intro example](/images/comp-econ/intro/coca-pepsi.png "Example of agreement in price competition. (AI generated)")
+![Intro example](/images/comp-econ/intro/coca-pepsi.png "")
 
 ## What is Competition Economics?
 Competition Economics, or industrial organization, is the study of how market structures, firm behaviors, and strategic interactions influence competition and affect overall economic efficiency. Or, as I would tell my grandma, Competition Economics is the study of how businesses compete for customers, how they decide on their prices, and how those choices either help or hurt the people buying from them.

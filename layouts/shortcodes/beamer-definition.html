@@ -1,0 +1,10 @@
+<div class="matteos-box" style="display: block !important; visibility: visible !important; opacity: 1 !important; margin: 1.5em 0 !important; border: 1px solid #4a4a4a !important; border-radius: 4px !important; overflow: hidden !important; background-color: #f5f5f5 !important;">
+  {{ if .Get "title" }}
+  <div class="matteos-header" style="padding: 0.5em 1em !important; font-weight: bold !important; background-color: #4a4a4a !important; color: #ffffff !important; display: block !important;">
+    {{ .Get "title" }}
+  </div>
+  {{ end }}
+  <div class="matteos-body" style="padding: 1em !important; color: #333 !important; background-color: #f5f5f5 !important; display: block !important; overflow-x: auto !important;">
+    {{ .Inner | markdownify }}
+  </div>
+</div>

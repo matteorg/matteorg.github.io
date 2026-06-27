@@ -1,0 +1,206 @@
+<div class="sb-game-widget" style="background-color: #22272e; color: #c9d1d9; border: 1px solid #444c56; border-radius: 8px; padding: 20px; max-width: 650px; margin: 2rem auto; font-family: system-ui, -apple-system, sans-serif;">
+  
+  <h2 style="text-align: center; color: #ffffff; margin-top: 0; margin-bottom: 20px;">Extensive & Normal Form Simulator</h2>
+
+  <div style="display: flex; flex-wrap: wrap; gap: 40px; justify-content: center; margin-bottom: 25px;">
+    <div style="display: flex; flex-direction: column; align-items: center; width: 200px;">
+      <label for="pi_s" style="font-weight: bold; margin-bottom: 10px;">Seller Value (π<sub>S</sub>)</label>
+      <input type="range" id="pi_s_slider" min="0" max="5" step="0.1" value="1.8" style="width: 100%; cursor: pointer;">
+      <span id="pi_s_val" style="margin-top: 10px; font-weight: bold; color: #3399ff; font-size: 1.2rem;">1.8</span>
+    </div>
+    <div style="display: flex; flex-direction: column; align-items: center; width: 200px;">
+      <label for="pi_b" style="font-weight: bold; margin-bottom: 10px;">Buyer Value (π<sub>B</sub>)</label>
+      <input type="range" id="pi_b_slider" min="0" max="5" step="0.1" value="4.1" style="width: 100%; cursor: pointer;">
+      <span id="pi_b_val" style="margin-top: 10px; font-weight: bold; color: #ff4d4d; font-size: 1.2rem;">4.1</span>
+    </div>
+  </div>
+
+  <div style="background-color: #2d333b; border: 1px solid #444c56; border-radius: 6px; padding: 20px; margin-bottom: 20px;">
+    <svg viewBox="0 0 400 300" style="width: 100%; height: auto; display: block;">
+      <style>
+        .tree-line { stroke: #6e7681; stroke-width: 2; fill: none; transition: stroke 0.3s ease; }
+        .tree-line.active { stroke: #2ea043; stroke-width: 3; }
+        .node-s { fill: #ffffff; stroke: #3399ff; stroke-width: 3; }
+        .node-b { fill: #ff4d4d; }
+        .label { font-size: 14px; fill: #ffffff; font-weight: bold; }
+        .branch-label { font-size: 12px; fill: #8b949e; }
+        .payoff-s { font-size: 13px; font-weight: bold; fill: #3399ff; }
+        .payoff-b { font-size: 13px; font-weight: bold; fill: #ff4d4d; }
+        .payoff-zero { fill: #8b949e; font-size: 13px; font-weight: normal; }
+      </style>
+
+      <path id="line-s-1" class="tree-line" d="M 200,50 L 100,140" />
+      <path id="line-s-2" class="tree-line" d="M 200,50 L 300,140" />
+      
+      <path id="line-b1-a" class="tree-line" d="M 100,140 L 60,230" />
+      <path id="line-b1-r" class="tree-line" d="M 100,140 L 140,230" />
+      <path id="line-b2-a" class="tree-line" d="M 300,140 L 260,230" />
+      <path id="line-b2-r" class="tree-line" d="M 300,140 L 340,230" />
+
+      <circle cx="200" cy="50" r="5" class="node-s"/>
+      <circle cx="100" cy="140" r="5" class="node-b"/>
+      <circle cx="300" cy="140" r="5" class="node-b"/>
+
+      <text x="200" y="35" text-anchor="middle" class="label">S</text>
+      <text x="80" y="145" text-anchor="middle" class="label">B</text>
+      <text x="320" y="145" text-anchor="middle" class="label">B</text>
+
+      <text x="135" y="85" text-anchor="middle" class="branch-label">Offer 1</text>
+      <text x="265" y="85" text-anchor="middle" class="branch-label">Offer 2</text>
+
+      <text id="tree-s-1a" x="60" y="250" text-anchor="middle" class="payoff-s">-0.8</text>
+      <text id="tree-b-1a" x="60" y="268" text-anchor="middle" class="payoff-b">3.1</text>
+      <text x="140" y="250" text-anchor="middle" class="payoff-zero">0.0</text>
+      <text x="140" y="268" text-anchor="middle" class="payoff-zero">0.0</text>
+      
+      <text id="tree-s-2a" x="260" y="250" text-anchor="middle" class="payoff-s">0.2</text>
+      <text id="tree-b-2a" x="260" y="268" text-anchor="middle" class="payoff-b">2.1</text>
+      <text x="340" y="250" text-anchor="middle" class="payoff-zero">0.0</text>
+      <text x="340" y="268" text-anchor="middle" class="payoff-zero">0.0</text>
+    </svg>
+  </div>
+
+  <div style="overflow-x: auto; margin-bottom: 20px;">
+    <table style="width: 100%; border-collapse: collapse; text-align: center; border: 1px solid #444c56; font-size: 14px;">
+      <thead style="background-color: #161b22; border-bottom: 1px solid #444c56;">
+        <tr>
+          <th style="padding: 12px; border-right: 1px solid #444c56;">S \ B</th>
+          <th style="padding: 12px; border-right: 1px solid #444c56;">AA</th>
+          <th style="padding: 12px; border-right: 1px solid #444c56;">AR</th>
+          <th style="padding: 12px; border-right: 1px solid #444c56;">RA</th>
+          <th style="padding: 12px;">RR</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="border-bottom: 1px solid #444c56;">
+          <td style="padding: 15px; border-right: 1px solid #444c56; font-weight: bold; background-color: #161b22;">Offer 1</td>
+          <td id="td-1-aa" style="padding: 15px; border-right: 1px solid #444c56; transition: background 0.3s;"></td>
+          <td id="td-1-ar" style="padding: 15px; border-right: 1px solid #444c56; transition: background 0.3s;"></td>
+          <td id="td-1-ra" style="padding: 15px; border-right: 1px solid #444c56; transition: background 0.3s;"></td>
+          <td id="td-1-rr" style="padding: 15px; transition: background 0.3s;"></td>
+        </tr>
+        <tr>
+          <td style="padding: 15px; border-right: 1px solid #444c56; font-weight: bold; background-color: #161b22;">Offer 2</td>
+          <td id="td-2-aa" style="padding: 15px; border-right: 1px solid #444c56; transition: background 0.3s;"></td>
+          <td id="td-2-ar" style="padding: 15px; border-right: 1px solid #444c56; transition: background 0.3s;"></td>
+          <td id="td-2-ra" style="padding: 15px; border-right: 1px solid #444c56; transition: background 0.3s;"></td>
+          <td id="td-2-rr" style="padding: 15px; transition: background 0.3s;"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div id="equilibrium-result" style="background-color: #2d333b; border-left: 4px solid #3399ff; padding: 15px; border-radius: 4px; font-size: 15px; line-height: 1.5;">
+    </div>
+
+  <script>
+    function formatCellText(s_val, b_val) {
+      const colS = s_val !== 0 ? '#c9d1d9' : '#8b949e'; 
+      const colB = b_val !== 0 ? '#c9d1d9' : '#8b949e';
+      return `<span style="color:${colS}">${s_val.toFixed(1)}</span>, <span style="color:${colB}">${b_val.toFixed(1)}</span>`;
+    }
+
+    function updateGame() {
+      // Get Values
+      const pi_s = parseFloat(document.getElementById('pi_s_slider').value);
+      const pi_b = parseFloat(document.getElementById('pi_b_slider').value);
+      
+      document.getElementById('pi_s_val').innerText = pi_s.toFixed(1);
+      document.getElementById('pi_b_val').innerText = pi_b.toFixed(1);
+
+      // --- 1. Update Extensive Form (Tree) ---
+      const s_1a = 1 - pi_s;
+      const b_1a = pi_b - 1;
+      const s_2a = 2 - pi_s;
+      const b_2a = pi_b - 2;
+
+      document.getElementById('tree-s-1a').textContent = s_1a.toFixed(1);
+      document.getElementById('tree-b-1a').textContent = b_1a.toFixed(1);
+      document.getElementById('tree-s-2a').textContent = s_2a.toFixed(1);
+      document.getElementById('tree-b-2a').textContent = b_2a.toFixed(1);
+
+      // SPE Logic
+      const b_accepts_1 = b_1a >= 0;
+      const b_accepts_2 = b_2a >= 0;
+      const expected_s_1 = b_accepts_1 ? s_1a : 0;
+      const expected_s_2 = b_accepts_2 ? s_2a : 0;
+
+      const s_chooses_1 = expected_s_1 >= expected_s_2;
+      const s_chooses_2 = expected_s_2 >= expected_s_1;
+
+      // Tree highlighting
+      const lines = ['line-s-1', 'line-s-2', 'line-b1-a', 'line-b1-r', 'line-b2-a', 'line-b2-r'];
+      lines.forEach(id => document.getElementById(id).classList.remove('active'));
+
+      if (s_chooses_1) document.getElementById('line-s-1').classList.add('active');
+      if (s_chooses_2) document.getElementById('line-s-2').classList.add('active');
+      
+      document.getElementById(b_accepts_1 ? 'line-b1-a' : 'line-b1-r').classList.add('active');
+      document.getElementById(b_accepts_2 ? 'line-b2-a' : 'line-b2-r').classList.add('active');
+
+      // --- 2. Update Normal Form Matrix ---
+      const m = {
+        O1_AA: [s_1a, b_1a], O1_AR: [s_1a, b_1a], O1_RA: [0, 0], O1_RR: [0, 0],
+        O2_AA: [s_2a, b_2a], O2_AR: [0, 0],       O2_RA: [s_2a, b_2a], O2_RR: [0, 0]
+      };
+
+      // Set text
+      document.getElementById('td-1-aa').innerHTML = formatCellText(m.O1_AA[0], m.O1_AA[1]);
+      document.getElementById('td-1-ar').innerHTML = formatCellText(m.O1_AR[0], m.O1_AR[1]);
+      document.getElementById('td-1-ra').innerHTML = formatCellText(m.O1_RA[0], m.O1_RA[1]);
+      document.getElementById('td-1-rr').innerHTML = formatCellText(m.O1_RR[0], m.O1_RR[1]);
+
+      document.getElementById('td-2-aa').innerHTML = formatCellText(m.O2_AA[0], m.O2_AA[1]);
+      document.getElementById('td-2-ar').innerHTML = formatCellText(m.O2_AR[0], m.O2_AR[1]);
+      document.getElementById('td-2-ra').innerHTML = formatCellText(m.O2_RA[0], m.O2_RA[1]);
+      document.getElementById('td-2-rr').innerHTML = formatCellText(m.O2_RR[0], m.O2_RR[1]);
+
+      // Calculate Nash Equilibria (Best Responses)
+      const max_B_O1 = Math.max(m.O1_AA[1], m.O1_AR[1], m.O1_RA[1], m.O1_RR[1]);
+      const max_B_O2 = Math.max(m.O2_AA[1], m.O2_AR[1], m.O2_RA[1], m.O2_RR[1]);
+
+      const max_S_AA = Math.max(m.O1_AA[0], m.O2_AA[0]);
+      const max_S_AR = Math.max(m.O1_AR[0], m.O2_AR[0]);
+      const max_S_RA = Math.max(m.O1_RA[0], m.O2_RA[0]);
+      const max_S_RR = Math.max(m.O1_RR[0], m.O2_RR[0]);
+
+      function isNE(cell, rMaxB, cMaxS) {
+        return cell[0] >= cMaxS - 0.0001 && cell[1] >= rMaxB - 0.0001; 
+      }
+
+      const green = '#2ea043';
+      const transparent = 'transparent';
+
+      document.getElementById('td-1-aa').style.backgroundColor = isNE(m.O1_AA, max_B_O1, max_S_AA) ? green : transparent;
+      document.getElementById('td-1-ar').style.backgroundColor = isNE(m.O1_AR, max_B_O1, max_S_AR) ? green : transparent;
+      document.getElementById('td-1-ra').style.backgroundColor = isNE(m.O1_RA, max_B_O1, max_S_RA) ? green : transparent;
+      document.getElementById('td-1-rr').style.backgroundColor = isNE(m.O1_RR, max_B_O1, max_S_RR) ? green : transparent;
+
+      document.getElementById('td-2-aa').style.backgroundColor = isNE(m.O2_AA, max_B_O2, max_S_AA) ? green : transparent;
+      document.getElementById('td-2-ar').style.backgroundColor = isNE(m.O2_AR, max_B_O2, max_S_AR) ? green : transparent;
+      document.getElementById('td-2-ra').style.backgroundColor = isNE(m.O2_RA, max_B_O2, max_S_RA) ? green : transparent;
+      document.getElementById('td-2-rr').style.backgroundColor = isNE(m.O2_RR, max_B_O2, max_S_RR) ? green : transparent;
+
+      // --- 3. Update Explanatory Text ---
+      const b_strat_1 = b_accepts_1 ? "accept" : "reject";
+      const b_strat_2 = b_accepts_2 ? "accept" : "reject";
+      
+      let s_action = "";
+      if (s_chooses_1 && s_chooses_2) {
+        s_action = "is indifferent and can ask for either 1 or 2 dollars";
+      } else if (s_chooses_1) {
+        s_action = "will ask for 1 dollar";
+      } else {
+        s_action = "will ask for 2 dollars";
+      }
+
+      document.getElementById('equilibrium-result').innerHTML = 
+        `<strong>Subgame Perfect Equilibrium:</strong> The Buyer will ${b_strat_1} 1 dollar and ${b_strat_2} 2 dollars. Anticipating this, the Seller ${s_action}.`;
+    }
+
+    // Attach listeners and sync initial state
+    document.getElementById('pi_s_slider').addEventListener('input', updateGame);
+    document.getElementById('pi_b_slider').addEventListener('input', updateGame);
+    updateGame();
+  </script>
+</div>
