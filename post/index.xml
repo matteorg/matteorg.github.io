@@ -14,18 +14,18 @@
     
     <item>
       <title>Power calculations revisited</title>
-      <link>https://matteorg.github.io/post/beliefs-incorporated/</link>
+      <link>https://matteorg.github.io/post/effect-size-beliefs/</link>
       <pubDate>Sun, 15 Mar 2026 00:00:00 +0000</pubDate>
-      <guid>https://matteorg.github.io/post/beliefs-incorporated/</guid>
-      <description>&lt;p&gt;In the world of A/B testing, we are taught to worship at the altar of the Minimum Detectable Effect (MDE). We obsess over lowering variance and tightening our &amp;ldquo;rulers&amp;rdquo; to detect the smallest possible changes. But here is the uncomfortable truth: a metric that can detect a tiny ripple is useless if your feature changes only ever produce a microscopic hum. Traditional power calculations often ignore the most important variable in the equation—the distribution of true impacts. If your &amp;ldquo;sensitive&amp;rdquo; metric typically only sees tiny effects, its actual power to drive a launch decision might be lower than a &amp;ldquo;noisy&amp;rdquo; metric that captures massive swings. It&amp;rsquo;s time to stop calculating power in a vacuum and start incorporating what we actually believe about the world. This is what three researchers at Amazon suggest, and I&amp;rsquo;m going to summarize here their results.&lt;/p&gt;
+      <guid>https://matteorg.github.io/post/effect-size-beliefs/</guid>
+      <description>&lt;p&gt;In the world of A/B testing, we are taught to worship at the altar of the Minimum Detectable Effect (MDE). We obsess over lowering variance and tightening our “rulers” to detect the smallest possible changes. But here is the uncomfortable truth: a metric that can detect a tiny ripple is useless if your feature changes only ever produce a microscopic hum. Traditional power calculations often ignore the most important variable in the equation—the distribution of true impacts. If your “sensitive” metric typically only sees tiny effects, its actual power to drive a launch decision might be lower than a “noisy” metric that captures massive swings. It’s time to stop calculating power in a vacuum and start incorporating what we actually believe about the world. This is what three researchers at Amazon suggest, and I’m going to summarize here their results.&lt;/p&gt;
 &lt;h2 id=&#34;power-calculations-recap&#34;&gt;Power calculations: recap&lt;/h2&gt;
 &lt;p&gt;Before we look at what’s missing, we have to understand the goal. In A/B testing, we are constantly fighting Type II Errors - the False Negatives. Statistical power is simply the probability that if a real impact exists, our test will actually be sensitive enough to detect it and reject the null hypothesis.&lt;/p&gt;
-&lt;p&gt;Typically, an experimenter starts with an MDE. You decide on the &lt;strong&gt;smallest lift&lt;/strong&gt; that would actually matter to your business (say, a 2% increase in conversion) and then calculate the &lt;strong&gt;sample size&lt;/strong&gt; needed to detect that specific number with 80% probability.&lt;/p&gt;
-&lt;p&gt;Suppose we want a test with significance level $\alpha=0.05$ and power $1-\beta=0.8$. What sample size $n$ do we need?&lt;/p&gt;
+&lt;p&gt;Typically, an experimenter starts with an MDE. You decide on the smallest lift that would actually matter to your business (say, a 2% increase in conversion) and then calculate the sample size needed to detect that specific number with 80% probability.&lt;/p&gt;
+&lt;p&gt;Suppose we want a test with significance level $\alpha = 0.05$ and power $1 - \beta = 0.8$. What sample size $n$ do we need?&lt;/p&gt;
 &lt;p&gt;We need a sample size such that:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;The probability of rejecting the null hypothesis $H_0$, when $H_0$ is true, is at most $\alpha=0.05$&lt;/li&gt;
-&lt;li&gt;The probability of not rejecting the null hypothesis $H_0$, when $H_0$ is false (i.e. $H_1$ is true), is at most $\beta=0.2$.
+&lt;li&gt;The probability of rejecting the null hypothesis $H_0$, when $H_0$ is true, is at most $\alpha = 0.05$&lt;/li&gt;
+&lt;li&gt;The probability of not rejecting the null hypothesis $H_0$, when $H_0$ is false (i.e. $H_1$ is true), is at most $\beta = 0.2$.
 &lt;span class=&#34;infotip-container&#34;&gt;
     &lt;sup class=&#34;infotip-icon&#34;&gt;i&lt;/sup&gt;
     &lt;span class=&#34;infotip-content&#34;&gt;If we do not know the sign of the unknown mean $\mu$, we have to run a two-sided test. This means that the maximum probability of type 1 error on each side of the distribution has to be $\alpha/2 = 0.025$, implying $z_{0.975}$&lt;/span&gt;
@@ -111,20 +111,22 @@
 &lt;/ul&gt;
 &lt;p&gt;In other words we need to find a critical value $c$ such that:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;$c = \mu_0+z_{0.975}\frac{\sigma}{\sqrt{n}}$&lt;/li&gt;
-&lt;li&gt;$c = \mu_1-z_{0.8}\frac{\sigma}{\sqrt{n}}$&lt;/li&gt;
+&lt;li&gt;$c = \mu_0 + z_{0.975} \frac{\sigma}{\sqrt{n}}$&lt;/li&gt;
+&lt;li&gt;$c = \mu_1 - z_{0.8} \frac{\sigma}{\sqrt{n}}$&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;where $z_p$ is the CDF inverse (or percent point function) at $p$, and $\mu_i$ are the values of the mean under the different hypotheses.&lt;/p&gt;
-&lt;p&gt;Combining the two expressions together we can solve for the required minimum sample size: $$n:\ \mu_0+z_{0.975}\frac{\sigma}{\sqrt{n}} = \mu_1-z_{0.8}\frac{\sigma}{\sqrt{n}}$$
-from which we obtain: $$n = \left( \sigma \frac{z_{0.975} + z_{0.8}}{\mu_0 + \mu_1} \right)^2$$&lt;/p&gt;
-&lt;p&gt;The problem is that this calculation treats the effect size as a single, static point. It asks, &amp;ldquo;What if the lift is exactly 2%?&amp;rdquo; but it ignores how likely a 2% lift actually is in the real world. This is where the core argument comes in: power depends not just on how well you can measure, but on &lt;strong&gt;what you are measuring&lt;/strong&gt;. If you set for your metric an MDE of 0.1%, but the true impact of your features on that metric is usually 0.01%, your theoretical power is high, but your &lt;strong&gt;real-world power&lt;/strong&gt; is zero.&lt;/p&gt;
+&lt;p&gt;Combining the two expressions together we can solve for the required minimum sample size:&lt;/p&gt;
+&lt;p&gt;$$n : \mu_0 + z_{0.975} \frac{\sigma}{\sqrt{n}} = \mu_1 - z_{0.8} \frac{\sigma}{\sqrt{n}}$$&lt;/p&gt;
+&lt;p&gt;from which we obtain:&lt;/p&gt;
+&lt;p&gt;$$n = \left(\sigma \frac{z_{0.975} + z_{0.8}}{\mu_0 + \mu_1}\right)^2$$&lt;/p&gt;
+&lt;p&gt;The problem is that this calculation treats the effect size as a single, static point. It asks, “What if the lift is exactly 2%?” but it ignores how likely a 2% lift actually is in the real world. This is where the core argument comes in: power depends not just on how well you can measure, but on &lt;strong&gt;what you are measuring&lt;/strong&gt;. If you set for your metric an MDE of 0.1%, but the true impact of your features on that metric is usually 0.01%, your theoretical power is high, but your &lt;strong&gt;real-world power&lt;/strong&gt; is zero.&lt;/p&gt;
 &lt;h2 id=&#34;bridge-the-gap-with-prior-informed-power&#34;&gt;Bridge the Gap with Prior-Informed Power&lt;/h2&gt;
 &lt;p&gt;If traditional power calculations are flawed because they assume a single, arbitrary effect size, how do we fix them? The Amazon researchers propose a more grounded approach: &lt;strong&gt;Prior-Informed Average Power&lt;/strong&gt;.&lt;/p&gt;
-&lt;p&gt;Instead of asking, &lt;em&gt;&amp;ldquo;What is the power if the effect is exactly 2%?&amp;rdquo;&lt;/em&gt;, we ask, &lt;em&gt;&amp;ldquo;What is the average power across all the effect sizes we actually expect to see?&amp;rdquo;&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Instead of asking, “&lt;em&gt;What is the power if the effect is exactly 2%?&lt;/em&gt;”, we ask, “&lt;em&gt;What is the average power across all the effect sizes we actually expect to see?&lt;/em&gt;”.&lt;/p&gt;
 &lt;h3 id=&#34;the-frequentist-fix&#34;&gt;The Frequentist Fix&lt;/h3&gt;
-&lt;p&gt;For the frequentists, this means taking a weighted average of conventional power. We use our historical data to estimate a distribution of &amp;ldquo;true impacts&amp;rdquo;. In plain English: we are stress-testing our metric against reality. If the most likely outcomes for a feature change are tiny, this formula will penalize the power score, even if the metric’s variance is low.&lt;/p&gt;
+&lt;p&gt;For the frequentists, this means taking a weighted average of conventional power. We use our historical data to estimate a distribution of “true impacts”. In plain English: we are stress-testing our metric against reality. If the most likely outcomes for a feature change are tiny, this formula will penalize the power score, even if the metric’s variance is low.&lt;/p&gt;
 &lt;h3 id=&#34;the-bayesian-perspective-decision-power&#34;&gt;The Bayesian Perspective: Decision Power&lt;/h3&gt;
-&lt;p&gt;For those who prefer a Bayesian framework, the paper introduces &lt;strong&gt;Bayesian Decision Power&lt;/strong&gt;. This doesn&amp;rsquo;t just look for &amp;ldquo;statistical significance&amp;rdquo;, it calculates the probability that your experiment will actually reach your specific &lt;em&gt;launch&lt;/em&gt; or &lt;em&gt;dial-down&lt;/em&gt; criteria.&lt;/p&gt;
+&lt;p&gt;For those who prefer a Bayesian framework, the paper introduces &lt;strong&gt;Bayesian Decision Power&lt;/strong&gt;. This doesn’t just look for “statistical significance”, it calculates the probability that your experiment will actually reach your specific &lt;em&gt;launch&lt;/em&gt; or &lt;em&gt;dial-down&lt;/em&gt; criteria.&lt;/p&gt;
 &lt;p&gt;By assuming true impacts follow a Normal distribution, the researchers derived a closed-form expression that allows you to calculate this probability instantly using data already sitting in your A/B testing tools.&lt;/p&gt;
 &lt;h2 id=&#34;a-simulation&#34;&gt;A simulation&lt;/h2&gt;
 &lt;p&gt;We now illustrate the simulation run in the paper, where we examine step by step the logic.&lt;/p&gt;
@@ -313,17 +315,17 @@ details summary:hover {
     margin: 0;
 }
 &lt;/style&gt;
-&lt;h3 id=&#34;defining-the-ground-truth-the-prior&#34;&gt;Defining the &amp;ldquo;Ground Truth&amp;rdquo; (the Prior)&lt;/h3&gt;
-&lt;p&gt;In a traditional power analysis, you pick one number (like a 2% lift) and stick to it. In this simulation, we acknowledge that every feature we ship has a different impact. We define a distribution $G$ (the Prior) that represents the &amp;ldquo;universe&amp;rdquo; of possible true impacts.&lt;/p&gt;
+&lt;h3 id=&#34;defining-the-ground-truth-the-prior&#34;&gt;Defining the “Ground Truth” (the Prior)&lt;/h3&gt;
+&lt;p&gt;In a traditional power analysis, you pick one number (like a 2% lift) and stick to it. In this simulation, we acknowledge that every feature we ship has a different impact. We define a distribution $G$ (the Prior) that represents the “universe” of possible true impacts.&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;What the code does&lt;/strong&gt;: it uses &lt;code&gt;np.random.normal(mu, sigma)&lt;/code&gt; to draw thousands of &amp;ldquo;true&amp;rdquo; effects ($\Delta$ in the paper).&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Outcome&lt;/strong&gt;: For &lt;strong&gt;Metric A&lt;/strong&gt;, these dots are all clustered extremely close to zero. For &lt;strong&gt;Metric B&lt;/strong&gt;, the dots are spread out, meaning some features are duds, but others are &amp;ldquo;home runs.&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;What the code does:&lt;/strong&gt; it uses &lt;code&gt;np.random.normal(mu, sigma)&lt;/code&gt; to draw thousands of “true” effects ($\Delta$ in the paper).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Outcome:&lt;/strong&gt; For &lt;strong&gt;Metric A&lt;/strong&gt;, these dots are all clustered extremely close to zero. For &lt;strong&gt;Metric B&lt;/strong&gt;, the dots are spread out, meaning some features are duds, but others are “home runs.”&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;the-noisy-measurement-sampling&#34;&gt;The Noisy Measurement (Sampling)&lt;/h3&gt;
 &lt;p&gt;In the real world, we never see the &amp;ldquo;true&amp;rdquo; impact; we only see what the A/B test tells us, which includes noise ($\tau^2$ in the paper).&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;What the code does&lt;/strong&gt;: For every &amp;ldquo;true&amp;rdquo; effect drawn in Step 1, the code simulates an experiment result ($\hat{\Delta}$ in the paper) by adding random noise based on the metric&amp;rsquo;s variance.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;The Outcome&lt;/strong&gt;: This creates a cloud of &amp;ldquo;observed&amp;rdquo; results. Even if a feature&amp;rsquo;s true impact was 0, the noise might make it look like a 1% gain or a 1% loss.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;What the code does:&lt;/strong&gt; For every &amp;ldquo;true&amp;rdquo; effect drawn in Step 1, the code simulates an experiment result ($\hat{\Delta}$ in the paper) by adding random noise based on the metric&amp;rsquo;s variance.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;The Outcome:&lt;/strong&gt; This creates a cloud of &amp;ldquo;observed&amp;rdquo; results. Even if a feature&amp;rsquo;s true impact was 0, the noise might make it look like a 1% gain or a 1% loss.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;
 
@@ -343,22 +345,22 @@ details summary:hover {
 
 &lt;figure  id=&#34;figure-mdes-against-the-true-underlying-distribution-of-effects&#34;&gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
-    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;https://matteorg.github.io/images/incorporate-beliefs/detectability.png&#34; alt=&#34;MDEs and true distributions&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;https://matteorg.github.io/images/effect_beliefs/detectability.png&#34; alt=&#34;Effects distribution and MDE&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
   &lt;/div&gt;&lt;figcaption&gt;
-      MDEs against the &amp;rsquo;true&amp;rsquo; underlying distribution of effects.
+      MDEs against the ’true’ underlying distribution of effects.
     &lt;/figcaption&gt;&lt;/figure&gt;
 &lt;/p&gt;
 &lt;h3 id=&#34;the-frequentist-test&#34;&gt;The Frequentist Test&lt;/h3&gt;
 &lt;p&gt;Now we apply the standard &amp;ldquo;significance&amp;rdquo; rule. We check if the observed result ($\hat{\Delta}$) is far enough from zero to be considered &amp;ldquo;statistically significant&amp;rdquo; at the $\alpha = 0.05$ level.&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;**What the code does*3: It calculates the probability of rejecting the null hypothesis for each individual true effect using the standard power formula.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;The Outcome&lt;/strong&gt;: For Metric A, even though the &amp;ldquo;ruler&amp;rdquo; is precise, the &amp;ldquo;objects&amp;rdquo; (true effects) are so small that they almost never cross the significance threshold.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;What the code does:&lt;/strong&gt; It calculates the probability of rejecting the null hypothesis for each individual true effect using the standard power formula.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;The Outcome:&lt;/strong&gt; For Metric A, even though the &amp;ldquo;ruler&amp;rdquo; is precise, the &amp;ldquo;objects&amp;rdquo; (true effects) are so small that they almost never cross the significance threshold.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;aggregating-to-prior-informed-power&#34;&gt;Aggregating to &amp;ldquo;Prior-Informed&amp;rdquo; Power&lt;/h3&gt;
+&lt;h3 id=&#34;aggregating-to-prior-informed-power&#34;&gt;Aggregating to “Prior-Informed” Power&lt;/h3&gt;
 &lt;p&gt;This is the final step where we calculate the average.&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;What the code does&lt;/strong&gt;: It takes the average of all those individual power calculations.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;The Outcome&lt;/strong&gt;: This average is your Prior-Informed Average Power ($\overline{\Pi}$).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;What the code does:&lt;/strong&gt; It takes the average of all those individual power calculations.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;The Outcome:&lt;/strong&gt; This average is your Prior-Informed Average Power ($\overline{\Pi}$).&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;recap&#34;&gt;Recap&lt;/h3&gt;
 &lt;p&gt;
@@ -379,42 +381,42 @@ details summary:hover {
 
 &lt;figure  id=&#34;figure-shortcomings-of-standard-power-analysis-and-proposed-alternatives&#34;&gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
-    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;https://matteorg.github.io/images/incorporate-beliefs/recap-plot.png&#34; alt=&#34;Recap plot&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;https://matteorg.github.io/images/effect_beliefs/recap-plot.png&#34; alt=&#34;Recap plots&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
   &lt;/div&gt;&lt;figcaption&gt;
       Shortcomings of standard power analysis and proposed alternatives.
     &lt;/figcaption&gt;&lt;/figure&gt;
 &lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Plot (a): True Effects vs. MDE (The &amp;ldquo;Reality Check&amp;rdquo;)&lt;/strong&gt;: This plot compares the distribution of actual impacts ($G$) against the &amp;ldquo;detection bar&amp;rdquo; (MDE).&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Plot (a): True Effects vs. MDE (The &amp;ldquo;Reality Check&amp;rdquo;):&lt;/strong&gt; This plot compares the distribution of actual impacts ($G$) against the &amp;ldquo;detection bar&amp;rdquo; (MDE).&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Metric A (Gray): The curve is very tall and narrow because its true impacts are almost always tiny ($\sigma = 0.001$). Even though its MDE line (orange vertical line) is close to zero, notice that the gray &amp;ldquo;hump&amp;rdquo; is almost entirely to the left of that line.&lt;/li&gt;
-&lt;li&gt;Metric B (Teal): The curve is flat and wide because it has a much higher potential for &amp;ldquo;home run&amp;rdquo; impacts ($\sigma = 0.01$). Even though its MDE is much further out, a significant portion of its teal area sits to the right of the MDE.&lt;/li&gt;
-&lt;li&gt;&lt;em&gt;Takeaway&lt;/em&gt;: This explains the paradox. Metric B has a &amp;ldquo;harder&amp;rdquo; goal, but it plays a game where it’s actually capable of scoring.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Metric A (Gray):&lt;/strong&gt; The curve is very tall and narrow because its true impacts are almost always tiny ($\sigma = 0.001$). Even though its MDE line (orange vertical line) is close to zero, notice that the gray &amp;ldquo;hump&amp;rdquo; is almost entirely to the left of that line.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Metric B (Teal):&lt;/strong&gt; The curve is flat and wide because it has a much higher potential for &amp;ldquo;home run&amp;rdquo; impacts ($\sigma = 0.01$). Even though its MDE is much further out, a significant portion of its teal area sits to the right of the MDE.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Takeaway:&lt;/em&gt; This explains the paradox. Metric B has a &amp;ldquo;harder&amp;rdquo; goal, but it plays a game where it&amp;rsquo;s actually capable of scoring.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Plot (b): Prior-Informed Average Power ($\overline{\Pi}$)&lt;/strong&gt;: This is the Frequentist solution. It doesn&amp;rsquo;t just look at one hypothetical effect; it calculates the &amp;ldquo;Expected Power&amp;rdquo; across all likely outcomes.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Plot (b): Prior-Informed Average Power ($\overline{\Pi}$):&lt;/strong&gt; This is the Frequentist solution. It doesn&amp;rsquo;t just look at one hypothetical effect; it calculates the &amp;ldquo;Expected Power&amp;rdquo; across all likely outcomes.&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;The Result: Metric A has a power of only 0.080, meaning you have an 8% chance of detecting a significant result given how small its effects usually are.&lt;/li&gt;
-&lt;li&gt;The Result: Metric B jumps to 0.381.&lt;/li&gt;
-&lt;li&gt;&lt;em&gt;Takeaway&lt;/em&gt;: If you only used traditional MDE, you’d think Metric A was &amp;ldquo;better.&amp;rdquo; By using Prior-Informed Power, you realize Metric B is nearly 5x more likely to actually find a winner.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;The Result:&lt;/strong&gt; Metric A has a power of only 0.080, meaning you have an 8% chance of detecting a significant result given how small its effects usually are.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;The Result:&lt;/strong&gt; Metric B jumps to 0.381.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Takeaway:&lt;/em&gt; If you only used traditional MDE, you&amp;rsquo;d think Metric A was &amp;ldquo;better.&amp;rdquo; By using Prior-Informed Power, you realize Metric B is nearly 5x more likely to actually find a winner.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Plot (c): Bayesian Decision Power ($\tilde{\Pi}$)&lt;/strong&gt;: This shifts the focus from &amp;ldquo;p-values&amp;rdquo; to &amp;ldquo;launch decisions&amp;rdquo;. It shows the probability that the experiment will provide enough evidence to meet a launch or dial-down criterion.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Plot (c): Bayesian Decision Power ($\tilde{\Pi}$):&lt;/strong&gt; This shifts the focus from &amp;ldquo;p-values&amp;rdquo; to &amp;ldquo;launch decisions&amp;rdquo;. It shows the probability that the experiment will provide enough evidence to meet a launch or dial-down criterion.&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;The Result: For Metric A, there is only a 40.9% chance you&amp;rsquo;ll have enough Bayesian certainty to make a launch/dial-down call.&lt;/li&gt;
-&lt;li&gt;The Result: For Metric B, that probability is 83.7%.&lt;/li&gt;
-&lt;li&gt;&lt;em&gt;Takeaway&lt;/em&gt;: This is the most practical metric for stakeholders. It tells you: &amp;ldquo;If we use Metric B, we are twice as likely to actually end this experiment with a clear &amp;lsquo;Go&amp;rsquo; or &amp;lsquo;No-Go&amp;rsquo; decision&amp;rdquo;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;The Result:&lt;/strong&gt; For Metric A, there is only a 40.9% chance you&amp;rsquo;ll have enough Bayesian certainty to make a launch/dial-down call.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;The Result:&lt;/strong&gt; For Metric B, that probability is 83.7%.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Takeaway:&lt;/em&gt; This is the most practical metric for stakeholders. It tells you: &amp;ldquo;If we use Metric B, we are twice as likely to actually end this experiment with a clear &amp;lsquo;Go&amp;rsquo; or &amp;lsquo;No-Go&amp;rsquo; decision&amp;rdquo;.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;h2 id=&#34;a-simulated-real-world-scenario&#34;&gt;A (simulated) real world scenario&lt;/h2&gt;
+&lt;h2 id=&#34;a-simualated-real-world-scenario&#34;&gt;A (simualated) Real World Scenario&lt;/h2&gt;
 &lt;p&gt;Imagine you try to change the customer experience for a feature that usually has a low conversion rate (around 10%) and whose revenue is very skewed (most users spend little, but every now and then &amp;ldquo;whales&amp;rdquo; appear who make massive purchases). Consider the same data generating function from &lt;a href=&#34;https://matteorg.github.io/post/significance-vs-effect-size/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;this article&lt;/a&gt; to replicate such a scenario.&lt;/p&gt;
 &lt;p&gt;Conversion rate has low variance (it&amp;rsquo;s a 0 or 1), but its true impacts are often small (moving CR by 1% is hard). Revenue has high variance (fat tails), but its true impacts can be huge (one &amp;ldquo;whale&amp;rdquo; purchase changes everything). To &amp;ldquo;backward calculate&amp;rdquo; prior-informed power we need to do three things:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Estimate $\tau$ (Sampling Error): Run the generator with ´purchase_prob_treatment = purchase_prob_control´ to see the natural noise.&lt;/li&gt;
+&lt;li&gt;Estimate $\tau$ (Sampling Error): Run the generator with &lt;code&gt;purchase_prob_treatment = purchase_prob_control&lt;/code&gt; to see the natural noise.&lt;/li&gt;
 &lt;li&gt;Define Beliefs ($G$): Make assumptions about what &amp;ldquo;typical&amp;rdquo; wins look like for these two metrics.&lt;/li&gt;
 &lt;li&gt;Plug these into the paper&amp;rsquo;s formula.&lt;/li&gt;
 &lt;/ul&gt;
@@ -498,33 +500,35 @@ details summary:hover {
     margin: 0;
 }
 &lt;/style&gt;
-&lt;p&gt;Here we just built a synthetic E-commerce environment. On the surface, conversion rate looks like the superior metric because its MDE is tiny. But when we factored in the historical reality that our features move revenue more significantly than they change fundamental purchase probability, the &amp;rsquo;noisy&amp;rsquo; revenue metric actually gives us a higher probability of making a successful launch decision.&lt;/p&gt;
-&lt;p&gt;Just remember: when you have a fat-tailed distribution (where 1% of users might account for 50% of revenue), a single &amp;ldquo;whale&amp;rdquo; who &lt;em&gt;happens to be&lt;/em&gt; in the treatment group can swing the mean so much that it looks like your feature is a massive success, even if the feature did nothing.&lt;/p&gt;
+&lt;p&gt;Here we just built a synthetic E-commerce environment. On the surface, conversion rate looks like the superior metric because its MDE is tiny. But when we factored in the historical reality that our features move revenue more significantly than they change fundamental purchase probability, the ’noisy’ revenue metric actually gives us a higher probability of making a successful launch decision.&lt;/p&gt;
+&lt;p&gt;Just remember: when you have a fat-tailed distribution (where 1% of users might account for 50% of revenue), a single “whale” who &lt;em&gt;happens to be&lt;/em&gt; in the treatment group can swing the mean so much that it looks like your feature is a massive success, even if the feature did nothing.&lt;/p&gt;
 &lt;h3 id=&#34;the-role-of-tau-the-noise-filter&#34;&gt;The Role of $\tau$ (The &amp;ldquo;Noise&amp;rdquo; Filter)&lt;/h3&gt;
 &lt;p&gt;In the formulas the paper uses and that we mentioned so far, $\tau$ represents the standard error of the metric. For a skewed metric like revenue, $\tau$ will be very large because the variance is high. A large $\tau$ makes the &amp;ldquo;significance threshold&amp;rdquo; (the MDE) move further away from zero.&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;The math&amp;rsquo;s answer: the frequentist power calculation &lt;em&gt;knows&lt;/em&gt; the data is noisy. It requires a much larger observed difference to claim &amp;ldquo;significance&amp;rdquo; for revenue than it does for purchase probability. It &amp;ldquo;penalizes&amp;rdquo; the metric for its potential to be swung by a single lucky purchase&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;The math&amp;rsquo;s answer:&lt;/strong&gt; the frequentist power calculation &lt;em&gt;knows&lt;/em&gt; the data is noisy. It requires a much larger observed difference to claim &amp;ldquo;significance&amp;rdquo; for revenue than it does for purchase probability. It &amp;ldquo;penalizes&amp;rdquo; the metric for its potential to be swung by a single lucky purchase&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;the-prior-g-as-a-sanity-check&#34;&gt;The &amp;ldquo;Prior&amp;rdquo; ($G$) as a Sanity Check&lt;/h3&gt;
 &lt;p&gt;This is the &amp;ldquo;Power Revisited&amp;rdquo; part. If you know that your features usually only move revenue by a tiny amount ($\sigma$ is small), but you see a massive spike in your experiment, the Bayesian Decision Power will help you realize that the &amp;ldquo;Posterior&amp;rdquo; belief is still heavily influenced by the fact that such a large move is historically unlikely.&lt;/p&gt;
 &lt;h3 id=&#34;real-world-mitigation-capping-and-winsorization&#34;&gt;Real-World Mitigation (Capping and Winsorization)&lt;/h3&gt;
 &lt;p&gt;In real-life, when the data is so skewed, we don&amp;rsquo;t just take the raw mean. We use techniques to handle those &amp;ldquo;chance&amp;rdquo; purchases:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Winsorization&lt;/strong&gt;: we &amp;ldquo;cap&amp;rdquo; revenue at the 99th percentile. If a whale spends $\$10,000$, we treat it as $\$500$. This drastically reduces $\tau$ (noise) while keeping the metric&amp;rsquo;s direction.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Log-transformation&lt;/strong&gt;: Analyzing $log(Revenue)$ instead of raw revenue to &amp;ldquo;pull in&amp;rdquo; the tails.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Cuped&lt;/strong&gt;: Using pre-experiment data to &amp;ldquo;adjust&amp;rdquo; for users who were already big spenders before the test started.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Winsorization:&lt;/strong&gt; we &amp;ldquo;cap&amp;rdquo; revenue at the 99th percentile. If a whale spends $\$10,000$, we treat it as $\$500$. This drastically reduces $\tau$ (noise) while keeping the metric&amp;rsquo;s direction.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Log-transformation:&lt;/strong&gt; Analyzing $log(Revenue)$ instead of raw revenue to &amp;ldquo;pull in&amp;rdquo; the tails.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Cuped:&lt;/strong&gt; Using pre-experiment data to &amp;ldquo;adjust&amp;rdquo; for users who were already big spenders before the test started.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;If the &amp;ldquo;Average Power&amp;rdquo; of revenue is still higher than purchase probability after accounting for its massive noise ($\tau$), then revenue is actually the more useful metric for making decisions, despite the outliers.&lt;/p&gt;
 &lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
 &lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;Stop Worshipping MDE&lt;/strong&gt;: A low MDE (High Sensitivity) is useless if your features never produce impacts large enough to be detected by that metric.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Bring Your Beliefs to the Table&lt;/strong&gt;: Use historical data to estimate your &amp;ldquo;Prior&amp;rdquo; distribution of impacts ($\sigma$). If you don&amp;rsquo;t know what to expect, you can&amp;rsquo;t calculate your real chance of success.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Prior-Informed Power is the True North&lt;/strong&gt;: It combines your metric&amp;rsquo;s noise ($\tau$) with your business reality ($\sigma$) to give you a single, honest probability of finding a winner.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Noisy Metrics Can Be Fixed&lt;/strong&gt;: Don&amp;rsquo;t abandon &amp;ldquo;revenue&amp;rdquo; just because it&amp;rsquo;s skewed. Use techniques like Winsorization to slash the noise and reveal the underlying power.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Stop Worshipping MDE:&lt;/strong&gt; A low MDE (High Sensitivity) is useless if your features never produce impacts large enough to be detected by that metric.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Bring Your Beliefs to the Table:&lt;/strong&gt; Use historical data to estimate your &amp;ldquo;Prior&amp;rdquo; distribution of impacts ($\sigma$). If you don&amp;rsquo;t know what to expect, you can&amp;rsquo;t calculate your real chance of success.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Prior-Informed Power is the True North:&lt;/strong&gt; It combines your metric&amp;rsquo;s noise ($\tau$) with your business reality ($\sigma$) to give you a single, honest probability of finding a winner.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Noisy Metrics Can Be Fixed:&lt;/strong&gt; Don&amp;rsquo;t abandon &amp;ldquo;revenue&amp;rdquo; just because it&amp;rsquo;s skewed. Use techniques like Winsorization to slash the noise and reveal the underlying power.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;You can find the notebook with the full code &lt;a href=&#34;https://github.com/matteorg/posts/blob/main/effect_sizes_beliefs.ipynb&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.amazon.science/publications/statistical-power-calculations-revisited-incorporating-beliefs-about-effect-sizes&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Gualavisi, Melany, Ryan Kessler, and Lorenzo Masoero. &amp;ldquo;Statistical power calculations revisited: Incorporating beliefs about effect sizes.&amp;rdquo; (2025).&lt;/a&gt;&lt;/p&gt;
 &lt;h4 id=&#34;thank-you-for-reading&#34;&gt;Thank you for reading!&lt;/h4&gt;
-&lt;p&gt;&lt;strong&gt;Disclaimer&lt;/strong&gt;: &lt;em&gt;I write to learn, based on my background and personal experience. Errors are my own, and if you spot them, let me know! I also appreciate suggestions to investigate new topics!&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Disclaimer&lt;/strong&gt;: &lt;em&gt;I write to learn, based on my background and personal experience. Errors are my own, and if you spot them, let me know! I also appreciate suggestion to investigate new topics!&lt;/em&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -533,28 +537,28 @@ details summary:hover {
       <link>https://matteorg.github.io/post/variance-checks/</link>
       <pubDate>Mon, 25 Aug 2025 00:00:00 +0000</pubDate>
       <guid>https://matteorg.github.io/post/variance-checks/</guid>
-      <description>&lt;p&gt;&amp;ldquo;Your A/B test is wrong.&amp;rdquo; It’s the kind of feedback that stops a data scientist cold, especially when it comes from colleagues who know just enough about statistics to be dangerous. The argument usually goes like this: because our revenue is driven by a handful of &amp;ldquo;whales&amp;rdquo; making massive purchases amidst a sea of small interactions, the underlying distribution has infinite variance. If the variance is infinite, the Central Limit Theorem (CLT) collapses, your p-values are fantasies, and your uplift is just noise. But before you scrap your results, you need to move beyond intuition and actually test the tail.&lt;/p&gt;
-&lt;p&gt;The Central Limit Theorem is often treated like a law of nature, but it carries a strict &amp;ldquo;fine print&amp;rdquo; requirement: the underlying distribution must have a finite variance. The CLT relies on the idea that as you collect more data, the &amp;ldquo;noise&amp;rdquo; of individual outliers eventually gets drowned out by the sheer volume of average observations, causing the sample mean to settle into a predictable bell curve. However, in an infinite variance regime - like a true power law - the outliers are so massive that they scale faster than the sample size. Instead of being diluted, a single new &amp;ldquo;whale&amp;rdquo; can appear at any moment and completely shift the mean, no matter how many thousands of data points you’ve already collected. In this world, the &amp;ldquo;average&amp;rdquo; is a moving target that never stabilizes, rendering standard $p$-values and confidence intervals mathematically meaningless.&lt;/p&gt;
-&lt;p&gt;In this article, we’ll walk through how to rigorously check if your empirical data actually belongs to a &amp;ldquo;fat-tailed&amp;rdquo; family (like Pareto or Levy distributions) where the CLT fails, or if it’s simply a high-variance but well-behaved distribution (like Log-Normal). We’ll cover diagnostic plots and the stability of the mean so you can defend your results, or admit when the &amp;ldquo;infinite variance&amp;rdquo; skeptics actually have a point.&lt;/p&gt;
-&lt;h3 id=&#34;fat-tailed-distributions&#34;&gt;Fat tailed distributions&lt;/h3&gt;
-&lt;p&gt;When a distribution is described as &amp;ldquo;fat-tailed,&amp;rdquo; it means the probability of extreme, &amp;ldquo;black swan&amp;rdquo; events is significantly higher than what a standard Normal distribution would predict. In a typical bell curve, the probability of an observation being several standard deviations from the mean drops off exponentially—essentially becoming impossible. In a fat-tailed world, however, the &amp;ldquo;tail&amp;rdquo; decays so slowly (following a power law) that these outliers aren&amp;rsquo;t just possible; they dominate the entire system. When the tail is heavy enough, the variance mathematically fails to converge, meaning no amount of data will ever give you a stable &amp;ldquo;average&amp;rdquo; because one massive new data point can move the needle back to zero.&lt;/p&gt;
-&lt;h4 id=&#34;common-infinite-variance-distributions&#34;&gt;Common Infinite Variance Distributions&lt;/h4&gt;
+      <description>&lt;p&gt;&amp;ldquo;Your A/B test is wrong.&amp;rdquo; It&amp;rsquo;s the kind of feedback that stops a data scientist cold, especially when it comes from colleagues who know just enough about statistics to be dangerous. The argument usually goes like this: because our revenue is driven by a handful of &amp;ldquo;whales&amp;rdquo; making massive purchases amidst a sea of small interactions, the underlying distribution has infinite variance. If the variance is infinite, the Central Limit Theorem (CLT) collapses, your $p$-values are fantasies, and your uplift is just noise. But before you scrap your results, you need to move beyond intuition and actually test the tail.&lt;/p&gt;
+&lt;p&gt;The Central Limit Theorem is often treated like a law of nature, but it carries a strict &amp;ldquo;fine print&amp;rdquo; requirement: the underlying distribution must have a finite variance. The CLT relies on the idea that as you collect more data, the &amp;ldquo;noise&amp;rdquo; of individual outliers eventually gets drowned out by the sheer volume of average observations, causing the sample mean to settle into a predictable bell curve. However, in an infinite variance regime - like a true power law - the outliers are so massive that they scale faster than the sample size. Instead of being diluted, a single new &amp;ldquo;whale&amp;rdquo; can appear at any moment and completely shift the mean, no matter how many thousands of data points you&amp;rsquo;ve already collected. In this world, the &amp;ldquo;average&amp;rdquo; is a moving target that never stabilizes, rendering standard values and confidence intervals mathematically meaningless.&lt;/p&gt;
+&lt;p&gt;In this article, we&amp;rsquo;ll walk through how to rigorously check if your empirical data actually belongs to a &amp;ldquo;fat-tailed&amp;rdquo; family (like Pareto or Levy distributions) where the CLT fails, or if it&amp;rsquo;s simply a high-variance but well-behaved distribution (like Log-Normal). We&amp;rsquo;ll cover diagnostic plots and the stability of the mean so you can defend your results, or admit when the &amp;ldquo;infinite variance&amp;rdquo; skeptics actually have a point.&lt;/p&gt;
+&lt;h2 id=&#34;fat-tailed-distributions&#34;&gt;Fat tailed distributions&lt;/h2&gt;
+&lt;p&gt;When a distribution is described as “fat-tailed,” it means the probability of extreme, “black swan” events is significantly higher than what a standard Normal distribution would predict. In a typical bell curve, the probability of an observation being several standard deviations from the mean drops off exponentially — essentially becoming impossible. In a fat-tailed world, however, the “tail” decays so slowly (following a power law) that these outliers aren’t just possible; they dominate the entire system. When the tail is heavy enough, the variance mathematically fails to converge, meaning no amount of data will ever give you a stable “average” because one massive new data point can move the needle back to zero.&lt;/p&gt;
+&lt;h3 id=&#34;common-infinite-variance-distributions&#34;&gt;Common infinite variance distributions&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Pareto Distribution (Type I)&lt;/strong&gt;: Specifically when the shape parameter $\alpha \le 2$.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Cauchy Distribution&lt;/strong&gt;: A famous &amp;ldquo;pathological&amp;rdquo; case where even the mean is undefined.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Pareto Distribution (Type I)&lt;/strong&gt;: Specifically when the shape parameter $\alpha&amp;lt;=2$.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Cauchy Distribution&lt;/strong&gt;: A famous “pathological” case where even the mean is undefined.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Lévy Distribution&lt;/strong&gt;: Often used to describe stochastic processes with large, sudden jumps.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h4 id=&#34;real-world-phenomena&#34;&gt;Real-World Phenomena&lt;/h4&gt;
-&lt;p&gt;These distributions aren&amp;rsquo;t just mathematical curiosities; they define systems where winner-take-all dynamics or recursive growth exist.&lt;/p&gt;
+&lt;h3 id=&#34;real-world-phenomena&#34;&gt;Real-World Phenomena&lt;/h3&gt;
+&lt;p&gt;These distributions aren’t just mathematical curiosities; they define systems where winner-take-all dynamics or recursive growth exist.&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Wealth &amp;amp; Revenue&lt;/strong&gt;: A tiny fraction of &amp;ldquo;whales&amp;rdquo; or &amp;ldquo;super-users&amp;rdquo; often account for the vast majority of total spend.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Social Networks&lt;/strong&gt;: The number of followers or links to a website follows a power law (the &amp;ldquo;rich get richer&amp;rdquo; effect).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Wealth &amp;amp; Revenue&lt;/strong&gt;: A tiny fraction of “whales” or “super-users” often account for the vast majority of total spend.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Social Networks&lt;/strong&gt;: The number of followers or links to a website follows a power law (the “rich get richer” effect).&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Natural Disasters&lt;/strong&gt;: The frequency and magnitude of earthquakes or forest fires, where rare mega-events cause more damage than thousands of smaller ones combined.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Finance&lt;/strong&gt;: Stock market returns during a crash, where price movements far exceed the predictions of &amp;ldquo;random walk&amp;rdquo; models.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Finance&lt;/strong&gt;: Stock market returns during a crash, where price movements far exceed the predictions of “random walk” models.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;visual-inspections&#34;&gt;Visual inspections&lt;/h3&gt;
-&lt;h4 id=&#34;histograms&#34;&gt;Histograms&lt;/h4&gt;
-&lt;p&gt;Before diving into complex diagnostics, the humble histogram remains your best first line of defense because it provides an immediate, visceral look at asymmetry and outliers. While a well-behaved distribution looks like a centered mound, a fat-tailed revenue distribution will look like a &amp;ldquo;hockey stick&amp;rdquo; - a massive spike at zero or low values with a long, thin trail of data points stretching far to the right. Here are some examples from simulated data.&lt;/p&gt;
+&lt;h2 id=&#34;visual-inspections&#34;&gt;Visual inspections&lt;/h2&gt;
+&lt;h3 id=&#34;histograms&#34;&gt;Histograms&lt;/h3&gt;
+&lt;p&gt;Before diving into complex diagnostics, the humble histogram remains your best first line of defense because it provides an immediate, visceral look at asymmetry and outliers. While a well-behaved distribution looks like a centered mound, a fat-tailed revenue distribution will look like a “hockey stick” - a massive spike at zero or low values with a long, thin trail of data points stretching far to the right. Here are some examples from simulated data.&lt;/p&gt;
 
 &lt;details&gt;
     &lt;summary&gt;Define data generating function&lt;/summary&gt;
@@ -707,7 +711,8 @@ details summary:hover {
     &lt;summary&gt;Histogram plotting&lt;/summary&gt;
     
     &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# --- 2. Initial Data Preparation and Visual Inspection ---&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# --- Initial Data Preparation and Visual Inspection ---&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# Filter out zeros for tail analysis&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;non_zero_revenue&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;df&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;df&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;revenue&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;][&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;revenue&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;values&lt;/span&gt;
@@ -722,6 +727,7 @@ details summary:hover {
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;plt&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;title&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;Histogram of Non-Zero Revenue (Linear Scale)&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;plt&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;xlabel&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;Revenue&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;plt&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ylabel&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;Frequency&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;/details&gt;
 
@@ -776,9 +782,9 @@ details summary:hover {
 
 &lt;figure  id=&#34;figure-log-normally-distributed-revenue-with-high-variance-sigma15&#34;&gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
-    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;https://matteorg.github.io/images/variance_test/histlognormal.png&#34; alt=&#34;Revenue plots 1&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;https://matteorg.github.io/images/variance_test/histlognormal.png&#34; alt=&#34;High variance plot 1&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
   &lt;/div&gt;&lt;figcaption&gt;
-      Log-normally distributed revenue with high variance ($\sigma=1.5)$)
+      Log-normally distributed revenue with high variance ($\sigma=1.5$)
     &lt;/figcaption&gt;&lt;/figure&gt;
 &lt;/p&gt;
 &lt;p&gt;
@@ -799,7 +805,7 @@ details summary:hover {
 
 &lt;figure  id=&#34;figure-pareto-distributed-revenue-with-high-variance-alpha11&#34;&gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
-    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;https://matteorg.github.io/images/variance_test/histpowerlaw.png&#34; alt=&#34;Revenue plots 2&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;https://matteorg.github.io/images/variance_test/histpowerlaw.png&#34; alt=&#34;High variance plot 2&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
   &lt;/div&gt;&lt;figcaption&gt;
       Pareto distributed revenue with high variance ($\alpha=1.1$)
     &lt;/figcaption&gt;&lt;/figure&gt;
@@ -822,16 +828,16 @@ details summary:hover {
 
 &lt;figure  id=&#34;figure-weibull-distributed-revenue-with-high-variance-alpha04&#34;&gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
-    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;https://matteorg.github.io/images/variance_test/histweibull.png&#34; alt=&#34;Revenue plots 3&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;https://matteorg.github.io/images/variance_test/histweibull.png&#34; alt=&#34;High variance plot 3&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
   &lt;/div&gt;&lt;figcaption&gt;
       Weibull distributed revenue with high variance ($\alpha=0.4$)
     &lt;/figcaption&gt;&lt;/figure&gt;
 &lt;/p&gt;
-&lt;h4 id=&#34;complementary-cumulative-distribution-function-ccdf-on-log-log-scale&#34;&gt;Complementary Cumulative Distribution Function (CCDF) on log-log scale&lt;/h4&gt;
-&lt;p&gt;To move beyond the visual &amp;ldquo;messiness&amp;rdquo; of a histogram, the Complementary Cumulative Distribution Function (CCDF) plotted on a log-log scale is the gold standard for spotting infinite variance. While a standard CDF tells you the probability that a value is less than $x$, the CCDF tells you the probability that a value is greater than $x$ (i.e. \(1-P(X\leq x)\)); essentially, it focuses entirely on the behavior of the &amp;ldquo;whales&amp;rdquo; in your data. When you plot the CCDF on a log-log scale, something magical happens: if your data follows a power law (the hallmark of infinite variance), the plot will show up as a straight line.&lt;/p&gt;
+&lt;h3 id=&#34;complementary-cumulative-distribution-function-ccdf-on-log-log-scale&#34;&gt;Complementary Cumulative Distribution Function (CCDF) on log-log scale&lt;/h3&gt;
+&lt;p&gt;To move beyond the visual “messiness” of a histogram, the Complementary Cumulative Distribution Function (CCDF) plotted on a log-log scale is the gold standard for spotting infinite variance. While a standard CDF tells you the probability that a value is less than $x$ ($P(X \leq x)$), the CCDF tells you the probability that a value is greater than $x$ (i.e. $1-P(X \leq x)$); essentially, it focuses entirely on the behavior of the “whales” in your data. When you plot the CCDF on a log-log scale, something magical happens: if your data follows a power law (the hallmark of infinite variance), the plot will show up as a straight line.&lt;/p&gt;
 
 &lt;details&gt;
-    &lt;summary&gt;CCDF plotting&lt;/summary&gt;
+    &lt;summary&gt;CCDF Plotting&lt;/summary&gt;
     
     &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# Complementary Cumulative Distribution Function (CCDF) on log-log scale&lt;/span&gt;
@@ -886,10 +892,12 @@ details summary:hover {
     margin: 0;
 }
 &lt;/style&gt;
-&lt;p&gt;This happens because of one attribute of power laws: their scale invariance. Given a relation \(f(x) = Cx^{-\alpha}\) (pdf of a power law)  scaling the argument \(x\) by a constant factor \(c\)
-causes only a proportionate scaling of the function itself. That is, $$f(kx)=Ck^{-\alpha}x^{-\alpha}= k^{-\alpha}f(x)\propto f(x)$$
-Thus, it follows that all power laws with a particular scaling exponent are equivalent up to constant factors, since each is simply a scaled version of the others. This produces always a linear relationship in the log-log plot. Indeed if you take logs of the first equation (call \(y=f(x)\)) you get $$\log(y)=\log(C)-\alpha\log(x)$$ where the power parameter is the slope of the line.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Implication:&lt;/strong&gt; with real data, such straightness is a &lt;em&gt;necessary, but not sufficient&lt;/em&gt; condition for the data following a power-law relation.&lt;/p&gt;
+&lt;p&gt;This happens because of one attribute of power laws: their scale invariance. Given a relation $f(x) = Cx^{-\alpha}$ (pdf of a power law) scaling the argument $x$ by a constant factor $C$ causes only a proportionate scaling of the function itself. That is,&lt;/p&gt;
+&lt;p&gt;$$f(kx) = Ck^{-\alpha}x^{-\alpha} = k^{-\alpha}f(x) \propto f(x)$$&lt;/p&gt;
+&lt;p&gt;Thus, it follows that all power laws with a particular scaling exponent are equivalent up to constant factors, since each is simply a scaled version of the others. This produces always a linear relationship in the log-log plot. Indeed if you take logs of the first equation (call $y = f(x)$) you get&lt;/p&gt;
+&lt;p&gt;$$\log(y) = \log(C) - \alpha \log(x)$$&lt;/p&gt;
+&lt;p&gt;where the power parameter is the slope of the line.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Implication:&lt;/strong&gt; with real data, such straightness is a &lt;em&gt;necessary&lt;/em&gt;, but &lt;em&gt;not sufficient&lt;/em&gt; condition for the data following a power-law relation.&lt;/p&gt;
 &lt;p&gt;The slope of this line ($\alpha$) is the &amp;ldquo;smoking gun&amp;rdquo; your skeptic colleagues are looking for. If the slope is shallow (specifically if the power-law exponent $\alpha \le 2$), you are officially in the &amp;ldquo;infinite variance&amp;rdquo; zone where the Central Limit Theorem breaks down. If the line curves downward, your distribution is likely &amp;ldquo;thin-tailed&amp;rdquo; or log-normal, and your A/B test results are much safer than the skeptics think.&lt;/p&gt;
 &lt;p&gt;
 
@@ -915,11 +923,11 @@ Thus, it follows that all power laws with a particular scaling exponent are equi
     &lt;/figcaption&gt;&lt;/figure&gt;
 &lt;/p&gt;
 &lt;p&gt;Either way, as mentioned above, this is a first check, and in case the two lines are very similar this would only fulfill a &lt;em&gt;necessary&lt;/em&gt; condition for power law.&lt;/p&gt;
-&lt;h4 id=&#34;recursive-mean-plot&#34;&gt;Recursive Mean Plot&lt;/h4&gt;
+&lt;h3 id=&#34;recursive-mean-plot&#34;&gt;Recursive Mean Plot&lt;/h3&gt;
 &lt;p&gt;Another powerful plot is the Mean Stability Plot (also known as a Recursive Mean Plot). It’s a simple but devastatingly effective visualization: you calculate the cumulative average of your revenue as each new data point is added and plot it over time.&lt;/p&gt;
 
 &lt;details&gt;
-    &lt;summary&gt;RMP plotting&lt;/summary&gt;
+    &lt;summary&gt;RMP Plotting&lt;/summary&gt;
     
     &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;simulate_daily_convergence&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;days&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;30&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;obs_per_day&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;100&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;dist_type&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;lognormal&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;seed&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;42&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
@@ -988,7 +996,7 @@ details summary:hover {
     margin: 0;
 }
 &lt;/style&gt;
-&lt;p&gt;In a well-behaved &amp;ldquo;finite variance&amp;rdquo; world, the line will be volatile at first but quickly flatten out, oscillating narrower and narrower around a single horizontal value; this is the CLT in action (as in Log-Normal case below).&lt;/p&gt;
+&lt;p&gt;In a well-behaved “finite variance” world, the line will be volatile at first but quickly flatten out, oscillating narrower and narrower around a single horizontal value; this is the CLT in action (as in Log-Normal case below).&lt;/p&gt;
 &lt;p&gt;
 
 
@@ -1007,12 +1015,12 @@ details summary:hover {
 
 &lt;figure  id=&#34;figure-log-normal-recursive-mean-plot-sigma15&#34;&gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
-    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;https://matteorg.github.io/images/variance_test/RMPLognormal.png&#34; alt=&#34;Revenue plots 4&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;https://matteorg.github.io/images/variance_test/RMPLognormal.png&#34; alt=&#34;RMP Plot 1&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
   &lt;/div&gt;&lt;figcaption&gt;
       Log-Normal Recursive Mean Plot ($\sigma=1.5$)
     &lt;/figcaption&gt;&lt;/figure&gt;
 &lt;/p&gt;
-&lt;p&gt;However, if your colleagues are right about infinite variance, the plot will look like a series of jagged, unpredictable jumps. Every time a &amp;ldquo;whale&amp;rdquo; purchase hits, the mean will spike vertically and stay high, never truly settling (as in Pareto case below).&lt;/p&gt;
+&lt;p&gt;However, if your colleagues are right about infinite variance, the plot will look like a series of jagged, unpredictable jumps. Every time a “whale” purchase hits, the mean will spike vertically and stay high, never truly settling (as in Pareto case below).&lt;/p&gt;
 &lt;p&gt;
 
 
@@ -1029,56 +1037,57 @@ details summary:hover {
 
 
 
-&lt;figure  id=&#34;figure-pareto-recursive-mean-plot-alpha101&#34;&gt;
+&lt;figure  id=&#34;figure-pareto-recursive-mean-plot-alpha11&#34;&gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
-    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;https://matteorg.github.io/images/variance_test/RMPPareto.png&#34; alt=&#34;Revenue plots 4&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;https://matteorg.github.io/images/variance_test/RMPPareto.png&#34; alt=&#34;RMP Plot 2&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
   &lt;/div&gt;&lt;figcaption&gt;
-      Pareto Recursive Mean Plot ($\alpha=1.01$)
+      Pareto Recursive Mean Plot ($\alpha=1.1$)
     &lt;/figcaption&gt;&lt;/figure&gt;
 &lt;/p&gt;
-&lt;h3 id=&#34;statistical-tests&#34;&gt;Statistical Tests&lt;/h3&gt;
-&lt;p&gt;Moving away from visual diagnostic, we will initially tackle statistical tests do detect whether a distribution is consistent with an infinite variance one by following the spirit of the Clauset, Shalizi, Newman (CSN) &lt;a href=&#34;https://arxiv.org/pdf/0706.1062&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;paper&lt;/a&gt;. SUMMARY SENTENCE ON PAPER .We will finish with an additional approach from Extreme Value Theory (EVT).&lt;/p&gt;
-&lt;h4 id=&#34;csn-approach-in-short&#34;&gt;CSN Approach in Short&lt;/h4&gt;
+&lt;h2 id=&#34;statistical-tests&#34;&gt;Statistical Tests&lt;/h2&gt;
+&lt;p&gt;Moving away from visual diagnostic, we will initially tackle statistical tests to detect whether a distribution is consistent with an infinite variance one by following the spirit of the Clauset, Shalizi, Newman (CSN) &lt;a href=&#34;https://arxiv.org/pdf/0706.1062&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;paper&lt;/a&gt;. This seminal paper completely transformed the landscape of network science and complex systems by forcing the scientific community to transition from an era of anecdotal &amp;ldquo;power-law hunting&amp;rdquo; to one of rigorous statistical discipline. Prior to its publication, hundreds of papers across physics, economics, and biology claimed to find power laws based merely on visually straight lines on log-log plots; Clauset, Shalizi, and Newman effectively shattered this paradigm, establishing a definitive benchmark that debunked dozens of these high-profile claims while providing the necessary mathematical toolkit to ensure future discovery was built on undeniable empirical footing.&lt;/p&gt;
+&lt;p&gt;After covering the steps in CSN article we will finish with an additional approach from Extreme Value Theory (EVT).&lt;/p&gt;
+&lt;h3 id=&#34;csn-approach-in-short&#34;&gt;CSN Approach in Short&lt;/h3&gt;
 &lt;p&gt;The best way to proceed is a mix of theoretical explanation and immediate practical implementation with a simulated dataset. This will make the concepts concrete.&lt;/p&gt;
-&lt;p&gt;Here&amp;rsquo;s a simplified description of the steps to follow, relevant to our challenge:&lt;/p&gt;
+&lt;p&gt;Here’s a simplified description of the steps to follow, relevant to our challenge:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Prerequisites &amp;amp; data preprocessing:
+&lt;li&gt;&lt;strong&gt;Prerequisites &amp;amp; data preprocessing:&lt;/strong&gt;
 &lt;ul&gt;
-&lt;li&gt;Handle zeros: power laws are defined for positive values ($x &amp;gt; 0$).We must exclude zeros from the analysis when fitting the tail distribution. This is crucial. We&amp;rsquo;ll focus only on the non-zero revenue values.&lt;/li&gt;
-&lt;li&gt;Threshold ($x_{min}$): power laws describe the tail of a distribution. They rarely fit the entire range of non-zero data. We need to find a suitable lower bound $x_{min}$ above which the power-law behavior truly begins. The CSN paper suggests a method for this, which minimizes the Kolmogorov-Smirnov (KS) statistic between the fitted power law and the observed data above $x_{min}$.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Handle zeros:&lt;/strong&gt; power laws are defined for positive values ($x &amp;gt; 0$). We must exclude zeros from the analysis when fitting the tail distribution. This is crucial. We’ll focus only on the non-zero revenue values.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Threshold ($x_{min}$):&lt;/strong&gt; power laws describe the tail of a distribution. They rarely fit the entire range of non-zero data. We need to find a suitable lower bound $x_{min}$ above which the power-law behavior truly begins. The CSN paper suggests a method for this, which minimizes the Kolmogorov-Smirnov (KS) statistic between the fitted power law and the observed data above $x_{min}$.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Steps:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Power-law fitting &amp;amp; $x_{min}$ estimation: fit the power-law distribution to the non-zero data. The &lt;code&gt;powerlaw&lt;/code&gt; library includes robust methods for estimating the exponent $\alpha$ and the optimal $x_{min}$. From the estimated $\alpha$:
+&lt;li&gt;&lt;strong&gt;Power-law fitting &amp;amp; $x_{min}$ estimation:&lt;/strong&gt; fit the power-law distribution to the non-zero data. The &lt;code&gt;powerlaw&lt;/code&gt; library includes robust methods for estimating the exponent $\alpha$ and the optimal $x_{min}$. From the estimated $\alpha$:
 &lt;ul&gt;
 &lt;li&gt;if $\alpha \le 2$, the fitted power law suggests infinite variance.&lt;/li&gt;
 &lt;li&gt;if $\alpha &amp;gt; 2$, the fitted power law suggests finite variance.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;Goodness-of-Fit test for power law:
+&lt;li&gt;&lt;strong&gt;Goodness-of-Fit test for power law:&lt;/strong&gt;
 &lt;ul&gt;
 &lt;li&gt;Once a power law is fitted (with its $\alpha$ and $x_{min}$), we need to assess how well it actually describes the data above $x_{min}$.&lt;/li&gt;
-&lt;li&gt;The CSN paper suggests a bootstrap-based method: Generate many synthetic power-law datasets from the fitted parameters. Compare the KS statistic between the observed data and the fitted power law to the distribution of KS statistics from the synthetic data. If the observed KS statistic is &amp;ldquo;too large,&amp;rdquo; the power law is not a good fit.&lt;/li&gt;
+&lt;li&gt;The CSN paper suggests a bootstrap-based method: Generate many synthetic power-law datasets from the fitted parameters. Compare the KS statistic between the observed data and the fitted power law to the distribution of KS statistics from the synthetic data. If the observed KS statistic is “too large,” the power law is not a good fit.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;Likelihood Ratio Tests (Comparison with Alternatives):
+&lt;li&gt;&lt;strong&gt;Likelihood Ratio Tests (Comparison with Alternatives):&lt;/strong&gt;
 &lt;ul&gt;
-&lt;li&gt;This is the core of testing against finite-variance alternatives. We compare the power law&amp;rsquo;s fit against other heavy-tailed distributions (e.g., log-normal, exponential, stretched exponential, Weibull) using a likelihood ratio test.&lt;/li&gt;
-&lt;li&gt;The test essentially asks: &amp;ldquo;Is the data significantly more likely to have come from Distribution A than from Distribution B?&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;This is the core of testing against finite-variance alternatives. We compare the power law’s fit against other heavy-tailed distributions (e.g., log-normal, exponential, stretched exponential, Weibull) using a likelihood ratio test.&lt;/li&gt;
+&lt;li&gt;The test essentially asks: “Is the data significantly more likely to have come from Distribution A than from Distribution B?”&lt;/li&gt;
 &lt;li&gt;The &lt;code&gt;powerlaw&lt;/code&gt; library automates this: it fits several distributions and then provides $R$ values and p-values for pair-wise comparisons.
 &lt;ul&gt;
 &lt;li&gt;$R &amp;gt; 0$: Power law is more likely.&lt;/li&gt;
 &lt;li&gt;$R &amp;lt; 0$: Alternative is more likely.&lt;/li&gt;
-&lt;li&gt;p-value &amp;lt; 0.1 (or your chosen significance level): The difference in likelihood is statistically significant, favoring the distribution associated with the sign of $R$.&lt;/li&gt;
-&lt;li&gt;p-value &amp;gt;= 0.1: The difference is not statistically significant, meaning neither distribution can be confidently favored over the other based on likelihood.&lt;/li&gt;
+&lt;li&gt;p-value $&amp;lt; 0.1$ (or your chosen significance level): The difference in likelihood is statistically significant, favoring the distribution associated with the sign of $R$.&lt;/li&gt;
+&lt;li&gt;p-value $\ge 0.1$: The difference is not statistically significant, meaning neither distribution can be confidently favored over the other based on likelihood.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h4 id=&#34;csn-step-1-power-law-fitting&#34;&gt;CSN Step 1: Power Law Fitting&lt;/h4&gt;
+&lt;h3 id=&#34;csn-step-1-power-law-fitting&#34;&gt;CSN Step 1: Power Law Fitting&lt;/h3&gt;
 
 &lt;details&gt;
     &lt;summary&gt;Power Law Fitting&lt;/summary&gt;
@@ -1137,7 +1146,7 @@ details summary:hover {
     margin: 0;
 }
 &lt;/style&gt;
-&lt;p&gt;Suppose we draw data from a LogNormal distribution with $\mu=3.5$ and $\sigma=1.8$ (such distribution would have a very large variance of $686971.832$). When we fit a power law distribution to the non-zero data we obtain the following.&lt;/p&gt;
+&lt;p&gt;Suppose we draw data from a LogNormal distribution with $\mu = 3.5$ and $\sigma = 1.8$ (such distribution would have a very large variance of $686971.832$). When we fit a power law distribution to the non-zero data we obtain the following.&lt;/p&gt;
 &lt;p&gt;
 
 
@@ -1156,24 +1165,24 @@ details summary:hover {
 
 &lt;figure  id=&#34;figure-fitting-a-pareto-law-to-simulated-high-variance-log-normal&#34;&gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
-    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;https://matteorg.github.io/images/variance_test/PLFLogNormal.png&#34; alt=&#34;Power Law Fitting 1&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;https://matteorg.github.io/images/variance_test/PLFLogNormal.png&#34; alt=&#34;PLF Plot 1&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
   &lt;/div&gt;&lt;figcaption&gt;
       Fitting a Pareto Law to simulated high-variance Log-Normal
     &lt;/figcaption&gt;&lt;/figure&gt;
 &lt;/p&gt;
 &lt;p&gt;As you can see, even if we are simulating data from a LogNormal, the first estimation step would return an $\alpha$ consistent with a Pareto distribution with infinite variance. Therefore this estimation procedure alone is not sufficient!&lt;/p&gt;
-&lt;h4 id=&#34;csn-step-2-goodness-of-fit-test-for-power-law&#34;&gt;CSN Step 2: Goodness-of-Fit Test for Power Law&lt;/h4&gt;
-&lt;p&gt;When testing whether your revenue data follows a specific distribution, Goodness-of-Fit (GoF) is simply a measure of how well your observed data matches a theoretical model. It’s the statistical version of &amp;ldquo;does this key fit the lock?&amp;rdquo;. If the GoF is high, your data likely follows that distribution; if it’s low, your model (like the Normal distribution) is a poor representation of reality.&lt;/p&gt;
+&lt;h3 id=&#34;csn-step-2-goodness-of-fit-test-for-power-law&#34;&gt;CSN Step 2: Goodness-of-Fit Test for Power Law&lt;/h3&gt;
+&lt;p&gt;When testing whether your revenue data follows a specific distribution, Goodness-of-Fit (GoF) is simply a measure of how well your observed data matches a theoretical model. It’s the statistical version of “does this key fit the lock?”. If the GoF is high, your data likely follows that distribution; if it’s low, your model (like the Normal distribution) is a poor representation of reality.&lt;/p&gt;
 &lt;p&gt;In the context of the CSN framework the bootstrapping procedure is used to determine if a Power Law is actually a plausible fit.&lt;/p&gt;
 &lt;p&gt;Here is how it works:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Generate &amp;ldquo;Synthetic&amp;rdquo; Datasets: The algorithm creates thousands of fake datasets that perfectly follow the Power Law model you&amp;rsquo;ve estimated from your real data.&lt;/li&gt;
-&lt;li&gt;Calculate Distance ($D$): It measures the distance (via the Kolmogorov-Smirnov statistic) between your real data and the model, and then does the same for every synthetic dataset.&lt;/li&gt;
-&lt;li&gt;The p-value Comparison: It counts how often the synthetic (perfect) data deviates from the model &lt;em&gt;more&lt;/em&gt; than your real data does. If this happens at least 10% of the time ($p \ge 0.1$), the Power Law is considered a plausible match. If the p-value is tiny, you can reject the Power Law—even if the log-log plot looks like a straight line - meaning your variance might not be as &amp;ldquo;infinite&amp;rdquo; as your colleagues fear.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Generate “Synthetic” Datasets:&lt;/strong&gt; The algorithm creates thousands of fake datasets that perfectly follow the Power Law model you’ve estimated from your real data.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Calculate Distance ($D$):&lt;/strong&gt; It measures the distance (via the Kolmogorov-Smirnov statistic) between your real data and the model, and then does the same for every synthetic dataset.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;The p-value Comparison:&lt;/strong&gt; It counts how often the synthetic (perfect) data deviates from the model &lt;em&gt;more&lt;/em&gt; than your real data does. If this happens at least 10% of the time ($p \ge 0.1$), the Power Law is considered a plausible match. If the p-value is tiny, you can reject the Power Law—even if the log-log plot looks like a straight line - meaning your variance might not be as “infinite” as your colleagues fear.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;details&gt;
-    &lt;summary&gt;GoF test&lt;/summary&gt;
+    &lt;summary&gt;GoF Test&lt;/summary&gt;
     
     &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;calculate_powerlaw_gof_p_value&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;data&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;fit&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;num_bootstraps&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;2500&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;discrete&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;False&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;seed&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;None&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
@@ -1319,15 +1328,15 @@ details summary:hover {
 
 &lt;figure  id=&#34;figure-gof-test-for-a-high-variance-log-normal&#34;&gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
-    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;https://matteorg.github.io/images/variance_test/GoFLogNormal.png&#34; alt=&#34;GoF test&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;https://matteorg.github.io/images/variance_test/GoFLogNormal.png&#34; alt=&#34;GoF Plot 1&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
   &lt;/div&gt;&lt;figcaption&gt;
       GoF test for a high-variance Log-Normal
     &lt;/figcaption&gt;&lt;/figure&gt;
 &lt;/p&gt;
-&lt;p&gt;As you can see, the observed KS statistic from the high-variance LogNormal is larger than one computed on synthetic data 53% of the times, meaning that the data above $x_{min}$ is consistent with a Power Law distribution, even though we know it&amp;rsquo;s drawn from a finite variance one
+&lt;p&gt;As you can see, the observed KS statistic from the high-variance LogNormal is larger than one computed on synthetic data 53% of the times, meaning that the data above $x_{min}$ is consistent with a Power Law distribution, even though we know it’s drawn from a finite variance one
 &lt;span class=&#34;infotip-container&#34;&gt;
     &lt;sup class=&#34;infotip-icon&#34;&gt;i&lt;/sup&gt;
-    &lt;span class=&#34;infotip-content&#34;&gt;There is one subtle point regarding the Clauset et al. (2009) methodology that I should mention, as may trip you up when writing these functions: in the paper (Section 3), for a truly rigorous $p$-value, the synthetic fits are actually supposed to re-estimate $x_{min}$ for every synthetic dataset, rather than fixing it to the original $x_{min}$. In the function presented in this paragraph $x_{min}$ is fixed: this tests if our data matches the specific power law model we found. It is a faster and more &#39;conservative&#39; test. The paper suggests instead letting $powerlaw.Fit$ find the best $x_{min}$ for each synthetic sample. This accounts for the fact that the $x_{min}$ estimation itself is a source of variance. If you want to follow the paper exactly, remove the $xmin=fit.power\_law.xmin$ argument from the internal loop. However, be warned: this makes the function significantly slower because it has to run the KS-minimization algorithm 2,500 times.&lt;/span&gt;
+    &lt;span class=&#34;infotip-content&#34;&gt;There is one subtle point regarding the Clauset et al. (2009) methodology that I should mention, as it may trip you up when writing these functions: in the paper (Section 3), for a truly rigorous $p$-value, the synthetic fits are actually supposed to re-estimate $x_{min}$ for every synthetic dataset, rather than fixing it to the original $x_{min}$. In the function presented in this paragraph $x_{min}$ is fixed: this tests if our data matches the specific power law model we found. It is a faster and more &#39;conservative&#39; test. The paper suggests instead letting $powerlaw.Fit$ find the best $x_{min}$ for each synthetic sample. This accounts for the fact that the $x_{min}$ estimation itself is a source of variance. If you want to follow the paper exactly, remove the $xmin = fit.power\_law.xmin$ argument from the internal loop. However, be warned: this makes the function significantly slower because it has to run the KS-minimization algorithm 2,500 times.&lt;/span&gt;
 &lt;/span&gt;
 
 &lt;style&gt;
@@ -1407,14 +1416,15 @@ details summary:hover {
     transform: translateX(-50%) translateY(-10px);  
 }
 &lt;/style&gt;.&lt;/p&gt;
-&lt;h4 id=&#34;csn-step-3-likelihood-ratio-tests&#34;&gt;CSN Step 3: Likelihood Ratio Tests&lt;/h4&gt;
-&lt;p&gt;The Likelihood Ratio Test is the &amp;ldquo;ultimate&amp;rdquo; arbiter because it doesn&amp;rsquo;t just ask if one distribution is a plausible fit, but mathematically compares two competing models (like Power Law vs. Log-Normal) to calculate which one is objectively more likely to have produced your specific dataset. Since how it works is summarized above, let&amp;rsquo;s jump to some tests!&lt;/p&gt;
-&lt;p&gt;We&amp;rsquo;ll check whether the Pareto distribution we fitted starting from a high-variance LogNormal is more likely to be a better fit for - indeed - a Pareto Law than for other distributions (LogNormal, Exponetial and Stretched Exponential in this paragraph).&lt;/p&gt;
+&lt;h3 id=&#34;csn-step-3-likelihood-ratio-tests&#34;&gt;CSN Step 3: Likelihood Ratio Tests&lt;/h3&gt;
+&lt;p&gt;The Likelihood Ratio Test is the “ultimate” arbiter because it doesn’t just ask if one distribution is a plausible fit, but mathematically compares two competing models (like Power Law vs. Log-Normal) to calculate which one is objectively more likely to have produced your specific dataset. Since how it works is summarized above, let’s jump to some tests!&lt;/p&gt;
+&lt;p&gt;We’ll check whether the Pareto distribution we fitted starting from a high-variance LogNormal is more likely to be a better fit for - indeed - a Pareto Law than for other distributions (LogNormal, Exponetial and Stretched Exponential in this paragraph).&lt;/p&gt;
 
 &lt;details&gt;
     &lt;summary&gt;Likelihood Ratio tests&lt;/summary&gt;
     
     &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# --- 5. Likelihood Ratio Tests (Comparison with Alternatives) ---&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;\n&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;--- Step 5: Likelihood Ratio Tests (Power Law vs. Alternatives) ---&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
@@ -1495,18 +1505,19 @@ details summary:hover {
 
 &lt;figure  id=&#34;figure-likelihood-ratio-tests-for-plausible-alternatives&#34;&gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
-    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;https://matteorg.github.io/images/variance_test/LRT.png&#34; alt=&#34;LR Test&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;https://matteorg.github.io/images/variance_test/LRT.png&#34; alt=&#34;LRT Plot 1&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
   &lt;/div&gt;&lt;figcaption&gt;
       Likelihood Ratio Tests for plausible alternatives
     &lt;/figcaption&gt;&lt;/figure&gt;
 &lt;/p&gt;
-&lt;p&gt;It&amp;rsquo;s interesting to see how the test for Pareto against LogNormal returns $R&amp;lt;0$ which, if you recall from above, means that the LogNormal is more likely to be a good fit for the observed data (however the $p$-value is too high to conclude this with certainty).&lt;/p&gt;
+&lt;p&gt;It’s interesting to see how the test for Pareto against LogNormal returns $R&amp;lt;0$ which, if you recall from above, means that the LogNormal is more likely to be a good fit for the observed data (however the p-value is too high to conclude this with certainty).&lt;/p&gt;
 &lt;p&gt;An interesting complementary visualization is that of the CCDF of both the observed data and the alternatives.&lt;/p&gt;
 
 &lt;details&gt;
     &lt;summary&gt;CCDF Observed vs Alternatives&lt;/summary&gt;
     
     &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# Visualizing the best fit from alternatives&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;plt&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;figure&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;figsize&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;8&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;6&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;fit&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;plot_ccdf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ax&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;plt&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;gca&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(),&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;linewidth&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;color&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;blue&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;label&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;Observed Data CCDF&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
@@ -1578,25 +1589,26 @@ details summary:hover {
 
 &lt;figure  id=&#34;figure-ccdf-of-observed-data-against-power-law-and-alternatives&#34;&gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
-    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;https://matteorg.github.io/images/variance_test/CCDFAll.png&#34; alt=&#34;CCDF all&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;https://matteorg.github.io/images/variance_test/CCDFAll.png&#34; alt=&#34;CCDF Plot 2&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
   &lt;/div&gt;&lt;figcaption&gt;
       CCDF of observed data against Power Law and alternatives
     &lt;/figcaption&gt;&lt;/figure&gt;
 &lt;/p&gt;
 &lt;p&gt;Also from the above graph it is hard to distinguish whether the observed data CCDF is more similar to that of a LogNormal, a Pareto Law or a Stretched Exponential.&lt;/p&gt;
 &lt;h3 id=&#34;the-hill-estimator&#34;&gt;The Hill Estimator&lt;/h3&gt;
-&lt;p&gt;If the CCDF and Likelihood Ratio tests are your high-level diagnostics, the Hill Estimator is your microscope for the very tip of the tail. It is a tool specifically designed to estimate the tail index ($\alpha$) by looking only at the $k$ largest observations in your dataset. By plotting the Hill Estimator for varying values of $k$ — a Hill Plot — you can look for a stable &amp;ldquo;regime&amp;rdquo; where the index levels off. If this stable estimate consistently falls below $2$, you have mathematically grounded evidence that the variance is infinite. It serves as a vital reality check: if your tail index shifts wildly as you include more of the largest &amp;ldquo;whales,&amp;rdquo; your distribution might not be a pure Power Law at all, but rather a high-variance distribution that is simply being temporarily bullied by a few extreme outliers.&lt;/p&gt;
-&lt;p&gt;If you&amp;rsquo;re interested in the details: for a distribution $F(x)$ with a tail $1 - F(x) \sim x^{-1/\gamma} L(x)$ as $x \to \infty$, where $L(x)$ is a slowly varying function (meaning $L(tx)/L(x) \to 1$ as $x \to \infty$ for any $t&amp;gt;0$), the parameter $\gamma$ is the tail index or extreme value index (EVI). The relationship between the Hill estimator&amp;rsquo;s $\gamma$ and the power-law exponent $\alpha$ is simply: $\gamma = 1/(\alpha - 1)$.&lt;/p&gt;
-&lt;p&gt;Given a sorted sample $X_{(1)} \ge X_{(2)} \ge \dots \ge X_{(n)}$ (order statistics, from largest to smallest), the Hill estimator for the tail index $\gamma$ based on the $k$ largest order statistics is: $$\hat{\gamma}_k=\frac{1}{k}\sum_{i=1}^{k}\log(X_{(i)})-\log(X_{(k+1)})$$&lt;/p&gt;
+&lt;p&gt;If the CCDF and Likelihood Ratio tests are your high-level diagnostics, the Hill Estimator is your microscope for the very tip of the tail. It is a tool specifically designed to estimate the tail index ($\alpha$) by looking only at the $k$ largest observations in your dataset. By plotting the Hill Estimator for varying values of $k$ — a Hill Plot — you can look for a stable “regime” where the index levels off. If this stable estimate consistently falls below 2, you have mathematically grounded evidence that the variance is infinite. It serves as a vital reality check: if your tail index shifts wildly as you include more of the largest “whales,” your distribution might not be a pure Power Law at all, but rather a high-variance distribution that is simply being temporarily bullied by a few extreme outliers.&lt;/p&gt;
+&lt;p&gt;If you’re interested in the details: for a distribution $F(x)$ with a tail $1 - F(x) \sim x^{-1/\gamma}L(x)$ as $x \to \infty$, where $L(x)$ is a slowly varying function (meaning $L(tx)/L(x) \to 1$ as $x \to \infty$ for any $t &amp;gt; 0$), the parameter $\gamma$ is the tail index or extreme value index (EVI). The relationship between the Hill estimator&amp;rsquo;s $\gamma$ and the power-law exponent $\alpha$ is simply: $\gamma = 1/(\alpha - 1)$.&lt;/p&gt;
+&lt;p&gt;Given a sorted sample $X_{(1)} \ge X_{(2)} \ge \dots \ge X_{(n)}$ (order statistics, from largest to smallest), the Hill estimator for the tail index $\gamma$ based on the $k$ largest order statistics is:&lt;/p&gt;
+&lt;p&gt;$$\hat{\gamma}_k = \frac{1}{k} \sum_{i=1}^{k} \log(X_{(i)}) - \log(X_{(k+1)})$$&lt;/p&gt;
 &lt;p&gt;Choice of $k$ (Number of Order Statistics): this is the most critical and challenging aspect of using the Hill estimator.&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Bias-Variance Trade-off: if $k$ is too small (e.g., only the very few largest values), the estimator has high variance (it&amp;rsquo;s unstable because it relies on too little data). If $k$ is too large, the estimator might include values that are not truly in the &amp;ldquo;tail region&amp;rdquo; where the power-law approximation holds, leading to bias.&lt;/li&gt;
-&lt;li&gt;Hill Plot: to address the choice of $k$, practitioners often create a Hill plot, which plots $\hat{\gamma}_k$ against $k$ (or $\log k$). The idea is to look for a &amp;ldquo;stable region&amp;rdquo; or &amp;ldquo;plateau&amp;rdquo; in the plot, where the estimate of $\gamma$ doesn&amp;rsquo;t change much as $k$ varies. This plateau suggests a range of $k$ values where the power-law assumption is valid and the estimator is relatively stable. However, identifying such a plateau can be subjective.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Bias-Variance Trade-off:&lt;/strong&gt; if $k$ is too small (e.g., only the very few largest values), the estimator has high variance (it’s unstable because it relies on too little data). If $k$ is too large, the estimator might include values that are not truly in the “tail region” where the power-law approximation holds, leading to bias.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Hill Plot:&lt;/strong&gt; to address the choice of $k$, practitioners often create a Hill plot, which plots $\hat{\gamma}_k$ against $k$ (or $\log k$). The idea is to look for a “stable region” or “plateau” in the plot, where the estimate of $\gamma$ doesn’t change much as $k$ varies. This plateau suggests a range of $k$ values where the power-law assumption is valid and the estimator is relatively stable. However, identifying such a plateau can be subjective.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Let us see the Hill Plot for our simulated LogNormal distribution with high variance.&lt;/p&gt;
 
 &lt;details&gt;
-    &lt;summary&gt;Hill Plot&lt;/summary&gt;
+    &lt;summary&gt;Hill plot&lt;/summary&gt;
     
     &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# --- Hill Estimator and Hill Plot ---&lt;/span&gt;
@@ -1712,20 +1724,20 @@ details summary:hover {
 
 &lt;figure  id=&#34;figure-hill-plot-for-a-high-variance-simulated-lognormal&#34;&gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
-    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;https://matteorg.github.io/images/variance_test/Hill.png&#34; alt=&#34;Hill plot&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;https://matteorg.github.io/images/variance_test/Hill.png&#34; alt=&#34;Hill Plot 1&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
   &lt;/div&gt;&lt;figcaption&gt;
       Hill Plot for a high-variance simulated LogNormal
     &lt;/figcaption&gt;&lt;/figure&gt;
 &lt;/p&gt;
 &lt;p&gt;Surprisingly - for me, at least - the Hill Plot in this case kind of shows a plateau consistently above 1. If the plateau is consistently above or around 1, it suggests infinite variance ($\gamma$ greater or equal than 1 implies $\alpha$ smaller or equal than 2) - even though we know that the data is drawn from a finite variance distribution! But again, as I said above, identifying a plateau is quite subjective&amp;hellip;&lt;/p&gt;
-&lt;h3 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h3&gt;
-&lt;p&gt;Navigating the &amp;ldquo;infinite variance&amp;rdquo; debate doesn&amp;rsquo;t mean you have to surrender your A/B test results to skepticism; it means you must shift from blind trust in the CLT to active tail diagnostics. By combining the visual intuition of Mean Stability Plots with the mathematical rigor of the Hill Estimator and Likelihood Ratio Tests, you can distinguish between a distribution that is simply &amp;ldquo;noisy&amp;rdquo; (log-normal) and one that is truly &amp;ldquo;pathological&amp;rdquo; (power-law). If your data proves to have finite variance, you’ve earned the right to stand by your p-values. If the skeptics are right and the variance is infinite, you haven&amp;rsquo;t failed—you’ve simply discovered that &amp;ldquo;average revenue&amp;rdquo; is the wrong metric to track, and it’s time to switch to more robust statistics like the median or winsorized means to tell the real story of your experiment.&lt;/p&gt;
-&lt;p&gt;Even when the &amp;ldquo;infinite variance&amp;rdquo; bogeyman is disproven, a distribution with a heavy (but finite) tail remains a nightmare for the standard &amp;ldquo;Normal&amp;rdquo; intuition.&lt;/p&gt;
-&lt;p&gt;In a world of Gaussian curves, the mean is the &amp;ldquo;typical&amp;rdquo; experience, and the standard deviation is a reliable ruler. But in a heavy-tailed revenue model, a &amp;ldquo;one standard deviation increase&amp;rdquo; is a mathematically valid but practically meaningless unit - it’s an abstraction driven by a few massive values that most of your users will never approach.&lt;/p&gt;
-&lt;p&gt;Using non-parametric tests (like Mann-Whitney U, Bootstrapping or Permutations) or robust statistics (like the Median or Trimmed Mean) becomes more useful here because they describe the experience of the typical user rather than a mathematical average skewed by a few outliers. Even if the CLT eventually kicks in, a $p$-value telling you the &amp;ldquo;means are different&amp;rdquo; might just be reflecting the fact that one group happened to have two whales while the other had one. Switching to rank-based or robust methods allows you to tell a much more honest story: &amp;ldquo;Our product change improved the experience for the 95% of users who aren&amp;rsquo;t whales,&amp;rdquo; which is often a far more actionable business insight than a fragile shift in a volatile mean.&lt;/p&gt;
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;Navigating the “infinite variance” debate doesn’t mean you have to surrender your A/B test results to skepticism; it means you must shift from blind trust in the CLT to active tail diagnostics. By combining the visual intuition of Mean Stability Plots with the mathematical rigor of the Hill Estimator and Likelihood Ratio Tests, you can distinguish between a distribution that is simply “noisy” (log-normal) and one that is truly “pathological” (power-law). If your data proves to have finite variance, you’ve earned the right to stand by your p-values. If the skeptics are right and the variance is infinite, you haven’t failed; you’ve simply discovered that “average revenue” is the wrong metric to track, and it’s time to switch to more robust statistics like the median or winsorized means to tell the real story of your experiment.&lt;/p&gt;
+&lt;p&gt;Even when the “infinite variance” bogeyman is disproven, a distribution with a heavy (but finite) tail remains a nightmare for the standard “Normal” intuition.&lt;/p&gt;
+&lt;p&gt;In a world of Gaussian curves, the mean is the “typical” experience, and the standard deviation is a reliable ruler. But in a heavy-tailed revenue model, a “one standard deviation increase” is a mathematically valid but practically meaningless unit - it’s an abstraction driven by a few massive values that most of your users will never approach.&lt;/p&gt;
+&lt;p&gt;Using non-parametric tests (like Mann-Whitney U, Bootstrapping or Permutations) or robust statistics (like the Median or Trimmed Mean) becomes more useful here because they describe the experience of the typical user rather than a mathematical average skewed by a few outliers. Even if the CLT eventually kicks in, a p-value telling you the “means are different” might just be reflecting the fact that one group happened to have two whales while the other had one. Switching to rank-based or robust methods allows you to tell a much more honest story: “Our product change improved the experience for the 95% of users who aren’t whales,” which is often a far more actionable business insight than a fragile shift in a volatile mean.&lt;/p&gt;
 &lt;p&gt;You can find the notebook with the full code &lt;a href=&#34;https://github.com/matteorg/posts/blob/main/investigate_high_variance.ipynb&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;h4 id=&#34;thank-you-for-reading&#34;&gt;Thank you for reading!&lt;/h4&gt;
-&lt;p&gt;&lt;strong&gt;Disclaimer&lt;/strong&gt;: &lt;em&gt;I write to learn, based on my background and personal experience. Errors are my own, and if you spot them, let me know! I also appreciate suggestions to investigate new topics!&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Disclaimer&lt;/strong&gt;: &lt;em&gt;I write to learn, based on my background and personal experience. Errors are my own, and if you spot them, let me know! I also appreciate suggestion to investigate new topics!&lt;/em&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -2864,7 +2876,7 @@ details summary:hover {
 &lt;h3 id=&#34;code&#34;&gt;Code&lt;/h3&gt;
 &lt;p&gt;You can find the notebook with the full code &lt;a href=&#34;https://github.com/matteorg/posts/blob/main/fat_tail_significance_effect_size.ipynb&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;h4 id=&#34;thank-you-for-reading&#34;&gt;Thank you for reading!&lt;/h4&gt;
-&lt;p&gt;&lt;strong&gt;Disclaimer&lt;/strong&gt;: &lt;em&gt;I write to learn, based on my background and personal experience. Errors are my own, and if you spot them, let me know! I also appreciate suggestions to investigate new topics!&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Disclaimer&lt;/strong&gt;: &lt;em&gt;I write to learn, based on my background and personal experience. Errors are my own, and if you spot them, let me know! I also appreciate suggestion to investigate new topics!&lt;/em&gt;&lt;/p&gt;
 </description>
     </item>
     

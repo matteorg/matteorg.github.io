@@ -2,22 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://matteorg.github.io/others/competition-economics/perfect-competition/</loc>
+    <loc>https://matteorg.github.io/other/competition-econ/perfect-competition/</loc>
     <lastmod>2026-03-05T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>https://matteorg.github.io/other/competition-econ/game-theory/</loc>
+    <lastmod>2026-03-14T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
     <loc>https://matteorg.github.io/archive/archived-home/demo-hero/</loc>
     <changefreq>weekly</changefreq>
   </url><url>
     <loc>https://matteorg.github.io/archive/archived-home/demo-links/</loc>
-    <changefreq>weekly</changefreq>
-  </url><url>
-    <loc>https://matteorg.github.io/others/competition-economics/game-theory/</loc>
-    <lastmod>2026-03-14T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-  </url><url>
-    <loc>https://matteorg.github.io/others/competition-economics/monopoly/</loc>
-    <lastmod>2026-03-20T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
     <loc>https://matteorg.github.io/archive/archived-home/experience/</loc>
@@ -51,19 +47,19 @@
     <lastmod>2030-06-01T13:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>https://matteorg.github.io/others/</loc>
-    <lastmod>2026-03-20T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-  </url><url>
     <loc>https://matteorg.github.io/post/</loc>
     <lastmod>2026-03-15T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>https://matteorg.github.io/post/beliefs-incorporated/</loc>
+    <loc>https://matteorg.github.io/post/effect-size-beliefs/</loc>
     <lastmod>2026-03-15T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>https://matteorg.github.io/others/competition-economics/</loc>
+    <loc>https://matteorg.github.io/other/</loc>
+    <lastmod>2026-03-14T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>https://matteorg.github.io/other/competition-econ/</loc>
     <lastmod>2026-02-26T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
@@ -204,9 +200,6 @@
     <changefreq>weekly</changefreq>
   </url><url>
     <loc>https://matteorg.github.io/admin/</loc>
-    <changefreq>weekly</changefreq>
-  </url><url>
-    <loc>https://matteorg.github.io/archive/wip/game-theory/</loc>
     <changefreq>weekly</changefreq>
   </url>
 </urlset>

@@ -1,9 +1,16 @@
 <!DOCTYPE html>
 <!-- This site was created with Wowchemy. https://www.wowchemy.com -->
-<!-- Last Published: March 20, 2026 --><html lang="en-us" >
+<!-- Last Published: June 27, 2026 --><html lang="en-us" >
 
 
 <head>
+  <script>
+    localStorage.setItem('wcTheme', '2'); 
+    localStorage.setItem('theme', '2'); 
+    document.documentElement.classList.add('dark');
+    document.documentElement.classList.remove('light');
+  </script>
+
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -215,7 +222,7 @@
   
   
   
-  <link rel="stylesheet" href="/css/wowchemy.4c408762c05ab01ed48a3dd2181f61dd.css" />
+  <link rel="stylesheet" href="/css/wowchemy.9ed6985494eb513174d23fd65748d841.css" />
 
   
   
@@ -252,7 +259,7 @@
   
     
     
-    <link rel="stylesheet" href="/css/libs/chroma/github-light.min.css" title="hl-light" media="print" onload="this.media='all'" >
+    <link rel="stylesheet" href="/css/libs/chroma/dracula.min.css" title="hl-light" media="print" onload="this.media='all'" >
     <link rel="stylesheet" href="/css/libs/chroma/dracula.min.css" title="hl-dark" media="print" onload="this.media='all'" disabled>
   
 
@@ -383,6 +390,34 @@
 
 
 
+  
+  <style>
+   
+  .fa-moon, .fa-sun, i.fas.fa-moon, i.fas.fa-sun,
+  a.js-set-theme-light, a.js-set-theme-dark, a.js-theme-selector, .js-theme-selector {
+      display: none !important; opacity: 0 !important; visibility: hidden !important; pointer-events: none !important; width: 0 !important; height: 0 !important; position: absolute !important; margin: 0 !important; padding: 0 !important;
+  }
+  li.nav-item:has(a.js-theme-selector), li.nav-item:has(.fa-moon), li.nav-item:has(.fa-sun) {
+      display: none !important; width: 0 !important; margin: 0 !important; padding: 0 !important;
+  }
+
+   
+  html.dark, html.dark body {
+      background-color: #22252a !important;
+      color: #e2e8f0 !important;
+  }
+
+   
+  html.dark .page-wrapper, 
+  html.dark .article-container, 
+  html.dark .main, 
+  html.dark .body,
+  html.dark footer {
+      background-color: #22252a !important;
+  }
+</style>
+
+  
 </head>
 
 
@@ -397,7 +432,7 @@
   
   
   
-  <script src="/js/wowchemy-init.min.ec9d49ca50e4b80bdb08f0417a28ed84.js"></script>
+  <script src="/js/wowchemy-init.min.3af5864bbbc12102f75c2e28505928b4.js"></script>
 
   
 
@@ -566,7 +601,7 @@
             </a>
             <div class="dropdown-menu">
               
-                <a class="dropdown-item" href="/others/competition-economics"><span>Competition Topics</span></a>
+                <a class="dropdown-item" href="/other/competition-econ"><span>Competition Theory</span></a>
               
             </div>
           </li>
@@ -591,6 +626,23 @@
 
         
         
+        
+        <li class="nav-item dropdown theme-dropdown">
+          <a href="#" class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-label="Display preferences">
+            <i class="fas fa-moon" aria-hidden="true"></i>
+          </a>
+          <div class="dropdown-menu">
+            <a href="#" class="dropdown-item js-set-theme-light">
+              <span>Light</span>
+            </a>
+            <a href="#" class="dropdown-item js-set-theme-dark">
+              <span>Dark</span>
+            </a>
+            <a href="#" class="dropdown-item js-set-theme-auto">
+              <span>Automatic</span>
+            </a>
+          </div>
+        </li>
         
 
         
@@ -668,13 +720,13 @@
   <div class="media-body">
 
     <div class="section-subheading article-title mb-0 mt-0">
-      <a href="/post/beliefs-incorporated/" >Power calculations revisited</a>
+      <a href="/post/effect-size-beliefs/" >Power calculations revisited</a>
     </div>
 
     
-    <a href="/post/beliefs-incorporated/"  class="summary-link">
+    <a href="/post/effect-size-beliefs/"  class="summary-link">
       <div class="article-style">
-        In the world of A/B testing, we are taught to worship at the altar of the Minimum Detectable Effect (MDE). We obsess over lowering variance and tightening our &ldquo;rulers&rdquo; to detect the smallest possible changes.
+        In the world of A/B testing, we are taught to worship at the altar of the Minimum Detectable Effect (MDE). We obsess over lowering variance and tightening our “rulers” to detect the smallest possible changes.
       </div>
     </a>
     
@@ -731,8 +783,8 @@
     
     
       
-      <a href="/post/beliefs-incorporated/" >
-        <img src="/post/beliefs-incorporated/featured_hu6d57171c60f80eb64d8bf3b849311957_168609_150x0_resize_q75_h2_lanczos_3.webp" height="131" width="150"
+      <a href="/post/effect-size-beliefs/" >
+        <img src="/post/effect-size-beliefs/featured_huf5b1b9a3eaf9f83aa2cdf47be0658e85_274064_150x0_resize_q75_h2_lanczos_3.webp" height="84" width="150"
             alt="Power calculations revisited" loading="lazy">
       </a>
     
@@ -767,7 +819,7 @@
     
     <a href="/post/variance-checks/"  class="summary-link">
       <div class="article-style">
-        &ldquo;Your A/B test is wrong.&rdquo; It’s the kind of feedback that stops a data scientist cold, especially when it comes from colleagues who know just enough about statistics to be dangerous.
+        &ldquo;Your A/B test is wrong.&rdquo; It&rsquo;s the kind of feedback that stops a data scientist cold, especially when it comes from colleagues who know just enough about statistics to be dangerous.
       </div>
     </a>
     
@@ -800,7 +852,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    24 min read
+    25 min read
   </span>
   
 
@@ -825,7 +877,7 @@
     
       
       <a href="/post/variance-checks/" >
-        <img src="/post/variance-checks/featured_huf8423bc7b3c46fad1594473641b8affe_54229_150x0_resize_q75_h2_lanczos.webp" height="97" width="150"
+        <img src="/post/variance-checks/featured_huec19806effa87f1bc03f0535f706d538_24624_150x0_resize_q75_h2_lanczos_3.webp" height="97" width="150"
             alt="Investigating High Variance Distributions" loading="lazy">
       </a>
     

@@ -1,0 +1,1806 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Competition Economics | Matteo Greco</title>
+    <link>https://matteorg.github.io/other/competition-econ/</link>
+      <atom:link href="https://matteorg.github.io/other/competition-econ/index.xml" rel="self" type="application/rss+xml" />
+    <description>Competition Economics</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Thu, 26 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://matteorg.github.io/media/icon_hufe0bf023893a36fd468464b12c9bc07d_11738_512x512_fill_lanczos_center_3.png</url>
+      <title>Competition Economics</title>
+      <link>https://matteorg.github.io/other/competition-econ/</link>
+    </image>
+    
+    <item>
+      <title>Perfect Competition</title>
+      <link>https://matteorg.github.io/other/competition-econ/perfect-competition/</link>
+      <pubDate>Thu, 05 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://matteorg.github.io/other/competition-econ/perfect-competition/</guid>
+      <description>&lt;h2 id=&#34;definition&#34;&gt;Definition&lt;/h2&gt;
+&lt;p&gt;I learned in class that: “An agent is said to be competitive if she assumes or believes that the market price is given and that her actions do not influence the market price.”&lt;/p&gt;
+&lt;p&gt;In oder words, think of a single wheat farmer in a world of millions. If she tries to sell her wheat for $\$1$ more than the going rate, nobody buys. If she sells it for $\$1$ less, she’s just leaving money on the table. She is a “price taker”, or otherwise said, the market is the boss.&lt;/p&gt;
+&lt;p&gt;In the real world, “Perfect Competition” almost never exists. It’s a theoretical North Star. We use it to measure how “broken” or “imperfect” a real market is. If a market isn’t acting like this benchmark, IO economists start looking for the “imperfections”.&lt;/p&gt;
+&lt;h2 id=&#34;pillars&#34;&gt;Pillars&lt;/h2&gt;
+&lt;p&gt;The main assumptions behind Perfect Competition are the following:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Price-Taking Behavior&lt;/strong&gt;: No single buyer or seller is big enough to nudge the price.
+&lt;ul&gt;
+&lt;li&gt;The Vibe: You are a drop in the ocean. If a wheat farmer doubles her production or quits entirely, the global price of wheat doesn’t move an inch. Everyone just reacts to the price “given” by the market.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Homogenous Goods&lt;/strong&gt;: Every single unit of the product is identical.
+&lt;ul&gt;
+&lt;li&gt;The Vibe: There is no “branding,” no “organic” vs. “regular,” and no “cool packaging.” If you can’t tell the difference between Farmer A’s corn and Farmer B’s corn, you will strictly buy the cheapest one. This kills a firm’s power to raise prices.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Perfectly Divisible Output&lt;/strong&gt;: You can buy or sell any tiny fraction of a product.
+&lt;ul&gt;
+&lt;li&gt;The Vibe: In this math-heavy world, you aren’t stuck buying “one whole car.” You can buy 0.00001 of a car or a single grain of sand. This ensures the math stays “smooth” and firms can adjust their production to the exact atom where profit is maximized.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Perfect Information &amp;amp; No Transaction Costs&lt;/strong&gt;: Everyone knows everything instantly, and it costs nothing to trade.
+&lt;ul&gt;
+&lt;li&gt;The Vibe: Consumers know every price at every store without looking. There are no “hidden fees”, no “searching for a deal”, and no “shipping costs”. If a store across town is 0.01 cheaper, you are there instantly and effortlessly.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;No Externalities&lt;/strong&gt;: The trade only affects the buyer and the seller.
+&lt;ul&gt;
+&lt;li&gt;The Vibe: There is no “third-party” drama. No pollution (a negative externality) and no bees pollinating a neighbor’s orchard (a positive externality). The price on the tag reflects the total cost to society.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Free Entry and Exit&lt;/strong&gt;: There are zero “Keep Out” signs.
+&lt;ul&gt;
+&lt;li&gt;The Vibe: If a lemonade stand is making a huge profit, you can start your own in one second for $\$0$. If you start losing money, you can quit instantly without losing a dime on rent or equipment. This keeps profits at exactly zero in the long run.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;main-learnings&#34;&gt;Main learnings&lt;/h2&gt;
+&lt;p&gt;When all six the above assumptions are true, we reach &lt;strong&gt;Pareto Efficiency&lt;/strong&gt;. This is a state where it is impossible to make one person better off without making someone else worse off. It’s the “Maximum Happiness” setting for an economy.&lt;/p&gt;
+&lt;p&gt;In what follows we’ll try to illustrate shortly how this equilibrium state materializes in simple mathematical and graphical terms.&lt;/p&gt;
+&lt;h2 id=&#34;short--and-long-run-equilibrium&#34;&gt;Short- and Long-Run Equilibrium&lt;/h2&gt;
+&lt;h3 id=&#34;supply-side&#34;&gt;Supply Side&lt;/h3&gt;
+&lt;p&gt;Let us start with the problem of the firm. Each firm wants to maximize its profit, intuitively defined as revenue net of costs.&lt;/p&gt;
+&lt;h4 id=&#34;costs&#34;&gt;Costs&lt;/h4&gt;
+&lt;p&gt;Types of costs:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Fixed cost ($FC$): The cost that doesn’t depend on the output level.
+&lt;ul&gt;
+&lt;li&gt;Examples of &lt;em&gt;explicit&lt;/em&gt; fixed costs:
+&lt;ul&gt;
+&lt;li&gt;Loan payments&lt;/li&gt;
+&lt;li&gt;rent&lt;/li&gt;
+&lt;li&gt;maintenance&lt;/li&gt;
+&lt;li&gt;part of the wage bill
+-etc.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;In the short run, most of these fixed costs are &lt;em&gt;sunk&lt;/em&gt;.
+&lt;span class=&#34;infotip-container&#34;&gt;
+    &lt;sup class=&#34;infotip-icon&#34;&gt;i&lt;/sup&gt;
+    &lt;span class=&#34;infotip-content&#34;&gt;A fixed cost is an expense that doesn&#39;t change with how much you produce (like the monthly rent). It becomes sunk when that money is committed and cannot be recovered through resale or cancellation (e.g. permits, legal contracts, specialized trainings for staff, etc.).&lt;/span&gt;
+&lt;/span&gt;
+
+&lt;style&gt;
+ 
+
+ 
+.infotip-container {
+    position: relative;      
+    display: inline-block;   
+    cursor: help;            
+    text-decoration: none;   
+}
+
+ 
+.infotip-icon {
+    font-size: 0.7em;            
+    vertical-align: super;       
+    border: 1px solid #777;      
+    border-radius: 50%;          
+    width: 1.2em;                
+    height: 1.2em;               
+    display: inline-flex;        
+    justify-content: center;     
+    align-items: center;         
+    line-height: 1;              
+    margin-left: 0.2em;          
+    color: #555;                 
+    background-color: #f0f0f0;   
+    font-weight: bold;
+    user-select: none;           
+    transition: background-color 0.2s ease, color 0.2s ease;  
+}
+
+.infotip-container:hover .infotip-icon {
+    background-color: #66d9ef;  
+    color: #fff;                 
+    border-color: #66d9ef;
+}
+
+ 
+.infotip-content {
+    font-size: 0.7em;
+    position: absolute;
+    bottom: calc(100% + 5px);  
+    left: 50%;  
+    transform: translateX(-50%);  
+    min-width: 250px;            
+    max-width: 350px;            
+    background-color: #444;      
+    color: #fff;                 
+    padding: 12px 18px;          
+    border-radius: 6px;          
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);  
+    z-index: 100;                
+
+    opacity: 0;                  
+    visibility: hidden;          
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;  
+
+     
+    &amp;::after {
+        content: &#39;&#39;;
+        position: absolute;
+        top: 100%;  
+        left: 50%;
+        transform: translateX(-50%);
+        border-width: 8px;
+        border-style: solid;
+        border-color: #333 transparent transparent transparent;  
+    }
+}
+
+ 
+.infotip-container:hover .infotip-content {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(-10px);  
+}
+&lt;/style&gt;&lt;/li&gt;
+&lt;li&gt;In the long run, if the business isn’t profitable, the firm for example simply doesn’t renew the lease. The cost disappears. This makes almost all costs &lt;em&gt;avoidable&lt;/em&gt; rather than sunk. This comes from the free exit assumption.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Implicit&lt;/em&gt; fixed costs: The firm owner’s “lost” salary and the “normal” return on the capital invested in the business (the &lt;em&gt;opportunity cost&lt;/em&gt;). Suppose that you own some land. You can either rent it out or do something with it (e.g. build a factory). When deciding whether to build your factory, you should take into account the opportunity cost of not renting out your land. Or suppose you leave your job to open a bakery: on top of the costs to start and operate the new business you should add the salary you’re giving up on as an implicit cost.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Variable cost ($VC$): That cost which would be zero if the output level were zero. Since it’s &lt;em&gt;variable&lt;/em&gt; by definition we can express it as a function of the quantity of output produced $Q$, $VC(Q)$. Examples include:
+&lt;ul&gt;
+&lt;li&gt;Inputs (cement, electricity, gravel, water, etc.)&lt;/li&gt;
+&lt;li&gt;Part of the wage bill&lt;/li&gt;
+&lt;li&gt;Taxes&lt;/li&gt;
+&lt;li&gt;Trucking&lt;/li&gt;
+&lt;li&gt;Fuel&lt;/li&gt;
+&lt;li&gt;etc.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Total cost ($TC$)&lt;/strong&gt;: $TC(Q) \equiv FC + VC(Q)$.
+&lt;ul&gt;
+&lt;li&gt;Total cost is usually higher in the short run because of inflexibility. In the short run, you are “stuck” with certain decisions (fixed inputs), whereas in the long run, you have the freedom to choose the most cost-effective combination of everything.&lt;/li&gt;
+&lt;li&gt;Economists often say the Long-Run Average Cost (LRAC) curve “envelopes” the Short-Run Average Cost (SRAC) curves (the &lt;strong&gt;Envelope Theorem&lt;/strong&gt;).
+&lt;ul&gt;
+&lt;li&gt;In the short run, you are forced to operate on one specific SRAC curve based on the factory size you already have.&lt;/li&gt;
+&lt;li&gt;In the long run, you can jump to the lowest point of whichever SRAC curve is most efficient for your desired production level.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;When it is cheaper for one single firm to produce two (or more) different products together than it is for two separate firms to produce them individually, we talk about &lt;strong&gt;Economies of scope&lt;/strong&gt;: given two products $A$ and $B$, $TC(Q_A, Q_B) &amp;lt; TC(Q_A, 0) + TC(0, Q_B)$
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;An airline example&lt;/strong&gt;: NYC to Paris (A) and Paris to NYC (B) flights. Why is it cheaper for one airline to do both?
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Avoided “Deadheading”&lt;/strong&gt;: If an airline only flew from NYC to Paris (Product A), the plane would be stuck in France. To fly it back empty just to start the next trip is incredibly expensive. By selling the return trip (Product B), the airline uses the same “input” (the plane and crew) to generate a second product.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Shared Fixed Assets&lt;/strong&gt;: One airline needs only one check-in counter at JFK and one at Charles de Gaulle to handle both flights. Two separate airlines would each need their own counters, staff, and landing slots.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Maintenance &amp;amp; Logistics&lt;/strong&gt;: A single airline can house its spare parts and mechanics in one hub to service the plane regardless of which leg of the trip it just finished.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Average cost ($AC$, also unit cost)&lt;/strong&gt;: $AC(Q) \equiv TC(Q)/Q$. Empirically, $AC(Q)$ is U-shaped, implying &lt;strong&gt;Economies of scale&lt;/strong&gt; for low $Q$, &lt;strong&gt;Diseconomies of scale&lt;/strong&gt; for high $Q$.
+&lt;ul&gt;
+&lt;li&gt;When a firm is small (low $Q$), increasing production usually makes the cost per unit drop. This happens for three main reasons:
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Spreading Fixed Costs&lt;/strong&gt;: Imagine renting a bakery for $\$1,000$ a month. If you bake 1 loaf of bread, that loaf costs $\$1,000$ in rent. If you bake 1,000 loaves, the rent cost per loaf drops to $\$1$.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Specialization&lt;/strong&gt;: In a small shop, one person does everything. As you grow, you can hire a specialist for the oven and a specialist for the dough. They get faster and better, reducing waste and time.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Technological Efficiencies&lt;/strong&gt;: Larger machines are often more efficient. A giant industrial oven uses less energy per loaf than ten tiny home ovens.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Eventually, if the firm keeps growing (high $Q$), the cost per unit starts to climb again. This isn’t usually because the machines break, but because of human and organizational limits:
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Managerial Complexity&lt;/strong&gt;: When a company gets massive, it needs “managers to manage the managers.” Communication slows down, and paperwork piles up. This is often called “Bureaucratic Congestion”.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Coordination Failure&lt;/strong&gt;: In a huge factory, the left hand might not know what the right hand is doing. Miscommunications lead to expensive mistakes and idle time.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Worker Alienation&lt;/strong&gt;: In a tiny shop, everyone is motivated. In a massive corporation, an individual worker might feel like a “cog in the machine,” leading to lower effort or the need for expensive supervisors to keep them on task.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Marginal cost ($MC$): the cost of one additional unit. $MC(Q) = \frac{dTC}{dQ}$.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Assume that $AC(Q)$ is U-shaped. Then, $MC(Q)$ crosses $AC(Q)$ at minimum average cost level. To grasp the intuition, think of a coffee shop making cappuccinos:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Decreasing $AC$&lt;/strong&gt;: The first few cappucinos are expensive because of the mortgage. $AC$ might be $\$5.00$. Then you’re done paying mortgage and the next latte only costs you $\$1.00$ ($MC$) in milk and beans, your new $AC$ will drop (say, to $\$4.00$).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Increasing $AC$&lt;/strong&gt;: Eventually, the shop gets too crowded. You have to pay workers “overtime” or buy a second, less efficient machine. Now, the additional cappucino costs you $\$6.00$ to make. Because $\$6.00$ is higher than the current average, it “drags” the average up.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;details&gt;
+  &lt;summary&gt;&lt;b&gt;Proof&lt;/b&gt;&lt;/summary&gt;
+&lt;p&gt;Let $\hat{Q}$ the output that minimizes $AC$:&lt;/p&gt;
+&lt;p&gt;$$
+\left. \frac{dAC(Q)}{dQ} \right|_{Q=\hat{Q}} = 0
+$$&lt;/p&gt;
+&lt;p&gt;Since:&lt;/p&gt;
+&lt;p&gt;$$
+\frac{dAC(Q)}{dQ} = \frac{d(TC(Q)/Q)}{dQ} = \frac{(dTC(Q)/dQ)Q - TC(Q)}{dQ^2}
+$$&lt;/p&gt;
+&lt;p&gt;$\hat{Q}$ solves:&lt;/p&gt;
+&lt;p&gt;$$
+\frac{(dTC(Q)/dQ)Q - TC(Q)}{dQ^2} = 0 \iff (dTC(Q)/dQ)Q - TC(Q) = 0
+$$&lt;/p&gt;
+&lt;p&gt;Rearranging terms we get:&lt;/p&gt;
+&lt;p&gt;$$
+MC(\hat{Q}) = \left. \frac{dTC(Q)}{dQ} \right|_{Q=\hat{Q}} = \frac{TC(\hat{Q})}{\hat{Q}} = AC(\hat{Q})
+$$&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-ac-and-mc-curves&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;https://matteorg.github.io/images/comp-econ/perfect-competition/acmc.png&#34; alt=&#34;AC-MC Curves&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      AC and MC curves.
+    &lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;/details&gt;
+&lt;h4 id=&#34;profit-maximizing-decision&#34;&gt;Profit Maximizing Decision&lt;/h4&gt;
+&lt;p&gt;Each firms tries to maximize the difference between revenue and costs. Formally they solve:&lt;/p&gt;
+&lt;p&gt;$$
+\max_{Q} \pi(Q) \equiv PQ - TC(Q)
+$$&lt;/p&gt;
+&lt;p&gt;where revenue is obviously given by multiplying the quantity of product sold times its price $P$. Note that in this case I did not write $P(Q)$ as under Perfect Competition assumptions the price is taken as given.&lt;/p&gt;
+&lt;p&gt;The optimal level $Q^*$ will be such that $P = MC(Q^*)$. However, as we just said before that with a U-shaped $AC$ curve the $MC$ curve will cross the $AC$ one at $AC$ minimum, for decreasing $AC$ the $MC$ will be lower than the $AC$. Producing at $MC &amp;lt; AC$ would cause a firm to lose money!&lt;/p&gt;
+&lt;p&gt;This is clear if you look at how we can reformulate profits at the optimum:&lt;/p&gt;
+&lt;p&gt;$$
+\pi(Q^*) \equiv MC(Q^*)Q^* - TC(Q^*) \equiv Q^*(MC(Q^*) - AC(Q^*))
+$$&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Implication&lt;/strong&gt;: the firm chooses $Q = 0$. Therefore, the aggregate supply curve will look like this:&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-aggregate-supply-curve&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;https://matteorg.github.io/images/comp-econ/perfect-competition/agg-supply.png&#34; alt=&#34;Aggregate Supply&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      Aggregate supply curve.
+    &lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;h3 id=&#34;demand-side&#34;&gt;Demand side&lt;/h3&gt;
+&lt;p&gt;In the world of microeconomics, deriving the aggregate demand curve is essentially a giant “summing up” exercise. While it feels intuitive that prices and quantities have an inverse relationship, the formal derivation relies on individual optimization.&lt;/p&gt;
+&lt;p&gt;To get to the aggregate level, we start with the individual consumer. We assume each consumer $i$ maximizes their utility $U_i$ subject to a budget constraint $I_i$.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Individual Demand&lt;/strong&gt;: Through the process of constrained optimization (usually using Lagrange multipliers), we derive the Marshallian Demand for an individual: $q_i(P, I)$.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Horizontal Summation&lt;/strong&gt;: The aggregate demand $Q(P)$ is the sum of all individual quantities demanded at every possible price point. Mathematically:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+Q(P) = \sum_{i=1}^{n} q_i(P, I_i)
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;The Inverse Function&lt;/strong&gt;: Once we have $Q(P)$, we invert it to get $P(Q)$. This represents the &lt;em&gt;willingness to pay&lt;/em&gt; for the last unit produced in the market. Since $Q(P)$ is typically monotonic, the inverse $P(Q)$ inherits the downward slope ($P&amp;rsquo;(Q) &amp;lt; 0$).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;downward-slopealways&#34;&gt;Downward slope…always?&lt;/h4&gt;
+&lt;p&gt;The short answer is: &lt;em&gt;“Usually, but not always”&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;In most cases, the &lt;strong&gt;Law of Demand&lt;/strong&gt; holds because of two forces working in the same direction:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Substitution Effect&lt;/strong&gt;: When price rises, consumers switch to cheaper alternatives.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Income Effect&lt;/strong&gt;: When price rises, your purchasing power drops. For normal goods, this leads you to buy less.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;However, there are two famous exceptions where the demand curve can actually slope &lt;strong&gt;upward&lt;/strong&gt;:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Giffen Goods&lt;/strong&gt;: A Giffen good is an extreme type of &lt;strong&gt;inferior&lt;/strong&gt; good. For these goods, the negative income effect is so strong that it outweighs the substitution effect. If the price of a staple (like bread or rice for someone in extreme poverty) rises, the consumer is so much “poorer” that they can no longer afford meat, forcing them to buy more bread to survive.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Veblen Goods (Conspicuous Consumption)&lt;/strong&gt;: These are luxury items where the high price is part of the appeal (e.g., designer handbags, high-end watches). Here, the price acts as a signal of status. If the price drops, the “snob appeal” vanishes, and demand might actually decrease.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;price-elasticity-of-demand&#34;&gt;Price elasticity of demand&lt;/h4&gt;
+&lt;p&gt;In Perfect Competition, we assume the aggregate demand curve is downward sloping for the &lt;em&gt;entire industry&lt;/em&gt;. However, because an individual firm is a price taker, the demand curve that &lt;em&gt;a specific firm&lt;/em&gt; sees is perfectly elastic (horizontal). They can sell as much as they want at the market price, but nothing above it.&lt;/p&gt;
+&lt;p&gt;As a recap, what is the price elasticity of demand? It is the percentage change in demand which results from a 1% change in price, or:&lt;/p&gt;
+&lt;p&gt;$$
+\varepsilon_D(P) \equiv -\frac{dQ}{dP}\frac{P}{Q} = -\frac{dQ/Q}{dP/P} \approx -\frac{\Delta Q/Q}{\Delta P/P}
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;$\varepsilon_D(P) &amp;gt; 1$: Demand is elastic (at price $P$), i.e., consumers are quite price sensitive.&lt;/li&gt;
+&lt;li&gt;$\varepsilon_D(P) = 1$: Demand is unit elastic.&lt;/li&gt;
+&lt;li&gt;$\varepsilon_D(P) &amp;lt; 1$: Demand is inelastic, i.e. consumers do not respond much to price changes.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;A word of caution&lt;/strong&gt;: Demand elasticity is a &lt;strong&gt;local&lt;/strong&gt; concept, not a global one. No reason to expect $\varepsilon_D(P_1)$ and $\varepsilon_D(P_2)$ to be equal.&lt;/p&gt;
+&lt;h3 id=&#34;equilibrium&#34;&gt;Equilibrium&lt;/h3&gt;
+&lt;p&gt;In the &lt;strong&gt;short run&lt;/strong&gt;, the number of firms is fixed. The Perfect Competition equilibrium lies at the intersection of demand and supply curves. If $P^*$ is above firms’ average costs, firms make profits. In the &lt;strong&gt;long run&lt;/strong&gt; there is free entry/exit:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Because of free entry, firms make zero profit in the long run: $P = AC$.&lt;/li&gt;
+&lt;li&gt;We still have $P = MC$ for each firm.&lt;/li&gt;
+&lt;li&gt;$MC = AC \implies$ The long-run supply curve is horizontal: $P = P_{LR}$, where $P_{LR} = \min_q AC(q)$.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-short-run-vs-long-run-equilibrium&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;https://matteorg.github.io/images/comp-econ/perfect-competition/equilibrium.png&#34; alt=&#34;Equilibrium&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      Short Run vs Long Run equilibrium.
+    &lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;This diagram is a classic economics illustration showing how a market moves from a short-term “shock” back to long-term equilibrium in a perfectly competitive market.&lt;/p&gt;
+&lt;p&gt;On the left, we see what happens to a single firm; on the right, we see the entire market.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;The Starting Point ($D_1$ and $S_1$)&lt;/strong&gt;: Initially, the market is in equilibrium where the black lines $D_1$ and $S_1$ intersect. The price is at $P^{LR}$ (the Long Run price). At this price, the individual firm is producing at $q^{LR}$, which is the bottom of their Average Cost ($AC$) curve.
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Key takeaway&lt;/strong&gt;: At this point, firms are making “zero economic profit”; they are covering all costs, but there’s no “extra” money attracting new competitors.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;The Short-Run Shift ($D_2$)&lt;/strong&gt;: Something happens (like a surge in popularity for a product) that shifts the demand curve from $D_1$ to $D_2$ (the orange line).
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;In the Market&lt;/strong&gt;: The price jumps up to $P^{SR}$.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;For the Firm&lt;/strong&gt;: The firm sees this higher price and follows its Marginal Cost ($MC$) curve up to produce more ($q^{SR}$).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;The Result&lt;/strong&gt;: Because the price ($P^{SR}$) is now higher than the Average Cost ($AC$), the firm is making positive economic profit.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;The Long-Run Adjustment ($S_2$)&lt;/strong&gt;: In a perfectly competitive market, profit acts like a giant “Open” sign for new businesses.
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Entry&lt;/strong&gt;: Seeing the extra profit, new firms enter the market.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Supply Shifts&lt;/strong&gt;: As more firms enter, the market supply curve shifts to the right ($S_1 \rightarrow S_2$).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Price Drops&lt;/strong&gt;: The increased supply pushes the market price back down until it hits $P^{LR}$ again.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;You can see this happening by playing around with the animated illustration below:
+&lt;div class=&#34;pc-widget-wrapper&#34;&gt;
+  &lt;style&gt;
+    .pc-widget-wrapper {
+      font-family: system-ui, -apple-system, sans-serif;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 24px;
+      margin: 2rem 0;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      max-width: 100%;
+    }
+    .pc-controls {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 24px;
+      background: #f8fafc;
+      padding: 16px;
+      border-radius: 8px;
+    }
+    .pc-control-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .pc-control-header {
+      display: flex;
+      justify-content: space-between;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: #334155;
+    }
+    .pc-slider {
+      width: 100%;
+      accent-color: #3b82f6;
+    }
+    .pc-charts-container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+    @media (min-width: 768px) {
+      .pc-charts-container {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    .pc-chart-box {
+      position: relative;
+      width: 100%;
+      background: white;
+      border: 1px solid #f1f5f9;
+      border-radius: 8px;
+      padding: 12px;
+    }
+    .pc-chart-title {
+      text-align: center;
+      font-weight: bold;
+      color: #1e293b;
+      margin-bottom: 12px;
+      font-size: 1.1rem;
+    }
+    .pc-canvas-container {
+      position: relative;
+      height: 350px;
+      width: 100%;
+    }
+    .pc-status {
+      text-align: center;
+      padding: 12px;
+      margin-top: 16px;
+      background: #eff6ff;
+      color: #1e40af;
+      border-radius: 8px;
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+  &lt;/style&gt;
+
+  
+  &lt;script src=&#34;https://cdn.jsdelivr.net/npm/chart.js&#34;&gt;&lt;/script&gt;
+
+  &lt;div class=&#34;pc-controls&#34;&gt;
+    &lt;div class=&#34;pc-control-group&#34;&gt;
+      &lt;div class=&#34;pc-control-header&#34;&gt;
+        &lt;span&gt;1. Short-Run Shock: Demand Shift&lt;/span&gt;
+        &lt;span id=&#34;demand-val&#34;&gt;Normal&lt;/span&gt;
+      &lt;/div&gt;
+      &lt;input type=&#34;range&#34; id=&#34;demand-slider&#34; class=&#34;pc-slider&#34; min=&#34;0&#34; max=&#34;10&#34; step=&#34;0.1&#34; value=&#34;0&#34;&gt;
+    &lt;/div&gt;
+    
+    &lt;div class=&#34;pc-control-group&#34;&gt;
+      &lt;div class=&#34;pc-control-header&#34;&gt;
+        &lt;span&gt;2. Long-Run Adjustment: New Firms Entry (Supply Shift)&lt;/span&gt;
+        &lt;span id=&#34;supply-val&#34;&gt;Stable&lt;/span&gt;
+      &lt;/div&gt;
+      &lt;input type=&#34;range&#34; id=&#34;supply-slider&#34; class=&#34;pc-slider&#34; min=&#34;0&#34; max=&#34;10&#34; step=&#34;0.1&#34; value=&#34;0&#34;&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&#34;pc-charts-container&#34;&gt;
+    &lt;div class=&#34;pc-chart-box&#34;&gt;
+      &lt;div class=&#34;pc-chart-title&#34;&gt;Market (Aggregate)&lt;/div&gt;
+      &lt;div class=&#34;pc-canvas-container&#34;&gt;
+        &lt;canvas id=&#34;marketChart&#34;&gt;&lt;/canvas&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&#34;pc-chart-box&#34;&gt;
+      &lt;div class=&#34;pc-chart-title&#34;&gt;Individual Firm&lt;/div&gt;
+      &lt;div class=&#34;pc-canvas-container&#34;&gt;
+        &lt;canvas id=&#34;firmChart&#34;&gt;&lt;/canvas&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div id=&#34;pc-status-msg&#34; class=&#34;pc-status&#34;&gt;
+    Market is in Long-Run Equilibrium (Zero Economic Profit)
+  &lt;/div&gt;
+
+  &lt;script type=&#34;module&#34;&gt;
+    
+    const demandSlider = document.getElementById(&#39;demand-slider&#39;);
+    const supplySlider = document.getElementById(&#39;supply-slider&#39;);
+    const demandVal = document.getElementById(&#39;demand-val&#39;);
+    const supplyVal = document.getElementById(&#39;supply-val&#39;);
+    const statusMsg = document.getElementById(&#39;pc-status-msg&#39;);
+
+    let marketChartInstance = null;
+    let firmChartInstance = null;
+
+    
+    
+    
+    
+    
+    
+    function calculateEquilibrium(dShift, sShift) {
+      
+      const P_star = 10 + (0.5 * dShift) - (0.5 * sShift);
+      const Q_market = 100 + (5 * dShift) + (5 * sShift);
+      
+      
+      
+      const discriminant = 64 - 2.4 * (30 - P_star);
+      let Q_firm = 10;
+      if (discriminant &gt;= 0) {
+        Q_firm = (8 + Math.sqrt(discriminant)) / 1.2;
+      }
+
+      const AC_at_Q = 0.2 * Math.pow(Q_firm - 10, 2) + 10;
+      const profitPerUnit = P_star - AC_at_Q;
+      const totalProfit = profitPerUnit * Q_firm;
+
+      return { P_star, Q_market, Q_firm, AC_at_Q, totalProfit };
+    }
+
+    
+    function generateMarketData(dShift, sShift) {
+      const qValues = Array.from({length: 25}, (_, i) =&gt; i * 10); 
+      const dLine = qValues.map(q =&gt; ({ x: q, y: Math.max(0, (20 + dShift) - 0.1 * q) }));
+      const sLine = qValues.map(q =&gt; ({ x: q, y: Math.max(0, (0 - sShift) + 0.1 * q) }));
+      return { dLine, sLine };
+    }
+
+    function generateFirmData(P_star) {
+      const qValues = Array.from({length: 40}, (_, i) =&gt; i * 0.5); 
+      const acLine = qValues.map(q =&gt; ({ x: q, y: 0.2 * Math.pow(q - 10, 2) + 10 }));
+      const mcLine = qValues.map(q =&gt; ({ x: q, y: 0.6 * Math.pow(q, 2) - 8 * q + 30 }));
+      const pLine = qValues.map(q =&gt; ({ x: q, y: P_star }));
+      return { acLine, mcLine, pLine };
+    }
+
+    
+    const profitBoxPlugin = {
+      id: &#39;profitBox&#39;,
+      beforeDraw: (chart) =&gt; {
+        if (chart.canvas.id !== &#39;firmChart&#39;) return;
+        
+        const { ctx, chartArea, scales } = chart;
+        const x = scales.x;
+        const y = scales.y;
+        
+        
+        const profitData = chart.config.options.plugins.profitBox.data;
+        if (!profitData || profitData.profit &lt;= 0.01) return; 
+
+        ctx.save();
+        ctx.fillStyle = &#39;rgba(34, 197, 94, 0.2)&#39;; 
+        ctx.strokeStyle = &#39;rgba(34, 197, 94, 0.8)&#39;;
+        ctx.lineWidth = 1;
+
+        const startX = x.getPixelForValue(0);
+        const endX = x.getPixelForValue(profitData.Q_firm);
+        const topY = y.getPixelForValue(profitData.P_star);
+        const bottomY = y.getPixelForValue(profitData.AC);
+
+        
+        ctx.fillRect(startX, topY, endX - startX, bottomY - topY);
+        ctx.strokeRect(startX, topY, endX - startX, bottomY - topY);
+
+        
+        ctx.fillStyle = &#39;#166534&#39;; 
+        ctx.font = &#39;bold 12px sans-serif&#39;;
+        ctx.textAlign = &#39;center&#39;;
+        ctx.textBaseline = &#39;middle&#39;;
+        ctx.fillText(&#39;PROFIT&#39;, startX + (endX - startX)/2, topY + (bottomY - topY)/2);
+
+        ctx.restore();
+      }
+    };
+
+    Chart.register(profitBoxPlugin);
+
+    
+    function initCharts() {
+      const mCtx = document.getElementById(&#39;marketChart&#39;).getContext(&#39;2d&#39;);
+      const fCtx = document.getElementById(&#39;firmChart&#39;).getContext(&#39;2d&#39;);
+
+      const commonOptions = {
+        responsive: true,
+        maintainAspectRatio: false,
+        animation: { duration: 400, easing: &#39;easeOutQuart&#39; },
+        scales: {
+          x: { type: &#39;linear&#39;, min: 0, title: { display: true, text: &#39;Quantity (Q)&#39; } },
+          y: { type: &#39;linear&#39;, min: 0, title: { display: true, text: &#39;Price ($)&#39; } }
+        },
+        plugins: {
+          legend: { position: &#39;bottom&#39;, labels: { usePointStyle: true, boxWidth: 8 } }
+        }
+      };
+
+      marketChartInstance = new Chart(mCtx, {
+        type: &#39;scatter&#39;,
+        data: { datasets: [] },
+        options: {
+          ...commonOptions,
+          scales: { ...commonOptions.scales, x: { ...commonOptions.scales.x, max: 240 }, y: { ...commonOptions.scales.y, max: 30 } }
+        }
+      });
+
+      firmChartInstance = new Chart(fCtx, {
+        type: &#39;scatter&#39;,
+        data: { datasets: [] },
+        options: {
+          ...commonOptions,
+          scales: { ...commonOptions.scales, x: { ...commonOptions.scales.x, max: 20 }, y: { ...commonOptions.scales.y, max: 20 } },
+          plugins: { ...commonOptions.plugins, profitBox: { data: null } }
+        }
+      });
+
+      updateSimulation();
+    }
+
+    function updateSimulation() {
+      const dShift = parseFloat(demandSlider.value);
+      const sShift = parseFloat(supplySlider.value);
+
+      
+      if (dShift === 0) demandVal.innerText = &#34;Normal&#34;;
+      else if (dShift &lt; 5) demandVal.innerText = &#34;Increasing...&#34;;
+      else demandVal.innerText = &#34;High Shock&#34;;
+
+      if (sShift === 0) supplyVal.innerText = &#34;Stable&#34;;
+      else if (sShift &lt; 5) supplyVal.innerText = &#34;Entering...&#34;;
+      else supplyVal.innerText = &#34;Fully Adjusted&#34;;
+
+      const eq = calculateEquilibrium(dShift, sShift);
+
+      
+      if (eq.totalProfit &gt; 0.1) {
+         statusMsg.innerHTML = `&lt;strong&gt;Short-Run Dynamics:&lt;/strong&gt; Market Price is $${eq.P_star.toFixed(2)}. Firms are making economic profit, which will attract new entrants!`;
+         statusMsg.style.backgroundColor = &#39;#fef3c7&#39;; // amber-50
+         statusMsg.style.color = &#39;#92400e&#39;;
+      } else if (eq.totalProfit &lt; -0.1) {
+         statusMsg.innerHTML = `&lt;strong&gt;Warning:&lt;/strong&gt; Price is below average cost. Firms are making losses and will exit.`;
+         statusMsg.style.backgroundColor = &#39;#fee2e2&#39;; // red-50
+         statusMsg.style.color = &#39;#991b1b&#39;;
+      } else {
+         statusMsg.innerHTML = `&lt;strong&gt;Long-Run Equilibrium:&lt;/strong&gt; Price is $${eq.P_star.toFixed(2)}. Zero economic profit. Market is stable.`;
+         statusMsg.style.backgroundColor = &#39;#eff6ff&#39;; // blue-50
+         statusMsg.style.color = &#39;#1e40af&#39;;
+      }
+
+      
+      const mData = generateMarketData(dShift, sShift);
+      marketChartInstance.data = {
+        datasets: [
+          { label: &#39;Demand (D)&#39;, data: mData.dLine, borderColor: &#39;#ef4444&#39;, backgroundColor: &#39;#ef4444&#39;, showLine: true, pointRadius: 0, borderWidth: 3 },
+          { label: &#39;Supply (S)&#39;, data: mData.sLine, borderColor: &#39;#3b82f6&#39;, backgroundColor: &#39;#3b82f6&#39;, showLine: true, pointRadius: 0, borderWidth: 3 },
+          { label: &#39;Equilibrium&#39;, data: [{x: eq.Q_market, y: eq.P_star}], backgroundColor: &#39;#1e293b&#39;, pointRadius: 6 }
+        ]
+      };
+      marketChartInstance.update();
+
+      
+      const fData = generateFirmData(eq.P_star);
+      firmChartInstance.config.options.plugins.profitBox.data = {
+        P_star: eq.P_star, Q_firm: eq.Q_firm, AC: eq.AC_at_Q, profit: eq.totalProfit
+      };
+      
+      firmChartInstance.data = {
+        datasets: [
+          { label: &#39;Marginal Cost (MC)&#39;, data: fData.mcLine, borderColor: &#39;#f59e0b&#39;, backgroundColor: &#39;#f59e0b&#39;, showLine: true, pointRadius: 0, borderWidth: 2 },
+          { label: &#39;Average Cost (AC)&#39;, data: fData.acLine, borderColor: &#39;#10b981&#39;, backgroundColor: &#39;#10b981&#39;, showLine: true, pointRadius: 0, borderWidth: 2 },
+          { label: &#39;Market Price (P=MR)&#39;, data: fData.pLine, borderColor: &#39;#94a3b8&#39;, borderDash: [5, 5], showLine: true, pointRadius: 0, borderWidth: 2 },
+          { label: &#39;Optimum (P=MC)&#39;, data: [{x: eq.Q_firm, y: eq.P_star}], backgroundColor: &#39;#1e293b&#39;, pointRadius: 6 }
+        ]
+      };
+      firmChartInstance.update();
+    }
+
+    
+    demandSlider.addEventListener(&#39;input&#39;, updateSimulation);
+    supplySlider.addEventListener(&#39;input&#39;, updateSimulation);
+
+    
+    initCharts();
+  &lt;/script&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;h4 id=&#34;efficiency-of-perfect-competition&#34;&gt;Efficiency of Perfect Competition&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;Productive efficiency&lt;/strong&gt; occurs because competition is so fierce that firms are forced to produce at the lowest possible cost per unit just to survive. If they don’t, they’ll be undercut by someone who does.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;First welfare theorem&lt;/strong&gt;: Perfect competition maximizes social welfare (or, perfect competition ensures allocative efficiency).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Social welfare = consumer surplus + producer surplus&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Graphically the allocative efficiency with the maximum social welfare given by $PS$ (producer surplus) and $CS$ (consumer surplus) can be represented as follows:&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-social-welfare-maximized&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;https://matteorg.github.io/images/comp-econ/perfect-competition/welfare.png&#34; alt=&#34;Surplus&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      Social welfare maximized.
+    &lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;h4 id=&#34;consumer-surplus&#34;&gt;Consumer Surplus&lt;/h4&gt;
+&lt;p&gt;In economics, we assume people only trade when it makes them better off (or at least no worse off).&lt;/p&gt;
+&lt;p&gt;If a consumer’s Willingness to Pay (WTP) is lower than the equilibrium market price $P^*$, the transaction doesn’t happen.&lt;/p&gt;
+&lt;p&gt;If you look at the Market Demand curve ($D$) from above, the line continues to the right of the equilibrium points $Q^*$:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;The bargain hunters (left of $Q^*$)&lt;/strong&gt;: these are the consumers whose WTP is higher than $P^*$. They buy the product and enjoy the Consumer Surplus.
+&lt;ul&gt;
+&lt;li&gt;Consumer surplus is the “deal” you get as a shopper. The demand curve ($D$) represents the &lt;strong&gt;maximum price&lt;/strong&gt; consumers are willing to pay for each unit. If you were willing to pay $\$10$ for a coffee, but the market price ($P^*$) is only $\$4$, you just “gained” $\$6$ in value.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;The excluded (right of $Q^*$)&lt;/strong&gt;: these are the consumers represented by the part of the demand curve that is below the $P^*$ line.
+&lt;ul&gt;
+&lt;li&gt;For these people, the cost ($P^*$) is higher than the value they place on the good. Buying it would actually result in “negative surplus” (a loss of utility), so they simply do not participate in the market.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Why does this matters for &lt;strong&gt;efficiency&lt;/strong&gt;? Perfect Competition is considered &lt;em&gt;efficient&lt;/em&gt; because it ensures that every person who values the good more than it costs to make (WTP &amp;gt; MC) gets to buy it. The people “not buying” are &lt;strong&gt;not&lt;/strong&gt; a sign of failure; they are a sign of efficient allocation. It wouldn’t make sense for society to use scarce resources to make a product for someone who values it less than the cost of the resources used to create it.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;A Real-World Intuition&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Imagine a concert ticket costs $\$100$:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Consumer A loves the band and would have paid $\$500$. He buys it and feels like he “made” $\$400$ (Consumer Surplus).&lt;/li&gt;
+&lt;li&gt;Consumer B thinks the band is okay and would pay exactly $\$100$. She buys it but has $\$0$ surplus.&lt;/li&gt;
+&lt;li&gt;Consumer C only likes one song and would only pay $\$40$. He sees the $\$100$ price tag and walks away. He is in the “right side of the curve.”&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;producer-surplus&#34;&gt;Producer Surplus&lt;/h4&gt;
+&lt;p&gt;Why does this matters for &lt;em&gt;producer surplus&lt;/em&gt; when firms make zero profits in the long run? Think about how we defined &lt;em&gt;implicit&lt;/em&gt; fixed costs before. Then the following distinction becomes clearer:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Producer Surplus&lt;/strong&gt; = Total Revenue - Total Variable Costs.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Economic Profit&lt;/strong&gt; = Total Revenue - Total (Variable + Fixed) Costs.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;So in summary:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The Supply Curve ($S$) is the sum of everyone’s $MC$.&lt;/li&gt;
+&lt;li&gt;The Producer Surplus is the “extra” money above &lt;em&gt;variable&lt;/em&gt; costs.&lt;/li&gt;
+&lt;li&gt;In the Long Run, all that “extra” money is exactly enough to cover the Explicit Fixed Costs + Opportunity Costs of all the firms in the market.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In Perfect Competition recall that all firms have the same $AC$:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;We assume all firms have access to the same technology and pay the same prices for inputs (like electricity and labor).&lt;/li&gt;
+&lt;li&gt;If one firm had a “secret” lower $AC$, they would dominate the market, or other firms would copy them until everyone had that same low $AC$.&lt;/li&gt;
+&lt;li&gt;Therefore, in the LR equilibrium, every single firm is “cloned” at the same size ($q^{LR}$), producing at the same minimum cost.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;But then how do we interpret left or right of $Q^*$ for the supply side? In the Market Graph (the one with $S$ and $D$ curves):&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Firms to the left of $Q^*$&lt;/strong&gt;: These represent the “first” units produced. For the very first unit produced in the market, the Marginal Cost is very low (at the start of the $MC$ curve). However, the market price $P^*$ is much higher.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Producer Surplus vs. Profit&lt;/strong&gt;: That gap between the market price and the low marginal cost of the “early” units is the Producer Surplus.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;The Bottom Line&lt;/strong&gt;: At the equilibrium $Q^*$, the last unit produced costs exactly $P^*$ to make. For that last unit, surplus is zero. But for all the units before it, the firm was selling them for $P^*$ even though their marginal cost was lower.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In the Long Run, the Producer Surplus is exactly equal to the total Fixed Costs the firms have to pay to exist. They aren’t “taking home” the surplus as extra cash; they are using it to pay for their factories and equipment, and to compensate the opportunity cost, so that their final profit ends up at zero.&lt;/p&gt;
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;While Perfect Competition provides a beautiful, “frictionless” benchmark where efficiency is maximized and prices are fair, it is ultimately a theoretical ideal, or the economic equivalent of studying physics in a vacuum. In the real world, brands matter, information is messy, and big firms often have the power to dictate terms. By mastering this benchmark, you’ve learned what a “perfect” market looks like; now, the real fun of Competition Economics begins as we add back the layers of reality. We move from a world where firms are passive “price-takers” to one where they are strategic players, using everything from game theory to clever marketing to carve out their own piece of the pie.&lt;/p&gt;
+&lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
+&lt;p&gt;Much of what you’ll read comes from personal notes or course slides from Industrial Organization and Game Theory courses I attended during my BS and MS at Bocconi University and PhD at the University of Zurich, plus other freely available material.&lt;/p&gt;
+&lt;p&gt;The most common references are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Cabral, L. (2017). Introduction to Industrial Organization (2nd ed.). MIT Press.&lt;/li&gt;
+&lt;li&gt;Motta, M., Competition Policy, Theory and Practice, Cambridge University Press, lastest edition.&lt;/li&gt;
+&lt;li&gt;Belleflamme P., Peitz M., Industrial Organization, Markets and Strategies, Cambridge University Press, lastest edition.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The &lt;em&gt;freely&lt;/em&gt; available material that you can consult yourself mainly comes from:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Battigalli, P. (2020): Game Theory: Analysis of Strategic Thinking. Typescript, Bocconi University. [Downloadable from personal page]&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://ocw.mit.edu/courses/14-271-industrial-organization-i-fall-2022/lists/lecture-notes/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;MIT Grad IO course&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://sites.google.com/site/nicolasschutz/teaching?authuser=0#h.p_ID_32&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Nicolas Schutz teaching material&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;thank-you-for-reading&#34;&gt;Thank you for reading!&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;Disclaimer&lt;/strong&gt;: &lt;em&gt;I write to learn, based on my background and personal experience. Errors are my own, and if you spot them, let me know! I also appreciate suggestions to investigate new topics!&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Game Theory</title>
+      <link>https://matteorg.github.io/other/competition-econ/game-theory/</link>
+      <pubDate>Sat, 14 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://matteorg.github.io/other/competition-econ/game-theory/</guid>
+      <description>&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-russel-crowe-interpreting-john-nash-in-a-beautiful-mind&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;https://matteorg.github.io/images/comp-econ/game-theory/beautiful-mind.jpg&#34; alt=&#34;A Beautiful Mind&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      Russel Crowe interpreting John Nash in ‘A Beautiful Mind’.
+    &lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Game theory&lt;/strong&gt; is the formal analysis of the behavior of interacting individuals. The crucial feature of an interactive situation is that the consequences of the actions of an individual depend (also) on the actions of other individuals. This is typical of many games people play for fun, such as chess or poker. Hence, interactive situations are called &lt;strong&gt;games&lt;/strong&gt; and interactive individuals are called &lt;strong&gt;players&lt;/strong&gt;. If a player’s behavior is intentional and he is aware of the interaction (which is not always the case), he should try and anticipate the behavior of other players. This is the essence of strategic thinking.&lt;/p&gt;
+&lt;p&gt;Why is it important to introduce some game theory concepts for competition economics? Well, imperfect competition usually involves strategic interactions. A firm’s action (price choice, quantity produced, $R\&amp;amp;D$, advertising expenditures, etc.) affects its rivals’ profits and incentives. Game theory helps us predict outcomes for industries in which firms interact strategically.&lt;/p&gt;
+&lt;p&gt;The following short review is aimed recapping the most basic game theory concepts used in industrial organization. For an exhaustive and more formal deep dive into game theory I strongly recommend using Pierpaolo Battigalli’s notes, which are freely available &lt;a href=&#34;https://didattica.unibocconi.eu/mypage/doc.php?idDoc=29501&amp;amp;IdUte=48808&amp;amp;idr=703&amp;amp;Tipo=m&amp;amp;lingua=eng&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;static-games&#34;&gt;Static Games&lt;/h2&gt;
+&lt;p&gt;In &lt;strong&gt;static games&lt;/strong&gt; active players move simultaneously once and for all. In this case each player has only one &lt;strong&gt;action&lt;/strong&gt; to take. In &lt;strong&gt;dynamic games&lt;/strong&gt;, some or all moves are sequential. In this case each player can have multiple actions to take. The full sequence of actions that leads to the final outcome of the game can be referred to as a &lt;strong&gt;strategy&lt;/strong&gt;. In certain cases we will use &lt;em&gt;strategy&lt;/em&gt; and &lt;em&gt;action&lt;/em&gt; interchangeably for simplicity (especially in static games, where strategy and action can be considered the same). Games with sequential moves are sometimes analyzed as if the players moved only once and simultaneously. The &lt;strong&gt;normal form&lt;/strong&gt; or &lt;strong&gt;strategic form&lt;/strong&gt; of a game can be seen as a static game where players simultaneously choose strategies in advance.&lt;/p&gt;
+&lt;div class=&#34;matteos-box&#34; style=&#34;display: block !important; visibility: visible !important; opacity: 1 !important; margin: 1.5em 0 !important; border: 1px solid #4a4a4a !important; border-radius: 4px !important; overflow: hidden !important; background-color: #f5f5f5 !important;&#34;&gt;
+  
+  &lt;div class=&#34;matteos-header&#34; style=&#34;padding: 0.5em 1em !important; font-weight: bold !important; background-color: #4a4a4a !important; color: #ffffff !important; display: block !important;&#34;&gt;
+    Definition: Static Game
+  &lt;/div&gt;
+  
+  &lt;div class=&#34;matteos-body&#34; style=&#34;padding: 1em !important; color: #333 !important; background-color: #f5f5f5 !important; display: block !important; overflow-x: auto !important;&#34;&gt;
+    &lt;p&gt;A &lt;strong&gt;static game&lt;/strong&gt; is described by:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;A set of &lt;strong&gt;players&lt;/strong&gt;, $I = {1, 2, \dots, N}$.&lt;/li&gt;
+&lt;li&gt;For each player, an &lt;strong&gt;action set&lt;/strong&gt; $A_i$. Let $a = (a_1, a_2, \dots, a_N) \in \times_{i \in I} A_i$ the list of the actions chosen by each player. We say that $a$ is an outcome of the game, or an &lt;strong&gt;action profile&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;For each player $i$, a &lt;strong&gt;payoff function&lt;/strong&gt;
+$$
+\pi_i : a \in \times_{j \in I} A_j \to \pi_i(a) \in \mathbb{R}
+$$&lt;/li&gt;
+&lt;/ol&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;matteos-box&#34; style=&#34;display: block !important; visibility: visible !important; opacity: 1 !important; margin: 1.5em 0 !important; border: 2px solid #458145 !important; border-radius: 4px !important; overflow: hidden !important; background-color: #ffffff !important;&#34;&gt;
+  
+  &lt;div class=&#34;matteos-header&#34; style=&#34;padding: 0.5em 1em !important; font-weight: bold !important; background-color: #458145 !important; color: #ffffff !important; display: block !important;&#34;&gt;
+    Example: Price Competition with Differentiated Products
+  &lt;/div&gt;
+  
+  &lt;div class=&#34;matteos-body&#34; style=&#34;padding: 1em !important; color: #333 !important; background-color: #f1f5f1 !important; display: block !important; overflow-x: auto !important;&#34;&gt;
+    &lt;p&gt;The &lt;strong&gt;static game&lt;/strong&gt; is described by:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Two &lt;strong&gt;players&lt;/strong&gt;, firm 1 and firm 2.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Action set&lt;/strong&gt; of firm $i$: $p_i \in [0, +\infty)$ for $i \in {1, 2}$ (the set of non-negative prices). An example of &lt;strong&gt;action profile&lt;/strong&gt; could be $p_1 = 3$ and $p_2 = 4$.&lt;/li&gt;
+&lt;li&gt;For each firm $i$, a &lt;strong&gt;payoff function&lt;/strong&gt; (the profit function)
+$$
+\pi_i(p_i, p_j) = (p_i - c_i)q_i(p_i, p_j)
+$$
+where $q_i(p_i, p_j)$ denotes firm $i$&amp;rsquo;s demand at prices $p_i$ and $p_j$.&lt;/li&gt;
+&lt;/ol&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;It is sometimes possible to represent the game in matrix form, which ultimately simplifies our search for possible &lt;em&gt;solutions&lt;/em&gt; of the game. To best illustrate how to build a matrix representation let’s start from another example, undoubtedly the most famous game to start grasping game theory concepts: &lt;strong&gt;the prisoners’ dilemma&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Suppose &lt;strong&gt;Alan&lt;/strong&gt; and &lt;strong&gt;Bob&lt;/strong&gt; are caught by the police and accused of having committed a crime. Currently the police has no proof, so they decide to interrogate the suspects in two separate rooms. Alan and Bob are both presented with the following options:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;if &lt;strong&gt;both&lt;/strong&gt; confess, they’ll have to spend 5 years in prison.&lt;/li&gt;
+&lt;li&gt;if &lt;strong&gt;one&lt;/strong&gt; confesses while the other stays silent, the defector (the one confessing) will be released immediately while the partner will have to spend 10 years in prison.&lt;/li&gt;
+&lt;li&gt;if &lt;strong&gt;neither&lt;/strong&gt; confesses, they’ll both have to spend only 1 year in prison as suspects.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Not knowing what the other partner will say in the separate room, Alan and Bob (from now on &lt;strong&gt;A&lt;/strong&gt; and &lt;strong&gt;B&lt;/strong&gt;) are both left with the choice to either &lt;strong&gt;cooperate&lt;/strong&gt; (i.e. remain silent) or &lt;strong&gt;defect&lt;/strong&gt; (i.e. confess and testify against the partner), which we’ll refer to as &lt;strong&gt;C&lt;/strong&gt; and &lt;strong&gt;D&lt;/strong&gt; from now on.&lt;/p&gt;
+&lt;p&gt;Not knowing what the other partner will say in the separate room, Alan and Bob (from now on &lt;strong&gt;A&lt;/strong&gt; and &lt;strong&gt;B&lt;/strong&gt;) are both left with the choice to either &lt;strong&gt;cooperate&lt;/strong&gt; (i.e. remain silent) or &lt;strong&gt;defect&lt;/strong&gt; (i.e. confess and testify against the partner), which we’ll refer to as &lt;strong&gt;C&lt;/strong&gt; and &lt;strong&gt;D&lt;/strong&gt; from now on.&lt;/p&gt;
+&lt;p&gt;If you imagine their payoff (or utility) to be measured in &lt;strong&gt;years of life&lt;/strong&gt; (so any year spent in prison is a &lt;em&gt;lost year&lt;/em&gt;), &lt;strong&gt;A&lt;/strong&gt; and &lt;strong&gt;B&lt;/strong&gt; will have the following:&lt;/p&gt;
+&lt;p&gt;$$
+\pi_i(a_i, a_j) = \begin{cases} -1 &amp;amp; \text{if } a_i = a_j = C \\ 0 &amp;amp; \text{if } a_i = D \text{ and } a_j = C \\ -10 &amp;amp; \text{if } a_i = C \text{ and } a_j = D \\ -5 &amp;amp; \text{if } a_i = a_j = D \end{cases}
+$$&lt;/p&gt;
+&lt;p&gt;Given this utility function, we can conveniently represent this game in its &lt;strong&gt;matrix form&lt;/strong&gt;:&lt;/p&gt;
+&lt;p&gt;$$
+\begin{array}{c|c|c}
+&amp;amp; C &amp;amp; D \\
+\hline
+C &amp;amp; (-1, -1) &amp;amp; (-10, 0) \\
+\hline
+D &amp;amp; (0, -10) &amp;amp; (-5, -5)
+\end{array}
+$$&lt;/p&gt;
+&lt;p&gt;where, by convention:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;row player is A, column player is B.&lt;/li&gt;
+&lt;li&gt;the first number in parentheses is the row player’s payoff; the second one is the column player’s payoff.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Now that we have defined a game, we would like to make predictions about what players will actually do. Put differently, we need a &lt;strong&gt;solution concept&lt;/strong&gt; (or an &lt;strong&gt;equilibrium concept&lt;/strong&gt;)&lt;/p&gt;
+&lt;h3 id=&#34;equilibrium-in-dominant-strategies&#34;&gt;Equilibrium in dominant strategies&lt;/h3&gt;
+&lt;p&gt;Before defining what a dominant strategy is, it is convenient to rewrite the action profile as $a = (a_i, a_{-i})$, where $\forall i \in I$
+$a_{-i} = (a_1, a_2, \dots, a_{i-1}, a_{i+1}, \dots, a_{N-1}, a_N)$, namely the set of all actions of all players other than $i$.&lt;/p&gt;
+&lt;div class=&#34;matteos-box&#34; style=&#34;display: block !important; visibility: visible !important; opacity: 1 !important; margin: 1.5em 0 !important; border: 1px solid #4a4a4a !important; border-radius: 4px !important; overflow: hidden !important; background-color: #f5f5f5 !important;&#34;&gt;
+  
+  &lt;div class=&#34;matteos-header&#34; style=&#34;padding: 0.5em 1em !important; font-weight: bold !important; background-color: #4a4a4a !important; color: #ffffff !important; display: block !important;&#34;&gt;
+    Definition: Dominant Strategy
+  &lt;/div&gt;
+  
+  &lt;div class=&#34;matteos-body&#34; style=&#34;padding: 1em !important; color: #333 !important; background-color: #f5f5f5 !important; display: block !important; overflow-x: auto !important;&#34;&gt;
+    &lt;p&gt;$\tilde{a}_i \in A_i$ is a (strictly) &lt;strong&gt;dominant strategy&lt;/strong&gt; for player $i$ if:&lt;/p&gt;
+&lt;p&gt;$$\forall a_{-i} \in \times_{j \in I \setminus \{i\}} A_j, \forall a_i \in A_i \text{ s.t. }  a_i \neq \tilde{a}_i, \pi_i(\tilde{a}_i, a_{-i}) &amp;gt; \pi_i(a_i, a_{-i})$$&lt;/p&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;In other words, a strategy is strictly dominant if it gives player $i$ a higher payoff than any other possible move, regardless of what the other players choose to do. You don’t even need to try and “predict” your opponents; you should just play this move every single time because it always wins.&lt;/p&gt;
+&lt;p&gt;Let’s consider our prisoner’s dilemma again and specifically on player $A$. To make it more visually clear, underline the highest payoff that player $A$ can get by choosing $C$ or $D$ given the opponents’ choice. This means, given player $B$ chooses $C$ (focus on first column), player $A$ should compare payoffs $-1$ (from choosing $C$, first row) and $0$ (from choosing $D$, second row). Clearly, being $0 &amp;gt; -1$, $A$ would choose $D$ if he knew $B$ was playing $C$.&lt;/p&gt;
+&lt;p&gt;$$
+\begin{array}{c|c|c}
+&amp;amp; C &amp;amp; D \\
+\hline
+C &amp;amp; (-1, -1) &amp;amp; (-10, 0) \\
+\hline
+D &amp;amp; (\underline{0}, -10) &amp;amp; (-5, -5)
+\end{array}
+$$&lt;/p&gt;
+&lt;p&gt;If you apply the same reasoning to both players and both choices you obtain the following representation:&lt;/p&gt;
+&lt;p&gt;$$
+\begin{array}{c|c|c}
+&amp;amp; C &amp;amp; D \\
+\hline
+C &amp;amp; (-1, -1) &amp;amp; (-10, \underline{0}) \\
+\hline
+D &amp;amp; (\underline{0}, -10) &amp;amp; (\underline{-5}, \underline{-5})
+\end{array}
+$$&lt;/p&gt;
+&lt;p&gt;You can immediately see that for both $A$ and $B$ choice $D$ is a &lt;strong&gt;dominant strategy&lt;/strong&gt;. No matter what the other does, the payoff is always higher by choosing $D$ over $C$. Now, we can define our first &lt;strong&gt;equilibrium concept&lt;/strong&gt;.&lt;/p&gt;
+&lt;div class=&#34;matteos-box&#34; style=&#34;display: block !important; visibility: visible !important; opacity: 1 !important; margin: 1.5em 0 !important; border: 1px solid #4a4a4a !important; border-radius: 4px !important; overflow: hidden !important; background-color: #f5f5f5 !important;&#34;&gt;
+  
+  &lt;div class=&#34;matteos-header&#34; style=&#34;padding: 0.5em 1em !important; font-weight: bold !important; background-color: #4a4a4a !important; color: #ffffff !important; display: block !important;&#34;&gt;
+    Definition: Equilibrium in Dominant Strategies
+  &lt;/div&gt;
+  
+  &lt;div class=&#34;matteos-body&#34; style=&#34;padding: 1em !important; color: #333 !important; background-color: #f5f5f5 !important; display: block !important; overflow-x: auto !important;&#34;&gt;
+    &lt;p&gt;A strategy profile $\tilde{a} = (\tilde{a}_1, \dots, \tilde{a}_N) \in \times_{j \in I} A_j$ is an &lt;strong&gt;equilibrium in dominant strategies&lt;/strong&gt; if $\tilde{a}_i$ is a dominant strategy for every player $i$, namely if:&lt;/p&gt;
+&lt;p&gt;$$
+\forall i \in I, \forall a_{-i} \in \times_{j \in I \setminus \{i\}} A_j, \forall a_i \in A_i \text{ s.t. } a_i \neq \tilde{a}_i, \pi_i(\tilde{a}_i, a_{-i}) &amp;gt; \pi_i(a_i, a_{-i})
+$$&lt;/p&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;In our prisoner’s dilemma it is clear that $(D, D)$ is the only equilibrium in dominant strategies (easy to spot also by checking for those boxes where both payoffs are underlined).&lt;/p&gt;
+&lt;p&gt;Most people look at the prisoner’s dilemma and think the tragedy comes from a &lt;strong&gt;lack of trust&lt;/strong&gt;. We tell ourselves: “I only betrayed my partner because I was afraid they would betray me first”. But if you look at the cold, hard math of Game Theory, that explanation is actually incorrect.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;The trap of individual logic&lt;/strong&gt;: in this game, the equilibrium outcome $(-5, -5)$ is what we call Pareto-dominated. This is just a way of saying there is another outcome $(-1, -1)$ where &lt;em&gt;everyone&lt;/em&gt; would be better off. From a “utilitarian” view, the outcome where both players defect is actually the &lt;em&gt;absolute worst-case scenario&lt;/em&gt;. Yet, decentralized decision-making (everyone choosing for themselves) leads us there every time.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Why “fear” isn’t the driver&lt;/strong&gt;: here is the counterintuitive part. You don’t defect because you’re afraid of your partner. You defect because it is the &lt;strong&gt;strictly dominant&lt;/strong&gt; thing to do. If your partner stays silent, you get a better deal by defecting ($0$ instead of $-1$). If your partner betrays you, you still get a better deal by defecting ($-5$ instead of $-10$). You aren’t reacting to their choice out of fear; you are choosing the best option for yourself regardless of what they do. Even if you knew for a fact that your partner was the most loyal person on earth, the “rational” move in this specific vacuum is still to betray them.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;The power of commitment&lt;/strong&gt;: this is why communication alone doesn’t solve the problem. If you and your partner simply talk before the game, you’ll both promise to stay silent. But once the doors close, the incentive to “cheat” remains. To reach the better outcome, you don’t just need to talk; you need a binding commitment, a contract or a shared code of honor that makes defecting impossible or too expensive to consider. Without that structure, individual rationality will always lead to a collective disaster.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The prisoner’s dilemma always reminds me of the movie &lt;em&gt;Four Brothers&lt;/em&gt;, a good example of when the &lt;em&gt;code of honor&lt;/em&gt; comes into place:
+
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+  &lt;iframe src=&#34;https://www.youtube.com/embed/RdMfFtoOP_c&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; allowfullscreen title=&#34;YouTube Video&#34;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/p&gt;
+&lt;p&gt;At this point you should ask yourself “Do dominant strategies always exist?”. Let’s consider the following game, famously known as &lt;strong&gt;The Battle of the Sexes&lt;/strong&gt;. In the battle of the sexes, we move from the jail cell to the ultimate arena of conflict: date night. Imagine a couple, &lt;strong&gt;Ann&lt;/strong&gt; (row player) and &lt;strong&gt;Bill&lt;/strong&gt; (column player): &lt;strong&gt;B&lt;/strong&gt; wants to see a football match, &lt;strong&gt;A&lt;/strong&gt; wants to weep through a three-hour opera.&lt;/p&gt;
+&lt;p&gt;They both hate being apart, but they have zero ways to coordinate where they’re going. If they end up at different venues, they’re miserable and alone (both get payoff 0); if they go to the same place, one is thrilled (payoff 2) and the other is bored, but at least with snacks and company (payoff 1). It’s the classic “I love you, but I really want my way” dilemma that proves coordination is easy, but agreeing on who gets the remote is where the real game theory begins. Here is the matrix representation of battle of sexes:&lt;/p&gt;
+&lt;p&gt;$$
+\begin{array}{c|c|c}
+&amp;amp; \text{Football} &amp;amp; \text{Opera} \\
+\hline
+\text{Football} &amp;amp; (1, 2) &amp;amp; (0, 0) \\
+\hline
+\text{Opera} &amp;amp; (0, 0) &amp;amp; (2, 1)
+\end{array}
+$$&lt;/p&gt;
+&lt;p&gt;Following the same reasoning as above you will see that if $B$ chose football, $A$ would be better off by choosing football as well ($\pi_A(\text{Football}, \text{Football}) = 1 &amp;gt; 0 = \pi_A(\text{Opera}, \text{Football})$). However, if $B$ chose opera, $A$ would be better off choosing opera, making neither football nor opera dominant strategies. Therefore there is no dominant strategy equilibrium in the battle of sexes game.&lt;/p&gt;
+&lt;h3 id=&#34;nash-equilibrium&#34;&gt;Nash equilibrium&lt;/h3&gt;
+&lt;p&gt;In 1951 John Nash introduced a different solution concept. Let’s consider the battle of the sexes where we do the same “underlining” exercise as before:&lt;/p&gt;
+&lt;p&gt;$$
+\begin{array}{c|c|c}
+&amp;amp; \text{Football} &amp;amp; \text{Opera} \\
+\hline
+\text{Football} &amp;amp; (\underline{1}, \underline{2}) &amp;amp; (0, 0) \\
+\hline
+\text{Opera} &amp;amp; (0, 0) &amp;amp; (\underline{2}, \underline{1})
+\end{array}
+$$&lt;/p&gt;
+&lt;p&gt;As you can see there are two cases where both payoffs are underlined: (Football, Football) and (Opera, Opera). Consider the former. Would either $A$ or $B$ have any incentive to deviate from (Football, Football)? Of course not. If $A$ chose opera he would lose a payoff of 1. We can say that playing Football, while not being a dominant strategy, is the &lt;strong&gt;best reply&lt;/strong&gt; (or &lt;strong&gt;best response&lt;/strong&gt;) to the opponent playing Football (i.e. any other choice would not be able to yield strictly higher payoff). While this not being the case in the battle of sexes, you may already guess that the best response need not be a unique action but rather a set.&lt;/p&gt;
+&lt;div class=&#34;matteos-box&#34; style=&#34;display: block !important; visibility: visible !important; opacity: 1 !important; margin: 1.5em 0 !important; border: 1px solid #4a4a4a !important; border-radius: 4px !important; overflow: hidden !important; background-color: #f5f5f5 !important;&#34;&gt;
+  
+  &lt;div class=&#34;matteos-header&#34; style=&#34;padding: 0.5em 1em !important; font-weight: bold !important; background-color: #4a4a4a !important; color: #ffffff !important; display: block !important;&#34;&gt;
+    Definition: Best Response
+  &lt;/div&gt;
+  
+  &lt;div class=&#34;matteos-body&#34; style=&#34;padding: 1em !important; color: #333 !important; background-color: #f5f5f5 !important; display: block !important; overflow-x: auto !important;&#34;&gt;
+    &lt;p&gt;An action $\tilde{a}_i$ is a &lt;strong&gt;best response&lt;/strong&gt; to $a_{-i}$ if:&lt;/p&gt;
+&lt;p&gt;$$
+\tilde{a}_i = BR(a_{-i}) = \arg \max_{a_i \in A_i} \pi_i(a_i, a_{-i})
+$$&lt;/p&gt;
+&lt;p&gt;Since $BR(a_{-i})$ may not be a singleton, we formally talk about &lt;strong&gt;best response correspondence&lt;/strong&gt;:&lt;/p&gt;
+&lt;p&gt;$$
+BR(a_{-i}) : \times_{j \in I \setminus \{i\}} A_j \rightrightarrows A_i
+$$&lt;/p&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;In the context of competition economics here we will mostly think of the best response as a function.&lt;/p&gt;
+&lt;p&gt;Given the definition of best response, it is straightforward to formalize Nash equilibrium.&lt;/p&gt;
+&lt;div class=&#34;matteos-box&#34; style=&#34;display: block !important; visibility: visible !important; opacity: 1 !important; margin: 1.5em 0 !important; border: 1px solid #4a4a4a !important; border-radius: 4px !important; overflow: hidden !important; background-color: #f5f5f5 !important;&#34;&gt;
+  
+  &lt;div class=&#34;matteos-header&#34; style=&#34;padding: 0.5em 1em !important; font-weight: bold !important; background-color: #4a4a4a !important; color: #ffffff !important; display: block !important;&#34;&gt;
+    Definition: Nash Equilibrium
+  &lt;/div&gt;
+  
+  &lt;div class=&#34;matteos-body&#34; style=&#34;padding: 1em !important; color: #333 !important; background-color: #f5f5f5 !important; display: block !important; overflow-x: auto !important;&#34;&gt;
+    &lt;p&gt;A strategy profile $\tilde{a} = (\tilde{a}_1, \dots, \tilde{a}_N)  \in \times_{j \in I} A_j$ is a &lt;strong&gt;Nash Equilibrium&lt;/strong&gt; if:&lt;/p&gt;
+&lt;p&gt;$$
+\forall i, \tilde{a}_i \in BR_i(\tilde{a}_{-i})
+$$&lt;/p&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;In words, each player chooses a strategy that is a best response to other players’ (equilibrium) strategies.&lt;/p&gt;
+&lt;p&gt;In the battle of the sexes game, and in general in every game that allows a matrix representation, every combination where &lt;strong&gt;all players’ payoffs are underlined&lt;/strong&gt; constitute Nash equilibria.&lt;/p&gt;
+&lt;p&gt;When a matrix representation is not possible (e.g. with continuous action profiles), to do a best response analysis and solve for the Nash equilibria of a game, just do the following:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;For each player $i$ compute $BR_i(.)$.&lt;/li&gt;
+&lt;li&gt;Find the intersection of these best responses.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;matteos-box&#34; style=&#34;display: block !important; visibility: visible !important; opacity: 1 !important; margin: 1.5em 0 !important; border: 2px solid #458145 !important; border-radius: 4px !important; overflow: hidden !important; background-color: #ffffff !important;&#34;&gt;
+  
+  &lt;div class=&#34;matteos-header&#34; style=&#34;padding: 0.5em 1em !important; font-weight: bold !important; background-color: #458145 !important; color: #ffffff !important; display: block !important;&#34;&gt;
+    Example: Price Competition with Differentiated Products
+  &lt;/div&gt;
+  
+  &lt;div class=&#34;matteos-body&#34; style=&#34;padding: 1em !important; color: #333 !important; background-color: #f1f5f1 !important; display: block !important; overflow-x: auto !important;&#34;&gt;
+    &lt;p&gt;Consider the price competition with differentiated products model, and let’s make a few additional assumptions:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;$c_1 = c_2 = 0$&lt;/li&gt;
+&lt;li&gt;$q_i = 1 - 2p_i + p_j$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;So the profit function of firm $i \in \{1, 2\}$ is just $\pi_i(p_1, p_2) = $ $p_i(1 - 2p_i + p_j)$. By definition, $BR_i(p_j) = \arg \max_{p_i} p_i(1 - 2p_i + p_j)$.&lt;/p&gt;
+&lt;p&gt;As the objective function is concave ($\partial^2 \pi_i / \partial p_i^2 &amp;lt; 0$), we can use the &lt;strong&gt;First Order Condition (FOC)&lt;/strong&gt;:&lt;/p&gt;
+&lt;p&gt;$$
+1 - 4p_i + p_j = 0
+$$&lt;/p&gt;
+&lt;p&gt;Solving for $p_i$, we get:&lt;/p&gt;
+&lt;p&gt;$$
+p_i = BR_i(p_j) = \frac{1 + p_j}{4}
+$$&lt;/p&gt;
+&lt;p&gt;In this particular example, the best response correspondence is single-valued (i.e. it’s a function). $(\hat{p}_1, \hat{p}_2)$ is a Nash equilibrium if and only if:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;$\hat{p}_1 \in BR_1(\hat{p}_2)$&lt;/li&gt;
+&lt;li&gt;$\hat{p}_2 \in BR_2(\hat{p}_1)$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Therefore, we have to solve the following system of equations (to get the intersection of best-responses):&lt;/p&gt;
+&lt;p&gt;$$
+\begin{cases}
+\hat{p}_1 = \frac{1+\hat{p}_2}{4} \\
+\hat{p}_2 = \frac{1+\hat{p}_1}{4}
+\end{cases}
+$$&lt;/p&gt;
+&lt;p&gt;We get $\hat{p}_1 = \hat{p}_2 = 1/3$.&lt;/p&gt;
+&lt;p&gt;Therefore, $(1/3, 1/3)$ is the only Nash equilibrium of this price competition game.&lt;/p&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;If you think about the previous solution concept, the equilibrium in dominant strategies, that is &lt;em&gt;always&lt;/em&gt; a Nash equilibrium. Intuitively, a dominant strategy is a best response to &lt;em&gt;any&lt;/em&gt; strategy profile. However, obviously a Nash equilibrium is &lt;strong&gt;not&lt;/strong&gt; always an equilibrium in dominant strategies. Additionally, if you recall how we thought about best responses in the battle of the sexes, when looking for Nash equilibria you should &lt;em&gt;always&lt;/em&gt; and &lt;em&gt;only&lt;/em&gt; consider &lt;strong&gt;unilateral deviations&lt;/strong&gt; from a given profile, and not &lt;strong&gt;joint&lt;/strong&gt; ones.&lt;/p&gt;
+&lt;p&gt;How do we actually &lt;em&gt;reach&lt;/em&gt; a Nash equilibrium? It’s not just about math; it’s about what you think, what I think, and what I think you think. In game theory we refer to this as &lt;strong&gt;introspective foundation&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Imagine you’re playing a game. To reach an equilibrium, you have to follow a logic loop that sounds like a line from &lt;em&gt;The Princess Bride&lt;/em&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;I am rational, so I will maximize my own payoff.&lt;/li&gt;
+&lt;li&gt;I know you are rational, so I know you’ll do the same.&lt;/li&gt;
+&lt;li&gt;You know that I know you’re rational&amp;hellip; and so on, forever.
+
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+  &lt;iframe src=&#34;https://www.youtube.com/embed/sE2qa96pq8I&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; allowfullscreen title=&#34;YouTube Video&#34;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This “common knowledge of rationality” suggests that if we are both perfectly logical, we will naturally settle on a strategy profile where neither of us has any reason to change our minds. We reach a state of perfect, mutual “no-regrets”.&lt;/p&gt;
+&lt;p&gt;But let’s be honest: this “introspective” approach isn’t always convincing. In fact, it often fails for three very human reasons:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;It’s mathematically exhausting&lt;/strong&gt;: even for PhD-level game theorists, calculating a Nash equilibrium in a complex game is hard. Expecting two people at a bar or two CEOs in a price war to solve multi-variable calculus in their heads is a stretch.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;The “correct conjecture” trap&lt;/strong&gt;: A Nash equilibrium only works if everyone has correct beliefs about what the other person is going to do. If I incorrectly guess your move, my best response becomes a total disaster.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;The coordination headache&lt;/strong&gt;: What happens when a game has multiple Nash equilibria? If there are two “logical” stable points, how do we make sure we don’t both pick different ones and end up unhappy?
+&lt;ul&gt;
+&lt;li&gt;Consider for example the battle of the sexes. How should a player choose, even knowing that two Nash equilibria are possible? The introspection story does not tell us how players can coordinate on one of these equilibria!&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;So, Nash equilibrium appears to be a beautiful theoretical benchmark, though it relies on players being “hyper-rational.” In reality, we often rely on habits, social norms, or trial-and-error rather than infinite logical loops to figure out our next move.&lt;/p&gt;
+&lt;p&gt;Last but not least, just like we did in the previous paragraph before introducing the battle of the sexes, you should ask yourself “Does a Nash equilibrium always exist?”. The answer is simple and is of course no. The definition of Nash equilibrium does not guarantee its existence. Try to find one or more Nash equilibria in the following game, which I’m sure you’re familiar with:&lt;/p&gt;
+&lt;p&gt;$$
+\begin{array}{c|c|c|c}
+&amp;amp; \text{Rock} &amp;amp; \text{Paper} &amp;amp; \text{Scissor} \\
+\hline
+\text{Rock} &amp;amp; (0, 0) &amp;amp; (-1, \underline{1}) &amp;amp; (\underline{1}, -1) \\
+\hline
+\text{Paper} &amp;amp; (\underline{1}, -1) &amp;amp; (0, 0) &amp;amp; (-1, \underline{1}) \\
+\hline
+\text{Scissor} &amp;amp; (-1, \underline{1}) &amp;amp; (\underline{1}, -1) &amp;amp; (0, 0)
+\end{array}
+$$&lt;/p&gt;
+&lt;p&gt;For simplicity I already underlined each player’s best response. As you can see, there’s no combination where a player’s best response to a given opponent’s move is also the opponent’s best response to the player’s action. So no Nash equilibrium exists in this game.
+&lt;span class=&#34;infotip-container&#34;&gt;
+    &lt;sup class=&#34;infotip-icon&#34;&gt;i&lt;/sup&gt;
+    &lt;span class=&#34;infotip-content&#34;&gt;Under weak assumptions, even in the Rock-Paper-Scissor game an equilibrium may exist, called $\text{Nash equilibrium in Mixed Strategies}$, which I will however not cover when talking about competition economics.&lt;/span&gt;
+&lt;/span&gt;
+
+&lt;style&gt;
+ 
+
+ 
+.infotip-container {
+    position: relative;      
+    display: inline-block;   
+    cursor: help;            
+    text-decoration: none;   
+}
+
+ 
+.infotip-icon {
+    font-size: 0.7em;            
+    vertical-align: super;       
+    border: 1px solid #777;      
+    border-radius: 50%;          
+    width: 1.2em;                
+    height: 1.2em;               
+    display: inline-flex;        
+    justify-content: center;     
+    align-items: center;         
+    line-height: 1;              
+    margin-left: 0.2em;          
+    color: #555;                 
+    background-color: #f0f0f0;   
+    font-weight: bold;
+    user-select: none;           
+    transition: background-color 0.2s ease, color 0.2s ease;  
+}
+
+.infotip-container:hover .infotip-icon {
+    background-color: #66d9ef;  
+    color: #fff;                 
+    border-color: #66d9ef;
+}
+
+ 
+.infotip-content {
+    font-size: 0.7em;
+    position: absolute;
+    bottom: calc(100% + 5px);  
+    left: 50%;  
+    transform: translateX(-50%);  
+    min-width: 250px;            
+    max-width: 350px;            
+    background-color: #444;      
+    color: #fff;                 
+    padding: 12px 18px;          
+    border-radius: 6px;          
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);  
+    z-index: 100;                
+
+    opacity: 0;                  
+    visibility: hidden;          
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;  
+
+     
+    &amp;::after {
+        content: &#39;&#39;;
+        position: absolute;
+        top: 100%;  
+        left: 50%;
+        transform: translateX(-50%);
+        border-width: 8px;
+        border-style: solid;
+        border-color: #333 transparent transparent transparent;  
+    }
+}
+
+ 
+.infotip-container:hover .infotip-content {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(-10px);  
+}
+&lt;/style&gt;&lt;/p&gt;
+&lt;h2 id=&#34;sequential-games&#34;&gt;Sequential Games&lt;/h2&gt;
+&lt;p&gt;As we introduced before, some games may have multiple steps (and some players may have multiple moves). Let’s start with a simple example of a seller-buyer game. Consider two individuals, $S$ (Seller) and $B$ (Buyer). Let $S$ be the owner of an object and $B$ a potential buyer. For simplicity, consider the following bargaining protocol: $S$ can ask one Dollar (1) or two Dollars (2) to sell the object, $B$ can only accept (a) or reject (r). The monetary value of the object for individual $i$ ($i = S, B$) is denoted by $\pi_i$. This situation can be analyzed as a game which can be represented with a &lt;strong&gt;rooted tree&lt;/strong&gt; with utility numbers attached to &lt;strong&gt;terminal nodes&lt;/strong&gt; (leaves), player labels attached to &lt;strong&gt;nonterminal nodes&lt;/strong&gt;, and action labels attached to &lt;strong&gt;branches&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-seller-buyer-mini-game&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;https://matteorg.github.io/images/comp-econ/game-theory/sb-mini-game.png&#34; alt=&#34;Seller-Buyer mini game&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      Seller-Buyer mini game
+    &lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;An intuitive definition for a &lt;strong&gt;sequential game&lt;/strong&gt; is a game that can be represented by a game tree, or equivalently in its &lt;strong&gt;extensive form&lt;/strong&gt;.&lt;/p&gt;
+&lt;div class=&#34;matteos-box&#34; style=&#34;display: block !important; visibility: visible !important; opacity: 1 !important; margin: 1.5em 0 !important; border: 1px solid #4a4a4a !important; border-radius: 4px !important; overflow: hidden !important; background-color: #f5f5f5 !important;&#34;&gt;
+  
+  &lt;div class=&#34;matteos-header&#34; style=&#34;padding: 0.5em 1em !important; font-weight: bold !important; background-color: #4a4a4a !important; color: #ffffff !important; display: block !important;&#34;&gt;
+    Definition: Sequential Game
+  &lt;/div&gt;
+  
+  &lt;div class=&#34;matteos-body&#34; style=&#34;padding: 1em !important; color: #333 !important; background-color: #f5f5f5 !important; display: block !important; overflow-x: auto !important;&#34;&gt;
+    &lt;p&gt;A &lt;strong&gt;sequential game&lt;/strong&gt; is:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;A game tree containing a starting node, other decision nodes, terminal nodes, and branches linking nodes.&lt;/li&gt;
+&lt;li&gt;A list of players ${1, 2, \dots, N}$.&lt;/li&gt;
+&lt;li&gt;For each decision node, the name of the player(s) entitled to choose an action.&lt;/li&gt;
+&lt;li&gt;For each player $i$, a specification of $i$&amp;rsquo;s action set at each node where player $i$ is entitled to choose an action.&lt;/li&gt;
+&lt;li&gt;A specification of the payoff of each player at each terminal node.&lt;/li&gt;
+&lt;/ol&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;While in static games a strategy was just an action - therefore we could use the terms interchangeably - in sequential games we refer to a strategy as a &lt;strong&gt;plan of actions&lt;/strong&gt;, so the distinction becomes crucial.&lt;/p&gt;
+&lt;p&gt;Continuing the comparison with static games, it is interesting to note that it is possible to represent sequential games &lt;em&gt;also&lt;/em&gt; in a normal form, and in certain cases even via matrix representation. Consider the seller-buyer game. The actions and payoffs could be rewritten as follows:&lt;/p&gt;
+&lt;div style=&#34;overflow-x: auto;&#34;&gt;
+&lt;p&gt;$$
+\begin{array}{c|c|c|c|c}
+&amp;amp; \text{a,a} &amp;amp; \text{a,r} &amp;amp; \text{r,a} &amp;amp; \text{r,r} \\
+\hline
+\text{1 dollar} &amp;amp; (1-\pi_S, \pi_B-1) &amp;amp; (1-\pi_S, \pi_B-1) &amp;amp; (0, 0) &amp;amp; (0, 0) \\
+\hline
+\text{2 dollars} &amp;amp; (2-\pi_S, \pi_B-2) &amp;amp; (0, 0) &amp;amp; (2-\pi_S, \pi_B-2) &amp;amp; (0, 0)
+\end{array}
+$$&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;In this representation think of the buyer’s strategy not as a single move, but as a remote-controlled instruction manual he hands over before the game starts. In a static game, you just react to what’s happening. In a sequential game represented this way, the buyer has to decide his response to every possible scenario the seller might create.&lt;/p&gt;
+&lt;p&gt;When you see a strategy like $\text{(a, r)}$, read it as an “If-Then” statement. The position in the couple corresponds to the specific “node” or choice the seller makes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The 1st slot is the response to 1 dollar.&lt;/li&gt;
+&lt;li&gt;The 2nd slot is the response to 2 dollars. So, if the buyer chooses the column $\text{(a, r)}$, they are saying: “If you charge me $\$1$, I will accept; but if you charge me $\$2$, I will reject.”&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Now, we can just extend our definition of a Nash equilibrium to these somewhat more complicated games: in words, a profile of strategies is a Nash equilibrium if and only if no player has an incentive to deviate from his strategy. To begin with, let’s look for Nash equilibria in the seller-buyer mini game. Let’s assume for simplicity that $\pi_S=0.5$ and $\pi_B=2.5$:&lt;/p&gt;
+&lt;p&gt;$$
+\begin{array}{c|c|c|c|c}
+&amp;amp; \text{a,a} &amp;amp; \text{a,r} &amp;amp; \text{r,a} &amp;amp; \text{r,r} \\
+\hline
+\text{1 dollar} &amp;amp; (0.5, \underline{1.5}) &amp;amp; (\underline{0.5}, \underline{1.5}) &amp;amp; (0, 0) &amp;amp; (\underline{0}, 0) \\
+\hline
+\text{2 dollars} &amp;amp; (\underline{1.5}, \underline{0.5}) &amp;amp; (0, 0) &amp;amp; (\underline{1.5}, \underline{0.5}) &amp;amp; (\underline{0}, 0)
+\end{array}
+$$&lt;/p&gt;
+&lt;p&gt;In this game we have 3 Nash equilibria:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;($\$1$,$\text{(a, r)}$)&lt;/li&gt;
+&lt;li&gt;($\$2$,$\text{(a, a)}$)&lt;/li&gt;
+&lt;li&gt;($\$2$,$\text{(r, a)}$)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Now, not all of the equilibria seem to make sense. Why would the seller ever want to reach the equilibrium in which he sells for $\$1$? Forget about Nash equilibrium for a moment. A rational seller should be able to make the following reasoning: “If I sell for $\$2$ the buyer is going to make a positive profit by accepting, so he’s going to accept no matter what I charge. Why should I sell for $\$1$ and deprive myself of $\$1$ extra profit?”. Ultimately the equilibrium should be reached by the seller choosing $\$2$ and the buyer accepting.&lt;/p&gt;
+&lt;p&gt;This kind of intuitive reasoning is called backward induction:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Start solving for optimal decisions in terminal nodes, and derive the implied payoffs.&lt;/li&gt;
+&lt;li&gt;Go one step back and, again, solve for optimal decisions, anticipating that people will behave optimally in subsequent nodes. Derive the implied payoffs.&lt;/li&gt;
+&lt;li&gt;Iterate until you reach the initial node.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This thought process is not contained in the Nash equilibrium concept.&lt;/p&gt;
+&lt;p&gt;Bottom line:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Nash generates weird equilibria in some simple multistage games.&lt;/li&gt;
+&lt;li&gt;Backward induction seems to eliminate these equilibria.&lt;/li&gt;
+&lt;li&gt;A “backward induction equilibrium” is &lt;em&gt;always&lt;/em&gt; a Nash equilibrium.&lt;/li&gt;
+&lt;li&gt;A Nash equilibrium may not be consistent with backward induction.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;subgame-perfect-equilibrium&#34;&gt;Subgame-perfect equilibrium&lt;/h3&gt;
+&lt;div class=&#34;matteos-box&#34; style=&#34;display: block !important; visibility: visible !important; opacity: 1 !important; margin: 1.5em 0 !important; border: 1px solid #4a4a4a !important; border-radius: 4px !important; overflow: hidden !important; background-color: #f5f5f5 !important;&#34;&gt;
+  
+  &lt;div class=&#34;matteos-header&#34; style=&#34;padding: 0.5em 1em !important; font-weight: bold !important; background-color: #4a4a4a !important; color: #ffffff !important; display: block !important;&#34;&gt;
+    Definition: Subgame
+  &lt;/div&gt;
+  
+  &lt;div class=&#34;matteos-body&#34; style=&#34;padding: 1em !important; color: #333 !important; background-color: #f5f5f5 !important; display: block !important; overflow-x: auto !important;&#34;&gt;
+    A &lt;strong&gt;subgame&lt;/strong&gt; is a decision node from the original game along with the decision nodes and and terminal nodes directly following this node. A subgame is called a &lt;strong&gt;strict subgame&lt;/strong&gt; if it differs from the original game.
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;In our seller-buyer game there are only &lt;strong&gt;two strict subgames&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-strict-subgames-in-seller-buyer-mini-game&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;https://matteorg.github.io/images/comp-econ/game-theory/subgames.png&#34; alt=&#34;Seller-Buyer mini game subgame&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      Strict subgames in Seller-Buyer mini game
+    &lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;The idea of backward induction is to look precisely at these subgames first, them move up. You can even make it more visually clear by drawing arrows to highlight what each player would choose in each subgame. Consider the numeric example of the seller-buyer game from before: at the terminal node the buyer needs to choose between accepting and rejecting. Since no matter what the seller does, the buyer has a strictly positive payoff by accepting, we can draw 2 red arrows indicating what the buyer will do. In the upper node, the seller needs to only compare the payoffs of the paths indicated by the two red arrows and ignore the others (as they won’t be chosen by the seller anyway). Since the payoff from selling for $\$2$ is higher than in the other scenario, we can draw a blue arrow (the seller’s decision) indicating the final seller’s choice. The path that from the beginning of the tree reaches a terminal node with a ‘continuous’ arrow identifies the equilibrium.&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-backward-induction-to-find-unique-rational-path&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;https://matteorg.github.io/images/comp-econ/game-theory/spe.png&#34; alt=&#34;Backward induction&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      Backward induction to find unique rational path.
+    &lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;So the only equilibrium in this game becomes ($\$2$,$\text{(a, a)}$).&lt;/p&gt;
+&lt;p&gt;In the above example we set two arbitrary values of $\pi_i$ for $i \in \{S,B\}$. Do you think you can derive the values (or ranges of values) of $\pi_i$. If interested, you can play around with the hidden &lt;strong&gt;equilibrium finder&lt;/strong&gt; and later you’ll find a rigorous way to define equilibria for different values of $\pi_S$ and $\pi_B$.&lt;/p&gt;
+&lt;details&gt;
+  &lt;summary&gt;&lt;b&gt;Equilibrium Finder&lt;/b&gt;&lt;/summary&gt;
+&lt;div class=&#34;sb-game-widget&#34; style=&#34;background-color: #22272e; color: #c9d1d9; border: 1px solid #444c56; border-radius: 8px; padding: 20px; max-width: 650px; margin: 2rem auto; font-family: system-ui, -apple-system, sans-serif;&#34;&gt;
+  
+  &lt;h2 style=&#34;text-align: center; color: #ffffff; margin-top: 0; margin-bottom: 20px;&#34;&gt;Extensive &amp; Normal Form Simulator&lt;/h2&gt;
+
+  &lt;div style=&#34;display: flex; flex-wrap: wrap; gap: 40px; justify-content: center; margin-bottom: 25px;&#34;&gt;
+    &lt;div style=&#34;display: flex; flex-direction: column; align-items: center; width: 200px;&#34;&gt;
+      &lt;label for=&#34;pi_s&#34; style=&#34;font-weight: bold; margin-bottom: 10px;&#34;&gt;Seller Value (π&lt;sub&gt;S&lt;/sub&gt;)&lt;/label&gt;
+      &lt;input type=&#34;range&#34; id=&#34;pi_s_slider&#34; min=&#34;0&#34; max=&#34;5&#34; step=&#34;0.1&#34; value=&#34;1.8&#34; style=&#34;width: 100%; cursor: pointer;&#34;&gt;
+      &lt;span id=&#34;pi_s_val&#34; style=&#34;margin-top: 10px; font-weight: bold; color: #3399ff; font-size: 1.2rem;&#34;&gt;1.8&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div style=&#34;display: flex; flex-direction: column; align-items: center; width: 200px;&#34;&gt;
+      &lt;label for=&#34;pi_b&#34; style=&#34;font-weight: bold; margin-bottom: 10px;&#34;&gt;Buyer Value (π&lt;sub&gt;B&lt;/sub&gt;)&lt;/label&gt;
+      &lt;input type=&#34;range&#34; id=&#34;pi_b_slider&#34; min=&#34;0&#34; max=&#34;5&#34; step=&#34;0.1&#34; value=&#34;4.1&#34; style=&#34;width: 100%; cursor: pointer;&#34;&gt;
+      &lt;span id=&#34;pi_b_val&#34; style=&#34;margin-top: 10px; font-weight: bold; color: #ff4d4d; font-size: 1.2rem;&#34;&gt;4.1&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div style=&#34;background-color: #2d333b; border: 1px solid #444c56; border-radius: 6px; padding: 20px; margin-bottom: 20px;&#34;&gt;
+    &lt;svg viewBox=&#34;0 0 400 300&#34; style=&#34;width: 100%; height: auto; display: block;&#34;&gt;
+      &lt;style&gt;
+        .tree-line { stroke: #6e7681; stroke-width: 2; fill: none; transition: stroke 0.3s ease; }
+        .tree-line.active { stroke: #2ea043; stroke-width: 3; }
+        .node-s { fill: #ffffff; stroke: #3399ff; stroke-width: 3; }
+        .node-b { fill: #ff4d4d; }
+        .label { font-size: 14px; fill: #ffffff; font-weight: bold; }
+        .branch-label { font-size: 12px; fill: #8b949e; }
+        .payoff-s { font-size: 13px; font-weight: bold; fill: #3399ff; }
+        .payoff-b { font-size: 13px; font-weight: bold; fill: #ff4d4d; }
+        .payoff-zero { fill: #8b949e; font-size: 13px; font-weight: normal; }
+      &lt;/style&gt;
+
+      &lt;path id=&#34;line-s-1&#34; class=&#34;tree-line&#34; d=&#34;M 200,50 L 100,140&#34; /&gt;
+      &lt;path id=&#34;line-s-2&#34; class=&#34;tree-line&#34; d=&#34;M 200,50 L 300,140&#34; /&gt;
+      
+      &lt;path id=&#34;line-b1-a&#34; class=&#34;tree-line&#34; d=&#34;M 100,140 L 60,230&#34; /&gt;
+      &lt;path id=&#34;line-b1-r&#34; class=&#34;tree-line&#34; d=&#34;M 100,140 L 140,230&#34; /&gt;
+      &lt;path id=&#34;line-b2-a&#34; class=&#34;tree-line&#34; d=&#34;M 300,140 L 260,230&#34; /&gt;
+      &lt;path id=&#34;line-b2-r&#34; class=&#34;tree-line&#34; d=&#34;M 300,140 L 340,230&#34; /&gt;
+
+      &lt;circle cx=&#34;200&#34; cy=&#34;50&#34; r=&#34;5&#34; class=&#34;node-s&#34;/&gt;
+      &lt;circle cx=&#34;100&#34; cy=&#34;140&#34; r=&#34;5&#34; class=&#34;node-b&#34;/&gt;
+      &lt;circle cx=&#34;300&#34; cy=&#34;140&#34; r=&#34;5&#34; class=&#34;node-b&#34;/&gt;
+
+      &lt;text x=&#34;200&#34; y=&#34;35&#34; text-anchor=&#34;middle&#34; class=&#34;label&#34;&gt;S&lt;/text&gt;
+      &lt;text x=&#34;80&#34; y=&#34;145&#34; text-anchor=&#34;middle&#34; class=&#34;label&#34;&gt;B&lt;/text&gt;
+      &lt;text x=&#34;320&#34; y=&#34;145&#34; text-anchor=&#34;middle&#34; class=&#34;label&#34;&gt;B&lt;/text&gt;
+
+      &lt;text x=&#34;135&#34; y=&#34;85&#34; text-anchor=&#34;middle&#34; class=&#34;branch-label&#34;&gt;Offer 1&lt;/text&gt;
+      &lt;text x=&#34;265&#34; y=&#34;85&#34; text-anchor=&#34;middle&#34; class=&#34;branch-label&#34;&gt;Offer 2&lt;/text&gt;
+
+      &lt;text id=&#34;tree-s-1a&#34; x=&#34;60&#34; y=&#34;250&#34; text-anchor=&#34;middle&#34; class=&#34;payoff-s&#34;&gt;-0.8&lt;/text&gt;
+      &lt;text id=&#34;tree-b-1a&#34; x=&#34;60&#34; y=&#34;268&#34; text-anchor=&#34;middle&#34; class=&#34;payoff-b&#34;&gt;3.1&lt;/text&gt;
+      &lt;text x=&#34;140&#34; y=&#34;250&#34; text-anchor=&#34;middle&#34; class=&#34;payoff-zero&#34;&gt;0.0&lt;/text&gt;
+      &lt;text x=&#34;140&#34; y=&#34;268&#34; text-anchor=&#34;middle&#34; class=&#34;payoff-zero&#34;&gt;0.0&lt;/text&gt;
+      
+      &lt;text id=&#34;tree-s-2a&#34; x=&#34;260&#34; y=&#34;250&#34; text-anchor=&#34;middle&#34; class=&#34;payoff-s&#34;&gt;0.2&lt;/text&gt;
+      &lt;text id=&#34;tree-b-2a&#34; x=&#34;260&#34; y=&#34;268&#34; text-anchor=&#34;middle&#34; class=&#34;payoff-b&#34;&gt;2.1&lt;/text&gt;
+      &lt;text x=&#34;340&#34; y=&#34;250&#34; text-anchor=&#34;middle&#34; class=&#34;payoff-zero&#34;&gt;0.0&lt;/text&gt;
+      &lt;text x=&#34;340&#34; y=&#34;268&#34; text-anchor=&#34;middle&#34; class=&#34;payoff-zero&#34;&gt;0.0&lt;/text&gt;
+    &lt;/svg&gt;
+  &lt;/div&gt;
+
+  &lt;div style=&#34;overflow-x: auto; margin-bottom: 20px;&#34;&gt;
+    &lt;table style=&#34;width: 100%; border-collapse: collapse; text-align: center; border: 1px solid #444c56; font-size: 14px;&#34;&gt;
+      &lt;thead style=&#34;background-color: #161b22; border-bottom: 1px solid #444c56;&#34;&gt;
+        &lt;tr&gt;
+          &lt;th style=&#34;padding: 12px; border-right: 1px solid #444c56;&#34;&gt;S \ B&lt;/th&gt;
+          &lt;th style=&#34;padding: 12px; border-right: 1px solid #444c56;&#34;&gt;AA&lt;/th&gt;
+          &lt;th style=&#34;padding: 12px; border-right: 1px solid #444c56;&#34;&gt;AR&lt;/th&gt;
+          &lt;th style=&#34;padding: 12px; border-right: 1px solid #444c56;&#34;&gt;RA&lt;/th&gt;
+          &lt;th style=&#34;padding: 12px;&#34;&gt;RR&lt;/th&gt;
+        &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+        &lt;tr style=&#34;border-bottom: 1px solid #444c56;&#34;&gt;
+          &lt;td style=&#34;padding: 15px; border-right: 1px solid #444c56; font-weight: bold; background-color: #161b22;&#34;&gt;Offer 1&lt;/td&gt;
+          &lt;td id=&#34;td-1-aa&#34; style=&#34;padding: 15px; border-right: 1px solid #444c56; transition: background 0.3s;&#34;&gt;&lt;/td&gt;
+          &lt;td id=&#34;td-1-ar&#34; style=&#34;padding: 15px; border-right: 1px solid #444c56; transition: background 0.3s;&#34;&gt;&lt;/td&gt;
+          &lt;td id=&#34;td-1-ra&#34; style=&#34;padding: 15px; border-right: 1px solid #444c56; transition: background 0.3s;&#34;&gt;&lt;/td&gt;
+          &lt;td id=&#34;td-1-rr&#34; style=&#34;padding: 15px; transition: background 0.3s;&#34;&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td style=&#34;padding: 15px; border-right: 1px solid #444c56; font-weight: bold; background-color: #161b22;&#34;&gt;Offer 2&lt;/td&gt;
+          &lt;td id=&#34;td-2-aa&#34; style=&#34;padding: 15px; border-right: 1px solid #444c56; transition: background 0.3s;&#34;&gt;&lt;/td&gt;
+          &lt;td id=&#34;td-2-ar&#34; style=&#34;padding: 15px; border-right: 1px solid #444c56; transition: background 0.3s;&#34;&gt;&lt;/td&gt;
+          &lt;td id=&#34;td-2-ra&#34; style=&#34;padding: 15px; border-right: 1px solid #444c56; transition: background 0.3s;&#34;&gt;&lt;/td&gt;
+          &lt;td id=&#34;td-2-rr&#34; style=&#34;padding: 15px; transition: background 0.3s;&#34;&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/div&gt;
+
+  &lt;div id=&#34;equilibrium-result&#34; style=&#34;background-color: #2d333b; border-left: 4px solid #3399ff; padding: 15px; border-radius: 4px; font-size: 15px; line-height: 1.5;&#34;&gt;
+    &lt;/div&gt;
+
+  &lt;script&gt;
+    function formatCellText(s_val, b_val) {
+      const colS = s_val !== 0 ? &#39;#c9d1d9&#39; : &#39;#8b949e&#39;; 
+      const colB = b_val !== 0 ? &#39;#c9d1d9&#39; : &#39;#8b949e&#39;;
+      return `&lt;span style=&#34;color:${colS}&#34;&gt;${s_val.toFixed(1)}&lt;/span&gt;, &lt;span style=&#34;color:${colB}&#34;&gt;${b_val.toFixed(1)}&lt;/span&gt;`;
+    }
+
+    function updateGame() {
+      
+      const pi_s = parseFloat(document.getElementById(&#39;pi_s_slider&#39;).value);
+      const pi_b = parseFloat(document.getElementById(&#39;pi_b_slider&#39;).value);
+      
+      document.getElementById(&#39;pi_s_val&#39;).innerText = pi_s.toFixed(1);
+      document.getElementById(&#39;pi_b_val&#39;).innerText = pi_b.toFixed(1);
+
+      
+      const s_1a = 1 - pi_s;
+      const b_1a = pi_b - 1;
+      const s_2a = 2 - pi_s;
+      const b_2a = pi_b - 2;
+
+      document.getElementById(&#39;tree-s-1a&#39;).textContent = s_1a.toFixed(1);
+      document.getElementById(&#39;tree-b-1a&#39;).textContent = b_1a.toFixed(1);
+      document.getElementById(&#39;tree-s-2a&#39;).textContent = s_2a.toFixed(1);
+      document.getElementById(&#39;tree-b-2a&#39;).textContent = b_2a.toFixed(1);
+
+      
+      const b_accepts_1 = b_1a &gt;= 0;
+      const b_accepts_2 = b_2a &gt;= 0;
+      const expected_s_1 = b_accepts_1 ? s_1a : 0;
+      const expected_s_2 = b_accepts_2 ? s_2a : 0;
+
+      const s_chooses_1 = expected_s_1 &gt;= expected_s_2;
+      const s_chooses_2 = expected_s_2 &gt;= expected_s_1;
+
+      
+      const lines = [&#39;line-s-1&#39;, &#39;line-s-2&#39;, &#39;line-b1-a&#39;, &#39;line-b1-r&#39;, &#39;line-b2-a&#39;, &#39;line-b2-r&#39;];
+      lines.forEach(id =&gt; document.getElementById(id).classList.remove(&#39;active&#39;));
+
+      if (s_chooses_1) document.getElementById(&#39;line-s-1&#39;).classList.add(&#39;active&#39;);
+      if (s_chooses_2) document.getElementById(&#39;line-s-2&#39;).classList.add(&#39;active&#39;);
+      
+      document.getElementById(b_accepts_1 ? &#39;line-b1-a&#39; : &#39;line-b1-r&#39;).classList.add(&#39;active&#39;);
+      document.getElementById(b_accepts_2 ? &#39;line-b2-a&#39; : &#39;line-b2-r&#39;).classList.add(&#39;active&#39;);
+
+      
+      const m = {
+        O1_AA: [s_1a, b_1a], O1_AR: [s_1a, b_1a], O1_RA: [0, 0], O1_RR: [0, 0],
+        O2_AA: [s_2a, b_2a], O2_AR: [0, 0],       O2_RA: [s_2a, b_2a], O2_RR: [0, 0]
+      };
+
+      
+      document.getElementById(&#39;td-1-aa&#39;).innerHTML = formatCellText(m.O1_AA[0], m.O1_AA[1]);
+      document.getElementById(&#39;td-1-ar&#39;).innerHTML = formatCellText(m.O1_AR[0], m.O1_AR[1]);
+      document.getElementById(&#39;td-1-ra&#39;).innerHTML = formatCellText(m.O1_RA[0], m.O1_RA[1]);
+      document.getElementById(&#39;td-1-rr&#39;).innerHTML = formatCellText(m.O1_RR[0], m.O1_RR[1]);
+
+      document.getElementById(&#39;td-2-aa&#39;).innerHTML = formatCellText(m.O2_AA[0], m.O2_AA[1]);
+      document.getElementById(&#39;td-2-ar&#39;).innerHTML = formatCellText(m.O2_AR[0], m.O2_AR[1]);
+      document.getElementById(&#39;td-2-ra&#39;).innerHTML = formatCellText(m.O2_RA[0], m.O2_RA[1]);
+      document.getElementById(&#39;td-2-rr&#39;).innerHTML = formatCellText(m.O2_RR[0], m.O2_RR[1]);
+
+      
+      const max_B_O1 = Math.max(m.O1_AA[1], m.O1_AR[1], m.O1_RA[1], m.O1_RR[1]);
+      const max_B_O2 = Math.max(m.O2_AA[1], m.O2_AR[1], m.O2_RA[1], m.O2_RR[1]);
+
+      const max_S_AA = Math.max(m.O1_AA[0], m.O2_AA[0]);
+      const max_S_AR = Math.max(m.O1_AR[0], m.O2_AR[0]);
+      const max_S_RA = Math.max(m.O1_RA[0], m.O2_RA[0]);
+      const max_S_RR = Math.max(m.O1_RR[0], m.O2_RR[0]);
+
+      function isNE(cell, rMaxB, cMaxS) {
+        return cell[0] &gt;= cMaxS - 0.0001 &amp;&amp; cell[1] &gt;= rMaxB - 0.0001; 
+      }
+
+      const green = &#39;#2ea043&#39;;
+      const transparent = &#39;transparent&#39;;
+
+      document.getElementById(&#39;td-1-aa&#39;).style.backgroundColor = isNE(m.O1_AA, max_B_O1, max_S_AA) ? green : transparent;
+      document.getElementById(&#39;td-1-ar&#39;).style.backgroundColor = isNE(m.O1_AR, max_B_O1, max_S_AR) ? green : transparent;
+      document.getElementById(&#39;td-1-ra&#39;).style.backgroundColor = isNE(m.O1_RA, max_B_O1, max_S_RA) ? green : transparent;
+      document.getElementById(&#39;td-1-rr&#39;).style.backgroundColor = isNE(m.O1_RR, max_B_O1, max_S_RR) ? green : transparent;
+
+      document.getElementById(&#39;td-2-aa&#39;).style.backgroundColor = isNE(m.O2_AA, max_B_O2, max_S_AA) ? green : transparent;
+      document.getElementById(&#39;td-2-ar&#39;).style.backgroundColor = isNE(m.O2_AR, max_B_O2, max_S_AR) ? green : transparent;
+      document.getElementById(&#39;td-2-ra&#39;).style.backgroundColor = isNE(m.O2_RA, max_B_O2, max_S_RA) ? green : transparent;
+      document.getElementById(&#39;td-2-rr&#39;).style.backgroundColor = isNE(m.O2_RR, max_B_O2, max_S_RR) ? green : transparent;
+
+      
+      const b_strat_1 = b_accepts_1 ? &#34;accept&#34; : &#34;reject&#34;;
+      const b_strat_2 = b_accepts_2 ? &#34;accept&#34; : &#34;reject&#34;;
+      
+      let s_action = &#34;&#34;;
+      if (s_chooses_1 &amp;&amp; s_chooses_2) {
+        s_action = &#34;is indifferent and can ask for either 1 or 2 dollars&#34;;
+      } else if (s_chooses_1) {
+        s_action = &#34;will ask for 1 dollar&#34;;
+      } else {
+        s_action = &#34;will ask for 2 dollars&#34;;
+      }
+
+      document.getElementById(&#39;equilibrium-result&#39;).innerHTML = 
+        `&lt;strong&gt;Subgame Perfect Equilibrium:&lt;/strong&gt; The Buyer will ${b_strat_1} 1 dollar and ${b_strat_2} 2 dollars. Anticipating this, the Seller ${s_action}.`;
+    }
+
+    // Attach listeners and sync initial state
+    document.getElementById(&#39;pi_s_slider&#39;).addEventListener(&#39;input&#39;, updateGame);
+    document.getElementById(&#39;pi_b_slider&#39;).addEventListener(&#39;input&#39;, updateGame);
+    updateGame();
+  &lt;/script&gt;
+&lt;/div&gt;
+&lt;p&gt;Can we derive general conditions on $\pi_S$ and $\pi_B$ such that the outcome of the game changes based on those?&lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s start from the buyer. The buyer moves second and simply compares his utility from accepting to the zero utility of rejecting.&lt;/p&gt;
+&lt;div style=&#34;overflow-x: auto;&#34;&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Condition &lt;span style=&#34;display:inline-block; min-width:100px;&#34;&gt;&lt;/span&gt;&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Buyer Strategy &lt;span style=&#34;display:inline-block; min-width:180px;&#34;&gt;&lt;/span&gt;&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Intuition &lt;span style=&#34;display:inline-block; min-width:300px;&#34;&gt;&lt;/span&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;$\pi_B &amp;lt; 1$&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;strong&gt;RR&lt;/strong&gt; (Always Reject)&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;The object is worth so little that even the cheap price is too high.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;$1 &amp;lt; \pi_B &amp;lt; 2$&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;strong&gt;AR&lt;/strong&gt; (Accept 1, Reject 2)&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;The buyer values the object just enough to accept the lower price.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;$\pi_B &amp;gt; 2$&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;strong&gt;AA&lt;/strong&gt; (Accept 1, Accept 2)&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;The buyer values the object so much he will take either offer.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;p&gt;The seller anticipates the buyer&amp;rsquo;s profile above and chooses the offer that maximizes his own payoff.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Case A: the high value buyer ($\pi_B&amp;gt;2$)&lt;/strong&gt;: the buyer will accept anything.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;The seller compares:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Offer 1: $1-\pi_S$&lt;/li&gt;
+&lt;li&gt;Offer 2: $2-\pi_S$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Since $2-\pi_S&amp;gt;1-\pi_S$ is always true, the seller always chooses Offer 2 $\implies$ &lt;strong&gt;SPE:($\$2$,$\text{(a,a)}$)&lt;/strong&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Case B: the medium value buyer ($1&amp;lt;\pi_B&amp;lt;2$)&lt;/strong&gt;: the buyer will reject Offer 2.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The seller compares:
+&lt;ul&gt;
+&lt;li&gt;Offer 1: $1-\pi_S$ (accepted)&lt;/li&gt;
+&lt;li&gt;Offer 2: $0$ (rejected)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;The seller chooses Offer 1 if $1-\pi_S&amp;gt;0$, i.e. if  $\pi_S&amp;lt;1$. $\implies$ &lt;strong&gt;SPE:($\$1$,$\text{(a,r)}$)&lt;/strong&gt; if $\pi_S&amp;lt;1$.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Case C: the low value buyer ($\pi_B&amp;lt;1$)&lt;/strong&gt;: the buyer will reject any offer $\implies$ &lt;strong&gt;SPEs:($\$1$,$\text{(r,r)}$) and ($\$2$,$\text{(r,r)}$)&lt;/strong&gt; with payoffs $(0,0)$.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;nash-equilibria-ne-vs-subgame-perfect-equilibria-spe&#34;&gt;Nash Equilibria (NE) vs. Subgame Perfect Equilibria (SPE)&lt;/h4&gt;
+&lt;p&gt;In the normal form matrix you will often find Nash Equilibria that are not Subgame Perfect.
+Example: Set $\pi_S=0.5$ and $\pi_B=2.5$. One NE is ($\$1$,$\text{(a,r)}$). In this scenario, the buyer &amp;ldquo;threatens&amp;rdquo; to reject Offer 2. If the seller believes this, he plays Offer 1. However, this is not Subgame Perfect because if the seller actually made Offer 2, the buyer would realize $2.5-2=0.5$, which is better than $0$. The threat to reject is &lt;strong&gt;not credible&lt;/strong&gt;.&lt;/p&gt;
+&lt;/details&gt;
+&lt;div class=&#34;matteos-box&#34; style=&#34;display: block !important; visibility: visible !important; opacity: 1 !important; margin: 1.5em 0 !important; border: 1px solid #4a4a4a !important; border-radius: 4px !important; overflow: hidden !important; background-color: #f5f5f5 !important;&#34;&gt;
+  
+  &lt;div class=&#34;matteos-header&#34; style=&#34;padding: 0.5em 1em !important; font-weight: bold !important; background-color: #4a4a4a !important; color: #ffffff !important; display: block !important;&#34;&gt;
+    Definition: Subgame-Perfect Equilibrium
+  &lt;/div&gt;
+  
+  &lt;div class=&#34;matteos-body&#34; style=&#34;padding: 1em !important; color: #333 !important; background-color: #f5f5f5 !important; display: block !important; overflow-x: auto !important;&#34;&gt;
+    A profile of strategies is a &lt;strong&gt;subgame-perfect equilibrium (SPE)&lt;/strong&gt; if it induces a Nash equilibrium in every subgame of the original game.
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Assume that the game has a &lt;strong&gt;finite&lt;/strong&gt; number of periods. Then, even if some players move simultaneously at some nodes, we can still use backward induction to solve the game. The trick is again to start with the deepest subgames and to solve for Nash equilibrium in these subgames. Then, in the extensive form, replace these smallest subgames by the players’ payoffs at the Nash equilibrium you’ve just calculated. Iterate until there are no subgames left.&lt;/p&gt;
+&lt;p&gt;Let’s look at an example with the battle of the sexes with outside option. In this modified version of the game Ann ($A$) has the possibility to decide first whether to play the game or sit it out. If she doesn’t play, both Ann and Bob ($B$) get a payoff of 2. If Ann plays, Ann and Bob choose simultaneously. The game can be represented as follows:&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-battle-of-the-sexes-with-outside-option&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;https://matteorg.github.io/images/comp-econ/game-theory/bos_oo.png&#34; alt=&#34;BoS with Outside Option&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      Battle of the sexes with outside option.
+    &lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;In this case we know already that in case Ann entered the game, the simultaneous battle of the sexes Nash equilibria would be 2, ($\text{Opera, Opera}$) and ($\text{Football, Football}$). However, only in 1 of these two cases does Ann obtain a payoff higher than under the outside option. So how do we find the subgame-perfect equilibria? An alternative representation could help us. The following extensive-form representation is excellent for visualizing information sets - the dashed line shows that Bob doesn’t know which move Ann made inside that subgame. The biggest conceptual hurdle is how a matrix (which usually implies players move at the same time) can be turned into a tree (which usually implies one moves after another). With the matrix logic in the subgame, neither player knows what the other has chosen until both have committed. With the tree logic we draw Ann moving first ($\text{Opera}$ or $\text{Football}$), followed by Bob. However, the dashed line (the information set) connecting Bob’s nodes is the “magic” ingredient. It signifies that when Bob moves, he does not know whether he is at the left node or the right node (as if he got Ann’s decision in a sealed envelope and now he had to decide). If you list the strategies for both players in either version, they remain the same, and the payoffs at the end of every branch in the tree match the corresponding cells in the matrix.&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-equilibria-in-the-battle-of-the-sexes-with-outside-option&#34;&gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;https://matteorg.github.io/images/comp-econ/game-theory/bos_tree.png&#34; alt=&#34;BoS with Outside Option Tree&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      Equilibria in the battle of the sexes with outside option.
+    &lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;As you can see it is now easy to derive the 2 subgame-perfect equilibria from the tree structure.&lt;/p&gt;
+&lt;p&gt;Suppose Bob in the terminal node chooses $\text{Football}$ thinking (or hoping?) that Ann chooses $\text{Football}$. Following this decision, by backward induction Ann would opt-out from the game. This equilibrium is represented by the red arrows. Neither has incentive to deviate from this equilibrium. If Ann chose to opt-in and select either $\text{Opera}$ or $\text{Football}$ she would get a lower payoff. Bob has no way to deviate because Ann doesn’t play anyway.&lt;/p&gt;
+&lt;p&gt;Suppose Bob in the terminal node chooses $\text{Opera}$ thinking (or suspecting?) that Ann chooses $\text{Opera}$. Following this decision, by backward induction Ann would play the game and choose $\text{Opera}$. This equilibrium is represented by the blue arrows. Neither has incentive to deviate from this equilibrium. If Ann chose to opt-in and select $\text{Football}$ she would get a lower payoff (0 instaed of 3). If she chose not to play she’d also get a lower payoff (2 instead of 3). If Bob chose $\text{Football}$ he would get a lower payoff (0 instead of 1).
+&lt;span class=&#34;infotip-container&#34;&gt;
+    &lt;sup class=&#34;infotip-icon&#34;&gt;i&lt;/sup&gt;
+    &lt;span class=&#34;infotip-content&#34;&gt;Interesting side note: in many advanced Game Theory classes, professors discuss $\text{Forward Induction}$. This theory suggests that by choosing $in$, Ann is $signaling$ that she intends to play $\text{Opera}$ (because that&#39;s the only way $in$ makes sense). If Bob is rational and follows this logic, he should play $\text{Opera}$, making this SPE the most $logical$ one.&lt;/span&gt;
+&lt;/span&gt;
+
+&lt;style&gt;
+ 
+
+ 
+.infotip-container {
+    position: relative;      
+    display: inline-block;   
+    cursor: help;            
+    text-decoration: none;   
+}
+
+ 
+.infotip-icon {
+    font-size: 0.7em;            
+    vertical-align: super;       
+    border: 1px solid #777;      
+    border-radius: 50%;          
+    width: 1.2em;                
+    height: 1.2em;               
+    display: inline-flex;        
+    justify-content: center;     
+    align-items: center;         
+    line-height: 1;              
+    margin-left: 0.2em;          
+    color: #555;                 
+    background-color: #f0f0f0;   
+    font-weight: bold;
+    user-select: none;           
+    transition: background-color 0.2s ease, color 0.2s ease;  
+}
+
+.infotip-container:hover .infotip-icon {
+    background-color: #66d9ef;  
+    color: #fff;                 
+    border-color: #66d9ef;
+}
+
+ 
+.infotip-content {
+    font-size: 0.7em;
+    position: absolute;
+    bottom: calc(100% + 5px);  
+    left: 50%;  
+    transform: translateX(-50%);  
+    min-width: 250px;            
+    max-width: 350px;            
+    background-color: #444;      
+    color: #fff;                 
+    padding: 12px 18px;          
+    border-radius: 6px;          
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);  
+    z-index: 100;                
+
+    opacity: 0;                  
+    visibility: hidden;          
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;  
+
+     
+    &amp;::after {
+        content: &#39;&#39;;
+        position: absolute;
+        top: 100%;  
+        left: 50%;
+        transform: translateX(-50%);
+        border-width: 8px;
+        border-style: solid;
+        border-color: #333 transparent transparent transparent;  
+    }
+}
+
+ 
+.infotip-container:hover .infotip-content {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(-10px);  
+}
+&lt;/style&gt;&lt;/p&gt;
+&lt;h4 id=&#34;final-remarks&#34;&gt;Final remarks&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Caution&lt;/em&gt;: Some games may have several Nash equilibria (or SPE) in some of their subgames, as we just saw. In this case, solving for SPE using backward induction becomes trickier. Never assume uniqueness of SPE.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Caution&lt;/em&gt;: If the game has an &lt;strong&gt;infinite&lt;/strong&gt; number of periods, then you cannot use backward induction to find its SPEs. We’ll see how to handle those cases.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;In competition economics, we treat firms as players and the market as the game board. With our toolkit from this chapter we’ll be able to analyze classic competitive scenarios and more complex topics. Examples include:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;The Quantity War (Cournot)&lt;/strong&gt;: Imagine two tech giants deciding how many tablets to flood the market with. If both overproduce, prices crash; if they hold back, they leave money on the table. We use Nash Equilibrium to find that “sweet spot” where neither firm wants to change their production level given the other’s output.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;The Price Cut Trap (Bertrand)&lt;/strong&gt;: This is the ultimate “race to the bottom.” We see how firms compete on price alone until they hit their marginal cost. It’s a classic example of a Nash Equilibrium where even two firms can end up acting like a perfectly competitive market.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;The First-Mover Advantage (Stackelberg)&lt;/strong&gt;: This is where Subgame Perfection shines. One firm (the Leader) commits to a strategy first, and the other (the Follower) must react. By “looking ahead and reasoning back”, the Leader can manipulate the market to its advantage, knowing exactly how the Follower will be forced to respond.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Beyond the Basics&lt;/strong&gt;: We also use these models to understand &lt;em&gt;Entry Deterrence&lt;/em&gt; (using the “outside option” logic you just saw in the battle of the sexes), &lt;em&gt;Collusion&lt;/em&gt; (why cartels often break apart), &lt;em&gt;Product Differentiation&lt;/em&gt; (why Coca-Cola and Pepsi spend billions just to stay “different”).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;And there’s much much more…&lt;/p&gt;
+&lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
+&lt;p&gt;Much of what you’ll read comes from personal notes or course slides from Industrial Organization and Game Theory courses I attended during my BS and MS at Bocconi University and PhD at the University of Zurich, plus other freely available material.&lt;/p&gt;
+&lt;p&gt;The most common references are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Cabral, L. (2017). Introduction to Industrial Organization (2nd ed.). MIT Press.&lt;/li&gt;
+&lt;li&gt;Motta, M., Competition Policy, Theory and Practice, Cambridge University Press, lastest edition.&lt;/li&gt;
+&lt;li&gt;Belleflamme P., Peitz M., Industrial Organization, Markets and Strategies, Cambridge University Press, lastest edition.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The &lt;em&gt;freely&lt;/em&gt; available material that you can consult yourself mainly comes from:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Battigalli, P. (2020): Game Theory: Analysis of Strategic Thinking. Typescript, Bocconi University. [Downloadable from personal page]&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://ocw.mit.edu/courses/14-271-industrial-organization-i-fall-2022/lists/lecture-notes/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;MIT Grad IO course&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://sites.google.com/site/nicolasschutz/teaching?authuser=0#h.p_ID_32&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Nicolas Schutz teaching material&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;thank-you-for-reading&#34;&gt;Thank you for reading!&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;Disclaimer&lt;/strong&gt;: &lt;em&gt;I write to learn, based on my background and personal experience. Errors are my own, and if you spot them, let me know! I also appreciate suggestions to investigate new topics!&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
